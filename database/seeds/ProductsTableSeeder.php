@@ -1,5 +1,5 @@
 <?php
-
+use App\Product;
 use Illuminate\Database\Seeder;
 
 class ProductsTableSeeder extends Seeder
@@ -23,7 +23,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
           'name' => 'Product two',
-          'slug' => 'product-slug',
+          'slug' => 'product-slug2',
           'details' => 'product detail',
           'price' => 24999,
           'description' => 'this is description',
@@ -33,7 +33,7 @@ class ProductsTableSeeder extends Seeder
 
         Product::create([
           'name' => 'Product three',
-          'slug' => 'product-slug',
+          'slug' => 'product-slug3',
           'details' => 'product detail',
           'price' => 24999,
           'description' => 'this is description',

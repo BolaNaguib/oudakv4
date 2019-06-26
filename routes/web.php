@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// main page
+Route::view('/','index');
+
+// Shopingbag
+Route::view('shopingbag','bag');

@@ -19,5 +19,10 @@
 // Route::view('/','index');
 Route::get('/','IndexController@index')->name('index');
 
+Route::get('/shop','ShopController@index')->name('shop');
+
+
+// Route::view('/shop', 'shop');
+
 // Shopingbag
 Route::view('shopingbag','bag');

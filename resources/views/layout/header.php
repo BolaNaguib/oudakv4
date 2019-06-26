@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<base href="../dist/" target="_blank">
+<!-- <base href="../dist/" target="_blank"> -->
 <html lang="en" dir="ltr">
 
 <head>
@@ -13,7 +13,7 @@
   <!-- UIkit CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
   <!-- Style -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 </head>
 

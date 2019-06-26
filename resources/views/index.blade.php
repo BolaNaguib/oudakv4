@@ -1,4 +1,4 @@
-<?php include 'layout/header.php'; ?>
+@include('layout.header')
 
 <!-- START section -->
 <section class="uk-section-small">
@@ -159,11 +159,14 @@
 
 
 
+@foreach ($products as $product)
+{{ $product->name }}
+{{ $product->price }}
+@endforeach
 
 
 
 
 
 
-
-<?php include 'layout/footer.php'; ?>
+@include('layout.footer')

@@ -16,7 +16,8 @@
 // });
 
 // main page
-Route::view('/','index');
+// Route::view('/','index');
+Route::get('/','IndexController@index')->name('index');
 
 // Shopingbag
 Route::view('shopingbag','bag');

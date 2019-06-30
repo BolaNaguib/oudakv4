@@ -64,9 +64,8 @@
   </div>
 </section>
 @foreach ($products as $product)
-{{ $product->name }}
-{{ $product->price }}
-@endforeach
+
+@if ( $product->layout == '0' )
 
 <section class="uk-section section_theme_gray">
   <!-- START .uk-container  -->
@@ -80,47 +79,43 @@
         <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
           <!-- START uk-position-top-left -->
           <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-            <button class="uk-button uk-button-default">Product Title</button>
+            <button class="uk-button uk-button-default">{{ $product->name }}</button>
           </div><!-- END uk-position-top-left -->
           <!-- START uk-position-top-right -->
           <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-            <button class="uk-button uk-button-secondary">$100</button>
+            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
           </div><!-- END uk-position-top-right -->
 
-          <a href="#">
+          <a href="{{ route('shop.show', $product->slug)}}">
             <!-- START .uk-inline-clip -->
             <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-              <img src="images/product1.png" alt="" style="max-height:250px;">
-              <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;">
+              <img src="{{ asset('storage/'.$product->mainimage) }}" alt="" style="max-height:250px;">
+              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->mainimage) }}" alt="" style="max-height:250px;">
             </div><!-- END .uk-inline-clip -->
           </a>
         </div><!-- END .card -->
 
       </div><!-- END uk-width-1-3 -->
-      <div class="uk-width-2-3">
+      <div class=" uk-width-2-3">
         <div class="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Dui faucibus in ornare quam. Scelerisque
-            varius morbi enim nunc faucibus a pellentesque. Sed euismod nisi porta lorem.
-            Facilisis magna etiam tempor orci eu lobortis. </p>
+          <p>{{ $product->initial_description }}</p>
         </div>
         <!-- START .card -->
         <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
           <!-- START uk-position-top-left -->
           <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-            <button class="uk-button uk-button-default">Product Title</button>
+            <button class="uk-button uk-button-default">{{ $product->name }}</button>
           </div><!-- END uk-position-top-left -->
           <!-- START uk-position-top-right -->
           <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-            <button class="uk-button uk-button-secondary">$100</button>
+            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
           </div><!-- END uk-position-top-right -->
 
-          <a href="#">
+          <a href="{{ route('shop.show', $product->slug)}}">
             <!-- START .uk-inline-clip -->
             <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-              <img src="images/product1.png" alt="" style="max-height:250px;">
-              <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;">
+              <img src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
+              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
             </div><!-- END .uk-inline-clip -->
           </a>
         </div><!-- END .card -->
@@ -128,12 +123,7 @@
     </div><!-- END uk-grid -->
   </div><!-- END .uk-container -->
 </section>
-
-
-
-
-
-
+@else
 
 <!-- START .uk-section -->
 <section class="uk-section">
@@ -147,45 +137,41 @@
         <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
           <!-- START uk-position-top-left -->
           <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-            <button class="uk-button uk-button-default">Product Title</button>
+            <button class="uk-button uk-button-default">{{ $product->name }}</button>
           </div><!-- END uk-position-top-left -->
           <!-- START uk-position-top-right -->
           <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-            <button class="uk-button uk-button-secondary">$100</button>
+            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
           </div><!-- END uk-position-top-right -->
 
-          <a href="#">
+          <a href="{{ route('shop.show', $product->slug)}}">
             <!-- START .uk-inline-clip -->
             <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-              <img src="images/product1.png" alt="" style="max-height:250px;">
-              <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;">
+              <img src="{{ asset('storage/'.$product->mainimage) }}" alt="" style="max-height:250px;">
+              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->mainimage) }}" alt="" style="max-height:250px;">
             </div><!-- END .uk-inline-clip -->
           </a>
         </div><!-- END .card -->
       </div> <!-- END div -->
       <!-- START div -->
       <div class="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Dui faucibus in ornare quam. Scelerisque
-          varius morbi enim nunc faucibus a pellentesque. Sed euismod nisi porta lorem.
-          Facilisis magna etiam tempor orci eu lobortis. </p>
+        <p>{{ $product->initial_description }}</p>
           <!-- START .card -->
           <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
             <!-- START uk-position-top-left -->
             <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-              <button class="uk-button uk-button-default">Product Title</button>
+              <button class="uk-button uk-button-default">{{ $product->name }}</button>
             </div><!-- END uk-position-top-left -->
             <!-- START uk-position-top-right -->
             <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-              <button class="uk-button uk-button-secondary">$100</button>
+              <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
             </div><!-- END uk-position-top-right -->
 
             <a href="#">
               <!-- START .uk-inline-clip -->
               <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                <img src="images/product1.png" alt="" style="max-height:250px;">
-                <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;">
+                <img src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
+                <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
               </div><!-- END .uk-inline-clip -->
             </a>
           </div><!-- END .card -->
@@ -196,18 +182,18 @@
         <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
           <!-- START uk-position-top-left -->
           <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-            <button class="uk-button uk-button-default">Product Title</button>
+            <button class="uk-button uk-button-default">{{ $product->name }}</button>
           </div><!-- END uk-position-top-left -->
           <!-- START uk-position-top-right -->
           <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-            <button class="uk-button uk-button-secondary">$100</button>
+            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
           </div><!-- END uk-position-top-right -->
 
-          <a href="#">
+          <a href="{{ route('shop.show', $product->slug)}}">
             <!-- START .uk-inline-clip -->
             <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-              <img src="images/product1.png" alt="" style="max-height:250px;">
-              <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;">
+              <img src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
+              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
             </div><!-- END .uk-inline-clip -->
           </a>
         </div><!-- END .card -->
@@ -216,6 +202,16 @@
     </div><!-- END uk-grid -->
   </div><!-- END uk-container -->
 </section><!-- END section -->
+@endif
+@endforeach
+
+
+
+
+
+
+
+
 
 <section class="uk-section section_theme_gray">
   <div class="uk-text-center uk-margin">

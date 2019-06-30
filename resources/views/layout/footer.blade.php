@@ -1,3 +1,4 @@
+{{ menu('main', 'partials.menus.main') }}
 <!-- START section -->
 <section class="uk-section section_theme_gray">
 
@@ -19,16 +20,16 @@
         <hr>
         <ul class="uk-list uk-text-center">
           <li>
-            <a href="#">Return and Exchange</a>
+            <a href="{{ route('index') }}/legal-terms">Return and Exchange</a>
           </li>
           <li>
-            <a href="#">FAQ</a>
+            <a href="{{ route('index') }}/privacy">FAQ</a>
           </li>
           <li>
             <a href="#">NewsLetter</a>
           </li>
           <li>
-            <a href="#">Contact Us</a>
+            <a href="{{ route('contact') }}">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -104,87 +105,6 @@
 
 
 
-<div id="x2" uk-offcanvas>
-  <div class="uk-offcanvas-bar sidenav">
-
-    <button class="uk-offcanvas-close" type="button" style="    color: #000;" uk-close></button>
-    <br>
-    <br>
-    <h3 class="sidenav__title uk-text-center">Menu</h3>
-
-    <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-      <li><a class="sidenav__links" href="#">Home</a></li>
-      <li><a class="sidenav__links" href="#">Product Portrait</a></li>
-      <li><a class="sidenav__links" href="#">Product Landscape</a>
-        <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">
-          <div class="">
-            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex uk-flex-middle" uk-grid>
-              <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                <img src="images/slider.jpg" alt="" uk-cover>
-                <canvas width="600" height="400"></canvas>
-              </div>
-              <div class="">
-                <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-                  <li><a class="sidenav__links" href="#">Product Title</a></li>
-                  <li><a class="sidenav__links" href="#">Product Title</a></li>
-                  <li><a class="sidenav__links" href="#">Product Title</a></li>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </li>
-
-      <li><a class="sidenav__links" href="#">Product grid</a>
-        <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">
-          <div class="card uk-card-default ">
-            <div class="uk-child-width-1-3" uk-grid>
-              <div class="">
-                <div class="uk-text-center uk-padding ">
-                  <a href="#">
-                    <img class=" demo-trigger" src="images/product1.png" data-zoom="images/product1.png?w=1000&ch=DPR&dpr=2" alt="">
-                    <hr>
-                    <h2 class="uk-card-title"> Product Title </h2>
-                  </a>
-                </div>
-                <!-- END .uk-card -->
-              </div>
-
-              <div class="">
-                <div class=" uk-text-center uk-padding ">
-                  <a href="#">
-                    <img class=" demo-trigger" src="images/product1.png" data-zoom="images/product1.png?w=1000&ch=DPR&dpr=2" alt="">
-                    <hr>
-                    <h2 class="uk-card-title"> Product Title </h2>
-                  </a>
-                </div>
-                <!-- END .uk-card -->
-              </div>
-
-              <div class="">
-                <div class=" uk-text-center uk-padding ">
-                  <a href="#">
-                    <img class=" demo-trigger" src="images/product1.png" data-zoom="images/product1.png?w=1000&ch=DPR&dpr=2" alt="">
-                    <hr>
-                    <h2 class="uk-card-title"> Product Title </h2>
-                  </a>
-                </div>
-                <!-- END .uk-card -->
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-
-
 <style media="screen">
   .demo-trigger {
   display: inline-block;
@@ -201,8 +121,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-<script src="js/Luminous.min.js"></script>
-<script src="js/Drift.min.js"></script>
+<script src="{{ asset('js/Luminous.min.js')}}"></script>
+<script src="{{ asset('js/Drift.min.js')}}"></script>
 <script type="text/javascript">
   var demoTrigger = document.querySelector('.demo-trigger');
 
@@ -215,6 +135,31 @@
   });
 
   new Luminous(demoTrigger);
+
+</script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript">
+(function() {
+  const classname = document.querySelectorAll('.quantity');
+
+  Array.from(classname).forEach(function(element){
+    element.addEventListener('change', function(){
+      console.log("changed");
+      const id = element.getAttribute('data-id');
+      console.log(id);
+      axios.patch(`/oudakv3/public/cart/${id}`, {
+    quantity: this.value
+  })
+  .then(function (response) {
+    console.log(response);
+    window.location.href = '{{ route('cart.index') }}'
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+    })
+  })
+})();
 
 </script>
 </body>

@@ -19,10 +19,46 @@
 // Route::view('/','index');
 Route::get('/','IndexController@index')->name('index');
 
-Route::get('/shop','ShopController@index')->name('shop');
+// shop
+Route::get('/shop','ShopController@index')->name('shop.index');
+Route::get('/shop/{product}','ShopController@show')->name('shop.show');
+
+
+
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::post('/cart','CartController@store')->name('cart.store');
+Route::patch('/cart/{product}','CartController@update')->name('cart.update');
+
+Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
+Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
+
+
+Route::delete('/saveForLater/{product}','saveForLaterController@destroy')->name('saveForLater.destroy');
+Route::post('/saveForLater/switchToCart/{product}','saveForLaterController@switchToCart')->name('saveForLater.switchToCart');
+
+Route::post('/coupon','CouponsController@store')->name('coupon.store');
+Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
+
+Route::view('/contact','contact')->name('contact');
+
+
 
 
 // Route::view('/shop', 'shop');
 
 // Shopingbag
-Route::view('shopingbag','bag');
+// Route::view('shopingbag','bag');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+// pages
+Route::get('/{page}','PagesController@show')->name('page.show');
+
+
+Route::get('empty', function(){
+  Cart::instance('saveForLater')->destroy();
+
+});

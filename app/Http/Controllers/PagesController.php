@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Product;
+
+use App\Page;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-      $products = Product::orderBy('id', 'desc')->take(3)->get();
-
-      return view('shop')->with('products', $products);
+        //
     }
 
     /**
@@ -42,13 +41,14 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        return view('product-portrait')->with('product', $product);
+        //
+        $page = Page::where('slug', $slug)->firstOrFail();
+        return view('page')->with('page', $page);
     }
 
     /**

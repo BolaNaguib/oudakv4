@@ -1,4 +1,4 @@
-<?php include 'layout/header.php'; ?>
+@include('layout.header')
 <section class="uk-section">
   <div class="uk-container uk-container uk-text-center">
     <h1>Product Title</h1>
@@ -131,4 +131,4 @@
   </div><!-- END uk-container -->
 </section><!-- END section -->
 
-<?php include 'layout/footer.php'; ?>
+@include('layout.footer')

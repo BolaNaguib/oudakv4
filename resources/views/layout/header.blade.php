@@ -62,9 +62,9 @@
           </div>
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
-              <a href="#">
-                <h3 class="uk-margin-remove">Oudak</h3>
-                <span class="uk-margin-remove uk-text-small" >Luxury Fragrance & Beauty</span>
+              <a href="{{ route('index') }}">
+                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
+                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
               </a>
 
 
@@ -75,7 +75,18 @@
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
-              <li class="uk-position-relative"><a href="#"><span uk-icon="cart"></span> <span uk-icon="triangle-down"></span><span class="uk-badge notificationicon">3</span></a></li>
+
+              <li class="uk-position-relative">
+                <a href="{{ route('cart.index') }}">
+                  <span uk-icon="cart"></span>
+                   <span uk-icon="triangle-down"></span>
+                   @if (Cart::instance('default')->count() > 0)
+                   <span class="uk-badge notificationicon">
+                     {{ Cart::instance('default')->count() }}
+                   </span>
+                        @endif</a></li>
+
+
               <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a></li>
             </ul><!-- END .uk-navbar-nav -->
           </div><!-- END .uk-navbar-right -->

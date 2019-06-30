@@ -12,7 +12,7 @@
       <ul class="uk-slideshow-items">
 
         <li>
-          <img class="slider__image" src="images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
@@ -20,28 +20,28 @@
           </div><!-- END .uk-position-center -->
         </li>
         <li class="">
-          <img class="slider__image" src="images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
@@ -113,10 +113,10 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="#">
+          <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
-            <img src="images/product1.png" alt="">
+            <img src="{{ asset('') }}/images/product1.png" alt="">
               <hr>
             <h3> Check Our Products </h3>
           </a>
@@ -128,10 +128,10 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="#">
+          <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
-            <img src="images/product1.png" alt="">
+            <img src="{{ asset('') }}/images/product1.png" alt="">
             <hr>
             <h3> Check Our Products </h3>
           </a>
@@ -150,19 +150,11 @@
 <section class="uk-section">
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
-      <img class="" src="images/long.jpg" alt="">
+      <img class="" src="{{ asset('') }}/images/long.jpg" alt="">
     </div>
   </div>
 </section>
 <!-- END section -->
-
-
-
-
-@foreach ($products as $product)
-{{ $product->name }}
-{{ $product->price }}
-@endforeach
 
 
 

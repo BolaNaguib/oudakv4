@@ -19,6 +19,21 @@
 // Route::view('/','index');
 Route::get('/','IndexController@index')->name('index');
 
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+
+// Password Reset Routes...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
 // shop
 Route::get('/shop','ShopController@index')->name('shop.index');
 Route::get('/shop/{product}','ShopController@show')->name('shop.show');
@@ -41,8 +56,9 @@ Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
 
 Route::view('/contact','contact')->name('contact');
 
-
-
+//  social login
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
 
 // Route::view('/shop', 'shop');
 
@@ -62,3 +78,7 @@ Route::get('empty', function(){
   Cart::instance('saveForLater')->destroy();
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

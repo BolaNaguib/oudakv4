@@ -12,7 +12,7 @@
       <ul class="uk-slideshow-items">
 
         <li>
-          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
@@ -20,28 +20,28 @@
           </div><!-- END .uk-position-center -->
         </li>
         <li class="">
-          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div>
         </li>
         <li class="">
-          <img class="slider__image" src="{{ asset('') }}/images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
@@ -116,7 +116,7 @@
           <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
-            <img src="{{ asset('') }}/images/product1.png" alt="">
+            <img src="{{ asset('') }}images/product1.png" alt="">
               <hr>
             <h3> Check Our Products </h3>
           </a>
@@ -131,7 +131,7 @@
           <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
-            <img src="{{ asset('') }}/images/product1.png" alt="">
+            <img src="{{ asset('') }}images/product1.png" alt="">
             <hr>
             <h3> Check Our Products </h3>
           </a>
@@ -150,7 +150,7 @@
 <section class="uk-section">
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
-      <img class="" src="{{ asset('') }}/images/long.jpg" alt="">
+      <img class="" src="{{ asset('') }}images/long.jpg" alt="">
     </div>
   </div>
 </section>

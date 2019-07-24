@@ -96,9 +96,9 @@
           <!-- START .uk-margin -->
           <div class=" uk-margin">
             <h5>Gift Box</h5>
-            <button class="uk-button uk-button-default uk-padding-small"><img src="images/product1.png" alt="" style="max-height:150px;"></button>
-            <button class="uk-button uk-button-default uk-padding-small"><img src="images/product2.png" alt="" style="max-height:150px;"></button>
-            <button class="uk-button uk-button-default uk-padding-small"><img src="images/product1.png" alt="" style="max-height:150px;"></button>
+            <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_one) }}" alt="" style="max-height:150px;"></button>
+            <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_two) }}" alt="" style="max-height:150px;"></button>
+            <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_three) }}" alt="" style="max-height:150px;"></button>
           </div><!-- END .uk-margin -->
 
           <form class="" action="{{ route('cart.store') }}" method="post">
@@ -137,7 +137,7 @@
         <!-- START .card -->
         <div class="card card_theme_white uk-text-center">
           <a href="#">
-            <img src="images/product1.png" alt="" style="max-height:250px;">
+            <img src="http://localhost:8000/storage/products\July2019\13UU2Wt63fhaUARwRBkN.png" alt="" style="max-height:250px;">
             <h3 class="">Product Title</h3>
           </a>
           <button class="uk-button uk-button-secondary">$100</button>
@@ -149,7 +149,7 @@
         <!-- START .card -->
         <div class="card card_theme_white uk-text-center">
           <a href="#">
-            <img src="images/product1.png" alt="" style="max-height:250px;">
+            <img src="http://localhost:8000/storage/products\July2019\Lbjg9kZWiRWTD6ITEu0M.png" alt="" style="max-height:250px;">
             <h3 class="">Product Title</h3>
           </a>
           <button class="uk-button uk-button-secondary">$100</button>
@@ -161,7 +161,7 @@
         <!-- START .card -->
         <div class="card card_theme_white uk-text-center">
           <a href="#">
-            <img src="images/product1.png" alt="" style="max-height:250px;">
+            <img src="http://localhost:8000/storage/products\July2019\Ya3cDDFgvGf2DIjadJ3L.png" alt="" style="max-height:250px;">
             <h3 class="">Product Title</h3>
           </a>
           <button class="uk-button uk-button-secondary">$100</button>
@@ -173,7 +173,7 @@
         <!-- START .card -->
         <div class="card card_theme_white uk-text-center">
           <a href="#">
-            <img src="images/product1.png" alt="" style="max-height:250px;">
+            <img src="http://localhost:8000/storage/products\July2019\Lbjg9kZWiRWTD6ITEu0M.png" alt="" style="max-height:250px;">
             <h3 class="">Product Title</h3>
           </a>
           <button class="uk-button uk-button-secondary">$100</button>

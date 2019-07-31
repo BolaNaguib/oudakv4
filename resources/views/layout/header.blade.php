@@ -17,6 +17,7 @@
 
 </head>
 
+{{ Auth::user() }}
 <body>
   <!-- START header -->
   <header>
@@ -85,9 +86,12 @@
                      {{ Cart::instance('default')->count() }}
                    </span>
                         @endif</a></li>
-
-
-              <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a></li>
+                        
+                        @if(Auth::user())
+                        <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a></li>
+                        @else
+                        <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a></li>
+                        @endif
             </ul><!-- END .uk-navbar-nav -->
           </div><!-- END .uk-navbar-right -->
         </nav><!-- END uk-navbar -->

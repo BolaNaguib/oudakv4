@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
   <!-- START header -->
   <header>
     <!-- START .navbar_type_top -->

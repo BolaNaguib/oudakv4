@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -63,10 +63,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $userData = [
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ];
+
+        foreach(['facebook', 'google'] as $driver) if (session()->has("{$driver}_token")) {
+            $providerId = \Socialite::driver($driver)->userFromToken(session("{$driver}_token"))->id;
+            $userData["{$driver}_id"] = $providerId;
+        }
+
+        return User::create($userData);
     }
 }

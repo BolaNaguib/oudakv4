@@ -68,12 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ];
-
-        foreach(['facebook', 'google'] as $driver) if (session()->has("{$driver}_token")) {
-            $providerId = \Socialite::driver($driver)->userFromToken(session("{$driver}_token"))->id;
-            $userData["{$driver}_id"] = $providerId;
-        }
-
+        
         return User::create($userData);
     }
 }

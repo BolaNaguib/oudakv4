@@ -1,77 +1,87 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<!-- START section -->
+<section class="uk-section">
+  <div class="uk-container uk-container-large">
+    <div class="uk-child-width-1-2" uk-grid>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+      <div class="">
+        <h3 class="">Register </h3>
+        <span class="uk-margin">If you are an New customer </span>
+        <hr>
+        <form class="uk-form-horizontal" action="{{ route('register') }}" method="post">
+          @csrf
+          <!-- START .uk-margin -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Name</label>
+            <!-- START .uk-form-controls -->
+            <div class="uk-form-controls">
+              <input class="input @if($errors->has('name')) error @endif uk-width-expand" id="form-stacked-text" type="text" placeholder="Name" name="name" value="{{ old('name') }}">
+              @if($errors->has('name'))
+              <small class="uk-text-danger uk-text-small">{{ $errors->first('name') }}</small>
+              @endif
+            </div><!-- END .uk-form-controls -->
+          </div><!-- END .uk-margin -->
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <!-- START .uk-margin -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Email Address</label>
+            <!-- START .uk-form-controls -->
+            <div class="uk-form-controls">
+              <input class="input @if($errors->has('email')) error @endif uk-width-expand" id="form-stacked-text" type="email" placeholder="bola@naguib.com" name="email" value="{{ old('email') }}">
+              @if($errors->has('email'))
+              <small class="uk-text-danger uk-text-small">{{ $errors->first('email') }}</small>
+              @endif
+            </div><!-- END .uk-form-controls -->
+          </div><!-- END .uk-margin -->
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+          <!-- START .uk-margin -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Password</label>
+            <!-- START .uk-form-controls -->
+            <div class="uk-form-controls">
+              <input class="input @if($errors->has('password')) error @endif uk-width-expand" id="form-stacked-text" type="password" placeholder="Enter A password " name="password">
+              @if($errors->has('password'))
+              <small class="uk-text-danger uk-text-small">{{ $errors->first('password') }}</small>
+              @endif
+            </div><!-- END .uk-form-controls -->
+          </div><!-- END .uk-margin -->
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+          <!-- START .uk-margin -->
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Repeat Password </label>
+            <!-- START .uk-form-controls -->
+            <div class="uk-form-controls">
+              <input class="input uk-width-expand" id="form-stacked-text" type="password" placeholder="Re-enter your password " name="password_confirmation">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            </div><!-- END .uk-form-controls -->
+          </div><!-- END .uk-margin -->
+          <div class="uk-text-right">
+            <button class="uk-button uk-button-secondary" type="submit" name="button"> Register </button>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+          </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+          <div class="uk-text-center uk-margin">
+            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'facebook') }}';"> Register using Facebook </button>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'google') }}';"> Register using Google </button>
+          </div>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+        </form>
+      </div>
+      <div class="">
+        <h3 class="">Already Have an Account ? </h3>
+        <span class="uk-margin">If you are an exsisting customer login</span>
+        <hr>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+        <a class="uk-button uk-button-default" href="{{ route('login') }}"> Login </a>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+<!-- END section -->
+
 @endsection

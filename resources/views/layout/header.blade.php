@@ -17,7 +17,6 @@
 
 </head>
 
-{{ Auth::user() }}
 <body>
   <!-- START header -->
   <header>
@@ -86,11 +85,25 @@
                      {{ Cart::instance('default')->count() }}
                    </span>
                         @endif</a></li>
-                        
+
                         @if(Auth::user())
-                        <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a></li>
+                        <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a>
+                          <div class="uk-navbar-dropdown">
+                              <ul class="uk-nav uk-navbar-dropdown-nav">
+                                  <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
+                                  <form action="{{ route('logout') }}" method="POST" id="logoutForm">@csrf</form>
+                              </ul>
+                          </div>
+                        </li>
                         @else
-                        <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a></li>
+                        <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a>
+                          <div class="uk-navbar-dropdown">
+                              <ul class="uk-nav uk-navbar-dropdown-nav">
+                                  <li><a href="{{ route('login') }}">Login</a></li>
+                                  <li><a href="{{ route('register') }}">Register</a></li>
+                              </ul>
+                          </div>
+                        </li>
                         @endif
             </ul><!-- END .uk-navbar-nav -->
           </div><!-- END .uk-navbar-right -->

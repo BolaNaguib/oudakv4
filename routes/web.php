@@ -56,10 +56,6 @@ Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
 
 Route::view('/contact','contact')->name('contact');
 
-//  social login
-Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
-
 // Route::view('/shop', 'shop');
 
 // Shopingbag
@@ -80,5 +76,9 @@ Route::get('empty', function(){
 });
 
 Auth::routes();
+
+Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
+  ->name('socialite.redirect');
+Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');

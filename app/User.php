@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\EmailVerificationNotification;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -36,4 +37,8 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sendEmailVerificationNotification() {
+      $this->notify(new EmailVerificationNotification);
+    }
 }

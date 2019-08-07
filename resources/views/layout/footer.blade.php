@@ -40,12 +40,12 @@
         <div class="uk-text-center">
           <h4>Join Our NewsLetter</h4>
           <hr>
-          <form class="" action="index.html" method="post">
+          <form action="{{ route('newsletter.subscribe') }}" method="POST" id="newsletterSubscribeForm">
+            @csrf
             <div class="uk-inline">
-              <a class="uk-form-icon uk-form-icon-flip button_type_newsletter" href="#" uk-icon="icon:  arrow-right"></a>
-              <input class="uk-input input_type_newsletter uk-width-medium" type="text" placeholder="mail@oudak.com">
+              <button class="uk-form-icon uk-form-icon-flip button_type_newsletter" uk-icon="icon: arrow-right"></button> 
+              <input class="uk-input input_type_newsletter uk-width-medium" type="email" placeholder="mail@oudak.com" name="email" value="{{ old('email') }}" required>
             </div>
-            <!-- <input class="input_type_newsletter uk-width-medium" placeholder="Put your mail" type="text" name="" value=""> -->
           </form>
         </div>
       </div>
@@ -173,6 +173,43 @@
   })
 })();
 
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+
+<script>
+  function highlightErrors(errors) {
+      Object.keys(errors).forEach(name => this.find(`[name=${name}]`).addClass('uk-form-danger'));
+  }
+
+  dynamicSubmit = function (selector, handle) {
+
+      $(document).on('submit', selector, function (e) {
+          e.preventDefault();
+
+          $(this).find(':input').removeClass('uk-form-danger');
+
+          const $submits = $(this).find('input[type=button], button:not([type=button])');
+          $submits.attr('disabled', true);
+
+          $(this).ajaxSubmit({
+              success: response => {
+                  if (handle instanceof Function) handle.call($(this), response);
+              },
+              error: jqXHR => {
+                  const errors = jqXHR.responseJSON.errors;
+                  if (errors) highlightErrors.call($(this), errors);
+              },
+              complete: () => $submits.attr('disabled', false)
+          });
+      });
+  }
+
+  $(() => {
+    dynamicSubmit('#newsletterSubscribeForm', function (response) {
+      alert(response.message);
+    })
+  })
 </script>
 </body>
 

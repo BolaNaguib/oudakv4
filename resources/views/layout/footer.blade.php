@@ -57,10 +57,10 @@
           <h4>Follow Us</h4>
           <hr>
           <ul class="uk-iconnav sociallinks uk-flex uk-flex-center">
-            <li><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
-            <li><a class="snapchat" href="#"><i class="fab fa-snapchat-square"></i></a></li>
-            <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a class="facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a class="youtube" href="{{ setting('social.youtube') }}"><i class="fab fa-youtube"></i></a></li>
+            <li><a class="snapchat" href="{{ setting('social.snapchat') }}"><i class="fab fa-snapchat-square"></i></a></li>
+            <li><a class="instagram" href="{{ setting('social.instagram') }}"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="facebook" href="{{ setting('social.facebook') }}"><i class="fab fa-facebook"></i></a></li>
 
           </ul>
         </div>
@@ -97,7 +97,19 @@
 
 </section>
 
+<section id="toggle-usage" class="bottom_cookie" style="background-color:#eee; padding:10px 0px;">
+  <div class="uk-container uk-container-large">
+    <div class="uk-grid uk-flex uk-flex-middle">
+      <div class="uk-width-expand">
+        <small style="font-size:12px;">{{ setting('cookies.cookies_policy') }}</small>
+      </div>
+      <div class="uk-width-auto">
+         <button class="uk-button uk-button-secondary " type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
+      </div>
+    </div>
 
+</div>
+</section>
 
 
 

@@ -25,13 +25,13 @@ class AppServiceProvider extends ServiceProvider
     {
         // set laravel mail config from voyager settings
         config([
-          'mail.host'         => settings('mailing-settings.host'),
-          'mail.port'         => settings('mailing-settings.port'),
-          'mail.from.address' => settings('mailing-settings.sender-email'),
-          'mail.from.name'    => settings('mailing-settings.sender-name'),
-          'mail.encryption'   => settings('mailing-settings.encryption') ?: null,
-          'mail.username'     => settings('mailing-settings.username'),
-          'mail.password'     => settings('mailing-settings.password'),
+          'mail.host'         => setting('mailing-settings.host'),
+          'mail.port'         => setting('mailing-settings.port'),
+          'mail.from.address' => setting('mailing-settings.sender-email'),
+          'mail.from.name'    => setting('mailing-settings.sender-name'),
+          'mail.encryption'   => setting('mailing-settings.encryption') ?: null,
+          'mail.username'     => setting('mailing-settings.username'),
+          'mail.password'     => setting('mailing-settings.password'),
         ]);
     }
 }

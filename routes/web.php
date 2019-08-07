@@ -19,26 +19,15 @@
 // Route::view('/','index');
 Route::get('/','IndexController@index')->name('index');
 
-// Authentication Routes...
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Auth::routes(['verify' => true]);
 
-// Registration Routes...
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
-
-// Password Reset Routes...
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
+  ->name('socialite.redirect');
+Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
 // shop
 Route::get('/shop','ShopController@index')->name('shop.index');
 Route::get('/shop/{product}','ShopController@show')->name('shop.show');
-
-
 
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::post('/cart','CartController@store')->name('cart.store');
@@ -66,19 +55,15 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-// pages
-Route::get('/{page}','PagesController@show')->name('page.show');
-
 
 Route::get('empty', function(){
   Cart::instance('saveForLater')->destroy();
 
 });
 
-Auth::routes();
-
-Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
-  ->name('socialite.redirect');
-Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+
+// pages
+Route::get('/{page}','PagesController@show')->name('page.show');

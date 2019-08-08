@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -53,6 +56,25 @@ Route::view('/contact','contact')->name('contact');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::name('voyager.')->middleware('admin.user')->group(function () {
+      Route::get('export/{table}', function ($table) {
+
+        return response()->streamDownload(function () use ($table) {
+
+          $columns = Schema::getColumnListing($table);
+
+          $rows = DB::table($table)->get();
+
+          echo implode(',', $columns). PHP_EOL;
+
+          $rows->each(function ($row) use ($columns) {
+            echo implode(',', array_map(function ($column) use ($row) { return $row->$column; }, $columns)) . PHP_EOL;
+          });
+        }, 'export.csv');
+
+      })->name('export');
+    });
 });
 
 

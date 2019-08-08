@@ -32,7 +32,14 @@
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
               <li><a href="#">USA <span uk-icon="triangle-down"></span></a></li>
-              <li><a href="#">ENG <span uk-icon="triangle-down"></span> </a></li>
+              <li><a href="#">ENG <span uk-icon="triangle-down"></span> </a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="{{ route('login') }}">Arabic</a></li>
+                        <li><a href="{{ route('register') }}">Spanish</a></li>
+                    </ul>
+                </div>
+              </li>
               <li>                   <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
 
 

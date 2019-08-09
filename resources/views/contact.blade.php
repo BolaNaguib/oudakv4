@@ -88,9 +88,9 @@
 <!-- START .uk-width-1-2 -->
 <div class="uk-width-1-2">
   <div class="">
-    <!-- <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I have been able to read and understant <a href="#">Privacy policy</a>  . </small></label>
+    <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I have been able to read and understant <a href="#">Privacy policy</a>  . </small></label>
     <br>
-    <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I want to subscribe to the news letter .</small></label> -->
+    <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I want to subscribe to the news letter .</small></label>
 
        </div>
 </div><!-- END .uk-width-1-2 -->

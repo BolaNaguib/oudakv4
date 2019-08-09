@@ -48,6 +48,7 @@ Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
 
 Route::view('/contact','contact')->name('contact');
 
+
 // Route::view('/shop', 'shop');
 
 // Shopingbag
@@ -89,3 +90,7 @@ Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('new
 
 // pages
 Route::get('/{page}','PagesController@show')->name('page.show');
+
+Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+
+

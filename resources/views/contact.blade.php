@@ -7,7 +7,8 @@
     <span class="uk-margin">Oudak is here to give you the best customer service experience</span>
     <hr>
     <!-- START form -->
-    <form class="uk-form-horizontal " action="index.html" method="post">
+    <form class="uk-form-horizontal" action="{{ URL::to('contactus') }}" method="post">
+      @csrf
       <!-- START uk-grid -->
       <div class="" uk-grid>
         <!-- START .uk-width-1-2 -->
@@ -17,7 +18,7 @@
             <label class="uk-form-label" for="form-stacked-text">First Name </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" type="text" placeholder="First Name">
+              <input class="input uk-width-expand" id="form-stacked-text" name="firstname" type="text" required="" placeholder="First Name">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -29,7 +30,7 @@
             <label class="uk-form-label" for="form-stacked-text">Last Name </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" type="text" placeholder="Last Name">
+              <input class="input uk-width-expand" id="form-stacked-text"  name="lastname" type="text" required="" placeholder="Last Name">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -42,7 +43,7 @@
             <label class="uk-form-label" for="form-stacked-text">Email Address </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" type="text" placeholder="Email Address">
+              <input class="input uk-width-expand" id="form-stacked-text" name="email" type="text" required="" placeholder="Email Address">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -54,7 +55,7 @@
             <label class="uk-form-label" for="form-stacked-text"> Phone </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" type="text" placeholder="Phone ">
+              <input class="input uk-width-expand" id="form-stacked-text" name="phone" type="text"  required="" placeholder="Phone ">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -67,7 +68,7 @@
             <label class="uk-form-label" for="form-stacked-text">Subject </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" type="text" placeholder="Subject">
+              <input class="input uk-width-expand" id="form-stacked-text" name="subject" type="text" required="" placeholder="Subject">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -79,7 +80,7 @@
             <label class="uk-form-label" for="form-stacked-text"> Message </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <textarea class="input uk-width-expand" id="form-stacked-text" name="name" rows="8" cols="80"></textarea>
+              <textarea class="input uk-width-expand" id="form-stacked-text" name="textdes" rows="8" cols="80"></textarea>
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -97,8 +98,8 @@
 <!-- START .uk-width-1-2 -->
 <div class="uk-width-1-2">
   <div class="uk-text-right">
-    <button class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Submit </button>
-
+    <button class="uk-button uk-button-secondary uk-width-expand" type="submit"> Submit </button>
+    
   </div>
 
 </div><!-- END .uk-width-1-2 -->

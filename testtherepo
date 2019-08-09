@@ -1,1 +1,21 @@
-this is a test file
+so first thing to do is 
+ 
+// to add the changes u made to files
+git add .  
+
+
+//to add a message and commit the changes 
+git commit -m " Your Message Here"
+
+// to push to the rep 
+// git push 
+
+did u get it ?
+yeah i just got it thanks
+
+also a note we dont push the vendoes - etc to the repo cuz we can always do it using composer install 
+
+this way i can see ur code after u finish and safely merge it 
+
+
+sdasdasdasd

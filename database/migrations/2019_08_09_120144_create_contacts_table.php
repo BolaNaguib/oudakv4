@@ -21,7 +21,6 @@ class CreateContactsTable extends Migration
             $table->string('phone');
             $table->string('subject');
             $table->string('textdes');
-            $table->string('subscribe')->nullable();
             $table->timestamps();
         });
     }

@@ -21,10 +21,10 @@ class ContactUsController extends Controller
     	// return redirect()->back();
 
 
-       public function contactus(Request $request) 
+       public function contactus(Request $request)
    {
     // $this->validate($request, [ 'firstname' => 'required', 'email' => 'required|email', 'message' => 'required' ]);
-    Contact::create($request->all()); 
+    Contact::create($request->all());
 
     Mail::send('email.mail',
        array(
@@ -34,10 +34,10 @@ class ContactUsController extends Controller
        ), function($message)
    {
        // $message->from('afzal@gmail.com');
-       $message->to('mr.arslanmanzoor@gmail.com')->subject('Web Fabricant');
+       $message->to('bolanaguib@gmail.com')->subject('Web Fabricant');
    });
 // echo "string";
-    return back()->with('success', 'Thanks for contacting us!'); 
+    return back()->with('success', 'Thanks for contacting us!');
    }
-    
+
 }

@@ -20,16 +20,16 @@
         <hr>
         <ul class="uk-list uk-text-center">
           <li>
-            <a href="{{ route('index') }}/legal-terms">Return and Exchange</a>
+            <a href="{{ route('index', app()->getLocale() ) }}/legal-terms">Return and Exchange</a>
           </li>
           <li>
-            <a href="{{ route('index') }}/privacy">FAQ</a>
+            <a href="{{ route('index', app()->getLocale() ) }}/privacy">FAQ</a>
           </li>
           <li>
             <a href="#">NewsLetter</a>
           </li>
           <li>
-            <a href="{{ route('contact') }}">Contact Us</a>
+            <a href="{{ route('contact', app()->getLocale() ) }}">Contact Us</a>
           </li>
         </ul>
       </div>
@@ -40,10 +40,10 @@
         <div class="uk-text-center">
           <h4>Join Our NewsLetter</h4>
           <hr>
-          <form action="{{ route('newsletter.subscribe') }}" method="POST" id="newsletterSubscribeForm">
+          <form action="{{ route('newsletter.subscribe', app()->getLocale() ) }}" method="POST" id="newsletterSubscribeForm">
             @csrf
             <div class="uk-inline">
-              <button class="uk-form-icon uk-form-icon-flip button_type_newsletter" uk-icon="icon: arrow-right"></button> 
+              <button class="uk-form-icon uk-form-icon-flip button_type_newsletter" uk-icon="icon: arrow-right"></button>
               <input class="uk-input input_type_newsletter uk-width-medium" type="email" placeholder="mail@oudak.com" name="email" value="{{ old('email') }}" required>
             </div>
           </form>
@@ -164,7 +164,7 @@
   })
   .then(function (response) {
     console.log(response);
-    window.location.href = '{{ route('cart.index') }}'
+    window.location.href = '{{ route('cart.index', app()->getLocale() ) }}'
   })
   .catch(function (error) {
     console.log(error);

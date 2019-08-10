@@ -11,7 +11,7 @@
         <h3 class="">Register </h3>
         <span class="uk-margin">If you are an New customer </span>
         <hr>
-        <form class="uk-form-horizontal" action="{{ route('register') }}" method="post">
+        <form class="uk-form-horizontal" action="{{ route('register', app()->getLocale() ) }}" method="post">
           @csrf
           <!-- START .uk-margin -->
           <div class="uk-margin">
@@ -76,7 +76,7 @@
         <span class="uk-margin">If you are an exsisting customer login</span>
         <hr>
 
-        <a class="uk-button uk-button-default" href="{{ route('login') }}"> Login </a>
+        <a class="uk-button uk-button-default" href="{{ route('login', app()->getLocale() ) }}"> Login </a>
 
       </div>
     </div>

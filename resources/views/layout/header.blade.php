@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- <base href="../dist/" target="_blank"> -->
-<html lang="en" dir="ltr">
+<html lang="{{ app()->getLocale() }}" dir="@if(app()->getLocale() =='ar') rtl @else ltr @endif">
 
 <head>
   <meta charset="utf-8">
@@ -12,7 +12,12 @@
   <!-- Main Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Playfair+Display:400,700,900" rel="stylesheet">
   <!-- UIkit CSS -->
+@if( app()->getLocale() =='ar' )
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit-rtl.min.css" integrity="sha256-Ic5U3FedsJiK/DgX82eF245xOS/bopTbQ1ev1j2GeOY=" crossorigin="anonymous" />
+@else
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+@endif
+
   <!-- Style -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -32,11 +37,20 @@
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
               <li><a href="#">USA <span uk-icon="triangle-down"></span></a></li>
-              <li><a href="#">ENG <span uk-icon="triangle-down"></span> </a>
+              <li><a href="">{{ app()->getLocale() }}<span uk-icon="triangle-down"></span> </a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li><a href="{{ route('login') }}">Arabic</a></li>
-                        <li><a href="{{ route('register') }}">Spanish</a></li>
+                      {{-- Check for WEbsite LAnuage --}}
+                      @if(app()->getLocale() =='ar')
+                        <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
+                      @elseif(app()->getLocale() =='sp')
+                        <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), 'ar') }}">Arabic</a></li>
+                      @else
+                        <li><a href="{{ route(Route::currentRouteName(), 'ar') }}">Arabic</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
+                      @endif
                     </ul>
                 </div>
               </li>
@@ -70,7 +84,7 @@
           </div>
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
-              <a href="{{ route('index') }}">
+              <a href="{{ route('index', app()->getLocale() ) }}">
                 <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
                 <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
               </a>
@@ -85,7 +99,7 @@
             <ul class="uk-navbar-nav">
 
               <li class="uk-position-relative">
-                <a href="{{ route('cart.index') }}">
+                <a href="{{ route('cart.index', app()->getLocale() ) }}">
                   <span uk-icon="cart"></span>
                    <span uk-icon="triangle-down"></span>
                    @if (Cart::instance('default')->count() > 0)
@@ -99,7 +113,7 @@
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
-                                  <form action="{{ route('logout') }}" method="POST" id="logoutForm">@csrf</form>
+                                  <form action="{{ route('logout', app()->getLocale() ) }}" method="POST" id="logoutForm">@csrf</form>
                               </ul>
                           </div>
                         </li>
@@ -107,8 +121,8 @@
                         <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
-                                  <li><a href="{{ route('login') }}">Login</a></li>
-                                  <li><a href="{{ route('register') }}">Register</a></li>
+                                  <li><a href="{{ route('login', app()->getLocale() ) }}">Login</a></li>
+                                  <li><a href="{{ route('register', app()->getLocale() ) }}">Register</a></li>
                               </ul>
                           </div>
                         </li>

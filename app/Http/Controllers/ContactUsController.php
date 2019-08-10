@@ -3,28 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\NewsletterSubscriber;
 use App\Contact;
 use Mail;
 class ContactUsController extends Controller
 {
-    // public function contactus(Request $request){
-    	// $contact = new Contact();
-
-    	// $contact->firstname= $request->firstname;
-    	// $contact->lastname= $request->lastname;
-    	// $contact->email= $request->email;
-    	// $contact->phone= $request->phone;
-    	// $contact->subject= $request->subject;
-    	// $contact->textdes= $request->textdes;
-    	// $contact->subscribe= $request->subscribe;
-    	// $contact->save();
-    	// return redirect()->back();
-
-
-       public function contactus(Request $request)
+    
+       public function contactus(Request $request) 
    {
     // $this->validate($request, [ 'firstname' => 'required', 'email' => 'required|email', 'message' => 'required' ]);
     Contact::create($request->all());
+
+     if($request->input('subscribe') != '')
+     {
+      // echo "string";die();
+      $this->validate($request, [
+            'email' => 'required|email|max:255',
+        ]);
+
+        $subscriber = NewsletterSubscriber::where($request->only('email'))->first();
+
+        $subscriber = NewsletterSubscriber::create($request->only('email'));
+
+       
+     }
+
 
     Mail::send('email.mail',
        array(
@@ -33,11 +36,11 @@ class ContactUsController extends Controller
            'user_message' => $request->get('textdes')
        ), function($message)
    {
-       // $message->from('afzal@gmail.com');
-       $message->to('bolanaguib@gmail.com')->subject('Web Fabricant');
+       $message->from('example@gmail.com');
+       $message->to('example@gmail.com')->subject('Oudak');
    });
-// echo "string";
-    return back()->with('success', 'Thanks for contacting us!');
+
+    return back()->with('success', 'Thanks for contacting us!'); 
    }
 
 }

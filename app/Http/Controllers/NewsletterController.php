@@ -29,3 +29,5 @@ class NewsletterController extends Controller
         return redirect()->back()->withSuccess($message);
     }
 }
+
+

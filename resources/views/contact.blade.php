@@ -1,5 +1,6 @@
 @include('layout.header')
 <!-- START section -->
+ 
 <section class="uk-section">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
@@ -43,7 +44,7 @@
             <label class="uk-form-label" for="form-stacked-text">Email Address </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" name="email" type="text" required="" placeholder="Email Address">
+              <input class="input uk-width-expand" id="form-stacked-text" name="email" type="email" required="" placeholder="Email Address">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -55,7 +56,7 @@
             <label class="uk-form-label" for="form-stacked-text"> Phone </label>
             <!-- START .uk-form-controls -->
             <div class="uk-form-controls">
-              <input class="input uk-width-expand" id="form-stacked-text" name="phone" type="text"  required="" placeholder="Phone ">
+              <input class="input uk-width-expand" id="form-stacked-text" name="phone" type="number"  required="" placeholder="Phone ">
             </div><!-- END .uk-form-controls -->
           </div><!-- END .uk-margin -->
         </div><!-- END uk-width-1-2 -->
@@ -88,9 +89,10 @@
 <!-- START .uk-width-1-2 -->
 <div class="uk-width-1-2">
   <div class="">
-    <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I have been able to read and understant <a href="#">Privacy policy</a>  . </small></label>
+    <input class=" uk-checkbox" type="checkbox" required="" name="" value=""> <label for=""><small>I have been able to read and understant <a href="#">Privacy policy</a>  . </small></label>
     <br>
-    <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I want to subscribe to the news letter .</small></label>
+     <input class=" uk-checkbox" type="hidden" name="subscribe" value="">
+    <input class=" uk-checkbox" type="checkbox" name="subscribe" value="1"> <label for=""><small>I want to subscribe to the news letter .</small></label>
 
        </div>
 </div><!-- END .uk-width-1-2 -->

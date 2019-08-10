@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\DB;
 // Shopingbag
 // Route::view('shopingbag','bag');
 
-Route::redirect('/', '/en');
+Route::redirect('/', 'oudak/en');
     // wrapping the website  e.g oudak.com/en/login
     Route::group(['prefix' => '{language}'] , function () {
 

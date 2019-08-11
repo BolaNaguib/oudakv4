@@ -109,7 +109,7 @@
                         @endif</a></li>
 
                         @if(Auth::user())
-                        <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a>
+                        <li><a href="{{ route('account') }}">My Account <span uk-icon="triangle-down"></span> </a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>

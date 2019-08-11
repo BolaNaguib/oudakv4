@@ -54,7 +54,7 @@ use Illuminate\Support\Facades\DB;
           });
 
           Route::view('/checkout' , 'checkout');
-          Route::view('/account' , 'account');
+          Route::view('/account' , 'account')->name('account');
     // Route::redirect('/', '/en');
     // wrapping the website  e.g oudak.com/en/login
     // Route::group(['prefix' => '{language}'] , function () {

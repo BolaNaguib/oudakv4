@@ -176,7 +176,7 @@
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script>
   function highlightErrors(errors) {
       Object.keys(errors).forEach(name => this.find(`[name=${name}]`).addClass('uk-form-danger'));
@@ -211,6 +211,8 @@
     })
   })
 </script>
+
+
 </body>
 
 </html>

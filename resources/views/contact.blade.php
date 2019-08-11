@@ -1,6 +1,8 @@
 @include('layout.header')
 <!-- START section -->
- 
+  @if(Session::has('success'))
+                 <p class="container alert {{Session::get('alert-class','alert-success')}}"> {{Session::get('success')}}</p>
+                 @endif
 <section class="uk-section">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">

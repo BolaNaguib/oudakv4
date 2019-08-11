@@ -28,47 +28,8 @@ use Illuminate\Support\Facades\DB;
 // Shopingbag
 // Route::view('shopingbag','bag');
 
-Route::redirect('/', '/en');
-    // wrapping the website  e.g oudak.com/en/login
-    Route::group(['prefix' => '{language}'] , function () {
 
-      // Home Page
-      Route::get('/','IndexController@index')->name('index');
-
-      // Auth Pages
-      Auth::routes(['verify' => true]);
-
-    });
-
-
-
-
-
-              Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
-                ->name('socialite.redirect');
-              Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
-
-              // shop
-              Route::get('/shop','ShopController@index')->name('shop.index');
-              Route::get('/shop/{product}','ShopController@show')->name('shop.show');
-
-              Route::get('/cart','CartController@index')->name('cart.index');
-              Route::post('/cart','CartController@store')->name('cart.store');
-              Route::patch('/cart/{product}','CartController@update')->name('cart.update');
-
-              Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
-              Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
-
-
-          Route::delete('/saveForLater/{product}','saveForLaterController@destroy')->name('saveForLater.destroy');
-          Route::post('/saveForLater/switchToCart/{product}','saveForLaterController@switchToCart')->name('saveForLater.switchToCart');
-
-          Route::post('/coupon','CouponsController@store')->name('coupon.store');
-          Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
-
-          Route::view('/contact','contact')->name('contact');
-
-
+          // Voyager Admin Panel
           Route::group(['prefix' => 'admin'], function () {
               Voyager::routes();
 
@@ -93,16 +54,56 @@ Route::redirect('/', '/en');
           });
 
 
-          Route::get('empty', function(){
-            Cart::instance('saveForLater')->destroy();
+// Route::redirect('/', '/en');
+    // wrapping the website  e.g oudak.com/en/login
+    // Route::group(['prefix' => '{language}'] , function () {
 
-          });
+      // Home Page
+      Route::get('/','IndexController@index')->name('index');
 
-          Route::get('/home', 'HomeController@index')->name('home');
+      // Auth Pages
+      Auth::routes(['verify' => true]);
 
-          Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+      Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
+        ->name('socialite.redirect');
+      Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
-          // pages
-          Route::get('/{page}','PagesController@show')->name('page.show');
+      // shop
+      Route::get('/shop','ShopController@index')->name('shop.index');
+      Route::get('/shop/{product}','ShopController@show')->name('shop.show');
 
-          Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+      Route::get('/cart','CartController@index')->name('cart.index');
+      Route::post('/cart','CartController@store')->name('cart.store');
+      Route::patch('/cart/{product}','CartController@update')->name('cart.update');
+
+      Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
+      Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
+
+
+  Route::delete('/saveForLater/{product}','saveForLaterController@destroy')->name('saveForLater.destroy');
+  Route::post('/saveForLater/switchToCart/{product}','saveForLaterController@switchToCart')->name('saveForLater.switchToCart');
+
+  Route::post('/coupon','CouponsController@store')->name('coupon.store');
+  Route::delete('/coupon','CouponsController@destroy')->name('coupon.destroy');
+
+  Route::view('/contact','contact')->name('contact');
+
+
+
+
+  Route::get('empty', function(){
+    Cart::instance('saveForLater')->destroy();
+
+  });
+
+  Route::get('/home', 'HomeController@index')->name('home');
+
+  Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
+
+  // pages
+  Route::get('/{page}','PagesController@show')->name('page.show');
+
+  Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+
+
+    // });

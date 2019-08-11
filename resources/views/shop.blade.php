@@ -144,7 +144,7 @@
             <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
           </div><!-- END uk-position-top-right -->
 
-          <a href="{{ route('shop.show', $product->slug)}}">
+          <a href="{{ route('shop.show', $product->slug, app()->getLocale() )}}">
             <!-- START .uk-inline-clip -->
             <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
               <img src="{{ asset('storage/'.$product->mainimage) }}" alt="" style="max-height:250px;">

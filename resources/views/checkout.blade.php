@@ -1,4 +1,4 @@
-<?php include 'layout/header.php'; ?>
+@include('layout.header')
 <section>
   <div class="uk-container uk-container-large">
     <ul class="uk-breadcrumb breadcrumb">
@@ -180,4 +180,4 @@
     </div> <!-- END uk-grid -->
   </div> <!-- END .uk-container -->
 </section> <!-- END section -->
-<?php include 'layout/footer.php'; ?>
+@include('layout.footer')

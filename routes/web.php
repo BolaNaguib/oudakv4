@@ -53,8 +53,8 @@ use Illuminate\Support\Facades\DB;
               });
           });
 
-
-// Route::redirect('/', '/en');
+          Route::view('/checkout' , 'checkout');
+    // Route::redirect('/', '/en');
     // wrapping the website  e.g oudak.com/en/login
     // Route::group(['prefix' => '{language}'] , function () {
 

@@ -41,7 +41,7 @@
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                       {{-- Check for WEbsite LAnuage --}}
-                      @if(app()->getLocale() =='ar')
+                      {{-- @if(app()->getLocale() =='ar')
                         <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
                         <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
                       @elseif(app()->getLocale() =='sp')
@@ -50,7 +50,7 @@
                       @else
                         <li><a href="{{ route(Route::currentRouteName(), 'ar') }}">Arabic</a></li>
                         <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
-                      @endif
+                      @endif --}}
                     </ul>
                 </div>
               </li>

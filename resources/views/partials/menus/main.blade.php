@@ -9,7 +9,7 @@
     <h3 class="sidenav__title uk-text-center">Menu</h3>
 
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-      <li><a class="sidenav__links" href="{{ route('index' , app()->getLocale() ) }}">Home</a></li>
+      <li><a class="sidenav__links" href="{{ route('index' ) }}">Home</a></li>
       <li><a class="sidenav__links" href="#">Product Portrait</a></li>
       <li><a class="sidenav__links" href="#">Product Landscape</a>
         <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">

@@ -9,7 +9,7 @@
         <h3 class="">Login </h3>
         <span class="uk-margin">If you are an exsisting customer login</span>
         <hr>
-        <form class="uk-form-horizontal" action="{{ route('login', app()->getLocale() ) }}" method="post">
+        <form class="uk-form-horizontal" action="{{ route('login') }}" method="post">
           @csrf
           <!-- START .uk-margin -->
           <div class="uk-margin">
@@ -30,7 +30,7 @@
           </div><!-- END .uk-margin -->
           <div class="uk-text-right">
             <button class="uk-button uk-button-secondary" type="submit"> Login </button>
-            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('password.request', app()->getLocale() ) }}';"> Forgot Your Password ? </button>
+            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('password.request') }}';"> Forgot Your Password ? </button>
 
           </div>
 
@@ -47,7 +47,7 @@
         <h3 class="">Register </h3>
         <span class="uk-margin">If you are an New customer </span>
         <hr>
-        <a class="uk-button uk-button-default" href="{{ route('register', app()->getLocale() ) }}"> Register </a>
+        <a class="uk-button uk-button-default" href="{{ route('register') }}"> Register </a>
 
 
       </div>

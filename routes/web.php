@@ -13,6 +13,7 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -29,56 +30,56 @@ use Illuminate\Support\Facades\DB;
 // Route::view('shopingbag','bag');
 
 
-          // Voyager Admin Panel
-          Route::group(['prefix' => 'admin'], function () {
-              Voyager::routes();
+// Voyager Admin Panel
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 
-              Route::name('voyager.')->middleware('admin.user')->group(function () {
-                Route::get('export/{table}', function ($table) {
+    Route::name('voyager.')->middleware('admin.user')->group(function () {
+      Route::get('export/{table}', function ($table) {
 
-                  return response()->streamDownload(function () use ($table) {
+        return response()->streamDownload(function () use ($table) {
 
-                    $columns = Schema::getColumnListing($table);
+          $columns = Schema::getColumnListing($table);
 
-                    $rows = DB::table($table)->get();
+          $rows = DB::table($table)->get();
 
-                    echo implode(',', $columns). PHP_EOL;
+          echo implode(',', $columns). PHP_EOL;
 
-                    $rows->each(function ($row) use ($columns) {
-                      echo implode(',', array_map(function ($column) use ($row) { return $row->$column; }, $columns)) . PHP_EOL;
-                    });
-                  }, 'export.csv');
-
-                })->name('export');
-              });
+          $rows->each(function ($row) use ($columns) {
+            echo implode(',', array_map(function ($column) use ($row) { return $row->$column; }, $columns)) . PHP_EOL;
           });
+        }, 'export.csv');
 
-          Route::view('/checkout' , 'checkout');
-          Route::view('/account' , 'account')->name('account');
-    // Route::redirect('/', '/en');
-    // wrapping the website  e.g oudak.com/en/login
-    // Route::group(['prefix' => '{language}'] , function () {
+      })->name('export');
+    });
+});
 
-      // Home Page
-      Route::get('/','IndexController@index')->name('index');
+Route::view('/checkout' , 'checkout');
+Route::view('/account' , 'account')->name('account');
+//Route::get('/', '/en');
+// wrapping the website  e.g oudak.com/en/login
+Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] , function () {
 
-      // Auth Pages
-      Auth::routes(['verify' => true]);
+  // Home Page
+  Route::get('/','IndexController@index')->name('index');
 
-      Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
-        ->name('socialite.redirect');
-      Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
+  // Auth Pages
+  Auth::routes(['verify' => true]);
 
-      // shop
-      Route::get('/shop','ShopController@index')->name('shop.index');
-      Route::get('/shop/{product}','ShopController@show')->name('shop.show');
+  Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
+    ->name('socialite.redirect');
+  Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
-      Route::get('/cart','CartController@index')->name('cart.index');
-      Route::post('/cart','CartController@store')->name('cart.store');
-      Route::patch('/cart/{product}','CartController@update')->name('cart.update');
+  // shop
+  Route::get('/shop','ShopController@index')->name('shop.index');
+  Route::get('/shop/{product}','ShopController@show')->name('shop.show');
 
-      Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
-      Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
+  Route::get('/cart','CartController@index')->name('cart.index');
+  Route::post('/cart','CartController@store')->name('cart.store');
+  Route::patch('/cart/{product}','CartController@update')->name('cart.update');
+
+  Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
+  Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
 
 
   Route::delete('/saveForLater/{product}','saveForLaterController@destroy')->name('saveForLater.destroy');
@@ -102,9 +103,12 @@ use Illuminate\Support\Facades\DB;
   Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 
   // pages
-  Route::get('/{page}','PagesController@show')->name('page.show');
+  Route::get('{slug}','PagesController@show')->name('page.show'); // this one <<
 
   Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+});
 
-
-    // });
+Route::get('{unlocalizedPath?}', function (Request $request, $unlocalizedPath = '') {
+  $language = session('language') ?? 'en';
+  return redirect()->to(url("$language/$unlocalizedPath"));
+})->where('unlocalizedPath', '(.*)');

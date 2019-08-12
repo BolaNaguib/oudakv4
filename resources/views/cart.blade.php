@@ -4,7 +4,7 @@
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
     <ul class="uk-breadcrumb breadcrumb">
-      <li><a class="breadcrumb__link" href="{{ route('index', app()->getLocale() ) }}">Home</a></li>
+      <li><a class="breadcrumb__link" href="{{ route('index') }}">Home</a></li>
       <li><span class="breadcrumb__link-active" href="#">Shoping Bag</span></li>
     </ul>
     <hr class="uk-margin-remove">
@@ -35,7 +35,7 @@
 @else
 <h3>no items in cart</h3>
 <hr>
-<a class="uk-button uk-button-default" href="{{ route('shop.index', app()->getLocale() ) }}"> Continue Shoping</a>
+<a class="uk-button uk-button-default" href="{{ route('shop.index') }}"> Continue Shoping</a>
 @endif
 
     <!-- START uk-grid -->
@@ -86,7 +86,7 @@
               Have A Coupon ?</button>
             <!-- START #promo -->
             <div id="promo" class="" hidden>
-              <form class="" action="{{ route('coupon.store', app()->getLocale() ) }}" method="post">
+              <form class="" action="{{ route('coupon.store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="uk-inline uk-display-block">
                   <button class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="arrow-right" style="    bottom: -20px;"></button>

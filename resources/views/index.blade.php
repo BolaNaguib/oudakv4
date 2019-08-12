@@ -113,7 +113,7 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="{{ route('shop.index', app()->getLocale() ) }}">
+          <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
             <img src="{{ asset('') }}images/product1.png" alt="">
@@ -128,7 +128,7 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="{{ route('shop.index', app()->getLocale() ) }}">
+          <a href="{{ route('shop.index') }}">
             <h2 class="uk-card-title"> Fragrance </h2>
             <hr>
             <img src="{{ asset('') }}images/product1.png" alt="">

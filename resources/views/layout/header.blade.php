@@ -41,16 +41,17 @@
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                       {{-- Check for WEbsite LAnuage --}}
-                      {{-- @if(app()->getLocale() =='ar')
-                        <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
-                        <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
+                      <?php $params = Route::current()->parameters(); ?>
+                      @if(app()->getLocale() =='ar')
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'en')) }}">English</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'sp')) }}">Spanish</a></li>
                       @elseif(app()->getLocale() =='sp')
-                        <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
-                        <li><a href="{{ route(Route::currentRouteName(), 'ar') }}">Arabic</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'en')) }}">English</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'ar')) }}">Arabic</a></li>
                       @else
-                        <li><a href="{{ route(Route::currentRouteName(), 'ar') }}">Arabic</a></li>
-                        <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
-                      @endif --}}
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'ar')) }}">Arabic</a></li>
+                        <li><a href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'sp')) }}">Spanish</a></li>
+                      @endif
                     </ul>
                 </div>
               </li>
@@ -84,7 +85,7 @@
           </div>
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
-              <a href="{{ route('index', app()->getLocale() ) }}">
+              <a href="{{ route('index') }}">
                 <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
                 <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
               </a>
@@ -99,7 +100,7 @@
             <ul class="uk-navbar-nav">
 
               <li class="uk-position-relative">
-                <a href="{{ route('cart.index', app()->getLocale() ) }}">
+                <a href="{{ route('cart.index') }}">
                   <span uk-icon="cart"></span>
                    <span uk-icon="triangle-down"></span>
                    @if (Cart::instance('default')->count() > 0)
@@ -113,7 +114,7 @@
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
-                                  <form action="{{ route('logout', app()->getLocale() ) }}" method="POST" id="logoutForm">@csrf</form>
+                                  <form action="{{ route('logout') }}" method="POST" id="logoutForm">@csrf</form>
                               </ul>
                           </div>
                         </li>
@@ -121,8 +122,8 @@
                         <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
-                                  <li><a href="{{ route('login', app()->getLocale() ) }}">Login</a></li>
-                                  <li><a href="{{ route('register', app()->getLocale() ) }}">Register</a></li>
+                                  <li><a href="{{ route('login') }}">Login</a></li>
+                                  <li><a href="{{ route('register') }}">Register</a></li>
                               </ul>
                           </div>
                         </li>

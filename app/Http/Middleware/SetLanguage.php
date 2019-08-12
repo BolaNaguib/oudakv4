@@ -15,7 +15,11 @@ class SetLanguage
      */
     public function handle($request, Closure $next)
     {
-        \App::setlocale($request->language);
+        $language = $request->language ?? session('language') ?? 'en';
+        \URL::defaults(compact('language'));
+        \App::setlocale($language);
+        session(compact('language'));
+        $request->route()->forgetParameter('language');
         return $next($request);
     }
 }

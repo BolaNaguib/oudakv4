@@ -54,12 +54,13 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
-Route::view('/checkout' , 'checkout');
-Route::view('/account' , 'account')->name('account');
 //Route::get('/', '/en');
 // wrapping the website  e.g oudak.com/en/login
 Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] , function () {
 
+  Route::view('/checkout' , 'checkout')->name('checkout');
+  Route::view('/account' , 'account')->name('account');
+  Route::view('/archive' , 'archive')->name('archive');
   // Home Page
   Route::get('/','IndexController@index')->name('index');
 

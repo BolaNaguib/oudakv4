@@ -15,15 +15,25 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
+            $table->string('thumbnail');
+            $table->string('title')->unique();
             $table->string('slug')->unique();
-            $table->string('details')->nullable();
             $table->integer('price');
+            $table->integer('quantity');
             $table->text('initial_description');
             $table->text('main_description');
-            $table->string('sizes');
-            $table->string('3imageslayout');
-
+            $table->string('category');
+            $table->string('serial_number');
+            $table->string('gifting_option');
+            $table->string('authentication_number');
+            $table->string('warranty');
+            $table->string('weight');
+            $table->string('store');
+            $table->string('volume');
+            $table->string('olfactory');
+            $table->string('top_notes');
+            $table->string('heart_notes');
+            $table->string('base_notes');    
             $table->timestamps();
         });
     }

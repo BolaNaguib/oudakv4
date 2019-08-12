@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParentCategoriesTable extends Migration
+class CreateMainSlidersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateParentCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('parent_categories', function (Blueprint $table) {
+        Schema::create('main_sliders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('thumbnail');
             $table->string('title');
-            $table->string('slug');
+            $table->string('caption');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateParentCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parent_categories');
+        Schema::dropIfExists('main_sliders');
     }
 }

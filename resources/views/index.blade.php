@@ -19,6 +19,7 @@
             <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
           </div><!-- END .uk-position-center -->
         </li>
+
         <li class="">
           <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
           <div class="uk-position-center uk-text-center">

@@ -167,6 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Torann\GeoIP\GeoIPServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -229,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // Other aliases…
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
 
     ],
 

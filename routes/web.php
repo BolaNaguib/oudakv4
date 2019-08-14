@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

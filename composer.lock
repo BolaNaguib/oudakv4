@@ -1274,6 +1274,7 @@
             "time": "2016-12-20T10:07:11+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "guzzlehttp/psr7",
             "version": "1.6.1",
             "source": {
@@ -1285,6 +1286,19 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
                 "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+=======
+            "name": "nikic/php-parser",
+            "version": "v4.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nikic/PHP-Parser.git",
+                "reference": "e612609022e935f3d0337c1295176505b41188c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e612609022e935f3d0337c1295176505b41188c8",
+                "reference": "e612609022e935f3d0337c1295176505b41188c8",
+>>>>>>> userprofile
                 "shasum": ""
             },
             "require": {
@@ -1296,11 +1310,15 @@
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
+<<<<<<< HEAD
                 "ext-zlib": "*",
                 "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
             },
             "suggest": {
                 "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+=======
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
+>>>>>>> userprofile
             },
             "type": "library",
             "extra": {
@@ -1342,7 +1360,11 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
             "time": "2019-07-01T23:21:34+00:00"
+=======
+            "time": "2019-08-12T20:17:41+00:00"
+>>>>>>> userprofile
         },
         {
             "name": "hardevine/shoppingcart",
@@ -3940,6 +3962,7 @@
             "time": "2019-08-06T08:03:45+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "symfony/polyfill-mbstring",
             "version": "v1.12.0",
             "source": {
@@ -3955,6 +3978,27 @@
             },
             "require": {
                 "php": ">=5.3.3"
+=======
+            "name": "beyondcode/laravel-dump-server",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beyondcode/laravel-dump-server.git",
+                "reference": "fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beyondcode/laravel-dump-server/zipball/fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a",
+                "reference": "fcc88fa66895f8c1ff83f6145a5eff5fa2a0739a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.6.*|5.7.*|5.8.*|^6.0",
+                "illuminate/http": "5.6.*|5.7.*|5.8.*|^6.0",
+                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0",
+                "php": "^7.1",
+                "symfony/var-dumper": "^4.1.1"
+>>>>>>> userprofile
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -3979,12 +4023,19 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
                 {
                     "name": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
+=======
+                    "name": "Marcel Pociot",
+                    "role": "Developer",
+                    "email": "marcel@beyondco.de",
+                    "homepage": "https://beyondco.de"
+>>>>>>> userprofile
                 }
             ],
             "description": "Symfony polyfill for the Mbstring extension",
@@ -3996,7 +4047,11 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
             "time": "2019-08-06T08:03:45+00:00"
+=======
+            "time": "2019-08-11T13:17:40+00:00"
+>>>>>>> userprofile
         },
         {
             "name": "symfony/polyfill-php72",

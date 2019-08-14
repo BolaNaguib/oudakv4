@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class CreateHomeFourBlocksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('home_four_blocks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('main_category');
-            $table->string('sub_category');
+            $table->string('title');
+            $table->text('description');
+            $table->bigInteger('product1');
+            $table->bigInteger('product2');
+            // $table->bigInteger('product3');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('home_four_blocks');
     }
 }

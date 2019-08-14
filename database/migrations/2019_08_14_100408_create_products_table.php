@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -33,7 +34,7 @@ class CreateProductsTable extends Migration
             $table->string('olfactory');
             $table->string('top_notes');
             $table->string('heart_notes');
-            $table->string('base_notes');    
+            $table->string('base_notes');
             $table->timestamps();
         });
     }

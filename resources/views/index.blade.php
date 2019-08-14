@@ -11,43 +11,17 @@
 
       <ul class="uk-slideshow-items">
 
+        @foreach($main_slider as $image)
         <li>
-          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
+          <img class="slider__image" src="{{ asset('storage/'.$image->thumbnail) }}" alt="">
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-            <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+            <h2 uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
+            <p uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
           </div><!-- END .uk-position-center -->
         </li>
+        @endforeach
 
-        <li class="">
-          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
-          <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-            <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
-        <li class="">
-          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
-          <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-            <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
-        <li class="">
-          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
-          <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-            <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
-        <li class="">
-          <img class="slider__image" src="{{ asset('') }}images/slider.jpg" alt="">
-          <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">Heading</h2>
-            <p uk-slider-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
-          </div>
-        </li>
       </ul>
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
@@ -78,13 +52,13 @@
         <div class="card uk-card-default uk-margin-bottom">
           <!-- START .uk-card-header -->
           <div class="uk-card-header">
-            <h3 class="uk-card-title">Fragrance</h3>
+            <h3 class="uk-card-title">{{$HomeFourBlock->title}}</h3>
           </div>
           <!-- END .uk-card-header -->
 
           <!-- START .uk-card-body -->
           <div class="uk-card-body">
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+            <p>{{$HomeFourBlock->description}}</p>
           </div>
           <!-- END .uk-card-body -->
         </div>
@@ -94,17 +68,17 @@
         <div class="card uk-card-default">
           <!-- START .uk-card-header -->
           <div class="uk-card-header">
-            <h3 class="uk-card-title">Fragrance</h3>
+            <h3 class="uk-card-title">{{ $post->title }}</h3>
           </div>
           <!-- END .uk-card-header -->
 
           <!-- START .uk-card-body -->
           <div class="uk-card-body">
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
+            <p>{{ $post->excerpt }}</p>
           </div>
           <!-- END .uk-card-body -->
           <div class="uk-text-right@m uk-text-center">
-            <button class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Check Our Blog </button>
+            <a class="uk-button  uk-width-expand" type="button" name="button"> Check Our Blog </a>
           </div>
         </div>
         <!-- END .card  -->
@@ -114,12 +88,15 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="{{ route('shop.index') }}">
-            <h2 class="uk-card-title"> Fragrance </h2>
+          <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
+            <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
             <hr>
-            <img src="{{ asset('') }}images/product1.png" alt="">
+            <img src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
               <hr>
-            <h3> Check Our Products </h3>
+            <p>
+              {{$HomeFourBlock->Product1->initial_description}}
+            </p>
+            <h3> Check Our Product </h3>
           </a>
         </div>
         <!-- END .uk-card -->
@@ -129,11 +106,14 @@
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="{{ route('shop.index') }}">
-            <h2 class="uk-card-title"> Fragrance </h2>
+          <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
+            <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
             <hr>
-            <img src="{{ asset('') }}images/product1.png" alt="">
+            <img src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
             <hr>
+            <p>
+              {{$HomeFourBlock->Product1->initial_description}}
+            </p>
             <h3> Check Our Products </h3>
           </a>
         </div>
@@ -148,15 +128,22 @@
 <!-- END section -->
 
 <!-- START section -->
+
+
 <section class="uk-section">
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
-      <img class="" src="{{ asset('') }}images/long.jpg" alt="">
+
+      @foreach($longImages as $image)
+
+        <img class="" src="{{ asset('storage/'.$image->path) }}" alt="">
+
+      @endforeach
+
     </div>
   </div>
 </section>
 <!-- END section -->
-
 
 
 

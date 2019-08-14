@@ -14,6 +14,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\DB;
 
 // Shopingbag
 // Route::view('shopingbag','bag');
+
+
 
 
           // Voyager Admin Panel
@@ -54,7 +57,33 @@ use Illuminate\Support\Facades\DB;
           });
 
           Route::view('/checkout' , 'checkout');
-          Route::view('/account' , 'account');
+          // Route::view('/account' , 'account');
+          Route::get('/account' , 'UserProfileController@account')->name('account');
+          // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
+          Route::get('edituserpage/{id}',[
+          'uses' => 'UserProfileController@edituserpage',
+          'as' => 'edituserpage'
+          ]);
+
+           Route::get('adduser',[
+          'uses' => 'UserProfileController@adduser',
+          'as' => 'adduser'
+          ]);
+          Route::get('showuserinfo',[
+          'uses' => 'UserProfileController@showuserinfo',
+          'as' => 'showuserinfo'
+           ]);
+
+          Route::post('storeuserinfo',[
+          'uses' => 'UserProfileController@storeuserinfo',
+          'as' => 'storeuserinfo'
+           ]);
+
+          Route::post('updateuserinfo/{id}',[
+          'uses' => 'UserProfileController@updateuserinfo',
+          'as' => 'updateuserinfo'
+           ]);
+
     // Route::redirect('/', '/en');
     // wrapping the website  e.g oudak.com/en/login
     // Route::group(['prefix' => '{language}'] , function () {
@@ -104,7 +133,7 @@ use Illuminate\Support\Facades\DB;
   // pages
   Route::get('/{page}','PagesController@show')->name('page.show');
 
-  Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+  Route::post('/{contactus}','ContactUsController@contactus')->name('contactus');
+  
 
-
-    // });
+ 

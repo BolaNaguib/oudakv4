@@ -40,7 +40,7 @@
               <li><a href="">{{ app()->getLocale() }}<span uk-icon="triangle-down"></span> </a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-                      {{-- Check for WEbsite LAnuage --}}
+                      {{-- Check for Website LAnuage --}}
                       {{-- @if(app()->getLocale() =='ar')
                         <li><a href="{{ route(Route::currentRouteName(), 'en') }}">English</a></li>
                         <li><a href="{{ route(Route::currentRouteName(), 'sp') }}">Spanish</a></li>
@@ -109,7 +109,7 @@
                         @endif</a></li>
 
                         @if(Auth::user())
-                        <li><a href="#">My Account <span uk-icon="triangle-down"></span> </a>
+                        <li><a href="{{URL::to('account')}}">My Account <span uk-icon="triangle-down"></span> </a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>

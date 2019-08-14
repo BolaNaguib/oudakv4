@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHomeFourBlocksTable extends Migration
+class CreateMainSliders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateHomeFourBlocksTable extends Migration
      */
     public function up()
     {
-        Schema::create('home_four_blocks', function (Blueprint $table) {
+        Schema::create('main_sliders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('thumbnail');
             $table->string('title');
-            $table->text('description');
-            $table->bigInteger('product1');
-            $table->bigInteger('product2');
-            $table->bigInteger('product3');
+            $table->string('caption');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateHomeFourBlocksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_four_blocks');
+        Schema::dropIfExists('main_sliders');
     }
 }

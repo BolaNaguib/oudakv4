@@ -32,8 +32,6 @@ class UserProfileController extends Controller
   public function account(){
     $id=Auth::user()->id;
     $data=UserProfile::find($id);
-
-    // dd($data);
     return view('account' , compact('data'));
   }
 

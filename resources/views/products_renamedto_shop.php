@@ -90,11 +90,11 @@
             </div><!-- END .uk-inline-clip -->
           </a>
         </div><!-- END .card -->
-        
+
       </div><!-- END uk-width-1-3 -->
       <div class="uk-width-2-3">
         <div class="">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          <p>xxLorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Dui faucibus in ornare quam. Scelerisque
             varius morbi enim nunc faucibus a pellentesque. Sed euismod nisi porta lorem.

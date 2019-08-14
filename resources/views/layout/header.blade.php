@@ -20,7 +20,7 @@
 
   <!-- Style -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+<script src="https://js.stripe.com/v3/"></script>
 </head>
 
 <body>

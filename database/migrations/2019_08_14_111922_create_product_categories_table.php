@@ -19,7 +19,7 @@ class CreateProductCategoriesTable extends Migration
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('path')->nullable();
-            $table->bigInteger('parent')->unsigned();
+            $table->bigInteger('parent')->unsigned()->nullable()->defult('0');
             $table->foreign('parent')->references('id')->on('product_categories')->onDelete('cascade');
             $table->timestamps();
         });

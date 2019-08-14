@@ -115,7 +115,7 @@
             </div>
             <!-- END div -->
             <hr>
-            <button class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Checkout </button>
+            <a href="{{ route('checkout.index') }}" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Checkout </a>
 
           </div>
           <!-- END .card  -->
@@ -148,7 +148,7 @@
             <!-- START .uk-width-1-3@m -->
             <div class="uk-width-1-4@m uk-width-1-1">
               <a href="{{ route('shop.show', $item->model->slug) }}">
-              <img src="{{ asset('storage/'.$item->model->mainimage) }}" alt="" style="max-height:250px;">
+              <img src="{{ asset('storage/'.$item->model->thumbnail) }}" alt="" style="max-height:250px;">
 </a>
             </div>
             <!-- END .uk-width-1-3@m -->

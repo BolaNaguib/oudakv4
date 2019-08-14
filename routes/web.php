@@ -58,7 +58,7 @@ Route::group(['prefix' => 'admin'], function () {
 // wrapping the website  e.g oudak.com/en/login
 Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] , function () {
 
-  Route::view('/checkout' , 'checkout')->name('checkout');
+  // Route::view('/checkout' , 'checkout')->name('checkout');
   Route::view('/account' , 'account')->name('account');
   Route::view('/archive' , 'archive')->name('archive');
   // Home Page
@@ -91,6 +91,9 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
   Route::view('/contact','contact')->name('contact');
 
+  // Checkout
+  Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+  Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
 
 

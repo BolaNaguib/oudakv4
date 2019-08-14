@@ -64,7 +64,7 @@
         </div>
         <!-- END .card  -->
 
-        <!-- START .card -->
+        {{-- <!-- START .card -->
         <div class="card uk-card-default">
           <!-- START .uk-card-header -->
           <div class="uk-card-header">
@@ -80,7 +80,7 @@
           <div class="uk-text-right@m uk-text-center">
             <a class="uk-button  uk-width-expand" type="button" name="button"> Check Our Blog </a>
           </div>
-        </div>
+        </div> --}}
         <!-- END .card  -->
       </div>
       <!-- END .uk-width-1-3@m -->
@@ -134,11 +134,21 @@
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
 
-      @foreach($longImages as $image)
+      {{-- @foreach($longImages as $image)
 
         <img class="" src="{{ asset('storage/'.$image->path) }}" alt="">
 
-      @endforeach
+      @endforeach --}}
+
+      <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="height:100%;">
+      <div class="">
+        @foreach($longImages as $image)
+
+          <img  uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;" class="" src="{{ asset('storage/'.$image->path) }}" alt="">
+
+        @endforeach
+      </div>
+  </div>
 
     </div>
   </div>

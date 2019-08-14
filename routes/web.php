@@ -60,7 +60,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] , function () {
 
   // Route::view('/checkout' , 'checkout')->name('checkout');
-  Route::view('/account' , 'account')->name('account');
+  // Route::view('/account' , 'account')->name('account');
   Route::view('/archive' , 'archive')->name('archive');
   // Home Page
   Route::get('/','IndexController@index')->name('index');
@@ -111,6 +111,33 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::get('{slug}','PagesController@show')->name('page.show'); // this one <<
 
   Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
+
+  Route::get('/account' , 'UserProfileController@account')->name('account');
+  // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
+  Route::get('edituserpage/{id}',[
+  'uses' => 'UserProfileController@edituserpage',
+  'as' => 'edituserpage'
+  ]);
+
+   Route::get('adduser',[
+  'uses' => 'UserProfileController@adduser',
+  'as' => 'adduser'
+  ]);
+  Route::get('showuserinfo',[
+  'uses' => 'UserProfileController@showuserinfo',
+  'as' => 'showuserinfo'
+   ]);
+
+  Route::post('storeuserinfo',[
+  'uses' => 'UserProfileController@storeuserinfo',
+  'as' => 'storeuserinfo'
+   ]);
+
+  Route::post('updateuserinfo/{id}',[
+  'uses' => 'UserProfileController@updateuserinfo',
+  'as' => 'updateuserinfo'
+   ]);
+
 });
 
 Route::get('{unlocalizedPath?}', function (Request $request, $unlocalizedPath = '') {

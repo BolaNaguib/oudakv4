@@ -151,6 +151,13 @@ return [
         ],
 
         'widgets' => [
+          'App\\Widgets\\Users',
+          // 'TCG\\Voyager\\Widgets\\UserDimmer',
+          'App\\Widgets\\Products',
+          'App\\Widgets\\ViewCount',
+          'App\\Widgets\\NewsletterSubscriber',
+          'App\\Widgets\\Coupon',
+
 
         ],
 

@@ -7,7 +7,7 @@
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group. Now create something great! hello
 |
 */
 
@@ -129,19 +129,24 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
     Cart::instance('saveForLater')->destroy();
 
   });
+  // if its after pages we get an error
+  Route::get('/search','ShopController@search')->name('search');
 
   Route::get('/home', 'HomeController@index')->name('home');
 
   Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 
+  Route::get('{slug}','ProductCategoryController@show')->name('productcategory.show'); // this one <<
+
   // pages
-  Route::get('{slug}','PagesController@show')->name('page.show'); // this one <<
+  Route::get('{page}','PagesController@show')->name('page.show'); // this one <<
+
 
   Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
 
-  
+
   // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
- 
+
 
 
 });
@@ -150,6 +155,3 @@ Route::get('{unlocalizedPath?}', function (Request $request, $unlocalizedPath = 
   $language = session('language') ?? 'en';
   return redirect()->to(url("$language/$unlocalizedPath"));
 })->where('unlocalizedPath', '(.*)');
-
-
-

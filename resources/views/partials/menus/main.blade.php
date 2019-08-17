@@ -1,5 +1,7 @@
 
 
+
+
 <div id="x2" uk-offcanvas>
   <div class="uk-offcanvas-bar sidenav">
 
@@ -9,6 +11,40 @@
     <h3 class="sidenav__title uk-text-center">Menu</h3>
 
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
+      @foreach($items as $menu_item)
+          <li><a class="sidenav__links" href="{{ $menu_item->link() }}">{{ $menu_item->title }}</a>
+
+            {{ $menu_item->link() }}
+            {{-- {{ $productcategory }} --}}
+            @if (!$menu_item->children->isEmpty())
+              <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">
+                <div class="">
+                  <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex uk-flex-middle" uk-grid>
+                    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
+                      <img src="images/slider.jpg" alt="" uk-cover>
+                      <canvas width="600" height="400"></canvas>
+                    </div>
+                    <div class="">
+                      <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
+                        @foreach ($menu_item->children as $item)
+                          <li><a class="sidenav__links" href="{{ $item->link() }}">{{ $item->title }}</a></li>
+                        @endforeach
+                        {{-- <li><a class="sidenav__links" href="#">Product Title</a></li>
+                        <li><a class="sidenav__links" href="#">Product Title</a></li>
+                        <li><a class="sidenav__links" href="#">Product Title</a></li> --}}
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            @endif
+
+            </li>
+      @endforeach
       <li><a class="sidenav__links" href="{{ route('index' ) }}">Home</a></li>
       <li><a class="sidenav__links" href="#">Product Portrait</a></li>
       <li><a class="sidenav__links" href="#">Product Landscape</a>

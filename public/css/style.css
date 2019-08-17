@@ -5,3 +5,6 @@ html{color:#1c1f2a;font-family:Merriweather,serif}*,button,input{font-smoothing:
   bottom: 0px;
   width: 100%;
 }
+.site-footer-right{
+  display: none !important;
+}

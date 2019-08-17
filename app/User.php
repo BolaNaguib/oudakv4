@@ -29,6 +29,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -40,5 +41,9 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 
     public function sendEmailVerificationNotification() {
       $this->notify(new EmailVerificationNotification);
+    }
+    public function orders()
+    {
+      return $this->hasMany('App\Order');
     }
 }

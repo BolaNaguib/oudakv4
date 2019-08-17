@@ -64,7 +64,7 @@
         </div>
         <!-- END .card  -->
 
-        {{-- <!-- START .card -->
+        <!-- START .card -->
         <div class="card uk-card-default">
           <!-- START .uk-card-header -->
           <div class="uk-card-header">
@@ -78,30 +78,37 @@
           </div>
           <!-- END .uk-card-body -->
           <div class="uk-text-right@m uk-text-center">
-            <a class="uk-button  uk-width-expand" type="button" name="button"> Check Our Blog </a>
+            <a style="color:#fff !important ;" href="{{ $post->slug }}" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Check Our Blog </a>
           </div>
-        </div> --}}
+        </div>
         <!-- END .card  -->
       </div>
       <!-- END .uk-width-1-3@m -->
       <!-- START .uk-width-1-3@m -->
-      <div class="uk-width-1-3@m uk-width-1-1">
-        <!-- START .uk-card -->
-        <div class="uk-card uk-card-default uk-text-center uk-padding ">
-          <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
-            <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
-            <hr>
-            <img src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
+      @if ($HomeFourBlock->Product1 != null)
+        <div class="uk-width-1-3@m uk-width-1-1">
+          <!-- START .uk-card -->
+          <div class="uk-card uk-card-default uk-text-center uk-padding ">
+            <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
+              <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
               <hr>
-            <p>
-              {{$HomeFourBlock->Product1->initial_description}}
-            </p>
-            <h3> Check Our Product </h3>
-          </a>
+              <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
+                <hr>
+
+              <p>
+                {{$HomeFourBlock->Product1->initial_description}}
+              </p>
+              <h3> Check Our Product </h3>
+            </a>
+          </div>
+          <!-- END .uk-card -->
         </div>
-        <!-- END .uk-card -->
-      </div>
+
       <!-- END .uk-width-1-3@m -->
+    @endif
+
+      @if ($HomeFourBlock->Product1 != null)
+
       <!-- START .uk-width-1-3@m -->
       <div class="uk-width-1-3@m uk-width-1-1">
         <!-- START .uk-card -->
@@ -109,7 +116,7 @@
           <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
             <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
             <hr>
-            <img src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
+            <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
             <hr>
             <p>
               {{$HomeFourBlock->Product1->initial_description}}
@@ -120,6 +127,8 @@
         <!-- END .uk-card -->
       </div>
       <!-- END .uk-width-1-3@m -->
+    @endif
+
     </div>
     <!-- END uk-grid -->
   </div>

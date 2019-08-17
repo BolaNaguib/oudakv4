@@ -11,4 +11,8 @@ class Product extends Model
     // {
     //   return money_format('$%i', $this->price / 100);
     // }
+
+    public function Category(){
+        return $this->belongsTo(ProductCategory::class,'product1','id');
+    }
 }

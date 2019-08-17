@@ -2,11 +2,11 @@
 
 <section class="uk-section">
   <div class="uk-container uk-container-large">
-    <img width="100%" src="{{ asset('storage/'.$page->media) }}" alt="">
-    <h1>{{ $page->getTranslatedAttribute('name', app()->getLocale(), 'en') }}</h1>
+    <img width="100%" src="{{ asset('storage/'.$page->image) }}" alt="">
+    <h1>{{ $page->getTranslatedAttribute('title', app()->getLocale(), 'en') }}</h1>
     <hr>
     <div class="">
-      {!! $page->content !!}
+      {!! $page->body !!}
     </div>
   </div>
 </section>

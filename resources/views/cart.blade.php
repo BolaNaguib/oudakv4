@@ -156,7 +156,7 @@
             <div class="uk-width-1-2@m uk-width-1-1">
               <!-- START .uk-text-left@m -->
               <div class="uk-text-left@m uk-text-center">
-                <h3>{{ $item->model->name }}</h3>
+                <h3>{{ $item->model->title }}</h3>
                 <hr>
                 <span>Size : </span><b>3 ML</b>
                 <hr>

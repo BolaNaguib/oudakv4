@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+
+use App\ProductCategory;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class ProductCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +15,18 @@ class ShopController extends Controller
      */
     public function index()
     {
+      //
+      $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
       $products = Product::orderBy('id', 'desc')->take(3)->get();
+      return view('index')->with('productcategory', $productcategory)->with('products', $products);;
 
-      return view('shop')->with('products', $products);
+        //
+    }
+
+    public function menu(){
+      $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+      $products = Product::orderBy('id', 'desc')->take(3)->get();
+      return view('partials.menus.main')->with('productcategory', $productcategory)->with('products', $products);;
     }
 
     /**
@@ -42,23 +53,16 @@ class ShopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  string  $slug
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
-        return view('product-portrait')->with('product', $product);
-    }
+        //
+        $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+        $products = Product::orderBy('id', 'desc')->take(3)->get();
+        return view('productcategory')->with('productcategory', $productcategory)->with('products', $products);;
 
-    public function search(Request $request)
-    {
-      // $request->validate([
-      //   'query' => 'required|min:3',
-      // ]);
-      $query = $request->input('query');
-      $products = Product::where('title', 'like', "%$query%")->get();
-      return view('search')->with('products', $products);
     }
 
     /**

@@ -7,7 +7,8 @@ use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorExceprion;
-
+use App\Order;
+use App\OrderProduct;
 
 class CheckoutController extends Controller
 {
@@ -56,14 +57,40 @@ class CheckoutController extends Controller
                 // 'quantity' => Cart::instance('default')->count(),
             ],
           ]);
+          // insert into orders table
+          $order = Order::create([
+            'user_id' => auth()->user() ? auth()->user()->id : null,
+            'billing_email' => $request->email,
+            'billing_name_on_card' => $request->name_on_card,
+            // 'billing_total' => $this->getNumbers()->get('newTotal'),
+            'error' => null,
+          ]);
 
+          foreach (Cart::content() as $item) {
+
+            OrderProduct::create([
+              'order_id' => $order->id,
+              'product_id' => $item->model->id,
+              'quantity' => $item->qty,
+            ]);
+          }
+
+          // insert into order_product table
           //successful
           return back()->with('success_message', 'thank you order accepted ');
         } catch (\Exception $e) {
-            report($e);
+            return back()->withErrors('Error!'. $e->getMessage());
         }
 
     }
+
+    // private function getNumbers()
+    // {
+    //   $tax = config('cart.tax');
+    //   $discount = session()->get('coupon')['discount'] ?? 0 ;
+    //   $code = session()->get('coupon')['name'] ?? null ;
+    //   $newSubtotal =
+    // }
 
     /**
      * Display the specified resource.

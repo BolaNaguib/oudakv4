@@ -20,7 +20,7 @@ class NewsletterController extends Controller
 
         return $this->success($request, 'You have successfully subscribed to our newsletter!', $subscriber);
     }
-    
+
     protected function success(Request $request, $message, $data = null) {
         if ($request->ajax() || $request->wantsJson()) {
             return response()->json(compact('message', 'data'));
@@ -29,5 +29,3 @@ class NewsletterController extends Controller
         return redirect()->back()->withSuccess($message);
     }
 }
-
-

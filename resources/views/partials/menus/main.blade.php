@@ -49,7 +49,7 @@
           <div class="">
             <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex uk-flex-middle" uk-grid>
               <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                <img src="https://oudak.localhost/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
+                <img src="https://oudak.com/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
                 <canvas width="600" height="400"></canvas>
               </div>
               <div class="">
@@ -67,7 +67,7 @@
           <div class="">
             <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex uk-flex-middle" uk-grid>
               <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                <img src="https://oudak.localhost/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
+                <img src="https://oudak.com/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
                 <canvas width="600" height="400"></canvas>
               </div>
               <div class="">
@@ -85,7 +85,7 @@
           <div class="">
             <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin uk-flex uk-flex-middle" uk-grid>
               <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-                <img src="https://oudak.localhost/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
+                <img src="https://oudak.com/storage/main-sliders/August2019/x93Hg44sK5OC5gQrg3bW.jpg" alt="" uk-cover>
                 <canvas width="600" height="400"></canvas>
               </div>
               <div class="">

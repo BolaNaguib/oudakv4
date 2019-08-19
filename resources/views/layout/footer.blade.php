@@ -202,6 +202,8 @@ if ($('#productzoom').length) {
             $(this).ajaxSubmit({
                 success: response => {
                     if (handle instanceof Function) handle.call($(this), response);
+                  
+
                 },
                 error: jqXHR => {
                     const errors = jqXHR.responseJSON.errors;

@@ -15,8 +15,16 @@ class CartController extends Controller
      */
     public function index()
     {
+
+
+
         //
-        return view('cart');
+        return view('cart')->with([
+          'discount' => $this->getNumbers()->get('discount'),
+          'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
+          'newTax' => $this->getNumbers()->get('newTax'),
+          'newTotal' => $this->getNumbers()->get('newTotal'),
+        ]);
     }
 
     /**
@@ -131,4 +139,25 @@ public function switchToSaveForLater($id)
 
       return redirect()->route('cart.index')->with('success_message','item saved for later');
 }
+
+
+
+
+private function getNumbers()
+{
+  $tax = config('cart.tax') / 100;
+  $discount = session()->get('coupon')['discount'] ?? 0 ;
+  $newSubtotal = (Cart::subtotal() - $discount);
+  $newTax = ($newSubtotal * $tax);
+  $newTotal = $newSubtotal * ( 1 + $tax);
+
+  return collect( [
+    'tax' => $tax,
+    'discount' => $discount,
+    'newSubtotal' => $newSubtotal,
+    'newTax' => $newTax,
+    'newTotal' => $newTotal,
+  ]);
+}
+
 }

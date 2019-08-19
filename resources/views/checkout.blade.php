@@ -10,7 +10,7 @@
   </div>
 </section>
 <!-- START section -->
-<section class="uk-section">
+{{-- <section class="uk-section">
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2" uk-grid>
       <div class="">
@@ -118,18 +118,20 @@
     </div>
   </div>
 </section>
-<!-- END section -->
+<!-- END section --> --}}
 
 
 
 <!-- START section -->
-<section class="uk-section section_theme_gray">
+<section class="uk-section ">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
     <!-- START uk-grid -->
     <div class="uk-child-width-1-2" uk-grid>
       <!-- START div -->
       <div class="">
+        <h3>Billing / Shipping Info</h3>
+        <hr>
         @if (session()->has('success_message'))
         <div class="uk-alert-success" uk-alert>
         <a class="uk-alert-close" uk-close></a>
@@ -153,10 +155,10 @@
             <div class="uk-width-1-1">
                 <!-- START .uk-margin -->
                 <div class="uk-margin">
-                    <label class="uk-form-label uk-text-left" for="form-stacked-text">Name On Card : </label>
+                    <label class="uk-form-label uk-text-left" for="form-stacked-text">Name : </label>
                     <!-- START .uk-form-controls -->
                     <div class="uk-form-controls">
-                        <input class="input uk-width-expand" id="name_on_card" name="firstname" type="text" required="" placeholder="Jhon" disabledx>
+                        <input class="input uk-width-expand" id="paymentemail" name="fullname" type="text" required="" placeholder="Jhon" disabledx>
                     </div><!-- END .uk-form-controls -->
                 </div><!-- END .uk-margin -->
             </div><!-- END uk-width-1-1 -->
@@ -244,7 +246,21 @@
             </div><!-- END uk-width-1-1 -->
           </div>
           {{-- END uk-grid --}}
-          <label for="card-element">
+          <hr>
+          <h3>Payment Info</h3>
+          <hr>
+          <!-- START .uk-width-1-1 -->
+          <div class="uk-width-1-1">
+              <!-- START .uk-margin -->
+              <div class="uk-margin">
+                  <label class="uk-form-label uk-text-left" for="form-stacked-text">Name On Card : </label>
+                  <!-- START .uk-form-controls -->
+                  <div class="uk-form-controls">
+                      <input class="input uk-width-expand" id="name_on_card" name="name_on_card" type="text" required="" placeholder="Jhon" disabledx>
+                  </div><!-- END .uk-form-controls -->
+              </div><!-- END .uk-margin -->
+          </div><!-- END uk-width-1-1 -->
+          <label class="uk-form-label uk-text-left" for="card-element">
       Credit or debit card
     </label>
     <div id="card-element">
@@ -253,7 +269,8 @@
 
     <!-- Used to display form errors. -->
     <div id="card-errors" role="alert"></div>
-    <button type="submit" name="button"> Comple payment </button>
+    <hr>
+    <button id="complete-order" class="uk-button uk-button-secondary uk-width-expand" type="submit" name="button"> Comple payment </button>
         </form>
         {{-- To be refactored  --}}
         <style media="screen">
@@ -262,17 +279,13 @@
 * how you can use CSS to style your Element's container.
 */
 .StripeElement {
+  background-color: #f7f7f7;
+border-radius: 0px;
+border: 0;
+border-bottom: 1px solid rgba(0,0,0,.4);
 box-sizing: border-box;
-
 height: 40px;
-
 padding: 10px 12px;
-
-border: 1px solid transparent;
-border-radius: 4px;
-background-color: white;
-
-box-shadow: 0 1px 3px 0 #e6ebf1;
 -webkit-transition: box-shadow 150ms ease;
 transition: box-shadow 150ms ease;
 }
@@ -304,7 +317,7 @@ background-color: #fefde5 !important;
 
           <div class="uk-clearfix">
             <!-- START .uk-float-right -->
-            <div class="uk-float-right"><b>$ {{ $item->model->price }} </b></div> <!-- END .uk-float-right -->
+            <div class="uk-float-right"><b>$ {{ $item->subtotal }} </b></div> <!-- END .uk-float-right -->
             <!-- START .uk-float-left -->
             <div class="uk-float-left"><b>{{ $item->model->title }}</b>
               <b style="border: 1px solid #eee;  padding: 0px 10px; margin-left: 10px;">
@@ -320,15 +333,33 @@ background-color: #fefde5 !important;
           <!-- START .uk-clearfix -->
           <div class="uk-clearfix">
             <!-- START .uk-float-right -->
-            <div class="uk-float-right"><b>$ {{ Cart::subtotal() }} </b></div> <!-- END .uk-float-right -->
+            <div class="uk-float-right"><b>$ {{ Cart::subtotal() }}  </b></div> <!-- END .uk-float-right -->
             <!-- START .uk-float-left -->
-            <div class="uk-float-left"><b>Sum</b></div> <!-- END .uk-float-left -->
+            <div class="uk-float-left"><b>Total : </b></div> <!-- END .uk-float-left -->
+          </div><!-- END .uk-clearfix -->
+          <hr>
+          @if (session()->has('coupon'))
+          <!-- START .uk-clearfix -->
+          <div class="uk-clearfix">
+            <!-- START .uk-float-right -->
+            <div class="uk-float-right"><b>-$ {{ session()->get('coupon')['discount'] }} </b></div> <!-- END .uk-float-right -->
+            <!-- START .uk-float-left -->
+            <div class="uk-float-left"><b>Discount</b></div> <!-- END .uk-float-left -->
           </div><!-- END .uk-clearfix -->
           <hr>
           <!-- START .uk-clearfix -->
           <div class="uk-clearfix">
             <!-- START .uk-float-right -->
-            <div class="uk-float-right"><b>$ {{ Cart::tax() }} </b></div> <!-- END .uk-float-right -->
+            <div class="uk-float-right"><b>$ {{ $newSubtotal }} </b></div> <!-- END .uk-float-right -->
+            <!-- START .uk-float-left -->
+            <div class="uk-float-left"><b>Total : </b></div> <!-- END .uk-float-left -->
+          </div><!-- END .uk-clearfix -->
+          <hr>
+        @endif
+          <!-- START .uk-clearfix -->
+          <div class="uk-clearfix">
+            <!-- START .uk-float-right -->
+            <div class="uk-float-right"><b>$ {{$newTax}} </b></div> <!-- END .uk-float-right -->
             <!-- START .uk-float-left -->
             <div class="uk-float-left"><b>Tax</b></div> <!-- END .uk-float-left -->
           </div><!-- END .uk-clearfix -->
@@ -336,7 +367,7 @@ background-color: #fefde5 !important;
           <!-- START .uk-clearfix -->
           <div class="uk-clearfix">
             <!-- START .uk-float-right -->
-            <div class="uk-float-right"><b>$ {{ Cart::total() }} </b></div> <!-- END .uk-float-right -->
+            <div class="uk-float-right"><b>$ {{ $newTotal }} </b></div> <!-- END .uk-float-right -->
             <!-- START .uk-float-left -->
             <div class="uk-float-left"><b>Total Price</b></div> <!-- END .uk-float-left -->
           </div><!-- END .uk-clearfix -->

@@ -146,7 +146,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
 
   // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
-
+// Route::get('/', 'indexController@menu')->name('mainmenu');
 
 
 });

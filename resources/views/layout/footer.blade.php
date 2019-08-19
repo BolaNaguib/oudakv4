@@ -130,23 +130,31 @@
     }
 </style>
 <!-- UIkit JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
+{{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=299459306489-20losscfhtedjrv7cu2n4k7b196t3i69.apps.googleusercontent.com&callback=initMap" type="text/javascript"></script> --}}
+
 <script src="{{ asset('js/Luminous.min.js')}}"></script>
 <script src="{{ asset('js/Drift.min.js')}}"></script>
 <script type="text/javascript">
-    var demoTrigger = document.querySelector('.demo-trigger');
+if ($('#productzoom').length) {
+  console.log("magnify is working");
+  var demoTrigger = document.querySelector('.demo-trigger');
+  console.log(demoTrigger);
+  new Drift(demoTrigger, {
+      paneContainer: document.querySelector('.detail'),
+      inlinePane: 900,
+      inlineOffsetY: -85,
+      containInline: true,
+      sourceAttribute: 'href'
+  });
 
-    new Drift(demoTrigger, {
-        paneContainer: document.querySelector('.detail'),
-        inlinePane: 900,
-        inlineOffsetY: -85,
-        containInline: true,
-        sourceAttribute: 'href'
-    });
+  new Luminous(demoTrigger);
+}
 
-    new Luminous(demoTrigger);
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
@@ -158,7 +166,7 @@
                 console.log("changed");
                 const id = element.getAttribute('data-id');
                 console.log(id);
-                axios.patch(`/oudakv3/public/cart/${id}`, {
+                axios.patch(`cart/${id}`, {
                         quantity: this.value
                     })
                     .then(function(response) {
@@ -173,8 +181,9 @@
     })();
 </script>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script>
     function highlightErrors(errors) {
         Object.keys(errors).forEach(name => this.find(`[name=${name}]`).addClass('uk-form-danger'));
@@ -212,92 +221,99 @@
 
 
 <script type="text/javascript">
-    console.log(" IS this working ?");
-    console.log(" is it really ?");
-    // Create a Stripe client.
-    var stripe = Stripe('pk_test_7EMLE7RbJozF3FjHH9malYVO007G8mJ70q');
+    if ($('#card-element').length) {
+        console.log(" IS this working ?");
+        console.log(" is it really ?");
+        // Create a Stripe client.
+        var stripe = Stripe('pk_test_7EMLE7RbJozF3FjHH9malYVO007G8mJ70q');
 
-    // Create an instance of Elements.
-    var elements = stripe.elements();
-    console.log(elements);
+        // Create an instance of Elements.
+        var elements = stripe.elements();
+        console.log(elements);
 
-    // Custom styling can be passed to options when creating an Element.
-    // (Note that this demo uses a wider set of styles than the guide below.)
-    var style = {
-        base: {
-            color: '#32325d',
-            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-            fontSmoothing: 'antialiased',
-            fontSize: '16px',
-            '::placeholder': {
-                color: '#aab7c4'
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+        var style = {
+            base: {
+                color: '#32325d',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
             }
-        },
-        invalid: {
-            color: '#fa755a',
-            iconColor: '#fa755a'
-        }
-    };
+        };
 
-    // Create an instance of the card Element.
-    var card = elements.create('card', {
-        style: style,
-        hidePostalCode: true
-    });
+        // Create an instance of the card Element.
+        var card = elements.create('card', {
+            style: style,
+            hidePostalCode: true
+        });
 
-    // Add an instance of the card Element into the `card-element` <div>.
-    card.mount('#card-element');
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
 
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener('change', function(event) {
-        var displayError = document.getElementById('card-errors');
-        if (event.error) {
-            displayError.textContent = event.error.message;
-        } else {
-            displayError.textContent = '';
-        }
-    });
-
-    // Handle form submission.
-    var form = document.getElementById('payment-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        var options = {
-            name: document.getElementById('name_on_card').value,
-            address_line1: document.getElementById('autocomplete').value,
-            address_city: document.getElementById('city').value,
-            address_state: document.getElementById('state').value,
-            address_zip: document.getElementById('zipcode').value,
-
-        }
-        console.log(options);
-
-        stripe.createToken(card, options).then(function(result) {
-            if (result.error) {
-                // Inform the user if there was an error.
-                var errorElement = document.getElementById('card-errors');
-                errorElement.textContent = result.error.message;
+        // Handle real-time validation errors from the card Element.
+        card.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
             } else {
-                // Send the token to your server.
-                stripeTokenHandler(result.token);
+                displayError.textContent = '';
             }
         });
-    });
 
-    // Submit the form with the token ID.
-    function stripeTokenHandler(token) {
-        // Insert the token ID into the form so it gets submitted to the server
+        // Handle form submission.
         var form = document.getElementById('payment-form');
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripeToken');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+          // Disable the submit button yo prevent repeated clicks
+        document.getElementById('complete-order').disabled = true;
+            var options = {
+                name: document.getElementById('name_on_card').value,
+                address_line1: document.getElementById('autocomplete').value,
+                address_city: document.getElementById('city').value,
+                address_state: document.getElementById('state').value,
+                address_zip: document.getElementById('zipcode').value,
 
-        // e.preventDefault();
-        // Submit the form
-        form.submit();
+            }
+            console.log(options);
+
+            stripe.createToken(card, options).then(function(result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+
+                    // Enable the submit button
+                    document.getElementById('complete-order').disabled = false;
+
+                } else {
+                    // Send the token to your server.
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+
+        // Submit the form with the token ID.
+        function stripeTokenHandler(token) {
+            // Insert the token ID into the form so it gets submitted to the server
+            var form = document.getElementById('payment-form');
+            var hiddenInput = document.createElement('input');
+            hiddenInput.setAttribute('type', 'hidden');
+            hiddenInput.setAttribute('name', 'stripeToken');
+            hiddenInput.setAttribute('value', token.id);
+            form.appendChild(hiddenInput);
+
+            // e.preventDefault();
+            // Submit the form
+            form.submit();
+        }
     }
 </script>
 

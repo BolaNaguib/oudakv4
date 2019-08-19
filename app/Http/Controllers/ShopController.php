@@ -47,8 +47,11 @@ class ShopController extends Controller
      */
     public function show($slug)
     {
+        // to Show Product Info
         $product = Product::where('slug', $slug)->firstOrFail();
-        return view('product-portrait')->with('product', $product);
+        //  To fetch similar products
+        $products = Product::orderBy('id', 'desc')->get();
+        return view('product-portrait')->with('product', $product)->with('products', $products);
     }
 
     public function search(Request $request)

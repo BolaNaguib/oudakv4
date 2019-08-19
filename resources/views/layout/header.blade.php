@@ -155,3 +155,14 @@
 </section>
 
   </header> <!-- END header -->
+  {{-- {{ $products }} --}}
+{{-- {{ $main_menu }} --}}
+{{-- {{ $productcategory }} --}}
+
+{{-- {{ $auth }} --}}
+
+{{-- <hr> --}}
+{{-- @foreach ($main_menu as $item)
+{{ $item->menu_Item }}
+<hr>
+@endforeach --}}

@@ -9,6 +9,7 @@ use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorExceprion;
 use App\Order;
 use App\OrderProduct;
+use App\Http\Controllers\CartController;
 
 class CheckoutController extends Controller
 {
@@ -20,7 +21,12 @@ class CheckoutController extends Controller
     public function index()
     {
         //
-        return view('checkout');
+        return view('checkout')->with([
+          'discount' => $this->getNumbers()->get('discount'),
+          'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
+          'newTax' => $this->getNumbers()->get('newTax'),
+          'newTotal' => $this->getNumbers()->get('newTotal'),
+        ]);;
     }
 
     /**
@@ -46,15 +52,16 @@ class CheckoutController extends Controller
         //
         try {
           $charge = Stripe::charges()->create([
-            'amount' => Cart::total(),
+            'amount' => $this->getNumbers()->get('newTotal'),
             'currency' => 'USD',
             'source' => $request->stripeToken,
             // 'decription' => 'Order',
             'receipt_email' =>$request->email,
             'metadata' => [
-                //change to order ID after we start using DB
+                // change to order ID after we start using DB
                 // 'contents' => $contents,
                 // 'quantity' => Cart::instance('default')->count(),
+                'discount' => collect(session()->get('coupon'))->toJson(),
             ],
           ]);
           // insert into orders table
@@ -62,6 +69,19 @@ class CheckoutController extends Controller
             'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $request->email,
             'billing_name_on_card' => $request->name_on_card,
+            'billing_name' => $request->fullname,
+            'billing_address' => $request->address,
+            'billing_city' => $request->city,
+            'billing_province' => $request->state,
+            'billing_postalcode' => $request->zipcode,
+            // 'billing_phone',
+            // 'billing_discount',
+            // 'billing_discount_code',
+            // 'billing_subtotal',
+            // 'billing_tax',
+            // 'billing_total',
+            // 'error',
+
             // 'billing_total' => $this->getNumbers()->get('newTotal'),
             'error' => null,
           ]);
@@ -77,6 +97,8 @@ class CheckoutController extends Controller
 
           // insert into order_product table
           //successful
+          Cart::instance('default')->destroy();
+          session()->forget('coupon');
           return back()->with('success_message', 'thank you order accepted ');
         } catch (\Exception $e) {
             return back()->withErrors('Error!'. $e->getMessage());
@@ -84,13 +106,22 @@ class CheckoutController extends Controller
 
     }
 
-    // private function getNumbers()
-    // {
-    //   $tax = config('cart.tax');
-    //   $discount = session()->get('coupon')['discount'] ?? 0 ;
-    //   $code = session()->get('coupon')['name'] ?? null ;
-    //   $newSubtotal =
-    // }
+    private function getNumbers()
+    {
+      $tax = config('cart.tax') / 100;
+      $discount = session()->get('coupon')['discount'] ?? 0 ;
+      $newSubtotal = (Cart::subtotal() - $discount);
+      $newTax = ($newSubtotal * $tax);
+      $newTotal = $newSubtotal * ( 1 + $tax);
+
+      return collect( [
+        'tax' => $tax,
+        'discount' => $discount,
+        'newSubtotal' => $newSubtotal,
+        'newTax' => $newTax,
+        'newTotal' => $newTotal,
+      ]);
+    }
 
     /**
      * Display the specified resource.

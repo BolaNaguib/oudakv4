@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Coupon;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+// use Gloudemans\Shoppingcart\ShoppingcartServiceProvider;
+
 
 class CouponsController extends Controller
 {
@@ -26,7 +28,9 @@ class CouponsController extends Controller
      */
     public function store(Request $request)
     {
+      // return 'adding coupon';
         $coupon = Coupon::where('code', $request->coupon_code)->first();
+        // dd($coupon);
         if (!$coupon) {
           return redirect()->route('cart.index')->withErrors('Invalid coupon code. try another one ');
           // code...
@@ -47,8 +51,10 @@ class CouponsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
+        session()->forget('coupon');
+        return redirect()->route('cart.index')->with('success_message', 'Coupon has been removed');
     }
 }

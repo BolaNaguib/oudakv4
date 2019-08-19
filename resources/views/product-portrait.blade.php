@@ -1,5 +1,6 @@
 @include('layout.header')
 
+
 <!-- START section -->
 <section class="uk-section">
 
@@ -13,31 +14,22 @@
             <div class="uk-width-1-2">
 
                 <!-- START .card -->
-                <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
+                <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
+                    <button href="#toggle-animation" class="uk-button uk-button-default" type="button"
+                     uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
+    bottom: 5px;
+    z-index: 99;">Ingredients</button>
+                    <div id="toggle-animation" class="uk-card uk-card-default " style="       position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #fcfcfc;" hidden>
+                        <div class="">
+                            {!! $product->Ingredients !!}
+                        </div>
+                    </div>
 
-                    <!-- START uk-position-top-left -->
-                    <div class="uk-transition-fade uk-position-small uk-position-top-left ">
-
-                        <h6>Ingredients</h6>
-
-                        <!-- START .uk-flex -->
-                        <div class="uk-flex">
-                            <span class="uk-icon uk-icon-image" style="background-image: url(images/product1.png);"> </span><span class="uk-text-small">Oud Oil 300 ML </span>
-                            <hr>
-                        </div><!-- END .uk-flex -->
-
-                        <!-- START .uk-flex -->
-                        <div class="uk-flex">
-                            <span class="uk-icon uk-icon-image" style="background-image: url(images/product1.png);"> </span><span class="uk-text-small">Oud Oil 300 ML </span>
-                            <hr>
-                        </div><!-- END .uk-flex -->
-
-                        <!-- START .uk-flex -->
-                        <div class="uk-flex">
-                            <span class="uk-icon uk-icon-image" style="background-image: url(images/product1.png);"> </span><span class="uk-text-small">Oud Oil 300 ML </span>
-                            <hr>
-                        </div><!-- END .uk-flex -->
-                    </div><!-- END uk-position-top-left -->
 
                     <!-- START uk-position-top-right -->
                     <div class="uk-transition-fade uk-position-small uk-position-top-right ">
@@ -80,7 +72,7 @@
                     <!-- START .uk-text-center -->
                     <div class="uk-text-center">
                         <form class="" action="{{ route('cart.store') }}" method="post">
-                          {{ csrf_field() }}
+                            {{ csrf_field() }}
 
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                             <img src="" alt="">
@@ -113,31 +105,33 @@
                                     {{-- END .uk-width-auto --}}
                                     @endif
                                     @if ($product->size_2 )
-                                      {{-- START uk-width-auto --}}
-                                      <div class="uk-width-auto ">
-                                          {{-- START .uk-position-relative --}}
-                                          <div class="uk-position-relative">
-                                              <input type="radio" name="price" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                              <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                  <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
-                                              </div>
-                                          </div>
-                                          {{-- END .uk-position-relative --}}
-                                      </div>
-                                      {{-- END .uk-width-auto --}}                                    @endif
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                    @endif
                                     @if ($product->size_3 )
-                                      {{-- START uk-width-auto --}}
-                                      <div class="uk-width-auto ">
-                                          {{-- START .uk-position-relative --}}
-                                          <div class="uk-position-relative">
-                                              <input type="radio" name="price" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                              <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                  <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
-                                              </div>
-                                          </div>
-                                          {{-- END .uk-position-relative --}}
-                                      </div>
-                                      {{-- END .uk-width-auto --}}                                    @endif
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                    @endif
 
                                 </div>
                                 {{-- END uk-grid --}}
@@ -206,6 +200,7 @@
     }
 </style>
 
+
 <!-- START .section_theme_gray -->
 <section class="uk-section section_theme_gray">
 
@@ -220,54 +215,30 @@
 
         <!-- START uk-grid -->
         <div class="uk-child-width-1-4" uk-grid>
-
+            @foreach ($products as $sproduct)
+            @if ($product->category == $sproduct->category)
+            @if ($product->slug != $sproduct->slug)
             <!-- START div -->
             <div class="">
                 <!-- START .card -->
                 <div class="card card_theme_white uk-text-center">
-                    <a href="#">
-                        <img src="http://localhost:8000/storage/products\July2019\13UU2Wt63fhaUARwRBkN.png" alt="" style="max-height:250px;">
-                        <h3 class="">Product Title</h3>
+                    <a href="{{ route('shop.show', $sproduct->slug) }}">
+                        <img src="{{ asset('storage/'.$sproduct->thumbnail) }}" alt="" style="max-height:250px;">
+                        <h3 class="">{{ $sproduct->title }}</h3>
                     </a>
-                    <button class="uk-button uk-button-secondary">$100</button>
+                    <button class="uk-button uk-button-secondary">${{ $sproduct->price }}</button>
                 </div><!-- END .card -->
             </div><!-- END div -->
+            @endif
 
-            <!-- START div -->
-            <div class="">
-                <!-- START .card -->
-                <div class="card card_theme_white uk-text-center">
-                    <a href="#">
-                        <img src="http://localhost:8000/storage/products\July2019\Lbjg9kZWiRWTD6ITEu0M.png" alt="" style="max-height:250px;">
-                        <h3 class="">Product Title</h3>
-                    </a>
-                    <button class="uk-button uk-button-secondary">$100</button>
-                </div><!-- END .card -->
-            </div><!-- END div -->
+            @endif
+            @endforeach
 
-            <!-- START div -->
-            <div class="">
-                <!-- START .card -->
-                <div class="card card_theme_white uk-text-center">
-                    <a href="#">
-                        <img src="http://localhost:8000/storage/products\July2019\Ya3cDDFgvGf2DIjadJ3L.png" alt="" style="max-height:250px;">
-                        <h3 class="">Product Title</h3>
-                    </a>
-                    <button class="uk-button uk-button-secondary">$100</button>
-                </div><!-- END .card -->
-            </div><!-- END div -->
 
-            <!-- START div -->
-            <div class="">
-                <!-- START .card -->
-                <div class="card card_theme_white uk-text-center">
-                    <a href="#">
-                        <img src="http://localhost:8000/storage/products\July2019\Lbjg9kZWiRWTD6ITEu0M.png" alt="" style="max-height:250px;">
-                        <h3 class="">Product Title</h3>
-                    </a>
-                    <button class="uk-button uk-button-secondary">$100</button>
-                </div><!-- END .card -->
-            </div><!-- END div -->
+
+
+
+
 
 
         </div><!-- END uk-grid -->

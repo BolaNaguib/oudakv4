@@ -23,11 +23,7 @@ class ProductCategoryController extends Controller
         //
     }
 
-    public function menu(){
-      $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
-      $products = Product::orderBy('id', 'desc')->take(3)->get();
-      return view('partials.menus.main')->with('productcategory', $productcategory)->with('products', $products);;
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,8 +56,9 @@ class ProductCategoryController extends Controller
     {
         //
         $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+        $allcat = ProductCategory::orderBy('id', 'desc')->get();
         $products = Product::orderBy('id', 'desc')->take(3)->get();
-        return view('productcategory')->with('productcategory', $productcategory)->with('products', $products);;
+        return view('productcategory')->with('productcategory', $productcategory)->with('products', $products)->with('allcat', $allcat);
 
     }
 

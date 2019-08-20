@@ -55,6 +55,10 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
+  ->name('socialite.redirect');
+Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
+
 //Route::get('/', '/en');
 // wrapping the website  e.g oudak.com/en/login
 Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] , function () {
@@ -95,10 +99,6 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
   // Auth Pages
   Auth::routes(['verify' => true]);
-
-  Route::get('login/{provider}', 'Auth\SocialiteController@redirectToProvider')
-    ->name('socialite.redirect');
-  Route::get('login/{provider}/callback', 'Auth\SocialiteController@handleProviderCallback');
 
   // shop
   Route::get('/shop','ShopController@index')->name('shop.index');

@@ -3,7 +3,7 @@
     <div class="uk-container uk-container-large">
         <div class="uk-grid">
             <div class="uk-width-1-4">
-                <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Profile </button>
+                <a href="{{ route('account') }}" class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Profile </a>
             </div>
             <div class="uk-width-1-4">
                 <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Track My Order </button>
@@ -12,12 +12,12 @@
                 <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Redeem / Refund </button>
             </div>
             <div class="uk-width-1-4">
-                <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> My Order </button>
+                <a  href="{{ route('orders') }}" class="uk-button uk-button-default uk-width-expand" type="button" name="button"> My Order </a>
             </div>
 
         </div>
         <hr>
-      @if(isset($data)) 
+      @if(isset($data))
         <form class="uk-form-horizontal" action="" method="post">
           @csrf
 
@@ -44,11 +44,11 @@
                         <!-- START .uk-width-1-1 -->
                         <div class="uk-width-1-1">
                             <!-- START .uk-margin -->
-                      
+
                         </div><!-- END uk-width-1-1 -->
                       <!--   <div class="uk-width-1-1" >   Your mail is not verified yet plz <a href="#here the link of verification sent to mail"> Verify it </a></div> -->
 
-                     
+
                     </div>{{-- END uk-grid --}}
 
 
@@ -77,7 +77,7 @@
                                   <label class="uk-form-label uk-text-left" for="form-stacked-text">Last Name : </label>
                                   <!-- START .uk-form-controls -->
                                   <div class="uk-form-controls">
-                                      <input class="input uk-width-expand" id="form-stacked-text" name="lastname" value="{{$data->lastname}}"  type="text" required="" placeholder="Doe" disabled>  
+                                      <input class="input uk-width-expand" id="form-stacked-text" name="lastname" value="{{$data->lastname}}"  type="text" required="" placeholder="Doe" disabled>
                                   </div><!-- END .uk-form-controls -->
                               </div><!-- END .uk-margin -->
                           </div><!-- END uk-width-1-1 -->
@@ -175,16 +175,16 @@
                     <hr>
                     <a href="{{route('edituserpage',['id'=>$data->id])}}"><button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Edit </button></a>
 
-                   
 
-        
+
+
 
                 </div>
 
             </div>
 
         </form>
-      
+
 
 @elseif(!isset($data))
 
@@ -215,11 +215,11 @@
                         <!-- START .uk-width-1-1 -->
                         <div class="uk-width-1-1">
                             <!-- START .uk-margin -->
-                      
+
                         </div><!-- END uk-width-1-1 -->
                       <!--   <div class="uk-width-1-1" >   Your mail is not verified yet plz <a href="#here the link of verification sent to mail"> Verify it </a></div> -->
 
-                     
+
                     </div>{{-- END uk-grid --}}
 
 
@@ -248,7 +248,7 @@
                                   <label class="uk-form-label uk-text-left" for="form-stacked-text">Last Name : </label>
                                   <!-- START .uk-form-controls -->
                                   <div class="uk-form-controls">
-                                      <input class="input uk-width-expand" id="form-stacked-text" name="lastname" type="text" required="" placeholder="Doe" disabled>  
+                                      <input class="input uk-width-expand" id="form-stacked-text" name="lastname" type="text" required="" placeholder="Doe" disabled>
                                   </div><!-- END .uk-form-controls -->
                               </div><!-- END .uk-margin -->
                           </div><!-- END uk-width-1-1 -->
@@ -346,9 +346,9 @@
                     <hr>
                     <a href="{{route('adduser')}}"><button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Edit </button></a>
 
-                   
 
-        
+
+
 
                 </div>
 
@@ -356,10 +356,65 @@
 
         </form>
 @endif
+{{ $id }}
+{{-- {{ $orderproducts }} --}}
+
+{{ $orderproducts }}
+
+<hr>
 
 
+<table class="uk-table uk-table-striped">
+    <thead>
+        <tr>
+          <th>Orders</th>
+          <th>Billing Name</th>
+          <th>Price </th>
+          <th>Tax</th>
+          <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+      @foreach ($orders as $order)
+        @if ($order->user_id == $id )
 
+          <tr>
+            <td>{{ $order->id }}</td>
+            <td>{{ $order->billing_name }}</td>
+            <td>${{ $order->billing_subtotal }}</td>
+            <td>${{ $order->billing_tax }}</td>
+            <td>${{ $order->billing_total }}</td>
+            <td> @foreach ($orderproducts as $orderproduct)
+              @if ($order->id == $orderproduct->order_id )
+                @foreach ($products as $product)
+                  @if ($orderproduct->product_id == $product->id )
+                    <a style="font-size:14px;" href="{{ url('shop/'.$product->slug) }}">{{ $product->title}}</a> ,
+                  @endif
+                @endforeach
+
+              @endif
+            @endforeach </td>
+            <td> @foreach ($orderproducts as $orderproduct)
+              @if ($order->id == $orderproduct->order_id )
+                {{ $orderproduct->quantity }}
+
+              @endif
+            @endforeach </td>
+            {{-- @if ($order->shipped)
+              shipped
+            @endif --}}
+            {{-- <td>{{ $order->billing_name }}</td>
+            <td>{{ $order->billing_name }}</td> --}}
+          </tr>
+
+        @endif
+      @endforeach
+
+
+    </tbody>
+</table>
     </div>
+    {{ $orders }}
 
 </section>
 @include('layout.footer')

@@ -74,15 +74,12 @@ class CheckoutController extends Controller
             'billing_city' => $request->city,
             'billing_province' => $request->state,
             'billing_postalcode' => $request->zipcode,
-            // 'billing_phone',
-            // 'billing_discount',
+            'billing_phone' => $request->phone,
+            'billing_discount' => $this->getNumbers()->get('discount'),
             // 'billing_discount_code',
-            // 'billing_subtotal',
-            // 'billing_tax',
-            // 'billing_total',
-            // 'error',
-
-            // 'billing_total' => $this->getNumbers()->get('newTotal'),
+            'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
+            'billing_tax' => $this->getNumbers()->get('newTax'),
+            'billing_total' => $this->getNumbers()->get('newTotal'),
             'error' => null,
           ]);
 

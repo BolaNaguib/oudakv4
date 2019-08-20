@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UserProfile;
 use Auth;
+use App\Order;
+use App\OrderProduct;
+use App\Product;
 class UserProfileController extends Controller
 {
   public function edituserpage($id){
@@ -30,13 +33,33 @@ class UserProfileController extends Controller
   }
 
   public function account(){
+    $orders = Order::all();
+    $orderproducts  = OrderProduct::all();
+    $products  = Product::all();
     $id=Auth::user()->id;
     $data=UserProfile::find($id);
-    return view('account' , compact('data'));
+    return view('account' , compact('data'))
+          ->with('orders', $orders )
+          ->with('orderproducts', $orderproducts )
+          ->with('id', $id )
+          ->with('products', $products );
+  }
+
+  public function orders(){
+    $orders = Order::all();
+    $orderproducts  = OrderProduct::all();
+    $products  = Product::all();
+    $id=Auth::user()->id;
+    $data=UserProfile::find($id);
+    return view('myorders')
+          ->with('orders', $orders )
+          ->with('orderproducts', $orderproducts )
+          ->with('id', $id )
+          ->with('products', $products );
   }
 
   public function adduser(){
-  	
+
   	return view('adduser');
   }
 
@@ -55,7 +78,7 @@ class UserProfileController extends Controller
     $data->nearlocation=$request->nearlocation;
   	$data->save();
   	return redirect()->route('account');
-  	
+
   }
 
 

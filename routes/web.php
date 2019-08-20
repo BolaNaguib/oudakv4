@@ -62,6 +62,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   // Route::view('/checkout' , 'checkout')->name('checkout');
   // Route::view('/account' , 'account')->name('account');
   Route::get('/account' , 'UserProfileController@account')->name('account');
+  Route::get('/account/myorders' , 'UserProfileController@orders')->name('orders');
 
    Route::get('edituserpage/{id}',[
   'uses' => 'UserProfileController@edituserpage',

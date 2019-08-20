@@ -356,65 +356,9 @@
 
         </form>
 @endif
-{{ $id }}
-{{-- {{ $orderproducts }} --}}
-
-{{ $orderproducts }}
-
-<hr>
 
 
-<table class="uk-table uk-table-striped">
-    <thead>
-        <tr>
-          <th>Orders</th>
-          <th>Billing Name</th>
-          <th>Price </th>
-          <th>Tax</th>
-          <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-      @foreach ($orders as $order)
-        @if ($order->user_id == $id )
-
-          <tr>
-            <td>{{ $order->id }}</td>
-            <td>{{ $order->billing_name }}</td>
-            <td>${{ $order->billing_subtotal }}</td>
-            <td>${{ $order->billing_tax }}</td>
-            <td>${{ $order->billing_total }}</td>
-            <td> @foreach ($orderproducts as $orderproduct)
-              @if ($order->id == $orderproduct->order_id )
-                @foreach ($products as $product)
-                  @if ($orderproduct->product_id == $product->id )
-                    <a style="font-size:14px;" href="{{ url('shop/'.$product->slug) }}">{{ $product->title}}</a> ,
-                  @endif
-                @endforeach
-
-              @endif
-            @endforeach </td>
-            <td> @foreach ($orderproducts as $orderproduct)
-              @if ($order->id == $orderproduct->order_id )
-                {{ $orderproduct->quantity }}
-
-              @endif
-            @endforeach </td>
-            {{-- @if ($order->shipped)
-              shipped
-            @endif --}}
-            {{-- <td>{{ $order->billing_name }}</td>
-            <td>{{ $order->billing_name }}</td> --}}
-          </tr>
-
-        @endif
-      @endforeach
-
-
-    </tbody>
-</table>
     </div>
-    {{ $orders }}
 
 </section>
 @include('layout.footer')

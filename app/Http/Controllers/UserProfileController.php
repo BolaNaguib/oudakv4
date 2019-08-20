@@ -33,16 +33,24 @@ class UserProfileController extends Controller
   }
 
   public function account(){
-    $orders = Order::all();
-    $orderproducts  = OrderProduct::all();
-    $products  = Product::all();
-    $id=Auth::user()->id;
-    $data=UserProfile::find($id);
-    return view('account' , compact('data'))
-          ->with('orders', $orders )
-          ->with('orderproducts', $orderproducts )
-          ->with('id', $id )
-          ->with('products', $products );
+
+
+    if (Auth::user() != null) {
+       $orders = Order::all();
+       $orderproducts  = OrderProduct::all();
+       $products  = Product::all();
+       $id=Auth::user()->id;
+       $data=UserProfile::find($id);
+       return view('account' , compact('data'))
+             ->with('orders', $orders )
+             ->with('orderproducts', $orderproducts )
+             ->with('id', $id )
+             ->with('products', $products );
+   } else {
+     // dd('u r not registered');
+     return redirect('/');
+   }
+
   }
 
   public function orders(){

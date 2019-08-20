@@ -18,13 +18,18 @@ class Product extends Model
     //   return money_format('$%i', $this->price / 100);
     // }
 
-    public function Category(){
-        return $this->belongsTo(ProductCategory::class,'product1','id');
+    public function category(){
+        return $this->belongsTo(ProductCategory::class, 'product_category_id');
     }
 
     public function mapToZCRMModule (ZCRMProduct $product) {
-        $product->Product_Name = $this->name;
+      //  question here are those fields from db ?  name ? i have it as a title not name
+        $product->Product_Name = $this->title;
         $product->Unit_Price = $this->price;
+        $product->Qty_in_Stock = $this->quantity;
         $product->Description = $this->main_description;
+        $cat = $this->category()->first();
+        if ($cat) $product->Product_Category = $cat->title;
+        $product->Product_Code = $this->serial_number;
     }
 }

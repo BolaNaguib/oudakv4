@@ -84,14 +84,21 @@ class CheckoutController extends Controller
           ]);
 
           foreach (Cart::content() as $item) {
+            \DB::transaction(function () use ($order, $item) {
 
-            OrderProduct::create([
-              'order_id' => $order->id,
-              'product_id' => $item->model->id,
-              'quantity' => $item->qty,
-            ]);
+              OrderProduct::create([
+                'order_id' => $order->id,
+                'product_id' => $item->model->id,
+                'quantity' => $item->qty,
+              ]);
+
+              $model = $item->model;
+              $model->quantity -= $item->qty;
+              $model->save();
+            });
           }
 
+            // i guess it should be somewhere here this is the checkout controller
           // insert into order_product table
           //successful
           Cart::instance('default')->destroy();

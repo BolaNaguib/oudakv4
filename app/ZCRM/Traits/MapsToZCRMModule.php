@@ -17,6 +17,8 @@ trait MapsToZCRMModule {
         });
 
         static::updated(function (self $model) {
+            if (!$model->zcrm_entity_id) return;
+
             $module = $model->zcrmModule::find($model->zcrm_entity_id);
 
             $model->mapToZCRMModule($module);
@@ -25,6 +27,8 @@ trait MapsToZCRMModule {
         });
 
         static::deleted(function (self $model) {
+            if (!$model->zcrm_entity_id) return;
+            
             $module = $model->zcrmModule::find($model->zcrm_entity_id);
 
             $module->delete();

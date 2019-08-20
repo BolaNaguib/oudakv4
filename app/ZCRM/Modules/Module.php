@@ -87,8 +87,13 @@ class Module {
 
     public function save() {
         $save = $this->record->getEntityId() ? 'updateRecords' : 'createRecords';
-        $arr = static::module()->$save([$this->record])->getData();
-        if (!is_array($arr)) return false;
+        $response = static::module()->$save([$this->record]);
+        $arr = $response->getData();
+        if (!isset($arr[0])) {
+          $eR = $response->getEntityResponses()[0];
+          error_log('Zoho CRM API Error: ' . $eR->getMessage());
+          return false;
+        }
         $this->record = $arr[0];
         return true;
     }

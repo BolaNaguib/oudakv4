@@ -1,6 +1,6 @@
 <?php
 
-$defaultHandler = 'ZohoOAuthPersistenceHandler.php';
+$defaultHandler = base_path('ZohoOAuthPersistenceHandler.php');
 
 return [
     // Required

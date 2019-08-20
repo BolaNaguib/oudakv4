@@ -202,7 +202,7 @@ if ($('#productzoom').length) {
             $(this).ajaxSubmit({
                 success: response => {
                     if (handle instanceof Function) handle.call($(this), response);
-                  
+
 
                 },
                 error: jqXHR => {
@@ -319,6 +319,17 @@ if ($('#productzoom').length) {
     }
 </script>
 
+<script type="text/javascript">
+// $(".newpricebutton").attr('checked', function(){
+//
+// })
+
+
+  $(".newpricebutton").on( "click", function() {
+    $("#newprice").text($( this ).attr('value') );
+  console.log( $( this ).attr('value') );
+});
+</script>
 </body>
 
 </html>

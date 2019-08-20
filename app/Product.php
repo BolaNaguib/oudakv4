@@ -27,5 +27,6 @@ class Product extends Model
         $product->Description = $this->main_description;
         $product->Product_Category = $this->belongsTo(ProductCategory::class, 'category')->value('title');
         $product->Product_Code = $this->serial_number;
+
     }
 }

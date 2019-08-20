@@ -78,7 +78,7 @@
           </div>
           <!-- END .uk-card-body -->
           <div class="uk-text-right@m uk-text-center">
-            <a style="color:#fff !important ;" href="/blog/{{ $post->slug }}" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Check Our Blog </a>
+            <a style="color:#fff !important ;" href="/pages/testnew" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Check Our Blog </a>
           </div>
         </div>
         <!-- END .card  -->

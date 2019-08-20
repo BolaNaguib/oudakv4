@@ -76,7 +76,7 @@
 
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                             <img src="" alt="">
-                            <h3 class="uk-margin-small"><button class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
+                            <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
                             @if ($product->initial_description)
                             <p>{{ $product->initial_description }}</p>
 
@@ -95,7 +95,7 @@
                                     <div class="uk-width-auto ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
                                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_1 }}</p>
                                             </div>
@@ -109,7 +109,7 @@
                                     <div class="uk-width-auto ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
                                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
                                             </div>
@@ -123,7 +123,7 @@
                                     <div class="uk-width-auto ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
                                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
                                             </div>

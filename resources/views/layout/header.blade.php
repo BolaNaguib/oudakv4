@@ -91,7 +91,7 @@
     </div><!-- END .navbar_type_top -->
 
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main">
+    <div class="navbar_type_main uk-visible@s">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->
@@ -152,6 +152,64 @@
       </div><!-- END .uk-container -->
       <hr class="uk-margin-remove">
     </div><!-- END navbar_type_main -->
+
+    <!-- START .navbar_type_main -->
+    <div class="navbar_type_main uk-hidden@s">
+      <!-- START .uk-container -->
+      <div class="uk-container uk-container-large">
+        <!-- START uk-navbar -->
+        <nav uk-navbar>
+          <div class="uk-navbar-left">
+            <a class=" uk-navbar-toggle uk-padding-remove-horizontal uk-background-transparent" href="#x3" uk-toggle>
+            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+        </a>
+          </div>
+          <div class="uk-navbar-center">
+            <div class="uk-text-center uk-display-block ">
+              <a href="{{ route('index') }}">
+                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
+                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
+              </a>
+
+
+            </div>
+
+          </div>
+          <!-- START .uk-navbar-right -->
+          <div class="uk-navbar-right">
+            <!-- START .uk-navbar-nav -->
+            <ul class="uk-navbar-nav">
+
+              <li class="uk-position-relative">
+                <a href="{{ route('cart.index') }}">
+                  <span uk-icon="cart"></span>
+                   <span uk-icon="triangle-down"></span>
+                   @if (Cart::instance('default')->count() > 0)
+                   <span class="uk-badge notificationicon">
+                     {{ Cart::instance('default')->count() }}
+                   </span>
+                        @endif</a></li>
+
+                        @if(Auth::user())
+                        <li><a href="{{ route('account') }}"><i class="fas fa-user"></i> </a>
+                          <div class="uk-navbar-dropdown">
+                              <ul class="uk-nav uk-navbar-dropdown-nav">
+                                  <li><a href="{{ route('login') }}" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
+                                  <form action="{{ route('logout') }}" method="POST" id="logoutForm">@csrf</form>
+                              </ul>
+                          </div>
+                        </li>
+                        @else
+                        <li><a href="{{ route('login') }}"><i class="fas fa-user"></i></span> </a>
+                        </li>
+                        @endif
+            </ul><!-- END .uk-navbar-nav -->
+          </div><!-- END .uk-navbar-right -->
+        </nav><!-- END uk-navbar -->
+      </div><!-- END .uk-container -->
+      <hr class="uk-margin-remove">
+    </div><!-- END navbar_type_main -->
+
 
 <section class="section_theme_gray">
   <div class="uk-container uk-container-large">

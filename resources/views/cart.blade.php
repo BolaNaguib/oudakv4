@@ -35,7 +35,7 @@
                 @else
                 <h3>no items in cart</h3>
                 <hr>
-                <a class="uk-button uk-button-default" href="{{ route('shop.index') }}"> Continue Shoping</a>
+                <a class="uk-button uk-button-default" href="{{ route('index') }}"> Continue Shoping</a>
                 @endif
 
                 <!-- START uk-grid -->
@@ -113,10 +113,9 @@
                                 @if (! session()->has('coupon') )
 
                                 <hr>
-                                <button class="uk-button uk-button-default" type="button" uk-toggle="target: #promo; animation:  uk-animation-slide-bottom, uk-animation-slide-bottom">
+                                <button class="uk-button uk-button-default uk-width-expand" type="button">
+                                  {{-- <button class="uk-button uk-button-default uk-width-expand" type="button" uk-toggle="target: #promo; animation:  uk-animation-slide-bottom, uk-animation-slide-bottom"> --}}
                                     Have A Coupon ?</button>
-                                <!-- START #promo -->
-                                <div id="promo" class="" hidden>
                                     <form class="" action="{{ route('coupon.store') }}" method="post">
                                         {{ csrf_field() }}
                                         <div class="uk-inline uk-display-block">
@@ -124,6 +123,9 @@
                                             <input name="coupon_code" class="input uk-width-expand uk-margin-top" id="coupon_code" type="text" placeholder="Enter Promo Code">
                                         </div>
                                     </form>
+                                <!-- START #promo -->
+                                <div id="promo" class="" hidden>
+
 
 
                                     <hr>
@@ -147,8 +149,10 @@
 
                                 </div>
                                 <!-- END div -->
-                                <hr>
-                                <a href="{{ route('checkout.index') }}" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button"> Checkout </a>
+                                @if ( $newTotal )
+                                  <hr>
+                                <a href="{{ route('checkout.index') }}" class="uk-button uk-button-secondary uk-width-expand" type="button" name="button" style="color:#fff !important;"> Checkout </a>
+                              @endif
 
                             </div>
                             <!-- END .card  -->
@@ -169,7 +173,7 @@
                                 <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart" uk-tooltip="title: Give a Heart; pos: left"><span uk-icon="heart"></span></button>
                                 <form class="" action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="post">
                                     {{ csrf_field() }}
-                                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Favorite; pos: left"><span uk-icon="star"></span></button>
+                                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Wishlist; pos: left"><span uk-icon="star"></span></button>
 
                                 </form>
 
@@ -239,12 +243,12 @@
                         @endforeach
                         <br>
                         <hr>
-                        <h3> Favorite Items </h3>
+                        <h3> WishList </h3>
                         <hr>
 
 
                         @if(Cart::instance('saveForLater')->count()>0)
-                            {{ Cart::instance('saveForLater')->count() }} item(s) in Favorites
+                            {{ Cart::instance('saveForLater')->count() }} item(s) in Woshlist
                             @foreach (Cart::instance('saveForLater')->content() as $item )
                             <!-- START .card -->
                             <div class="card card_theme_white card_type_shopingbag uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">

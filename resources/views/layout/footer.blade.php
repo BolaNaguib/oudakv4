@@ -336,16 +336,9 @@ if ($('#productzoom').length) {
 <script type="text/javascript">
 $(window).on("load", function(){
   $('.preloader').fadeOut('slow');
-
-  console.log("test On");
+  console.log("Page Loaded");
 })
-$(window).load(function() {
- console.log("LOADED");
-});
-$( window ).load(function() {
-  // Run code
-  console.log("just later");
-});
+
 </script>
 </body>
 

@@ -11,7 +11,7 @@
         <div class="uk-grid-match" uk-grid>
 
             <!-- START uk-width-1-2 -->
-            <div class="uk-width-1-2">
+            <div class="uk-width-1-2@m uk-width-1-1">
 
                 <!-- START .card -->
                 <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
@@ -57,7 +57,7 @@
                     <h5 class="uk-margin-remove">Product Description</h5>
 
                     <img src="" alt="">
-                    <p>{{ $product->main_description }}</p>
+                    <p>{! $product->main_description !}</p>
                 </div><!-- END .uk-text-center -->
                 @endif
 
@@ -67,8 +67,99 @@
 
 
             <!-- START uk-width-1-2 -->
-            <div class="uk-width-1-2 uk-position-relative">
-                <div class="detail">
+            <div class="uk-width-1-2@m uk-width-1-1 uk-position-relative">
+                <div class="detail uk-visible@m">
+                    <!-- START .uk-text-center -->
+                    <div class="uk-text-center">
+                        <form class="" action="{{ route('cart.store') }}" method="post">
+                            {{ csrf_field() }}
+
+                            <h3 class="uk-margin-remove">{{ $product->title }}</h3>
+                            <img src="" alt="">
+                            <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
+                            @if ($product->initial_description)
+                            <p>{! $product->initial_description !}</p>
+
+                            @endif
+                            <hr>
+
+                            <!-- START .uk-margin -->
+                            <div class=" uk-margin">
+
+                                <h5>Bottles Sizes</h5>
+                                {{-- START uk-grid --}}
+                                <div class="uk-grid uk-flex-center">
+
+                                    @if ($product->size_1)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_1 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                    @endif
+                                    @if ($product->size_2 )
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                    @endif
+                                    @if ($product->size_3 )
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                    @endif
+
+                                </div>
+                                {{-- END uk-grid --}}
+                            </div><!-- END .uk-margin -->
+                            <hr>
+
+                            @if ($product->gifting_option == 1)
+                            <!-- START .uk-margin -->
+                            <div class=" uk-margin">
+                                <h5>Gift Box</h5>
+                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_one) }}" alt="" style="max-height:150px;"></button>
+                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_two) }}" alt="" style="max-height:150px;"></button>
+                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_three) }}" alt="" style="max-height:150px;"></button>
+                            </div><!-- END .uk-margin -->
+                            @endif
+
+
+
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <input type="hidden" name="name" value="{{ $product->title }}">
+                            {{-- <input type="hidden" name="price" value="{{ $product->price }}"> --}}
+                            <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+
+                        </form>
+                    </div><!-- END .uk-text-center -->
+                </div> <!-- END .detail -->
+
+                <div class="uk-hidden@m">
                     <!-- START .uk-text-center -->
                     <div class="uk-text-center">
                         <form class="" action="{{ route('cart.store') }}" method="post">
@@ -158,6 +249,7 @@
                         </form>
                     </div><!-- END .uk-text-center -->
                 </div>
+
             </div><!-- END uk-width-1-2 -->
         </div><!-- END uk-grid -->
     </div><!-- END .uk-container -->
@@ -213,7 +305,7 @@
     <div class="uk-container uk-container-large">
 
         <!-- START uk-grid -->
-        <div class="uk-child-width-1-4" uk-grid>
+        <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-child-width-1-1" uk-grid>
 
             @foreach ($products as $sproduct)
             @if ($product->category == $sproduct->category)

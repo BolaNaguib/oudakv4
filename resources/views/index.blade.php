@@ -143,7 +143,7 @@
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
 
-      {{-- @foreach($longImages as $image)
+      @foreach($longImages as $image)
 
         <img class="" src="{{ asset('storage/'.$image->path) }}" alt="">
 
@@ -157,16 +157,16 @@
 
         @endforeach
       </div>
-  </div> --}}
+  </div>
 
 
 
-  <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200" style="background-image: url('https://1.top4top.net/p_1328k3osu1.jpg'); ">
+  {{-- <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200" style="background-image: url('https://1.top4top.net/p_1328k3osu1.jpg'); ">
 
 <div class="" style="height:600px">
 
 </div>
-  </div>
+  </div> --}}
 
 
     </div>

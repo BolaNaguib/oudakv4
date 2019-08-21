@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- <base href="../dist/" target="_blank"> -->
 <html lang="{{ app()->getLocale() }}" dir="@if(app()->getLocale() =='ar') rtl @else ltr @endif">
-
+  <div class="preloader"></div>
 <head>
   <meta charset="utf-8">
   <meta name="robots" content="nofollow" />
@@ -22,6 +22,20 @@
   <!-- Style -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <script src="https://js.stripe.com/v3/"></script>
+<style media="screen">
+.preloader {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100vh;
+ z-index: 9999;
+ background-image: url('https://5.top4top.net/p_13284bw5v1.gif');
+ background-repeat: no-repeat;
+ background-color: #FFF;
+ background-position: center;
+}
+</style>
 </head>
 
 <body>

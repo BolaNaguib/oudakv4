@@ -330,6 +330,21 @@ if ($('#productzoom').length) {
   console.log( $( this ).attr('value') );
 });
 </script>
+
+<script type="text/javascript">
+$(window).on("load", function(){
+  $('.preloader').fadeOut('slow');
+
+  console.log("test On");
+})
+$(window).load(function() {
+ console.log("LOADED");
+});
+$( window ).load(function() {
+  // Run code
+  console.log("just later");
+});
+</script>
 </body>
 
 </html>

@@ -35,6 +35,9 @@
  background-color: #FFF;
  background-position: center;
 }
+.detail {
+    height: 100%;
+}
 </style>
 </head>
 

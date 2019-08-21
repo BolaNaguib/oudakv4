@@ -203,11 +203,10 @@
 
 <!-- START .section_theme_gray -->
 <section class="uk-section section_theme_gray">
-
     <!-- START .uk-text-center -->
     <div class="uk-text-center uk-margin">
         <h3 class="uk-margin-remove">Similar Products</h3>
-        <img src="images/hrx.png" alt="">
+        <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
     </div><!-- END .uk-text-center -->
 
     <!-- START .uk-container -->
@@ -215,6 +214,7 @@
 
         <!-- START uk-grid -->
         <div class="uk-child-width-1-4" uk-grid>
+
             @foreach ($products as $sproduct)
             @if ($product->category == $sproduct->category)
             @if ($product->slug != $sproduct->slug)

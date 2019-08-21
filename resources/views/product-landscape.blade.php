@@ -2,7 +2,7 @@
 <section class="uk-section">
   <div class="uk-container uk-container uk-text-center">
     <h1>{{ $product->title }} ss</h1>
-    <img src="images/hrx.png" alt="">
+    <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
 
     <p>ssLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
       irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -61,7 +61,7 @@
     <button class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
     <hr>
     <h5>Product Description</h5>
-    <img src="images/hrx.png" alt="">
+    <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
 
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
       irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -73,7 +73,7 @@
   <div class="uk-text-center uk-margin">
     <h3 class="uk-margin-remove">Similar Products</h3>
 
-    <img src="images/hrx.png" alt="">
+    <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
   </div>
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-4" uk-grid>

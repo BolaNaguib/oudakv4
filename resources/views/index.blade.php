@@ -13,7 +13,7 @@
 
         @foreach($main_slider as $image)
         <li>
-          <img class="slider__image" src="{{ asset('storage/'.$image->thumbnail) }}" alt="">
+          <img style="width:100%;" class="slider__image" src="{{ asset('storage/'.$image->thumbnail) }}" alt="">
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
             <h2 uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
@@ -149,15 +149,25 @@
 
       @endforeach --}}
 
-      <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="height:100%;">
+      {{-- <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="height:100%;">
       <div class="">
         @foreach($longImages as $image)
 
-          <img  uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.2;" class="" src="{{ asset('storage/'.$image->path) }}" alt="">
+          <img style="height:100px;"  uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.2;" class="" src="{{ asset('storage/'.$image->path) }}" alt="">
 
         @endforeach
       </div>
+  </div> --}}
+
+
+
+  <div class="uk-height-large uk-background-cover uk-light uk-flex uk-flex-top" uk-parallax="bgy: -200" style="background-image: url('https://1.top4top.net/p_1328k3osu1.jpg'); ">
+
+<div class="" style="height:600px">
+
+</div>
   </div>
+
 
     </div>
   </div>

@@ -153,7 +153,7 @@
       <div class="">
         @foreach($longImages as $image)
 
-          <img  uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;" class="" src="{{ asset('storage/'.$image->path) }}" alt="">
+          <img  uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.2;" class="" src="{{ asset('storage/'.$image->path) }}" alt="">
 
         @endforeach
       </div>

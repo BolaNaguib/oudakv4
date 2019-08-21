@@ -101,11 +101,12 @@
     <div class="uk-container uk-container-large">
         <div class="uk-grid uk-flex uk-flex-middle">
             <div class="uk-width-expand@m uk-width-1-1">
-                <small style="font-size:12px;">{{ setting('cookies.cookies_policy') }}</small>
+              <small class="uk-visible@m" style="font-size:12px;">{{ setting('cookies.cookies_policy') }}</small>
+              <small class="uk-hidden@m"style="font-size:8px;">{{ setting('cookies.cookies_policy') }}</small>
                 <hr style="border-color:#eee;" class="uk-hidden@m">
             </div>
             <div class="uk-width-auto@m uk-width-1-1 uk-text-center">
-                <button class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
+                <button style="font-size:8px;" class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
             </div>
         </div>
 

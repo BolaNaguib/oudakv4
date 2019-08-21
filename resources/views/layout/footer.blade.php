@@ -80,7 +80,7 @@
     padding: 15px 0px;">
     <div class="uk-container uk-container-large">
         <!-- START uk-grid -->
-        <div class="uk-child-width-1-2@m uk-child-width-1-2" uk-grid>
+        <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
             <!-- START .uk-text-left@m -->
             <div class="uk-text-left@m uk-text-center uk-text-small">
                 Copyright © Oudak - All rights reserved 2019
@@ -100,11 +100,12 @@
 <section id="toggle-usage" class="bottom_cookie" style="background-color:#eee; padding:10px 0px;">
     <div class="uk-container uk-container-large">
         <div class="uk-grid uk-flex uk-flex-middle">
-            <div class="uk-width-expand">
+            <div class="uk-width-expand@m uk-width-1-1">
                 <small style="font-size:12px;">{{ setting('cookies.cookies_policy') }}</small>
+                <hr style="border-color:#eee;" class="uk-hidden@m">
             </div>
-            <div class="uk-width-auto">
-                <button class="uk-button uk-button-secondary " type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
+            <div class="uk-width-auto@m uk-width-1-1 uk-text-center">
+                <button class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
             </div>
         </div>
 

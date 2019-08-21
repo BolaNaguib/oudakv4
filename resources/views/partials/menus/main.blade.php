@@ -194,6 +194,29 @@
       <li><a class="sidenav__links mv" href="/incent">incent</a></li>
 </ul>
 </li>
+<li><a class="sidenav__links" href="#">USA <span uk-icon="triangle-down"></span></a></li>
+<li>
+  <li class="uk-parent">
+      <a class="sidenav__links vm" href="">{{ app()->getLocale() }}<span uk-icon="triangle-down"></span> </a>
+      <ul class="uk-nav-sub uk-padding-remove">
+        <?php $params = Route::current()->parameters(); ?>
+        @if(app()->getLocale() =='ar')
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'en')) }}">English</a></li>
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'sp')) }}">Spanish</a></li>
+        @elseif(app()->getLocale() =='sp')
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'en')) }}">English</a></li>
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'ar')) }}">Arabic</a></li>
+        @else
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'ar')) }}">Arabic</a></li>
+          <li><a class="sidenav__links vm" href="{{ route(Route::currentRouteName(), Arr::set($params, 'language', 'sp')) }}">Spanish</a></li>
+        @endif
+  </ul>
+  </li>
+
+<li>                   <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+
+
+</li>
 </ul>
 
 

@@ -46,7 +46,7 @@
   <!-- START header -->
   <header>
     <!-- START .navbar_type_top -->
-    <div class="navbar_type_top">
+    <div class="navbar_type_top uk-visible@s">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->

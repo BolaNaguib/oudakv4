@@ -57,7 +57,7 @@
                     <h5 class="uk-margin-remove">Product Description</h5>
 
                     <img src="" alt="">
-                    <p>{! $product->main_description !}</p>
+                    <p>{!! $product->main_description !!}</p>
                 </div><!-- END .uk-text-center -->
                 @endif
 
@@ -78,7 +78,7 @@
                             <img src="" alt="">
                             <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
                             @if ($product->initial_description)
-                            <p>{! $product->initial_description !}</p>
+                            <p>{!! $product->initial_description !!}</p>
 
                             @endif
                             <hr>

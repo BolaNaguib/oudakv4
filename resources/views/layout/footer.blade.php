@@ -340,6 +340,31 @@ $(window).on("load", function(){
 })
 
 </script>
+<script>
+$(document).scroll(function() {
+  var x = $(document).scrollTop()
+
+
+var mid = document.getElementById('mid');
+var mid_off = mid.offsetTop;
+console.log(mid_off);
+// console.log(mid_off);
+// console.log(document.body.scrollTop);
+// console.log(document.documentElement.scrollTop);
+
+  console.log("is = " + x);
+   if (x > 2000 || x < 2500) {
+       console.log(x);
+        mid.classList.remove('mid-1');
+        mid.classList.add('mid-2');
+   }
+   else if (x > 2500 || x < 3000) {
+       console.log(x);
+     mid.classList.remove('mid-2');
+     mid.classList.add('mid-1');
+   }
+});
+</script>
 </body>
 
 </html>

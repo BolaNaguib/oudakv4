@@ -143,7 +143,7 @@
   <div class="uk-container uk-container-small ">
     <div class="uk-text-center">
 
-      @foreach($longImages as $image)
+    {{--  @foreach($longImages as $image)
 
         <img class="" src="{{ asset('storage/'.$image->path) }}" alt="">
 
@@ -170,7 +170,36 @@
 
 
     </div>
+
+
+    <div id="mid" class="mid-1"></div>
+
   </div>
+
+  <style media="screen">
+
+.mid-1, .mid-2
+{
+   position: relative;
+   background-size: cover;
+   background-image: url('https://oudak.localhost/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+   background-position: center;
+   min-height: 1200px;
+   transition: all 1s ease;
+}
+.mid-2
+{
+   background-image: url('https://oudak.localhost/storage/home-three-images/August2019/gMWEfZjCYU9vNeApuBSO.jpg');
+
+}
+.mid-3{
+  background-image: url('https://oudak.localhost/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+
+}
+
+
+  </style>
+  
 </section>
 <!-- END section -->
 

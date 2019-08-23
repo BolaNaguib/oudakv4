@@ -138,13 +138,13 @@
                           </div>
                         </li>
                         @else
-                        <li><a href="#">login/Register <span uk-icon="triangle-down"></span> </a>
-                          <div class="uk-navbar-dropdown">
+                        <li><a href="{{ route('login') }}">login <span uk-icon="triangle-down"></span> </a>
+                          {{-- <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="{{ route('login') }}">Login</a></li>
                                   <li><a href="{{ route('register') }}">Register</a></li>
                               </ul>
-                          </div>
+                          </div> --}}
                         </li>
                         @endif
             </ul><!-- END .uk-navbar-nav -->

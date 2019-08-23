@@ -149,7 +149,10 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
 // Route::get('/', 'indexController@menu')->name('mainmenu');
 
-
+// 404 Route Handler
+Route::any('{url_param}', function() {
+    abort(404, '404 Error. Page not found!');
+})->where('url_param', '.*');
 });
 
 Route::get('{unlocalizedPath?}', function (Request $request, $unlocalizedPath = '') {

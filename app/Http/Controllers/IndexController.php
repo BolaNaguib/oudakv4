@@ -17,6 +17,20 @@ class IndexController extends Controller
      */
     public function index()
     {
+
+        $to_address = \EasyPost\Address::create(
+            array(
+                "name"    => "Dr. Steve Brule",
+                "street1" => "179 N Harbor Dr",
+                "city"    => "Redondo Beach",
+                "state"   => "CA",
+                "zip"     => "90277",
+                "phone"   => "310-808-5243"
+            )
+        );
+
+        dd($to_address);
+
         $main_slider = MainSlider::get() ;
 
         $products = Product::orderBy('id', 'desc')->take(3)->get();

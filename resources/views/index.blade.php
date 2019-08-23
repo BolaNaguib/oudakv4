@@ -47,7 +47,7 @@
     <!-- START uk-grid -->
     <div class="uk-grid-match uk-grid" uk-grid>
       <!-- START .uk-width-1-3@m -->
-      <div class="uk-width-1-3@m uk-width-1-1">
+      <div class="uk-width-1-3@m uk-width-1-1 uk-flex-first@m uk-flex-last">
         <!-- START .card -->
         <div class="card uk-card-default uk-margin-bottom">
           <!-- START .uk-card-header -->
@@ -199,7 +199,7 @@
 
 
   </style>
-  
+
 </section>
 <!-- END section -->
 

@@ -87,9 +87,9 @@
             </div>
             <!-- END .uk-text-left@m -->
             <!-- START .uk-text-right@m -->
-            <div class="uk-text-right@m uk-text-center uk-text-small">
+            {{-- <div class="uk-text-right@m uk-text-center uk-text-small">
                 Made with <i style="color:red" class="fas fa-heart"></i> By <a style="color:red !important;" target="_blank" href="https://xvxlabs.com"> xvxlabs.com</a>
-            </div>
+            </div> --}}
             <!-- END .uk-text-right@m -->
         </div>
         <!-- END uk-grid -->

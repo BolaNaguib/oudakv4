@@ -18,6 +18,8 @@ class IndexController extends Controller
     public function index()
     {
 
+        \EasyPost\EasyPost::setApiKey(env('EASYPOST_API_KEY', false));
+
         $to_address = \EasyPost\Address::create(
             array(
                 "name"    => "Dr. Steve Brule",

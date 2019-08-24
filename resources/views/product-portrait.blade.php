@@ -76,10 +76,13 @@
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                             <img src="" alt="">
                             <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
+                            <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
                             @if ($product->initial_description)
                             <p>{!! $product->initial_description !!}</p>
 
                             @endif
+                            @if ($product->price_1 || $product->price_2 || $product->price_3)
+
                             <hr>
 
                             <!-- START .uk-margin -->
@@ -88,10 +91,9 @@
                                 <h5>Bottles Sizes</h5>
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
-
-                                    @if ($product->size_1)
+                                    @if ($product->price_1)
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
@@ -103,9 +105,9 @@
                                     </div>
                                     {{-- END .uk-width-auto --}}
                                     @endif
-                                    @if ($product->size_2 )
+                                    @if ($product->price_2 )
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -117,9 +119,9 @@
                                     </div>
                                     {{-- END .uk-width-auto --}}
                                     @endif
-                                    @if ($product->size_3 )
+                                    @if ($product->price_3 )
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -135,6 +137,8 @@
                                 </div>
                                 {{-- END uk-grid --}}
                             </div><!-- END .uk-margin -->
+                          @endif
+
                             <hr>
 
                             @if ($product->gifting_option == 1)
@@ -175,6 +179,7 @@
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                             <img src="" alt="">
                             <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
+                            <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
                             @if ($product->initial_description)
                             <p>{{ $product->initial_description }}</p>
 
@@ -190,7 +195,7 @@
 
                                     @if ($product->size_1)
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
@@ -204,7 +209,7 @@
                                     @endif
                                     @if ($product->size_2 )
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -218,7 +223,7 @@
                                     @endif
                                     @if ($product->size_3 )
                                     {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto ">
+                                    <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -328,10 +333,18 @@
                     <button class="uk-button uk-button-secondary">${{ $sproduct->price }}</button>
                 </div><!-- END .card -->
             </div><!-- END div -->
+
             @endif
+          {{-- @elseif ($product->category != $sproduct->category)
+
+                <div class="uk-width-1-1 uk-text-center">
+                  there is no similar products
+
+                </div> --}}
 
             @endif
             @endforeach
+
 
 
 

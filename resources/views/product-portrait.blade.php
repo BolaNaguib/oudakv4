@@ -153,7 +153,15 @@
                             <input type="hidden" name="id" value="{{ $product->id }}">
                             <input type="hidden" name="name" value="{{ $product->title }}">
                             {{-- <input type="hidden" name="price" value="{{ $product->price }}"> --}}
+                              @if ($product->quantity == 0)
+
+                                <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" disabled> Product is Out Of Stock </button>
+
+                              @endif
+                            @if ($product->quantity != 0)
                             <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+                            @endif
+
 
                         </form>
                     </div><!-- END .uk-text-center -->

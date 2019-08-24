@@ -93,7 +93,7 @@
               <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
               <hr>
               <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
-                <hr>
+                {{-- <hr> --}}
 
               <p>
                 {{$HomeFourBlock->Product1->initial_description}}
@@ -116,7 +116,7 @@
             <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
             <hr>
             <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
-            <hr>
+            {{-- <hr> --}}
             <p>
               {{$HomeFourBlock->Product1->initial_description}}
             </p>

@@ -22,6 +22,11 @@ class Order extends Model
       'billing_tax',
       'billing_total',
       'error',
+      'easy_post_shipment_id',
+      'parcel_length',
+      'parcel_width',
+      'parcel_height',
+      'parcel_weight',
     ];
     //
     public function user()

@@ -45,6 +45,16 @@
     padding: 10px 0px;
     text-align: center;
 }
+.top-promo a {
+  color: #fff !important;
+  text-decoration: none;
+
+}
+.top-promo a:hover {
+  text-decoration: none;
+  color: #ffc600 !important;
+
+}
 </style>
 </head>
 

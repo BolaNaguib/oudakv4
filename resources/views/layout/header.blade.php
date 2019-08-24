@@ -44,7 +44,7 @@
 
 <body>
   <!-- START header -->
-  <header>
+  <header class="" uk-sticky style="background-color: #fcfcfc;">
     <!-- START .navbar_type_top -->
     <div class="navbar_type_top uk-visible@s">
       <!-- START .uk-container -->

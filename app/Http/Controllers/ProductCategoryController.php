@@ -17,7 +17,7 @@ class ProductCategoryController extends Controller
     {
       //
       $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
-      $products = Product::orderBy('id', 'desc')->take(3)->get();
+      $products = Product::orderBy('id', 'desc')->get();
       return view('index')->with('productcategory', $productcategory)->with('products', $products);;
 
         //
@@ -57,7 +57,7 @@ class ProductCategoryController extends Controller
         //
         $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
         $allcat = ProductCategory::orderBy('id', 'desc')->get();
-        $products = Product::orderBy('id', 'desc')->take(3)->get();
+        $products = Product::orderBy('id', 'desc')->get();
         return view('productcategory')->with('productcategory', $productcategory)->with('products', $products)->with('allcat', $allcat);
 
     }

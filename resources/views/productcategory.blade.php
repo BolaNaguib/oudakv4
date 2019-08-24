@@ -176,9 +176,12 @@
         </div>
         <div class="uk-container uk-container-large">
 
+
             <div class="uk-child-width-1-4" uk-grid>
+
                 @foreach ($products as $product)
                 @if ($product->category == $productcategory->id )
+
                 <!-- START div -->
                 <div class="">
                     <!-- START .card -->

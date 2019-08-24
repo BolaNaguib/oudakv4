@@ -39,12 +39,34 @@
 .detail {
     height: 100%;
 }
+.top-promo {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0px;
+    text-align: center;
+}
 </style>
 </head>
 
 <body>
   <!-- START header -->
   <header class="" uk-sticky style="background-color: #fcfcfc;">
+
+@if ( setting('top-navbar.active') )
+  <div id="toggle-animation" class="top-promo uk-position-relative">
+    <div class="uk-container uk-container-large">
+      {{ setting('top-navbar.top_navbar_offer') }}
+    </div>
+    <button href="#toggle-animation" style="    position: absolute;
+  right: 20px;
+  top: 0px;
+  background-color: transparent;
+  border: none;
+  CURSOR: pointer;"
+    type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade">x</button> </div>
+@endif
+
+
     <!-- START .navbar_type_top -->
     <div class="navbar_type_top uk-visible@s">
       <!-- START .uk-container -->

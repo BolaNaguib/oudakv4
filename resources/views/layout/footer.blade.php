@@ -106,7 +106,7 @@
                 <hr style="border-color:#eee;" class="uk-hidden@m">
             </div>
             <div class="uk-width-auto@m uk-width-1-1 uk-text-center">
-                <button style="font-size:8px;" class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
+                <button id="CookiesAccepted" style="font-size:8px;" class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
             </div>
         </div>
 
@@ -185,6 +185,7 @@ if ($('#productzoom').length) {
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 <script>
     function highlightErrors(errors) {
@@ -375,6 +376,26 @@ var mid_off = mid.offsetTop;
      mid.classList.remove('mid-3');
    }
 });
+</script>
+<script type="text/javascript">
+
+$('#CookiesAccepted').on('click', function(){
+
+  Cookies.set('CookiesAccepted', 'yes');
+
+  console.log("clicked");
+});
+
+
+
+
+</script>
+<script type="text/javascript">
+  // cookies conditions
+  if (Cookies.getJSON().CookiesAccepted == "yes") {
+    $('.bottom_cookie').hide();
+    console.log("Cookies Accepted For This session");
+  }
 </script>
 </body>
 

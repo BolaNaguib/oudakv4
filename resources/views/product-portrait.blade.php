@@ -15,16 +15,16 @@
 
                 <!-- START .card -->
                 <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
-                    <button href="#toggle-animation" class="uk-button uk-button-default" type="button"
-                     uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
-    bottom: 5px;
-    z-index: 99;">Ingredients</button>
+                    <button href="#toggle-animation" class="uk-button uk-button-default" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
+                    bottom: 5px;
+                    z-index: 99;">Ingredients</button>
                     <div id="toggle-animation" class="uk-card uk-card-default " style="       position: absolute;
+                    z-index: 9;
     left: 0px;
     top: 0px;
     width: 100%;
     height: 100%;
-    background-color: #fcfcfc;" hidden>
+        background-color: rgba(245, 245, 245, 0.65);" hidden>
                         <div class="">
                             {!! $product->Ingredients !!}
                         </div>
@@ -54,10 +54,9 @@
                 @if ($product->main_description)
                 <!-- START .uk-text-center -->
                 <div class="uk-text-center uk-margin-top">
-                    <h5 class="uk-margin-remove">Product Description</h5>
-
-                    <img src="" alt="">
-                    <p>{!! $product->main_description !!}</p>
+                    <!-- START div -->
+                    <div>{!! $product->main_description !!}</div>
+                    <!-- END div -->
                 </div><!-- END .uk-text-center -->
                 @endif
 
@@ -153,11 +152,11 @@
                             <input type="hidden" name="id" value="{{ $product->id }}">
                             <input type="hidden" name="name" value="{{ $product->title }}">
                             {{-- <input type="hidden" name="price" value="{{ $product->price }}"> --}}
-                              @if ($product->quantity == 0)
+                            @if ($product->quantity == 0)
 
-                                <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" disabled> Product is Out Of Stock </button>
+                            <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" disabled> Product is Out Of Stock </button>
 
-                              @endif
+                            @endif
                             @if ($product->quantity != 0)
                             <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
                             @endif

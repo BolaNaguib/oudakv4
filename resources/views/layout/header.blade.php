@@ -55,7 +55,7 @@
 @if ( setting('top-navbar.active') )
   <div id="toggle-animation" class="top-promo uk-position-relative">
     <div class="uk-container uk-container-large">
-      {{ setting('top-navbar.top_navbar_offer') }}
+      {!! setting('top-navbar.top_navbar_offer') !!}
     </div>
     <button href="#toggle-animation" style="    position: absolute;
   right: 20px;

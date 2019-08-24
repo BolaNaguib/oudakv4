@@ -178,24 +178,28 @@
 
   <style media="screen">
 
-.mid-1, .mid-2
+.mid-1, .mid-2, .mid-3
 {
    position: relative;
    background-size: cover;
-   background-image: url('https://oudak.localhost/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+   background-image: url('https://oudak.com/storage/home-three-images/August2019/lTwCfKje6K4nChjBBo3H.jpg');
    background-position: center;
    min-height: 1200px;
    transition: all 1s ease;
 }
 .mid-2
 {
-   background-image: url('https://oudak.localhost/storage/home-three-images/August2019/gMWEfZjCYU9vNeApuBSO.jpg');
+   background-image: url('https://oudak.com/storage/home-three-images/August2019/LOFhgW5QZQi8pH4OpLl1.jpg');
+   transition: all 1s ease;
 
 }
-.mid-3{
-  background-image: url('https://oudak.localhost/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+.mid-3 {
+  background-image: url('https://oudak.com/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+  transition: all 1s ease;
 
 }
+
+
 
 
   </style>

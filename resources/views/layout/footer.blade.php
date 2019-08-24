@@ -347,21 +347,32 @@ $(document).scroll(function() {
 
 var mid = document.getElementById('mid');
 var mid_off = mid.offsetTop;
-console.log(mid_off);
+// console.log(mid_off);
 // console.log(mid_off);
 // console.log(document.body.scrollTop);
 // console.log(document.documentElement.scrollTop);
 
   console.log("is = " + x);
-   if (x > 2000 || x < 2500) {
-       console.log(x);
-        mid.classList.remove('mid-1');
-        mid.classList.add('mid-2');
+   if (x > 1500 && x < 2000) {
+     console.log("only show between 2000 and 2500 = " + x);
+
+       // console.log(x);
+       mid.classList.remove('mid-1');
+       mid.classList.add('mid-2');
+       mid.classList.remove('mid-3');
    }
-   else if (x > 2500 || x < 3000) {
-       console.log(x);
+   else if (x > 2000 || x < 2500) {
+     console.log("only show between 2500 and 3000 = " + x);
+     // console.log(x);
+     mid.classList.remove('mid-1');
      mid.classList.remove('mid-2');
+     mid.classList.add('mid-3');
+   }
+   else if (x > 3500 ) {
+     console.log("only show between 2500 and 3000 = " + x);
      mid.classList.add('mid-1');
+     mid.classList.remove('mid-2');
+     mid.classList.remove('mid-3');
    }
 });
 </script>

@@ -316,7 +316,7 @@
         <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-child-width-1-1" uk-grid>
 
             @foreach ($products as $sproduct)
-            @if ($product->category == $sproduct->category)
+            @if ($product->product_category_id == $sproduct->product_category_id)
             @if ($product->slug != $sproduct->slug)
             <!-- START div -->
             <div class="">

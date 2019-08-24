@@ -98,7 +98,6 @@
               <p>
                 {{$HomeFourBlock->Product1->initial_description}}
               </p>
-              <h3> Check Our Product </h3>
             </a>
           </div>
           <!-- END .uk-card -->
@@ -121,7 +120,6 @@
             <p>
               {{$HomeFourBlock->Product1->initial_description}}
             </p>
-            <h3> Check Our Products </h3>
           </a>
         </div>
         <!-- END .uk-card -->

@@ -317,7 +317,6 @@
 
             @foreach ($products as $sproduct)
             @if ($product->category == $sproduct->category)
-              {{ $product->category }} - {{ $sproduct->category }}
             @if ($product->slug != $sproduct->slug)
             <!-- START div -->
             <div class="">

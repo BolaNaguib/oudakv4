@@ -59,6 +59,20 @@ class UserProfileController extends Controller
     $products  = Product::all();
     $id=Auth::user()->id;
     $data=UserProfile::find($id);
+
+    $easypost = [];
+    foreach($orders as $order){
+      \EasyPost\EasyPost::setApiKey(env('EASYPOST_API_KEY'));
+
+      if($order->easypost_order_id != null){
+        $easypost_order = \EasyPost\Order::retrieve($order->easypost_order_id);
+        $easypost[] = $easypost_order;
+      }
+
+    }
+
+    dd($easypost);
+
     return view('myorders')
           ->with('orders', $orders )
           ->with('orderproducts', $orderproducts )

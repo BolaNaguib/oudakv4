@@ -23,6 +23,7 @@ class Order extends Model
       'billing_total',
       'error',
       'easy_post_shipment_id',
+      'easypost_order_id',
     ];
     //
     public function user()

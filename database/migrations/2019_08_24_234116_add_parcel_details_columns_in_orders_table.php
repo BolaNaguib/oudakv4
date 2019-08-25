@@ -14,10 +14,10 @@ class AddParcelDetailsColumnsInOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('parcel_length');
-            $table->string('parcel_width');
-            $table->string('parcel_height');
-            $table->string('parcel_weight');
+            $table->string('parcel_length')->nullable();
+            $table->string('parcel_width')->nullable();
+            $table->string('parcel_height')->nullable();
+            $table->string('parcel_weight')->nullable();
         });
     }
 

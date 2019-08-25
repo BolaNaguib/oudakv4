@@ -14,7 +14,7 @@ class AddEasypostShipmentIdColumnInOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            $table->string('easy_post_shipment_id');
+            $table->string('easy_post_shipment_id')->nullable();
         });
     }
 

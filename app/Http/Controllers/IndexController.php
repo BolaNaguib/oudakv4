@@ -18,6 +18,7 @@ class IndexController extends Controller
      */
     public function index()
     {
+
         $main_slider = MainSlider::get() ;
         $products = Product::orderBy('id', 'desc')->take(3)->get();
         $HomeFourBlock = HomeFourBlock::orderBy('id', 'desc')->first();

@@ -17,14 +17,14 @@
             {{-- {{ $product_category-}} --}}
             {{-- {{ $item}} --}}
             @if ($product_category->title == $item->menu_Item )
-              <li><a class="sidenav__links" href="{{ $product_category->slug }}">{{ $item->menu_Item }}</a>
+              <li><a class="sidenav__links" href="/category/{{ $product_category->slug }}">{{ $item->menu_Item }}</a>
 
                 @foreach ($main_menu as $subitem)
                   @if ($subitem->menu_parent == $item->menu_Item)
                     @foreach ($products_categories as $subproduct_category)
-                      <ul> 
+                      <ul>
                       @if ($subproduct_category->title == $subitem->menu_Item && $item->menu_Item == $subitem->menu_parent )
-                        <li><a class="sidenav__links" href="{{ $subproduct_category->slug }}">{{ $subitem->menu_Item }}</a></li>
+                        <li><a class="sidenav__links" href="/category/{{ $subproduct_category->slug }}">{{ $subitem->menu_Item }}</a></li>
                       @endif
                     </ul>
                     @endforeach

@@ -5,7 +5,7 @@
 @if ($cat->parent == $productcategory->id)
 
 <div class="uk-container uk-container-large uk-margin-large">
-    <a href="/{{ $cat->slug }}">
+    <a href="/category/{{ $cat->slug }}">
         <div class="uk-background-center-center uk-height-large uk-width-expand parralexbg" style="background-image: url({{ asset('storage/'.$cat->path) }});">
             <p class="uk-h4 uk-margin-remove uk-light newcattit">{{ $cat->title }}</p>
         </div>

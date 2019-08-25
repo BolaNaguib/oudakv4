@@ -9,6 +9,45 @@
     <h3 class="sidenav__title uk-text-center">Menu</h3>
 
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
+      <li><a class="sidenav__links" href="/">Home</a></li>
+
+      @foreach ($main_menu as $item)
+        @if (! $item->menu_parent)
+          @foreach ($products_categories as $product_category)
+            {{-- {{ $product_category-}} --}}
+            {{-- {{ $item}} --}}
+            @if ($product_category->title == $item->menu_Item )
+              <li><a class="sidenav__links" href="{{ $product_category->slug }}">{{ $item->menu_Item }}</a>
+
+                @foreach ($main_menu as $subitem)
+                  @if ($subitem->menu_parent == $item->menu_Item)
+                    @foreach ($products_categories as $subproduct_category)
+                      <ul> 
+                      @if ($subproduct_category->title == $subitem->menu_Item && $item->menu_Item == $subitem->menu_parent )
+                        <li><a class="sidenav__links" href="{{ $subproduct_category->slug }}">{{ $subitem->menu_Item }}</a></li>
+                      @endif
+                    </ul>
+                    @endforeach
+                  @endif
+
+                @endforeach
+
+            @endif
+
+          @endforeach
+          @endif
+      @if ($item->Page)
+        @foreach ($page_menu as $page )
+          @if ($item->Page == $page->title)
+            <li><a class="sidenav__links" href="pages/{{ $page->slug }}">{{ $page->title }}</a></li>
+          @endif
+
+        @endforeach
+        @endif
+
+
+      @endforeach
+
       {{-- @foreach($items as $menu_item)
           <li><a class="sidenav__links" href="{{ $menu_item->link() }}">{{ $menu_item->title }}</a>
 
@@ -43,7 +82,7 @@
 
             </li>
       @endforeach --}}
-      <li><a class="sidenav__links" href="{{ route('index' ) }}">Home</a></li>
+      {{-- <li><a class="sidenav__links" href="{{ route('index' ) }}">Home</a></li>
       <li><a class="sidenav__links" href="/wood-house">wood-house</a>
         <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">
           <div class="">
@@ -100,7 +139,7 @@
           </div>
 
         </div>
-      </li>
+      </li> --}}
 
       {{-- <li><a class="sidenav__links" href="#">Product grid</a>
         <div class="" uk-drop="pos: right-top" style="    min-width: 950px;">

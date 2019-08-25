@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductCategory;
 use App\MainMenu;
 use View;
+use App\Page;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -26,7 +27,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $products_menu = Product::get();
+        $products_categories = ProductCategory::get();
+        $main_menu = MainMenu::get() ;
+        $page_menu = Page::get();
         $this->applyVoyagerMailSettings();
+        view()->share('main_menu', $main_menu );
+        view()->share('products_categories', $products_categories );
+        view()->share('products_menu', $products_menu );
+        view()->share('page_menu', $page_menu );
+
+
     }
 
     public function applyVoyagerMailSettings() {

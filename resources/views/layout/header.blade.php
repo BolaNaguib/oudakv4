@@ -275,3 +275,6 @@
 {{ $item->menu_Item }}
 <hr>
 @endforeach --}}
+
+
+{{-- {{ $main_menu }} --}}

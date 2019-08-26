@@ -64,10 +64,17 @@
           </div>
 
           <div class="uk-text-center uk-margin">
-            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'facebook') }}';"> Register using Facebook </button>
+            <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
+              <div class="">
+                <button class="fbstyle uk-width-expand" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'facebook') }}';"><i class="fab fa-facebook"></i> | Register using Facebook </button>
 
-            <button class="uk-button uk-button-default" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'google') }}';"> Register using Google </button>
-          </div>
+              </div>
+<div class="">
+  <button class="googlestyle uk-width-expand" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'google') }}';"><i class="fab fa-google"></i> | Register using Google </button>
+
+</div>
+
+            </div>  </div>
 
         </form>
       </div>

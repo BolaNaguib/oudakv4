@@ -6,7 +6,7 @@
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
       <div class="">
-        <h3 class="">Login x</h3>
+        <h3 class="">Login</h3>
         <span class="uk-margin">If you are an exsisting customer login</span>
         <hr>
         <form class="uk-form-horizontal" action="{{ route('login') }}" method="post">
@@ -36,7 +36,7 @@
 
           <div class="uk-text-center uk-margin">
             <hr>
-            <div class="uk-child-width-1-2" uk-grid>
+            <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
               <div class="">
                 <button class="fbstyle uk-width-expand" type="button" onclick="window.location.href = '{{ route('socialite.redirect', 'facebook') }}';"><i class="fab fa-facebook"></i> | Login using Facebook </button>
 

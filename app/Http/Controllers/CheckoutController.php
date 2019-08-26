@@ -140,7 +140,7 @@ class CheckoutController extends Controller
                 ),
               )
           ));
-
+          // dd($easyPostOrder);
           $order->easypost_order_id = $easyPostOrder->id;
 
           // Create EASYPOST Order End

@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $products_menu = Product::get();
         $products_categories = ProductCategory::get();
-        $main_menu = MainMenu::get() ;
+        $main_menu = MainMenu::orderBy('Item_order','desc')->get() ;
         $page_menu = Page::get();
         $this->applyVoyagerMailSettings();
         view()->share('main_menu', $main_menu );

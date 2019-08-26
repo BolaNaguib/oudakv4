@@ -55,6 +55,9 @@
   color: #ffc600 !important;
 
 }
+ul li:last-of-type{
+  border-bottom: none;
+}
 </style>
 </head>
 

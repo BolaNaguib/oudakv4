@@ -92,14 +92,14 @@
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
                                   @for ($i=1; $i < 7; $i++)
-                                    @if ($product->price_.''$i)
+                                    @if ($product->price_.''.$i)
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_.''$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_.''$i }}</p>
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_.''.$i }}</p>
                                             </div>
                                         </div>
                                         {{-- END .uk-position-relative --}}
@@ -107,7 +107,7 @@
                                     {{-- END .uk-width-auto --}}
                                     @endif
                                   @endfor
-                                
+
 
                                 </div>
                                 {{-- END uk-grid --}}

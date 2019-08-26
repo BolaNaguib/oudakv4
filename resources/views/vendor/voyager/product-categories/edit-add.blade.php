@@ -15,7 +15,10 @@
       .customstyle-first_section_description,
       /* .customstyle-first_section_video */
       .customstyle-product_category_belongsto_product_relationship{
-        width: 33%;
+        width: 50%;
+      }
+      .customstyle-product_category_belongsto_product_relationship_1{
+        width: 50%;
       }
     </style>
 @stop

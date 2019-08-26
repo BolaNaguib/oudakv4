@@ -193,7 +193,7 @@
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
 
-                                    @if ($product->size_1)
+                                    @if ($product->price_1)
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
@@ -207,7 +207,7 @@
                                     </div>
                                     {{-- END .uk-width-auto --}}
                                     @endif
-                                    @if ($product->size_2 )
+                                    @if ($product->price_2 )
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
@@ -221,7 +221,7 @@
                                     </div>
                                     {{-- END .uk-width-auto --}}
                                     @endif
-                                    @if ($product->size_3 )
+                                    @if ($product->price_3 )
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}

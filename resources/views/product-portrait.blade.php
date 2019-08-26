@@ -81,7 +81,7 @@
                             <p>{!! $product->initial_description !!}</p>
 
                             @endif
-                            @if ($product->price_1 || $product->price_2 || $product->price_3)
+                            @if ($product->price_1 || $product->price_2 || $product->price_3 || $product->price_4 || $product->price_5 || $product->price_6)
 
                             <hr>
 
@@ -91,48 +91,23 @@
                                 <h5>Bottles Sizes</h5>
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
-                                    @if ($product->price_1)
+                                  @for ($i=1; $i < 7; $i++)
+                                    @if ($product->price_.''$i)
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_.''$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_1 }}</p>
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_.''$i }}</p>
                                             </div>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
                                     {{-- END .uk-width-auto --}}
                                     @endif
-                                    @if ($product->price_2 )
-                                    {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
-                                        {{-- START .uk-position-relative --}}
-                                        <div class="uk-position-relative">
-                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
-                                            </div>
-                                        </div>
-                                        {{-- END .uk-position-relative --}}
-                                    </div>
-                                    {{-- END .uk-width-auto --}}
-                                    @endif
-                                    @if ($product->price_3 )
-                                    {{-- START uk-width-auto --}}
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
-                                        {{-- START .uk-position-relative --}}
-                                        <div class="uk-position-relative">
-                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
-                                            </div>
-                                        </div>
-                                        {{-- END .uk-position-relative --}}
-                                    </div>
-                                    {{-- END .uk-width-auto --}}
-                                    @endif
+                                  @endfor
+                                
 
                                 </div>
                                 {{-- END uk-grid --}}
@@ -157,6 +132,7 @@
                                                     <div class="uk-position-relative  uk-button" style="   ">
                                                       <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price.''.$i }} </small>
                                                     </div>
                                                 </div>
                                                 {{-- END .uk-position-relative --}}
@@ -167,10 +143,7 @@
 
                                 @endforeach
                               </div>
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_one) }}" alt="" style="max-height:150px;"></button>
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_two) }}" alt="" style="max-height:150px;"></button>
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_three) }}" alt="" style="max-height:150px;"></button>
-                            </div><!-- END .uk-margin -->
+                              </div><!-- END .uk-margin -->
                             @endif
 
 
@@ -267,20 +240,29 @@
                             <!-- START .uk-margin -->
                             <div class=" uk-margin">
                                 <h5>Gift Box</h5>
+                                <div class="uk-grid uk-flex-center">
+
                                 @foreach ($giftbox as $item )
                                 @for ($i=1; $i < 7; $i++)
-                                  @if ($product->gift_.''.$i)
-                                            {{ $item->title }}
+                                  @if ($product->gift_.''.$i == $item->id )
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price.''.$i }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
                                   @endif
 
                                 @endfor
 
                                 @endforeach
-                                {{-- {{ $product }} --}}
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_one) }}" alt="" style="max-height:150px;"></button>
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_two) }}" alt="" style="max-height:150px;"></button>
-                                <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_three) }}" alt="" style="max-height:150px;"></button>
-                            </div><!-- END .uk-margin -->
+                              </div></div><!-- END .uk-margin -->
                             @endif
 
 

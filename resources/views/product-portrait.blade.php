@@ -181,7 +181,7 @@
                             <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
                             <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
                             @if ($product->initial_description)
-                            <p>{{ $product->initial_description }}</p>
+                            <p>{!! $product->initial_description !!}</p>
 
                             @endif
                             <hr>

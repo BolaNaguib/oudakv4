@@ -11,3 +11,31 @@ html{color:#1c1f2a;font-family:Merriweather,serif}*,button,input{font-smoothing:
 .uk-nav-default li {
   border-bottom: 1px solid #eee;
 }
+.fbstyle{
+  background-color: #4267b2;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+
+}
+.fbstyle:hover{
+background-color: #1e3d7d;
+transition: 300ms;
+}
+.googlestyle{
+  background-color: #b50909;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  transition: 300ms;
+
+}
+.googlestyle:hover{
+background-color: #880a0a;
+transition: 300ms;
+}

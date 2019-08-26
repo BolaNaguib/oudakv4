@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
-
+use App\GiftBox;
 class ShopController extends Controller
 {
     /**
@@ -49,9 +49,13 @@ class ShopController extends Controller
     {
         // to Show Product Info
         $product = Product::where('slug', $slug)->firstOrFail();
+        $giftbox = GiftBox::get();
         //  To fetch similar products
         $products = Product::orderBy('id', 'desc')->get();
-        return view('product-portrait')->with('product', $product)->with('products', $products);
+        return view('product-portrait')
+        ->with('product', $product)
+        ->with('products', $products)
+        ->with('giftbox', $giftbox);
     }
 
     public function search(Request $request)

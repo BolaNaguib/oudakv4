@@ -185,6 +185,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                         @foreach ($giftbox as $item )
 
                           @if ($product->gift_1)
+                              @if ($product->gift_1 == $item->id)
 
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
@@ -198,9 +199,12 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
+                                  @endif
 
                           @endif
-                          @if ($product->gift_2 == $item->id)
+                          @if ($product->gift_2)
+                            @if ($product->gift_2 == $item->id)
+
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
@@ -213,8 +217,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
-                          @endif
-                          @if ($product->gift_3 == $item->id)
+                                  @endif
+                                @endif
+                          @if ($product->gift_3)
+                            @if ($product->gift_3 == $item->id)
+
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
@@ -227,8 +234,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
-                          @endif
-                          @if ($product->gift_4 == $item->id)
+                                  @endif
+                                @endif
+                          @if ($product->gift_4)
+                            @if ($product->gift_4 == $item->id)
+
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
@@ -241,8 +251,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
-                          @endif
-                          @if ($product->gift_5 == $item->id)
+                                  @endif
+                                @endif
+                          @if ($product->gift_5)
+                            @if ($product->gift_5 == $item->id)
+
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
@@ -255,8 +268,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
-                          @endif
-                          @if ($product->gift_6 == $item->id)
+                                  @endif
+                                @endif
+                          @if ($product->gift_6)
+                            @if ($product->gift_6 == $item->id)
+
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
@@ -269,7 +285,8 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
-                          @endif
+                                  @endif
+                                @endif
 
 
                         @endforeach

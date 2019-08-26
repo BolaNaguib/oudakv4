@@ -150,13 +150,12 @@
                                 @foreach ($giftbox as $item )
                                 @for ($i=1; $i < 7; $i++)
                                   @if ($product->gift_.''.$i == $item->id )
-                                            {{ $item->title }}
                                             <div class="uk-width-auto@m uk-width-1-1 ">
                                                 {{-- START .uk-position-relative --}}
                                                 <div class="uk-position-relative">
-                                                    <input type="radio" name="price" class="newpricebutton" value="{{ $product->gift_price.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                                    <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:150px;">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                                     </div>
                                                 </div>

@@ -87,26 +87,94 @@
 
                             <!-- START .uk-margin -->
                             <div class=" uk-margin">
-                              {{ $product }}
                                 <h5>Bottles Sizes</h5>
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
-                                  @for ($i=1; $i < 7; $i++)
-                                    @if ($product->price_.''.$i != null )
+
+                                @if ($product->price_1)
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
-                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;" checked>
                                             <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_.''.$i }}</p>
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_1 }}</p>
                                             </div>
                                         </div>
                                         {{-- END .uk-position-relative --}}
                                     </div>
                                     {{-- END .uk-width-auto --}}
-                                    @endif
-                                  @endfor
+                                @endif
+                                @if ($product->price_2)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_2 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                @endif
+                                @if ($product->price_3)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_3 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                @endif
+                                @if ($product->price_4)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_4 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                @endif
+                                @if ($product->price_5)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_5 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                @endif
+                                @if ($product->price_6)
+                                    {{-- START uk-width-auto --}}
+                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                        {{-- START .uk-position-relative --}}
+                                        <div class="uk-position-relative">
+                                            <input type="radio" name="price" class="newpricebutton" value="{{ $product->price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                            <div class="uk-position-relative uk-flex uk-flex-middle uk-flex-center uk-button" style="   ">
+                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $product->size_6 }}</p>
+                                            </div>
+                                        </div>
+                                        {{-- END .uk-position-relative --}}
+                                    </div>
+                                    {{-- END .uk-width-auto --}}
+                                @endif
 
 
                                 </div>
@@ -123,23 +191,91 @@
                                 <div class="uk-grid uk-flex-center">
 
                                 @foreach ($giftbox as $item )
-                                @for ($i=1; $i < 7; $i++)
-                                  @if ($product->gift_.''.$i == $item->id )
+                                  @if ($product->gift_1 == $item->id)
                                             <div class="uk-width-auto@m uk-width-1-1 ">
                                                 {{-- START .uk-position-relative --}}
                                                 <div class="uk-position-relative">
-                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price.''.$i }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                                     <div class="uk-position-relative  uk-button" style="   ">
                                                       <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
-                                                        <small> {{ $product->gift_price.''.$i }} </small>
+                                                        <small> {{ $product->gift_price_1 }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
+                                  @endif
+                                  @if ($product->gift_2 == $item->id)
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price_2 }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
+                                  @endif
+                                  @if ($product->gift_3 == $item->id)
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price_3 }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
+                                  @endif
+                                  @if ($product->gift_4 == $item->id)
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price_4 }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
+                                  @endif
+                                  @if ($product->gift_5 == $item->id)
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price_5 }} </small>
+                                                    </div>
+                                                </div>
+                                                {{-- END .uk-position-relative --}}
+                                            </div>
+                                  @endif
+                                  @if ($product->gift_6 == $item->id)
+                                            <div class="uk-width-auto@m uk-width-1-1 ">
+                                                {{-- START .uk-position-relative --}}
+                                                <div class="uk-position-relative">
+                                                    <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                                                    <div class="uk-position-relative  uk-button" style="   ">
+                                                      <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
+                                                        <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                        <small> {{ $product->gift_price_6 }} </small>
                                                     </div>
                                                 </div>
                                                 {{-- END .uk-position-relative --}}
                                             </div>
                                   @endif
 
-                                @endfor
 
                                 @endforeach
                               </div>

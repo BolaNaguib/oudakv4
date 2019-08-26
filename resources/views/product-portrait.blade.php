@@ -245,6 +245,7 @@
                             <!-- START .uk-margin -->
                             <div class=" uk-margin">
                                 <h5>Gift Box</h5>
+                                {{ $product }}
                                 <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_one) }}" alt="" style="max-height:150px;"></button>
                                 <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_two) }}" alt="" style="max-height:150px;"></button>
                                 <button class="uk-button uk-button-default uk-padding-small"><img src="{{ asset('storage/'.$product->gift_icon_three) }}" alt="" style="max-height:150px;"></button>

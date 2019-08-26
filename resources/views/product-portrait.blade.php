@@ -87,12 +87,12 @@
 
                             <!-- START .uk-margin -->
                             <div class=" uk-margin">
-
+                              {{ $product }}
                                 <h5>Bottles Sizes</h5>
                                 {{-- START uk-grid --}}
                                 <div class="uk-grid uk-flex-center">
                                   @for ($i=1; $i < 7; $i++)
-                                    @if ($product->price_.''.$i)
+                                    @if ($product->price_.''.$i != null )
                                     {{-- START uk-width-auto --}}
                                     <div class="uk-width-auto@m uk-width-1-1 ">
                                         {{-- START .uk-position-relative --}}

@@ -24,7 +24,25 @@
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
         @if ($productcategory->Image_or_video == "image")
-        <img src="{{ asset('storage/'.$productcategory->path) }}" alt="" style="width:100%">
+          <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{ asset('storage/'.$productcategory->path) }}');">
+            <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+              @if ($productcategory->media_title)
+                <h1 style="    background-color: #000000bf;
+    display: initial;
+    padding: 5px;" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.2;">{{ $productcategory->media_title }}</h1>
+              @endif
+              @if ($productcategory->media_caption)
+                <hr style="border:none;">
+                            <p style="    background-color: #000000bf;
+                display: initial;
+                padding: 5px;
+                line-height: 2;" uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.2;">{{ $productcategory->media_caption }}</p>
+              @endif
+
+
+            </div>
+        </div>
+        {{-- <img src="{{ asset('storage/'.$productcategory->path) }}" alt="" style="width:100%"> --}}
         @elseif ($productcategory->Image_or_video == "video")
         <video width="100%" controls>
             <source src="{{ asset('storage/'.$productcategory->path) }}" type="video/mp4">

@@ -18,10 +18,10 @@
     <p> {{ $products->count() }} reult(s) for {{ request()->input('query') }} </p>
 
     <section class="uk-section ">
-  
+
       <div class="uk-container uk-container-large">
 
-        <div class="uk-child-width-1-4" uk-grid>
+        <div class="uk-child-width-1-4@m uk-width-1-1" uk-grid>
           @foreach ($products as $product)
               <!-- START div -->
               <div class="">

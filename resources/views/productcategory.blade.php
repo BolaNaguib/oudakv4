@@ -204,7 +204,7 @@
                 <div class="">
                     <!-- START .card -->
                     <div class="card card_theme_white uk-text-center">
-                        <a href="shop/{{ $product->slug }}">
+                        <a href="/shop/{{ $product->slug }}">
                             <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:250px;">
                             <h3 class="">{{ $product->title }}</h3>
                         </a>

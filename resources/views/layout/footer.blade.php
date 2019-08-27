@@ -400,6 +400,18 @@ $('#CookiesAccepted').on('click', function(){
     console.log("Cookies Accepted For This session");
   }
 </script>
+<script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>
+<script>
+var truepush = window.truepush || [];
+truepush.push(function(){
+    truepush.Init({
+        id: "5d64844d0f8aa6713b40dda5"
+        },
+        function(error){
+          if(error) console.log(error);
+        })
+    })
+</script>
 </body>
 
 </html>

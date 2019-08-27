@@ -43,7 +43,7 @@
                     <!-- START .uk-width-1-3@m -->
                     <div class="uk-width-1-3@m uk-width-1-1">
                         <!-- START .section_theme_gray -->
-                        <div class="section_theme_gray card" style="z-index: 980;" uk-sticky="offset: 20; bottom: #container-2">
+                        <div class="section_theme_gray card" style="z-index: 979;" uk-sticky="offset: 20; bottom: #container-2">
                             <!-- START card  -->
                             <div class="card card_theme_white">
                                 <h3>Order Summary</h3>

@@ -386,7 +386,13 @@ $('#CookiesAccepted').on('click', function(){
 
   Cookies.set('CookiesAccepted', 'yes');
 
-  console.log("clicked");
+  console.log("Cookies Accepted");
+});
+$('#PromoAccepted').on('click', function(){
+
+  Cookies.set('PromoAccepted', 'yes');
+
+  console.log("closed Promo code ");
 });
 
 
@@ -395,9 +401,13 @@ $('#CookiesAccepted').on('click', function(){
 </script>
 <script type="text/javascript">
   // cookies conditions
-  if (Cookies.getJSON().CookiesAccepted == "yes") {
+  if (Cookies.getJSON().CookiesAccepted == "yes" ) {
     $('.bottom_cookie').hide();
     console.log("Cookies Accepted For This session");
+  }
+  if (Cookies.getJSON().PromoAccepted == "yes" ) {
+    $('.top_promo').hide();
+    console.log("Promo Closed For This session");
   }
 </script>
 <script type="application/javascript" src="https://sdk.truepush.com/sdk/v2/app.js"></script>

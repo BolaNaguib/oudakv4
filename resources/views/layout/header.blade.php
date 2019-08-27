@@ -68,11 +68,11 @@ ul li:last-of-type{
   <header class="" uk-sticky style="background-color: #fcfcfc;">
 
 @if ( setting('top-navbar.active') )
-  <div id="toggle-animation" class="top-promo uk-position-relative">
+  <div id="toggle-animation" class="top-promo top_promo uk-position-relative">
     <div class="uk-container uk-container-large">
       {!! setting('top-navbar.top_navbar_offer') !!}
     </div>
-    <button href="#toggle-animation" style="    position: absolute;
+    <button id="PromoAccepted" href="#toggle-animation" style="    position: absolute;
   right: 20px;
   top: 0px;
   background-color: transparent;

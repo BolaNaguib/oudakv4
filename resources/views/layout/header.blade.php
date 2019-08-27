@@ -59,6 +59,7 @@ ul li:last-of-type{
   border-bottom: none;
 }
 </style>
+@laravelPWA
 </head>
 
 <body>

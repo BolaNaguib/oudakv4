@@ -17,6 +17,7 @@
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
         "pvtl/voyager-blog": "^0.2.7",
+        "silviolleite/laravelpwa": "^1.0",
         "torann/geoip": "^1.0",
         "zohocrm/php-sdk": "^2.0"
     },

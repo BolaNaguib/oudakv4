@@ -95,7 +95,26 @@
     <br>
     <br>
     <h3 class="sidenav__title uk-text-center">Menu</h3>
+    <section class="section_theme_gray">
+      <div class="uk-container uk-container-large">
+        <div class="nav-overlayx uk-navbar-left uk-flex-1" hidden>
+
+             <div class="uk-navbar-item uk-width-expand">
+                 <form action="{{ route('search') }}" method="get" class="uk-search uk-search-navbar uk-width-1-1" role="search">
+                   {{-- {{ csrf_field() }} --}}
+                     <input style="color:#000;" id="query" name="query" value="{{ request()->input('query') }}" class="uk-search-input" type="text" placeholder="Search..." autofocus>
+                 </form>
+
+             </div>
+
+             <a class="uk-navbar-toggle" uk-close uk-toggle="target: .nav-overlayx; animation: uk-animation-fade" href="#"></a>
+
+         </div>
+      </div>
+
+    </section>
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
+      <li><a class="sidenav__links" href="/">Home</a></li>
 
       @foreach ($main_menu as $item)
         @if (! $item->menu_parent)
@@ -187,7 +206,7 @@
   </ul>
   </li>
 
-<li>                   <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlay; animation: uk-animation-fade" href="#"></a>
+<li>                   <a class="uk-navbar-toggle" uk-search-icon uk-toggle="target: .nav-overlayx; animation: uk-animation-fade" href="#"></a>
 
 
 </li>

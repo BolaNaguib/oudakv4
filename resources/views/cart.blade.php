@@ -182,8 +182,8 @@
                             </div><!-- END uk-position-top-right -->
 
                             <div class=" uk-flex uk-flex-bottom" uk-grid>
-                                <!-- START .uk-width-1-3@m -->
-                                <div class="uk-width-1-4@m uk-width-1-1">
+                                <!-- START .uk-width-1-4@m -->
+                                <div class="uk-width-1-4@m uk-width-1-1 uk-text-center">
                                     <a href="{{ route('shop.show', $item->model->slug) }}">
                                         <img src="{{ asset('storage/'.$item->model->thumbnail) }}" alt="" style="max-height:250px;">
                                     </a>

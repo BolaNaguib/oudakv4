@@ -113,27 +113,28 @@
                                 @if (! session()->has('coupon') )
 
                                 <hr>
-                                <button class="uk-button uk-button-default uk-width-expand" type="button">
-                                  {{-- <button class="uk-button uk-button-default uk-width-expand" type="button" uk-toggle="target: #promo; animation:  uk-animation-slide-bottom, uk-animation-slide-bottom"> --}}
+                                {{-- <button id="bx" class="uk-button uk-button-default uk-width-expand" type="button"> --}}
+                                  <button class="uk-button uk-button-default uk-width-expand" type="button" uk-toggle="target: #promo; animation:  uk-animation-slide-bottom, uk-animation-slide-bottom">
                                     Have A Coupon ?</button>
-                                    <form class="" action="{{ route('coupon.store') }}" method="post">
-                                        {{ csrf_field() }}
-                                        <div class="uk-inline uk-display-block">
-                                            <button class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="arrow-right" style="    bottom: -20px;"></button>
-                                            <input name="coupon_code" class="input uk-width-expand uk-margin-top" id="coupon_code" type="text" placeholder="Enter Promo Code">
-                                        </div>
-                                    </form>
+                                    {{-- $('#bx').on('click', function(){ $('#formx').show() }); --}}
+
                                 <!-- START #promo -->
                                 <div id="promo" class="" hidden>
 
+                                  <form id="formx" class="" action="{{ route('coupon.store') }}" method="post">
+                                      {{ csrf_field() }}
+                                      <div class="uk-inline uk-display-block">
+                                          <button class="uk-form-icon uk-form-icon-flip" href="#" uk-icon="arrow-right" style="    bottom: -20px;"></button>
+                                          <input name="coupon_code" class="input uk-width-expand uk-margin-top" id="coupon_code" type="text" placeholder="Enter Promo Code">
+                                      </div>
+                                  </form>
 
-
-                                    <hr>
+                                    {{-- <hr>
                                     <!-- START .uk-button -->
                                     <div class="uk-button uk-button-secondary uk-width-expand">
                                         <span>Total Price : </span>
                                         <b class=""> $ 80 </b>
-                                    </div>
+                                    </div> --}}
                                     <!-- END .uk-button -->
                                 </div>
                                 <!-- END #promo -->

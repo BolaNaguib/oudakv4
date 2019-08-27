@@ -142,11 +142,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_1)
                               @if ($product->gift_1 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                               <br>
@@ -161,11 +161,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_2)
                             @if ($product->gift_2 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
@@ -180,11 +180,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_3)
                             @if ($product->gift_3 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                                 <br>
@@ -198,11 +198,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_4)
                             @if ($product->gift_4 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                                 <br>
@@ -216,11 +216,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_5)
                             @if ($product->gift_5 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
@@ -234,11 +234,11 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                           @if ($product->gift_6)
                             @if ($product->gift_6 == $item->id)
 
-                                    <div class="uk-width-auto@m uk-width-1-1 ">
+                                    <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                                         {{-- START .uk-position-relative --}}
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
-                                            <div class="uk-position-relative  uk-button" style="   ">
+                                            <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                               <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">

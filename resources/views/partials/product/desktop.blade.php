@@ -192,8 +192,9 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                              <br>
                                                 <small> {{ $product->gift_price_1 }} </small>
                                             </div>
                                         </div>
@@ -210,8 +211,10 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                              <br>
                                                 <small> {{ $product->gift_price_2 }} </small>
                                             </div>
                                         </div>
@@ -227,8 +230,9 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                <br>
                                                 <small> {{ $product->gift_price_3 }} </small>
                                             </div>
                                         </div>
@@ -244,8 +248,9 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+                                                <br>
                                                 <small> {{ $product->gift_price_4 }} </small>
                                             </div>
                                         </div>
@@ -261,9 +266,10 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
-                                                <small> {{ $product->gift_price_5 }} </small>
+<br>                                                <small> {{ $product->gift_price_5 }} </small>
                                             </div>
                                         </div>
                                         {{-- END .uk-position-relative --}}
@@ -278,9 +284,10 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <div class="uk-position-relative">
                                             <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                                             <div class="uk-position-relative  uk-button" style="   ">
+                                              <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
+
                                               <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                                <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
-                                                <small> {{ $product->gift_price_6 }} </small>
+<br>                                                <small> {{ $product->gift_price_6 }} </small>
                                             </div>
                                         </div>
                                         {{-- END .uk-position-relative --}}

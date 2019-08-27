@@ -7,7 +7,7 @@
     <div class="uk-width-1-2@m uk-width-1-1">
       @if ($product->gifting_option == 1)
       <!-- START .uk-margin -->
-      <div class=" uk-margin">
+      <div class="uk-text-center uk-margin">
           <h5>Gift Box</h5>
           <div class="uk-grid uk-flex-center">
 

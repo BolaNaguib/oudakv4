@@ -103,45 +103,95 @@ class CheckoutController extends Controller
           // Create EASYPOST Order START
           \EasyPost\EasyPost::setApiKey(env('EASYPOST_API_KEY'));
 
-          $to_address = array(
-            "street1" => $request->address,
-            "city"    => $request->city,
-            "state"   => $request->state,
-            "zip"     => $request->zipcode,
-            "country" => "US",
-            "phone"   => $request->phone,
-            "verify"  => array("delivery"),
+          $to_address = \EasyPost\Address::create(
+              array(
+                  "name"    => "Dirk Diggler",
+                  "street1" => "$request->address",
+                  // "street2" => "Apt 20",
+                  "city"    => $request->city,
+                  "state"   => $request->state,
+                  "zip"     => $request->zipcode,
+                  "phone"   => $request->phone
+              )
           );
-// 777 Brockton Avenue, Abington MA 2351
-          $from_address = array(
-            "street1" => '777 Brockton Avenue',
-            "city"    => 'Abington',
-            "state"   => 'MA',
-            "zip"     => '2351',
-            "country" => "US",
-            "phone"   => '+14533342243'
+          // dd($to_address);
+
+          $from_address = \EasyPost\Address::create(
+              array(
+                  "company" => "Simpler Postage Inc",
+                  "street1" => "764 Warehouse Ave",
+                  "city"    => "Kansas City",
+                  "state"   => "KS",
+                  "zip"     => "66101",
+                  "phone"   => "620-123-4567"
+              )
           );
 
-          $easyPostOrder = \EasyPost\Order::create(array(
-              "to_address" => $to_address,
-              "from_address" => $from_address,
-              "shipments" => array(
-                array(
-                    "parcel" => array(
-                        "predefined_package" => "FedExBox",
-                        "weight" => 10.2
-                    )
-                ),
-                array(
-                    "parcel" => array(
-                        "predefined_package" => "FedExBox",
-                        "weight" => 17.5
-                    )
-                ),
+          // dd($from_address);
+          $parcel = \EasyPost\Parcel::create(
+              array(
+                  "predefined_package" => "LargeFlatRateBox",
+                  "weight" => 76.9
               )
-          ));
-          // dd($easyPostOrder);
-          $order->easypost_order_id = $easyPostOrder->id;
+          );
+          $shipment = \EasyPost\Shipment::create(
+              array(
+                  "to_address"   => $to_address,
+                  "from_address" => $from_address,
+                  "parcel"       => $parcel
+              )
+          );
+
+          // $rate = \EasyPost\Rate::retrieve($shipment->lowest_rate());
+          // dd($rate);
+          // print_r($rate);
+          dd($shipment);
+
+          $shipment->buy($shipment->lowest_rate());
+
+          $shipment->insure(array('amount' => 100));
+
+          // echo $shipment->postage_label->label_url;
+          // var_dump($shipment->postage_label->label_url);
+          // $to_address = array(
+          //   "street1" => $request->address,
+          //   "city"    => $request->city,
+          //   "state"   => $request->state,
+          //   "zip"     => $request->zipcode,
+          //   "country" => "US",
+          //   "phone"   => $request->phone,
+          //   // "verify"  => array("delivery"),
+          // );
+          // // 777 Brockton Avenue, Abington MA 2351
+          // $from_address = array(
+          //   "street1" => '777 Brockton Avenue',
+          //   "city"    => 'Abington',
+          //   "state"   => 'MA',
+          //   "zip"     => '2351',
+          //   "country" => "US",
+          //   "phone"   => '+14533342243'
+          // );
+          //
+          // $easyPostOrder = \EasyPost\Order::create(array(
+          //     "to_address" => $to_address,
+          //     "from_address" => $from_address,
+          //     "shipments" => array(
+          //       array(
+          //           "parcel" => array(
+          //               "predefined_package" => "FedExBox",
+          //               "weight" => 10.2
+          //           )
+          //       ),
+          //       array(
+          //           "parcel" => array(
+          //               "predefined_package" => "FedExBox",
+          //               "weight" => 17.5
+          //           )
+          //       ),
+          //     )
+          // ));
+          // // dd($easyPostOrder);
+          // $order->easypost_order_id = $easyPostOrder->id;
 
           // Create EASYPOST Order End
 

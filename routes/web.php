@@ -124,6 +124,11 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
   Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 
+  Route::get('/tracker', 'TrackerController@index')->name('tracker.index');
+  Route::post('/tracker', 'TrackerController@store')->name('tracker.store');
+
+  Route::get('/tracker/{tracker}', 'TrackerController@show')->name('tracker.show');
+
 
 
   Route::get('empty', function(){

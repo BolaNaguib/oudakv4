@@ -16,6 +16,7 @@
         "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.1",
         "laravel/tinker": "^1.0",
+        "nesbot/carbon": "^2.23",
         "pvtl/voyager-blog": "^0.2.7",
         "silviolleite/laravelpwa": "^1.0",
         "torann/geoip": "^1.0",

@@ -16,8 +16,15 @@
           <img style="width:100%;" class="slider__image" src="{{ asset('storage/'.$image->thumbnail) }}" alt="">
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
-            <h2 uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
-            <p uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
+            <h2 style="background-color: #000000bf;
+display: initial;
+padding: 5px;" uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
+<hr style="border:none;">
+
+            <p  style="    background-color: #000000bf;
+display: initial;
+padding: 5px;
+line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
           </div><!-- END .uk-position-center -->
         </li>
         @endforeach
@@ -138,7 +145,7 @@
 
 
 <section class="uk-section">
-  <div class="uk-container uk-container-small ">
+  <div class="uk-container uk-container-large ">
     <div class="uk-text-center">
 
     {{--  @foreach($longImages as $image)
@@ -168,9 +175,25 @@
 
 
     </div>
+    <!-- START uk-grid -->
+    <div class="" uk-grid>
+      <!-- START .uk-width-1-2 -->
+      <div class="uk-width-1-2@m uk-width-1-1">
+        <!-- START .uk-card -->
+        <div class="uk-card uk-card-default uk-text-center uk-padding ">
+
+        <h3>Blue Sky </h3>
+        <hr>
+      </div>
+      <!-- START -->
+    </div>
+      <div class="uk-width-1-2">
+        <div id="mid" class="mid-1"></div>
+
+      </div>
+    </div>
 
 
-    <div id="mid" class="mid-1"></div>
 
   </div>
 

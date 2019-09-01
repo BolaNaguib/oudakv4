@@ -342,41 +342,73 @@ $(window).on("load", function(){
 
 </script>
 <script>
+
+// console.log("??????????????????????????");
+// $(window).on('scroll' ,function() {
+//   console.log("TEST");
+//   if ($(this).scrollTop() > 0) {
+//     $('.a').fadeOut();
+//   } else {
+//     $('.a').fadeIn();
+//   }
+// });
+
 $(document).scroll(function() {
-  if ($('#mid')[0]) {
+  // console.log("HELLO");
+  if ($('#modelx')[0]) {
     var x = $(document).scrollTop()
 
 
-  var mid = document.getElementById('mid');
+  var mid = document.getElementById('modelx');
   var mid_off = mid.offsetTop;
+  var y = $(document).scrollTop()-mid_off+200;
+  // console.log("mid_off" +mid_off);
+  console.log(" y = " +y);
+  if (y < 0) {
+    $('.mmi1').show();
+    $('.mmi2').hide();
+    $('.mmi3').hide();
+  }
+if (y >= 25) {
+  $('.mmi1').hide();
+  $('.mmi2').show();
+  $('.mmi3').hide();
+}
+if ( y >= 75) {
+  $('.mmi1').hide();
+  $('.mmi2').hide();
+  $('.mmi3').show();
+}
+
+};
   // console.log(mid_off);
   // console.log(mid_off);
   // console.log(document.body.scrollTop);
   // console.log(document.documentElement.scrollTop);
 
-    console.log("is = " + x);
-     if (x > 1500 && x < 2000) {
-       console.log("only show between 2000 and 2500 = " + x);
+    // // console.log("is = " + x);
+    //  if (x > 1500 && x < 2000) {
+    //    console.log("only show between 2000 and 2500 = " + x);
+    //
+    //      // console.log(x);
+    //      // mid.classList.remove('mid-1');
+    //      // mid.classList.add('mid-2');
+    //      // mid.classList.remove('mid-3');
+    //  }
+    //  else if (x > 2000 || x < 2500) {
+    //    console.log("only show between 2500 and 3000 = " + x);
+    //    // console.log(x);
+    //    // mid.classList.remove('mid-1');
+    //    // mid.classList.remove('mid-2');
+    //    // mid.classList.add('mid-3');
+    //  }
+    //  else if (x > 3500 ) {
+    //    console.log("only show between 2500 and 3000 = " + x);
+    //    // mid.classList.add('mid-1');
+    //    // mid.classList.remove('mid-2');
+    //    // mid.classList.remove('mid-3');
+    //  }
 
-         // console.log(x);
-         mid.classList.remove('mid-1');
-         mid.classList.add('mid-2');
-         mid.classList.remove('mid-3');
-     }
-     else if (x > 2000 || x < 2500) {
-       console.log("only show between 2500 and 3000 = " + x);
-       // console.log(x);
-       mid.classList.remove('mid-1');
-       mid.classList.remove('mid-2');
-       mid.classList.add('mid-3');
-     }
-     else if (x > 3500 ) {
-       console.log("only show between 2500 and 3000 = " + x);
-       mid.classList.add('mid-1');
-       mid.classList.remove('mid-2');
-       mid.classList.remove('mid-3');
-     }
-  }
 
 });
 </script>

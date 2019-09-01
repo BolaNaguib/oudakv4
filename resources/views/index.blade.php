@@ -8,7 +8,7 @@
 
     <!-- START .uk-position-relative -->
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade;ratio: 7:3;">
-
+      <!-- START .uk-slideshow-items -->
       <ul class="uk-slideshow-items">
 
         @foreach($main_slider as $image)
@@ -30,6 +30,7 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
         @endforeach
 
       </ul>
+      <!-- END .uk-slideshow-items -->
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
 
@@ -178,7 +179,7 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
     <!-- START uk-grid -->
     <div class="" uk-grid>
       <!-- START .uk-width-1-2 -->
-      <div class="uk-width-1-2@m uk-width-1-1">
+      <div class="uk-width-2-3@m uk-width-1-1">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
 
@@ -187,10 +188,33 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
       </div>
       <!-- START -->
     </div>
-      <div class="uk-width-1-2">
-        <div id="mid" class="mid-1"></div>
+      <div class="uk-width-1-3@m uk-width-1-1">
+        <div id="modelx" class="uk-position-relative" style="min-height:700px;">
+          <div class="main-model-img mmi3">
+            <img src="https://oudak.com/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg" alt="">
+          </div>
+          <div class="main-model-img mmi2">
+            <img src="https://oudak.com/storage/home-three-images/August2019/LOFhgW5QZQi8pH4OpLl1.jpg" alt="">
+          </div>
+          <div class="main-model-img mmi1">
+            <img src="https://oudak.com/storage/home-three-images/August2019/lTwCfKje6K4nChjBBo3H.jpg" alt="">
+          </div>
+
+
+        </div>
+        {{-- <div id="mid" class="mid-1"></div> --}}
 
       </div>
+      <style media="screen">
+      .main-model-img {
+  position: absolute;
+  top: 0px;
+  transition: all 1s ease;
+}
+/* .main-model-img img{
+  width:100%;
+} */
+      </style>
     </div>
 
 

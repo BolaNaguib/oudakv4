@@ -141,15 +141,16 @@ class CheckoutController extends Controller
                   "parcel"       => $parcel
               )
           );
+          dd($shipment->lowest_rate()->retail_rate);
 
           // $rate = \EasyPost\Rate::retrieve($shipment->lowest_rate());
           // dd($rate);
           // print_r($rate);
-          dd($shipment);
+          // dd($shipment);
 
-          $shipment->buy($shipment->lowest_rate());
+          // $shipment->buy($shipment->lowest_rate());
 
-          $shipment->insure(array('amount' => 100));
+          // $shipment->insure(array('amount' => 100));
 
           // echo $shipment->postage_label->label_url;
           // var_dump($shipment->postage_label->label_url);

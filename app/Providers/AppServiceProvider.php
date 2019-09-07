@@ -42,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function applyVoyagerMailSettings() {
         config([
+            'mail.driver'       => 'smtp',
             'mail.host'         => setting('mailing-settings.host'),
             'mail.port'         => setting('mailing-settings.port'),
             'mail.from.address' => setting('mailing-settings.sender-email'),

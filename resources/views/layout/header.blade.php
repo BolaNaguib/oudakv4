@@ -20,7 +20,30 @@
 @else
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
 @endif
+<!--
+/**
+ * @license
+ * MyFonts Webfont Build ID 3804158, 2019-09-04T18:34:38-0400
+ *
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are
+ * explicitly restricted from using the Licensed Webfonts(s).
+ *
+ * You may obtain a valid license at the URLs below.
+ *
+ * Webfont: NicolasCoc-Reg by URW
+ * URL: https://www.myfonts.com/fonts/urw/nicolas-cochin/t-regular/
+ * Copyright: Copyright 2010 URW++ Design &amp; Development Hamburg
+ * Licensed pageviews: 1,010,000
+ *
+ *
+ * License: https://www.myfonts.com/viewlicense?type=web&buildid=3804158
+ *
+ * © 2019 MyFonts Inc
+*/
 
+-->
+{{-- <link rel="stylesheet" type="text/css" href="fonts/MyFontsWebfontsKit.css"> --}}
   <!-- Style -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <script src="https://js.stripe.com/v3/"></script>

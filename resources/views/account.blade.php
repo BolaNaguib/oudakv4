@@ -6,7 +6,7 @@
                 <a href="{{ route('account') }}" class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Profile </a>
             </div>
             <div class="uk-width-1-4">
-                <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Track My Order </button>
+                <a href="{{ route('tracker.index') }}" class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Track My Order </a>
             </div>
             <div class="uk-width-1-4">
                 <button class="uk-button uk-button-default uk-width-expand" type="button" name="button"> Redeem / Refund </button>

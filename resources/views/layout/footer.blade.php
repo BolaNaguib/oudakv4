@@ -137,7 +137,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/js/uikit-icons.min.js"></script>
-{{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=299459306489-20losscfhtedjrv7cu2n4k7b196t3i69.apps.googleusercontent.com&callback=initMap" type="text/javascript"></script> --}}
+
 
 <script src="{{ asset('js/Luminous.min.js')}}"></script>
 <script src="{{ asset('js/Drift.min.js')}}"></script>
@@ -342,41 +342,73 @@ $(window).on("load", function(){
 
 </script>
 <script>
+
+// console.log("??????????????????????????");
+// $(window).on('scroll' ,function() {
+//   console.log("TEST");
+//   if ($(this).scrollTop() > 0) {
+//     $('.a').fadeOut();
+//   } else {
+//     $('.a').fadeIn();
+//   }
+// });
+
 $(document).scroll(function() {
-  if ($('#mid')[0]) {
+  // console.log("HELLO");
+  if ($('#modelx')[0]) {
     var x = $(document).scrollTop()
 
 
-  var mid = document.getElementById('mid');
+  var mid = document.getElementById('modelx');
   var mid_off = mid.offsetTop;
+  var y = $(document).scrollTop()-mid_off+200;
+  // console.log("mid_off" +mid_off);
+  console.log(" y = " +y);
+  if (y < 0) {
+    $('.mmi1').show();
+    $('.mmi2').hide();
+    $('.mmi3').hide();
+  }
+if (y >= 25) {
+  $('.mmi1').hide();
+  $('.mmi2').show();
+  $('.mmi3').hide();
+}
+if ( y >= 75) {
+  $('.mmi1').hide();
+  $('.mmi2').hide();
+  $('.mmi3').show();
+}
+
+};
   // console.log(mid_off);
   // console.log(mid_off);
   // console.log(document.body.scrollTop);
   // console.log(document.documentElement.scrollTop);
 
-    console.log("is = " + x);
-     if (x > 1500 && x < 2000) {
-       console.log("only show between 2000 and 2500 = " + x);
+    // // console.log("is = " + x);
+    //  if (x > 1500 && x < 2000) {
+    //    console.log("only show between 2000 and 2500 = " + x);
+    //
+    //      // console.log(x);
+    //      // mid.classList.remove('mid-1');
+    //      // mid.classList.add('mid-2');
+    //      // mid.classList.remove('mid-3');
+    //  }
+    //  else if (x > 2000 || x < 2500) {
+    //    console.log("only show between 2500 and 3000 = " + x);
+    //    // console.log(x);
+    //    // mid.classList.remove('mid-1');
+    //    // mid.classList.remove('mid-2');
+    //    // mid.classList.add('mid-3');
+    //  }
+    //  else if (x > 3500 ) {
+    //    console.log("only show between 2500 and 3000 = " + x);
+    //    // mid.classList.add('mid-1');
+    //    // mid.classList.remove('mid-2');
+    //    // mid.classList.remove('mid-3');
+    //  }
 
-         // console.log(x);
-         mid.classList.remove('mid-1');
-         mid.classList.add('mid-2');
-         mid.classList.remove('mid-3');
-     }
-     else if (x > 2000 || x < 2500) {
-       console.log("only show between 2500 and 3000 = " + x);
-       // console.log(x);
-       mid.classList.remove('mid-1');
-       mid.classList.remove('mid-2');
-       mid.classList.add('mid-3');
-     }
-     else if (x > 3500 ) {
-       console.log("only show between 2500 and 3000 = " + x);
-       mid.classList.add('mid-1');
-       mid.classList.remove('mid-2');
-       mid.classList.remove('mid-3');
-     }
-  }
 
 });
 </script>
@@ -422,6 +454,139 @@ truepush.push(function(){
         })
     })
 </script>
+
+
+<div id="locationField">
+      <input id="autocomplete"
+             placeholder="Enter your address"
+             onFocus="geolocate()"
+             type="text"/>
+    </div>
+
+    <!-- Note: The address components in this sample are typical. You might need to adjust them for
+               the locations relevant to your app. For more information, see
+         https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+    -->
+
+    {{-- <table id="address">
+      <tr>
+        <td class="label">Street address</td>
+        <td class="slimField"><input class="field" id="street_number" disabled="true"/></td>
+        <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"/></td>
+      </tr>
+      <tr>
+        <td class="label">City</td>
+        <td class="wideField" colspan="3"><input class="field" id="locality" disabled="true"/></td>
+      </tr>
+      <tr>
+        <td class="label">State</td>
+        <td class="slimField"><input class="field" id="administrative_area_level_1" disabled="true"/></td>
+        <td class="label">Zip code</td>
+        <td class="wideField"><input class="field" id="postal_code" disabled="true"/></td>
+      </tr>
+      <tr>
+        <td class="label">Country</td>
+        <td class="wideField" colspan="3"><input class="field" id="country" disabled="true"/></td>
+      </tr>
+    </table> --}}
+
+    <script>
+// This sample uses the Autocomplete widget to help the user select a
+// place, then it retrieves the address components associated with that
+// place, and then it populates the form fields with those details.
+// This sample requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script
+// src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+var placeSearch, autocomplete;
+
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search predictions to
+  // geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById('autocomplete'), {types: ['geocode']});
+  console.log(autocomplete);
+  // Avoid paying for data that you don't need by restricting the set of
+  // place fields that are returned to just the address components.
+  autocomplete.setFields(['address_component']);
+
+  // When the user selects an address from the drop-down, populate the
+  // address fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+  console.log(place);
+
+  for (var component in componentForm) {
+    // document.getElementById(component).value = '';
+    // document.getElementById(component).disabled = false;
+  }
+
+  // Get each component of the address from the place details,
+  // and then fill-in the corresponding field on the form.
+  if (typeof place.address_components !== 'undefined') {
+    for (var i = 0; i < place.address_components.length; i++) {
+      var addressType = place.address_components[i].types[0];
+      if (componentForm[addressType]) {
+        var val = place.address_components[i][componentForm[addressType]];
+        console.log(val +" = "+ addressType);
+        document.getElementById(addressType).value = val;
+        // $('.'+addressType).value = val;
+        // console.log($('.'+addressType).value + '===' + val);
+      }
+    }
+  }
+
+
+}
+
+// Bias the autocomplete object to the user's geographical location,
+// as supplied by the browser's 'navigator.geolocation' object.
+function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var circle = new google.maps.Circle(
+          {center: geolocation, radius: position.coords.accuracy});
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+// $('#postal_code').on('change',function(){
+//     $('.postal_code').val = $('#postal_code').val ;
+//     console.log("Changed");
+//
+// });
+
+$("#postal_code").on("change paste keyup", function() {
+   alert($(this).val());
+   $('.postal_code').val = $(this).val ;
+   console.log("added");
+
+});
+    </script>
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
+
+{{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&callback=initMap" type="text/javascript"></script> --}}
 </body>
 
 </html>

@@ -178,14 +178,26 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
     </div>
     <!-- START uk-grid -->
     <div class="" uk-grid>
-      <!-- START .uk-width-1-2 -->
+      <!-- START .uk-width-2-3 -->
       <div class="uk-width-2-3@m uk-width-1-1">
-        <!-- START .uk-card -->
-        <div class="uk-card uk-card-default uk-text-center uk-padding ">
+        @foreach ($products as $featuredproduct)
+          @if ($featuredproduct->featured != null || $featuredproduct->featured != 0)
+            <!-- START .uk-card -->
+            <div class="uk-card uk-card-default uk-text-center uk-padding ">
+              <a href="{{ url('shop/'.$featuredproduct->slug) }}">
 
-        <h3>Blue Sky </h3>
-        <hr>
-      </div>
+            <h3>{{ $featuredproduct->title }} </h3>
+            <hr>
+            <img style="max-height: 400px;" src="{{ asset('storage/'.$featuredproduct->thumbnail) }}" alt="">
+            <div class="">
+              {!! $featuredproduct->main_description !!}
+              {{-- {{ $featuredproduct }} --}}
+            </div>
+          </a>
+          </div>
+          @endif
+        @endforeach
+
       <!-- START -->
     </div>
       <div class="uk-width-1-3@m uk-width-1-1">
@@ -251,7 +263,6 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 
 </section>
 <!-- END section -->
-
 
 
 

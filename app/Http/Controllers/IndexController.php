@@ -20,7 +20,7 @@ class IndexController extends Controller
     {
 
         $main_slider = MainSlider::get() ;
-        $products = Product::orderBy('id', 'desc')->take(3)->get();
+        $products = Product::orderBy('id', 'desc')->get();
         $HomeFourBlock = HomeFourBlock::orderBy('id', 'desc')->first();
         $post = BlogPost::orderBy('id', 'desc')->first();
         $longImages = HomeThreeImages::orderBy('id', 'desc')->take(3)->get();

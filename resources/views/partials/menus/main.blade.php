@@ -122,7 +122,7 @@
             {{-- {{ $product_category-}} --}}
             {{-- {{ $item}} --}}
             @if ($product_category->title == $item->menu_Item )
-              <li class="uk-parent"><a class="sidenav__links" href="/category/{{ $product_category->slug }}">{{ $item->menu_Item }}@if ($item->Menu_Image) <span uk-icon="triangle-down">@endif</span></a>
+              <li class="@if ($item->Menu_Image) uk-parent @endif"><a class="sidenav__links" href="/category/{{ $product_category->slug }}">{{ $item->menu_Item }}@if ($item->Menu_Image) <span uk-icon="triangle-down">@endif</span></a>
                 @if ($item->Menu_Image)
 
                   <ul class="uk-nav-sub uk-padding-remove">

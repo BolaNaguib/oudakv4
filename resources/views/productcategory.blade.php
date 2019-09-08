@@ -18,7 +18,7 @@
 @endif
 
 <!-- START .uk-section -->
-<section class="uk-section">
+<section class="uk-section" style="padding-top:20px;">
 
     @if ($productcategory->path != null)
     <!-- START .uk-container -->

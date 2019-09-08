@@ -456,12 +456,12 @@ truepush.push(function(){
 </script>
 
 
-<div id="locationField">
+{{-- <div id="locationField">
       <input id="autocomplete"
              placeholder="Enter your address"
              onFocus="geolocate()"
              type="text"/>
-    </div>
+    </div> --}}
 
     <!-- Note: The address components in this sample are typical. You might need to adjust them for
                the locations relevant to your app. For more information, see

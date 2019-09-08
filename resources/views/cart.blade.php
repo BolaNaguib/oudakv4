@@ -259,7 +259,7 @@
                                     <!-- START .uk-width-1-3@m -->
                                     <div class="uk-width-1-2@m uk-width-1-1">
                                         <a href="{{ route('shop.show', $item->model->slug) }}">
-                                            <img src="{{ asset('storage/'.$item->model->mainimage) }}" alt="" style="max-height:250px;">
+                                            <img src="{{ asset('storage/'.$item->model->thumbnail) }}" alt="" style="max-height:250px;">
                                         </a>
                                     </div>
                                     <!-- END .uk-width-1-3@m -->
@@ -267,11 +267,11 @@
                                     <div class="uk-width-1-2@m uk-width-1-1">
                                         <!-- START .uk-text-left@m -->
                                         <div class="uk-text-left@m uk-text-center">
-                                            <h3>{{ $item->model->name }}</h3>
+                                            <h3>{{ $item->model->title }}</h3>
                                             <hr>
                                             <span>Size : </span><b>3 ML</b>
                                             <hr>
-                                            <span>Price : </span><b>{{ $item->model->price }}</b>
+                                            <span>Price :</span><b>${{ $item->model->price }}</b>
                                             <hr>
                                             <form class="" action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="post">
                                                 {{ csrf_field() }}
@@ -283,7 +283,7 @@
                                             <hr>
                                             <div class="uk-button uk-button-secondary uk-width-expand">
                                                 <span>Price : </span>
-                                                <b class=""> $ </b>
+                                                <b class=""> ${{ $item->model->price }} </b>
                                             </div>
                                         </div>
                                         <!-- END .uk-text-left@m -->

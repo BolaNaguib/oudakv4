@@ -15,6 +15,8 @@ class AddFeaturedColumnToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
+            $table->string('featured')->nullable();
+
         });
     }
 
@@ -27,6 +29,8 @@ class AddFeaturedColumnToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
+            $table->dropColumn('featured');
+
         });
     }
 }

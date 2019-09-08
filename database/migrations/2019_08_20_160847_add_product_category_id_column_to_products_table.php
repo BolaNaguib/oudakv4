@@ -14,7 +14,8 @@ class AddProductCategoryIdColumnToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->unsignedBigInteger('product_category_id');
+            
+$table->unsignedBigInteger('product_category_id')->nullable();
         });
     }
 

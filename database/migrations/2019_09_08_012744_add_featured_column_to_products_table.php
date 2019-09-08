@@ -29,7 +29,7 @@ class AddFeaturedColumnToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->dropColumn('featured');
+            // $table->dropColumn('featured');
 
         });
     }

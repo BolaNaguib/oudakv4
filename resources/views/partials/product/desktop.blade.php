@@ -1,3 +1,15 @@
+@if (session()->has('success_message'))
+<div class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{ session()->get('success_message') }}</p>
+</div>
+
+@endif
+@if(count($errors) > 0)
+@foreach($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+    @endif
 <form class="" action="{{ route('cart.store') }}" method="post">
     {{ csrf_field() }}
 <!-- START uk-grid -->
@@ -312,7 +324,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
                     @endif
                     @if ($product->quantity != 0)
-                    <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+                    <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" > Add To Bag </button>
                     @endif
 
 

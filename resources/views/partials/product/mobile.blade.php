@@ -1,3 +1,15 @@
+@if (session()->has('success_message'))
+<div class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{ session()->get('success_message') }}</p>
+</div>
+
+@endif
+@if(count($errors) > 0)
+@foreach($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+    @endif
 <form class="" action="{{ route('cart.store') }}" method="post">
     {{ csrf_field() }}
 <!-- START uk-grid -->

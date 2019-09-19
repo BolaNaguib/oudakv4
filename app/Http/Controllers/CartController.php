@@ -50,13 +50,13 @@ class CartController extends Controller
           return $cartItem->id === $request->id;
         });
         if ($duplicates->isNotEmpty()) {
-          return redirect()->route('cart.index')->with('success_message','item is already in your bag!');
+          return back()->with('success_message','item is already in your bag!');
           // code...
         }
         Cart::add($request->id, $request->name, 1,$request->price)
             ->associate('App\Product');
 
-              return redirect()->route('cart.index')->with('success_message','item was added to your bag');
+              return back()->with('success_message','item was added to your bag');
 
       }
 

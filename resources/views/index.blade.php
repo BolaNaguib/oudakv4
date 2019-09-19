@@ -1,4 +1,7 @@
-@include('layout.header')
+@extends('layouts.app')
+@section('content')
+
+
 
 <!-- START section -->
 <section class="uk-section-small">
@@ -66,7 +69,7 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 
           <!-- START .uk-card-body -->
           <div class="uk-card-body">
-            <p>{{$HomeFourBlock->description}}</p>
+            <p>{!! $HomeFourBlock->description !!}</p>
           </div>
           <!-- END .uk-card-body -->
         </div>
@@ -217,23 +220,30 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
         {{-- <div id="mid" class="mid-1"></div> --}}
 
       </div>
-      <style media="screen">
-      .main-model-img {
-  position: absolute;
-  top: 0px;
-  transition: all 1s ease;
-}
-/* .main-model-img img{
-  width:100%;
-} */
-      </style>
+
     </div>
 
 
 
   </div>
 
+
+
+</section>
+<!-- END section -->
+
+
+@endsection
+@section('css')
   <style media="screen">
+  .main-model-img {
+position: absolute;
+top: 0px;
+transition: all 1s ease;
+}
+/* .main-model-img img{
+width:100%;
+} */
 
 .mid-1, .mid-2, .mid-3
 {
@@ -260,11 +270,4 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 
 
   </style>
-
-</section>
-<!-- END section -->
-
-
-
-
-@include('layout.footer')
+@endsection

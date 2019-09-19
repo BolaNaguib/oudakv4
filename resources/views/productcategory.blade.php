@@ -223,11 +223,7 @@
     @endif
 
     <section class="uk-section ">
-        <div class="uk-text-center uk-margin">
-            <h3 class="uk-margin-remove">Our Products</h3>
 
-            <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
-        </div>
         <div class="uk-container uk-container-large">
 
 

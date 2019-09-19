@@ -168,7 +168,7 @@ if ($('#productzoom').length) {
                 console.log("changed");
                 const id = element.getAttribute('data-id');
                 console.log(id);
-                axios.patch(`cart/${id}`, {
+                axios.patch(`bag/${id}`, {
                         quantity: this.value
                     })
                     .then(function(response) {

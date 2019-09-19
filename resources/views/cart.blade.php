@@ -31,9 +31,9 @@
             @endif
 
             @if(Cart::count()>0)
-                {{ Cart::count() }} item(s) in the card
+                {{ Cart::count() }} item(s) in the bag
                 @else
-                <h3>no items in cart</h3>
+                <h3>no items in Bag</h3>
                 <hr>
                 <a class="uk-button uk-button-default" href="{{ route('index') }}"> Continue Shoping</a>
                 @endif
@@ -234,7 +234,7 @@
                                 <form class="" action="{{ route('cart.destroy', $item->rowId) }}" method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
-                                    <button type="submit" class="uk-button uk-button-danger" uk-tooltip="title: Remove From Cart; pos: left" uk-icon="trash"></button>
+                                    <button type="submit" class="uk-button uk-button-danger" uk-tooltip="title: Remove From Bag; pos: left" uk-icon="trash"></button>
                                 </form>
 
 
@@ -249,7 +249,7 @@
 
 
                         @if(Cart::instance('saveForLater')->count()>0)
-                            {{ Cart::instance('saveForLater')->count() }} item(s) in Woshlist
+                            {{ Cart::instance('saveForLater')->count() }} item(s) in Wishlist
                             @foreach (Cart::instance('saveForLater')->content() as $item )
                             <!-- START .card -->
                             <div class="card card_theme_white card_type_shopingbag uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
@@ -276,7 +276,7 @@
                                             <form class="" action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="post">
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="uk-button uk-button-default uk-width-expand">
-                                                    <span>Move To Cart </span>
+                                                    <span>Move To Bag </span>
                                                 </button>
                                             </form>
 
@@ -296,7 +296,7 @@
                                     <form class="" action="{{ route('saveForLater.destroy', $item->rowId) }}" method="post">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="uk-button uk-button-danger" uk-tooltip="title: Remove From Cart; pos: left" uk-icon="trash"></button>
+                                        <button type="submit" class="uk-button uk-button-danger" uk-tooltip="title: Remove From Bag; pos: left" uk-icon="trash"></button>
                                     </form>
 
 

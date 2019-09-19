@@ -104,12 +104,12 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::get('/shop','ShopController@index')->name('shop.index');
   Route::get('/shop/{product}','ShopController@show')->name('shop.show');
 
-  Route::get('/cart','CartController@index')->name('cart.index');
-  Route::post('/cart','CartController@store')->name('cart.store');
-  Route::patch('/cart/{product}','CartController@update')->name('cart.update');
+  Route::get('/bag','CartController@index')->name('cart.index');
+  Route::post('/bag','CartController@store')->name('cart.store');
+  Route::patch('/bag/{product}','CartController@update')->name('cart.update');
 
-  Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
-  Route::post('/cart/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
+  Route::delete('/bag/{product}','CartController@destroy')->name('cart.destroy');
+  Route::post('/bag/switchToSaveForLater/{product}','CartController@switchToSaveForLater')->name('cart.switchToSaveForLater');
 
 
   Route::delete('/saveForLater/{product}','saveForLaterController@destroy')->name('saveForLater.destroy');

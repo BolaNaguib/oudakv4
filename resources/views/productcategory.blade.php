@@ -1,5 +1,18 @@
-@include('layout.header')
+@extends('layouts.app')
+@section('content')
 
+@if (session()->has('success_message'))
+<div class="uk-alert-success" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{ session()->get('success_message') }}</p>
+</div>
+
+@endif
+@if(count($errors) > 0)
+@foreach($errors->all() as $error)
+    {{ $error }}
+    @endforeach
+    @endif
 @if ($productcategory->parent == null)
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
@@ -93,16 +106,24 @@
                 @if ($product->id == $productcategory->first_section_product )
 
                 <div class="uk-width-1-3@m uk-width-1-1">
+
+                                    <form class="" action="{{ route('cart.store') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <div class="card card_theme_white">
+
+                                          <div class="uk-text-center">
+                                            <b>{{ $product->title }}</b>
+                                          </div>
                     <!-- START .card -->
-                    <div class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
-                        <!-- START uk-position-top-left -->
+                    <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                        {{-- <!-- START uk-position-top-left -->
                         <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
                             <button class="uk-button uk-button-default">{{ $product->title }}</button>
                         </div><!-- END uk-position-top-left -->
                         <!-- START uk-position-top-right -->
                         <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
                             <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
-                        </div><!-- END uk-position-top-right -->
+                        </div><!-- END uk-position-top-right --> --}}
 
                         <a href="{{ route('shop.show', $product->slug)}}">
                             <!-- START .uk-inline-clip -->
@@ -111,7 +132,22 @@
                                 <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
                             </div><!-- END .uk-inline-clip -->
                         </a>
+                        <input type="hidden" name="id" value="{{ $product->id }}">
+                        <input type="hidden" name="name" value="{{ $product->title }}">
+                        <input type="hidden" name="price" value="{{ $product->price }}">
                     </div><!-- END .card -->
+                    <div class="uk-text-center">
+                      <span> ${{ $product->price }} </span>
+                      <hr>
+
+                    </div>
+                    <div class="uk-text-center">
+                      <button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+
+                    </div>
+
+                  </div><!-- END .card_theme_white -->
+                  </form>
 
                 </div><!-- END div -->
                 @endif
@@ -221,4 +257,25 @@
 
 
 
-    @include('layout.footer')
+  @endsection
+
+
+@section('css')
+<style media="screen">
+.button_type_category_product{
+  background-color: #000;
+  border: 0px;
+  color: #fff;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 300ms;
+
+}
+.button_type_category_product:hover{
+  background-color: #eee;
+  color: #000;
+  transition: 300ms;
+}
+</style>
+@endsection

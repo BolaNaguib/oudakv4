@@ -4,10 +4,10 @@
 
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large uk-position-relative">
-        <a href="#" style="    position: absolute;
-    top: -100px;
+        <a href="#" style="    position: fixed;
+    bottom: 10px;
     background-color: #fff;
-    right: 0px;
+    right: 10px;
     padding: 25px;
     border-radius: 20px;
     border: 1px solid #f8f8f8;" uk-totop uk-scroll></a>

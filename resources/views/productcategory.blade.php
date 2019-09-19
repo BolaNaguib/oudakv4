@@ -75,7 +75,7 @@
             <div class="uk-grid-match" uk-grid>
                 @if ($productcategory->first_section_image != null)
                 <!-- START  div -->
-                <div class="uk-width-1-3@m uk-width-1-1">
+                <div class="uk-width-1-3@m uk-width-1-2">
                     <!-- START .card -->
                     <div class="cards card_theme_whites uk-flex uk-flex-bottom uk-flex-center uk-position-relative uk-transition-toggle uk-text" tabindex="0">
                         <img src="{{ asset('storage/'.$productcategory->first_section_image) }}" alt="" style="">
@@ -105,7 +105,7 @@
                 @foreach ($products as $product)
                 @if ($product->id == $productcategory->first_section_product )
 
-                <div class="uk-width-1-3@m uk-width-1-1">
+                <div class="uk-width-1-3@m uk-width-1-2 uk-flex-first uk-flex-last@m">
 
                                     <form class="" action="{{ route('cart.store') }}" method="post">
                                         {{ csrf_field() }}

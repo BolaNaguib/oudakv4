@@ -1,4 +1,7 @@
-@include('layout.header')
+@extends('layouts.app')
+@section('content')
+
+
 <!-- START section -->
 <section>
     <!-- START .uk-container -->
@@ -328,4 +331,4 @@
 
 
 
-@include('layout.footer')
+@endsection

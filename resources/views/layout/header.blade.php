@@ -82,6 +82,29 @@
 ul li:last-of-type{
   border-bottom: none;
 }
+.main-carditems{
+  border-radius: 10px;
+padding: 10px;
+    font-size: 12px;
+}
+.main-carditems-thumb{
+  width: 25px;
+  height: 25px;
+}
+.main-carditems-list{
+  margin: 0px !important;
+padding: 10px 0px;
+}
+.main-carditems-button{
+  background-color: #000;
+display: block;
+padding: 5px 0px;
+margin-top: 10px;
+color: #fff !important;
+}
+.main-carditems-button:hover{
+  color:#fff;
+}
 </style>
 @laravelPWA
 </head>
@@ -179,14 +202,46 @@ ul li:last-of-type{
             <ul class="uk-navbar-nav">
 
               <li class="uk-position-relative">
-                <a href="{{ route('cart.index') }}">
-                  <span uk-icon="cart"></span>
-                   <span uk-icon="triangle-down"></span>
-                   @if (Cart::instance('default')->count() > 0)
-                   <span class="uk-badge notificationicon">
-                     {{ Cart::instance('default')->count() }}
-                   </span>
-                        @endif</a></li>
+                  <a href="{{ route('cart.index') }}">
+                    <span uk-icon="cart"></span>
+                     <span uk-icon="triangle-down"></span>
+                     @if (Cart::instance('default')->count() > 0)
+                     <span class="uk-badge notificationicon">
+                       {{ Cart::instance('default')->count() }}
+                     </span>
+                          @endif</a>
+                  <div class="main-carditems" uk-dropdown>
+                    <ul class="uk-list  uk-list-divider uk-margin-remove">
+                         @if (Cart::instance('default')->count() > 0)
+                      @foreach (Cart::content() as $item )
+
+                        <li class="main-carditems-list">
+                              <a href="{{ route('shop.show', $item->model->slug) }}">
+                          <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
+                            <div class="uk-width-expand uk-text-left">
+                              <span>{{ $item->model->title }}</span>
+                            </div>
+                            <div class="uk-width-auto uk-text-right">
+                              <span>{{ $item->subtotal }} </span>
+                            </div>
+                          </div>
+                        </a>	</li>
+                        @endforeach
+                      @else
+                        <li class="main-carditems-list"> you Have no items in your bag </li>
+                      @endif
+
+                    </ul>
+                    <div class="uk-text-center">
+                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Cart</a>
+
+                    </div>
+                  </div>
+
+
+
+
+                      </li>
 
                         @if(Auth::user())
                         <li><a href="{{ route('account') }}">My Account <span uk-icon="triangle-down"></span> </a>
@@ -249,7 +304,34 @@ ul li:last-of-type{
                    <span class="uk-badge notificationicon">
                      {{ Cart::instance('default')->count() }}
                    </span>
-                        @endif</a></li>
+                        @endif</a>
+                        <div class="main-carditems" uk-dropdown>
+                          <ul class="uk-list  uk-list-divider uk-margin-remove">
+                               @if (Cart::instance('default')->count() > 0)
+                            @foreach (Cart::content() as $item )
+
+                              <li class="main-carditems-list">
+                                    <a href="{{ route('shop.show', $item->model->slug) }}">
+                                <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
+                                  <div class="uk-width-expand uk-text-left">
+                                    <span>{{ $item->model->title }}</span>
+                                  </div>
+                                  <div class="uk-width-auto uk-text-right">
+                                    <span>{{ $item->subtotal }} </span>
+                                  </div>
+                                </div>
+                              </a>	</li>
+                              @endforeach
+                            @else
+                              <li class="main-carditems-list"> you Have no items in your bag </li>
+                            @endif
+
+                          </ul>
+                          <div class="uk-text-center">
+                            <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Cart</a>
+
+                          </div>
+                        </div></li>
 
                         @if(Auth::user())
                         <li><a href="{{ route('account') }}"><i class="fas fa-user"></i> </a>
@@ -292,17 +374,3 @@ ul li:last-of-type{
 </section>
 
   </header> <!-- END header -->
-  {{-- {{ $products }} --}}
-{{-- {{ $main_menu }} --}}
-{{-- {{ $productcategory }} --}}
-
-{{-- {{ $auth }} --}}
-
-{{-- <hr> --}}
-{{-- @foreach ($main_menu as $item)
-{{ $item->menu_Item }}
-<hr>
-@endforeach --}}
-
-
-{{-- {{ $main_menu }} --}}

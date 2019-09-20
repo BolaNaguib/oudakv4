@@ -14,6 +14,68 @@
     </div><!-- END .uk-container -->
 </section><!-- END section -->
 
+@if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
+  <section class="uk-section">
+    <div class="uk-container uk-container-large">
+      <div class="uk-margin-medium-top">
+      <ul class="uk-child-width-expand" uk-tab="animation: uk-animation-fade;">
+          <li class="uk-active"><a href="#">Old Factory</a></li>
+          <li><a href="#">Top Notes</a></li>
+          <li><a href="#">Heart Notes</a></li>
+          <li><a href="#">Base Notes</a></li>
+      </ul>
+      <ul class="uk-switcher uk-margin">
+          <li>
+            <div class="uk-grid uk-width-1-2">
+              <div class="">
+                <img src="{{ asset('storage/'.$product->olfactory_pic) }}" alt="">
+              </div>
+              <div class="">
+                {!! $product->olfactory !!}
+              </div>
+            </div>
+            </li>
+            <li>
+              <div class="uk-grid uk-width-1-2">
+                <div class="">
+                  <img src="{{ asset('storage/'.$product->top_notes_pic) }}" alt="">
+                </div>
+                <div class="">
+                  {!! $product->top_notes !!}
+                </div>
+              </div>
+              </li>
+              <li>
+                <div class="uk-grid uk-width-1-2">
+                  <div class="">
+                    <img src="{{ asset('storage/'.$product->heart_notes_pic) }}" alt="">
+
+                  </div>
+                  <div class="">
+                    {!! $product->heart_notes !!}
+                  </div>
+                </div>
+                </li>
+                <li>
+                  <div class="uk-grid uk-width-1-2">
+                    <div class="">
+                      <img src="{{ asset('storage/'.$product->base_notes_pic) }}" alt="">
+                    </div>
+                    <div class="">
+                      {!! $product->base_notes !!}
+                    </div>
+                  </div>
+                  </li>
+
+      </ul>
+
+
+  </div>
+    </div>
+  </section>
+@endif
+
+
 <style media="screen">
     /* HIDE RADIO */
     [type=radio] {

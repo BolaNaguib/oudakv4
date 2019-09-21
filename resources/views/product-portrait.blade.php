@@ -1,5 +1,5 @@
-@include('layout.header')
-
+@extends('layouts.app')
+@section('content')
 
 <!-- START section -->
 <section class="uk-section">
@@ -165,5 +165,12 @@
         </div><!-- END uk-grid -->
     </div><!-- END uk-container -->
 </section><!-- END section -->
+@endsection
 
-@include('layout.footer')
+
+@section('css')
+  <style media="screen">
+  .product_slider>*{
+  }
+  </style>
+@endsection

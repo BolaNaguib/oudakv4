@@ -1,3 +1,9 @@
+
+@php
+  $slider = preg_replace(array('/\"/','/\]$/','/^\[/'), '',$product->product_slider);
+  $product_slider = explode(",", $slider)
+@endphp
+
 @if (session()->has('success_message'))
 <div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>
@@ -18,6 +24,8 @@
     <!-- START uk-width-1-2 -->
     <div class="uk-width-1-2@m uk-width-1-1">
       @if ($product->gifting_option == 1)
+        @if ($product->gift_price_1 || $product->gift_price_2 || $product->gift_price_3 || $product->gift_price_4 || $product->gift_price_5 || $product->gift_price_6)
+
       <!-- START .uk-margin -->
       <div class="uk-text-center uk-margin">
           <h5>Gift Box</h5>
@@ -141,6 +149,7 @@
         </div>
         </div><!-- END .uk-margin -->
       @endif
+    @endif
         <!-- START .card -->
         <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
             <button href="#toggle-animation" class="uk-button uk-button-default" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
@@ -167,16 +176,44 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                 <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social" uk-tooltip="title: Share on social Media; pos: left"><span uk-icon="social"></span></button>
             </div><!-- END uk-position-top-right -->
 
-            <a href="#">
-                <!-- START .uk-inline-clip -->
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <a class="demo-trigger" href="{{ asset('storage/'.$product->thumbnail) }}">
-                        <img style="    max-height: 400px;" src="{{ asset('storage/'.$product->thumbnail) }}"></a>
+            @if ($product->product_slider)
 
-                    <!-- <img src="images/product1.png" alt="" style="max-height:250px;">
-      <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;"> -->
-                </div><!-- END .uk-inline-clip -->
-            </a>
+              <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+                        <ul class="uk-slideshow-items product_slider" uk-lightbox="animation: slide" style="">
+
+                          @for ($i=0; $i < count($product_slider); $i++)
+                            {{ $product_slider[''.$i.''] }}
+                            <li>
+                              <div class="uk-text-center">
+                                 {{-- demo-trigger Add this class if rashad asked  --}}
+                                <a class="uk-inline" href="{{ asset('storage/'.$product_slider[''.$i.'']) }}">
+                                    <img src="{{ asset('storage/'.$product_slider[''.$i.'']) }}" alt="" style="max-height: 250px;">
+                              </a>
+                              </div>
+
+                            </li>
+                          @endfor
+
+
+                        </ul>
+
+                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+                    </div>
+                  @else
+                    <a href="#">
+           <!-- START .uk-inline-clip -->
+           <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+               <a class="demo-trigger" href="{{ asset('storage/'.$product->thumbnail) }}">
+                   <img style="    max-height: 400px;" src="{{ asset('storage/'.$product->thumbnail) }}"></a>
+
+               <!-- <img src="images/product1.png" alt="" style="max-height:250px;">
+          <img class="uk-transition-fade uk-position-cover" src="images/product2.png" alt="" style="max-height:250px;"> -->
+           </div><!-- END .uk-inline-clip -->
+          </a>
+            @endif
         </div><!-- END .card -->
 
         @if ($product->main_description)

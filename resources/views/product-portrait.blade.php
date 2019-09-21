@@ -2,6 +2,7 @@
 @section('content')
 
 <!-- START section -->
+<!-- Products Templates -->
 <section class="uk-section">
 
     <!-- START .uk-container -->
@@ -14,19 +15,30 @@
     </div><!-- END .uk-container -->
 </section><!-- END section -->
 
+<!-- Product Notes -->
 @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
   <section class="uk-section">
     <div class="uk-container uk-container-large">
       <div class="uk-margin-medium-top">
-      <ul class="uk-child-width-expand" uk-tab="animation: uk-animation-fade;">
-          <li class="uk-active"><a href="#">Old Factory</a></li>
-          <li><a href="#">Top Notes</a></li>
-          <li><a href="#">Heart Notes</a></li>
-          <li><a href="#">Base Notes</a></li>
+        <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
+        @if ($product->olfactory)
+          <li class="uk-active uk-margin-top"><a href="#">Old Factory</a></li>
+        @endif
+        @if ($product->top_notes)
+          <li class="uk-margin-top"><a href="#">Top Notes</a></li>
+        @endif
+        @if ($product->heart_notes)
+          <li class="uk-margin-top"><a href="#">Heart Notes</a></li>
+        @endif
+        @if ($product->base_notes)
+          <li class="uk-margin-top"><a href="#">Base Notes</a></li>
+
+        @endif
       </ul>
-      <ul class="uk-switcher uk-margin">
+        <ul class="uk-switcher uk-margin">
+        @if ($product->olfactory)
           <li>
-            <div class="uk-grid uk-width-1-2">
+            <div class="uk-grid uk-child-width-1-2">
               <div class="">
                 <img src="{{ asset('storage/'.$product->olfactory_pic) }}" alt="">
               </div>
@@ -35,8 +47,10 @@
               </div>
             </div>
             </li>
+        @endif
+        @if ($product->top_notes)
             <li>
-              <div class="uk-grid uk-width-1-2">
+              <div class="uk-grid uk-child-width-1-2">
                 <div class="">
                   <img src="{{ asset('storage/'.$product->top_notes_pic) }}" alt="">
                 </div>
@@ -45,73 +59,39 @@
                 </div>
               </div>
               </li>
-              <li>
-                <div class="uk-grid uk-width-1-2">
-                  <div class="">
-                    <img src="{{ asset('storage/'.$product->heart_notes_pic) }}" alt="">
+        @endif
+        @if ($product->heart_notes)
+          <li>
+            <div class="uk-grid uk-child-width-1-2">
+              <div class="">
+                <img src="{{ asset('storage/'.$product->heart_notes_pic) }}" alt="">
 
-                  </div>
-                  <div class="">
-                    {!! $product->heart_notes !!}
-                  </div>
-                </div>
-                </li>
-                <li>
-                  <div class="uk-grid uk-width-1-2">
-                    <div class="">
-                      <img src="{{ asset('storage/'.$product->base_notes_pic) }}" alt="">
-                    </div>
-                    <div class="">
-                      {!! $product->base_notes !!}
-                    </div>
-                  </div>
-                  </li>
-
+              </div>
+              <div class="">
+                {!! $product->heart_notes !!}
+              </div>
+            </div>
+            </li>
+        @endif
+        @if ($product->base_notes)
+          <li>
+            <div class="uk-grid uk-child-width-1-2">
+              <div class="">
+                <img src="{{ asset('storage/'.$product->base_notes_pic) }}" alt="">
+              </div>
+              <div class="">
+                {!! $product->base_notes !!}
+              </div>
+            </div>
+            </li>
+        @endif
       </ul>
-
-
-  </div>
+      </div>
     </div>
   </section>
 @endif
 
 
-<style media="screen">
-    /* HIDE RADIO */
-    [type=radio] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-
-    /* IMAGE STYLES */
-    [type=radio]+div {
-        cursor: pointer;
-        outline: 1px solid #d7d7d7;
-
-    }
-
-    /* CHECKED STYLES */
-    [type=radio]:checked+div {
-        outline: 3px solid #8b8989;
-    }
-
-    /* CHECKED STYLES */
-    [type=radio]:checked+div .checkicon {
-        opacity: 1;
-        position: absolute;
-        right: 7px;
-        top: 7px;
-    }
-
-    .checkicon {
-        opacity: 0;
-        position: absolute;
-        right: 7px;
-        top: 7px;
-    }
-</style>
 
 
 <!-- START .section_theme_gray -->
@@ -167,10 +147,42 @@
 </section><!-- END section -->
 @endsection
 
-
 @section('css')
+
   <style media="screen">
-  .product_slider>*{
-  }
+      /* HIDE RADIO */
+      [type=radio] {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+
+      /* IMAGE STYLES */
+      [type=radio]+div {
+          cursor: pointer;
+          outline: 1px solid #d7d7d7;
+
+      }
+
+      /* CHECKED STYLES */
+      [type=radio]:checked+div {
+          outline: 3px solid #8b8989;
+      }
+
+      /* CHECKED STYLES */
+      [type=radio]:checked+div .checkicon {
+          opacity: 1;
+          position: absolute;
+          right: 7px;
+          top: 7px;
+      }
+
+      .checkicon {
+          opacity: 0;
+          position: absolute;
+          right: 7px;
+          top: 7px;
+      }
   </style>
 @endsection

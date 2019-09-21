@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use Pvtl\VoyagerBlog\BlogPost;
 use App\MainMenu;
+use App\MainBlock;
 
 class IndexController extends Controller
 {
@@ -24,13 +25,14 @@ class IndexController extends Controller
         $HomeFourBlock = HomeFourBlock::orderBy('id', 'desc')->first();
         $post = BlogPost::orderBy('id', 'desc')->first();
         $longImages = HomeThreeImages::orderBy('id', 'desc')->take(3)->get();
-
+        $MainBlock = MainBlock::get();
         return view('index')
             ->with('products', $products)
             ->with('main_slider',$main_slider)
             ->with('post',$post)
             ->with('longImages',$longImages)
-            ->with('HomeFourBlock',$HomeFourBlock);
+            ->with('HomeFourBlock',$HomeFourBlock)
+            ->with('MainBlock', $MainBlock);
     }
 
     public function menu()

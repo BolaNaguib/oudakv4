@@ -232,42 +232,179 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 </section>
 <!-- END section -->
 
+@foreach ($MainBlock as $block)
+<!-- START section -->
+  <section class="uk-section">
+<!-- START .uk-container -->
+    <div class="uk-container uk-container-large">
+<!-- START .uk-grid -->
+      <div class="uk-grid uk-grid-match">
+        <div class="uk-width-1-3@m uk-width-1-2">
+          <div class="">
+            <form class="" action="{{ route('cart.store') }}" method="post">
+                {{ csrf_field() }}
+                <div class="card card_theme_white">
+
+                  <div class="uk-text-center">
+                    <b>{{ $block->Productone->title }}</b>
+                  </div>
+<!-- START .card -->
+<div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+<a href="{{ route('shop.show', $block->Productone->slug)}}">
+    <!-- START .uk-inline-clip -->
+    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+        <img src="{{ asset('storage/'.$block->Productone->thumbnail) }}" alt="" style="max-height:350px;">
+        <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Productone->secondimage) }}" alt="" style="max-height:250px;">
+    </div><!-- END .uk-inline-clip -->
+</a>
+<input type="hidden" name="id" value="{{ $block->Productone->id }}">
+<input type="hidden" name="name" value="{{ $block->Productone->title }}">
+<input type="hidden" name="price" value="{{ $block->Productone->price }}">
+</div><!-- END .card -->
+<div class="uk-text-center">
+<span> ${{ $block->Productone->price }} </span>
+<hr>
+
+</div>
+<div class="uk-text-center">
+<button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+
+</div>
+
+</div><!-- END .card_theme_white -->
+</form>
+</div>
+</div>
+
+{{--  --}}
+@if ($block->caption != null)
+<!-- START div -->
+<div class="uk-width-1-3@m uk-width-1-1">
+    <div class="">
+      {!! $block->caption !!}
+    </div>
+    {{-- <!-- START .card -->
+    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+
+        <video width="100%" controls>
+            <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+
+    </div><!-- END .card --> --}}
+</div><!-- END div -->
+@endif
+
+          {{--  --}}
+
+
+@if ($block->Producttwo)
+
+
+        <div class="uk-width-1-3@m uk-width-1-2 uk-flex-last@m uk-flex-first">
+          <div class="">
+            <form class="" action="{{ route('cart.store') }}" method="post">
+                {{ csrf_field() }}
+                <div class="card card_theme_white">
+
+                  <div class="uk-text-center">
+                    <b>{{ $block->Producttwo->title }}</b>
+                  </div>
+<!-- START .card -->
+<div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+<a href="{{ route('shop.show', $block->Producttwo->slug)}}">
+    <!-- START .uk-inline-clip -->
+    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+        <img src="{{ asset('storage/'.$block->Producttwo->thumbnail) }}" alt="" style="max-height:350px;">
+        <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Producttwo->secondimage) }}" alt="" style="max-height:250px;">
+    </div><!-- END .uk-inline-clip -->
+</a>
+<input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
+<input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
+<input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
+</div><!-- END .card -->
+<div class="uk-text-center">
+<span> ${{ $block->Producttwo->price }} </span>
+<hr>
+
+</div>
+<div class="uk-text-center">
+<button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+
+</div>
+
+</div><!-- END .card_theme_white -->
+</form>
+</div>
+</div>
+@endif
+
+
+
+
+
+
+      </div> <!-- END .uk-grid -->
+    </div> <!-- END .uk-container -->
+  </section> <!-- END section -->
+@endforeach
+
+
+
+
 
 @endsection
 @section('css')
   <style media="screen">
   .main-model-img {
-position: absolute;
-top: 0px;
-transition: all 1s ease;
-}
+    position: absolute;
+    top: 0px;
+    transition: all 1s ease;
+        }
 /* .main-model-img img{
 width:100%;
 } */
 
-.mid-1, .mid-2, .mid-3
-{
-   position: relative;
-   background-size: cover;
-   background-image: url('https://oudak.com/storage/home-three-images/August2019/lTwCfKje6K4nChjBBo3H.jpg');
-   background-position: center;
-   min-height: 1200px;
-   transition: all 1s ease;
-}
-.mid-2
-{
-   background-image: url('https://oudak.com/storage/home-three-images/August2019/LOFhgW5QZQi8pH4OpLl1.jpg');
-   transition: all 1s ease;
+      .mid-1, .mid-2, .mid-3
+      {
+         position: relative;
+         background-size: cover;
+         background-image: url('https://oudak.com/storage/home-three-images/August2019/lTwCfKje6K4nChjBBo3H.jpg');
+         background-position: center;
+         min-height: 1200px;
+         transition: all 1s ease;
+      }
+      .mid-2
+      {
+         background-image: url('https://oudak.com/storage/home-three-images/August2019/LOFhgW5QZQi8pH4OpLl1.jpg');
+         transition: all 1s ease;
 
-}
-.mid-3 {
-  background-image: url('https://oudak.com/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
-  transition: all 1s ease;
+      }
+      .mid-3 {
+        background-image: url('https://oudak.com/storage/home-three-images/August2019/kE9ie8KQUAMYxW57e2nf.jpg');
+        transition: all 1s ease;
 
-}
-
-
+      }
 
 
-  </style>
+      .button_type_category_product{
+        background-color: #000;
+        border: 0px;
+        color: #fff;
+        padding: 10px 30px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 300ms;
+
+      }
+      .button_type_category_product:hover{
+        background-color: #eee;
+        color: #000;
+        transition: 300ms;
+      }
+
+        </style>
 @endsection

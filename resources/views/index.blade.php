@@ -247,10 +247,10 @@
           <!-- START .uk-width-1-3@m -->
         <div class="uk-width-1-3@m uk-width-1-2 ">
           <!-- START div -->
-          <div class="">
+          <div class="card_theme_white">
             <form class="" action="{{ route('cart.store') }}" method="post">
                 {{ csrf_field() }}
-                <div class="card card_theme_white">
+                <div class="card">
 
                   <div class="uk-text-center">
                     <b>{{ $block->Productone->title }}</b>
@@ -323,10 +323,10 @@
 
 
                 <div class="uk-width-1-3@m @if ( $block->coloumn) uk-width-1-2 @else uk-width-1-1 @endif  uk-flex-last@m uk-flex-first">
-                  <div class="">
+                  <div class="card_theme_white">
                     <form class="" action="{{ route('cart.store') }}" method="post">
                         {{ csrf_field() }}
-                        <div class="card card_theme_white">
+                        <div class="card">
 
                           <div class="uk-text-center">
                             <b>{{ $block->Producttwo->title }}</b>

@@ -20,14 +20,14 @@
           <!-- START .uk-position-center -->
           <div class="uk-position-center uk-text-center">
             <h2 style="background-color: #000000bf;
-display: initial;
-padding: 5px;" uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
-<hr style="border:none;">
+            display: initial;
+            padding: 5px;" uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
+            <hr style="border:none;">
 
             <p  style="    background-color: #000000bf;
-display: initial;
-padding: 5px;
-line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
+              display: initial;
+              padding: 5px;
+              line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
           </div><!-- END .uk-position-center -->
         </li>
         @endforeach
@@ -47,7 +47,6 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 
   </div>
 </section>
-
 
 
 
@@ -79,13 +78,15 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
         <div class="card uk-card-default">
           <!-- START .uk-card-header -->
           <div class="uk-card-header">
-            <h3 class="uk-card-title">{{ $post->title }}</h3>
+            <h3 class="uk-card-title"> Latest Blog</h3>
+            <!--{{-- $post->title --}}-->
           </div>
           <!-- END .uk-card-header -->
 
           <!-- START .uk-card-body -->
           <div class="uk-card-body">
-            <p>{{ $post->excerpt }}</p>
+            <p> This is the latest blog </p>
+            <p>{{-- $post->excerpt --}}</p>
           </div>
           <!-- END .uk-card-body -->
           <div class="uk-text-right@m uk-text-center">
@@ -212,7 +213,7 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
             <img src="https://oudak.com/storage/home-three-images/August2019/LOFhgW5QZQi8pH4OpLl1.jpg" alt="">
           </div>
           <div class="main-model-img mmi1">
-            <img src="https://oudak.com/storage/home-three-images/August2019/lTwCfKje6K4nChjBBo3H.jpg" alt="">
+            <img src="data:image/jpeg;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sPgogICAgPGhlYWQ+CiAgICAgICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgICAgICAgPG1ldGEgaHR0cC1lcXVpdj0icmVmcmVzaCIgY29udGVudD0iMDt1cmw9aHR0cHM6Ly9vdWRhay5jb20vZW4vc3RvcmFnZS9ob21lLXRocmVlLWltYWdlcy9BdWd1c3QyMDE5L2xUd0NmS2plNks0bkNoakJCbzNILmpwZyIgLz4KCiAgICAgICAgPHRpdGxlPlJlZGlyZWN0aW5nIHRvIGh0dHBzOi8vb3VkYWsuY29tL2VuL3N0b3JhZ2UvaG9tZS10aHJlZS1pbWFnZXMvQXVndXN0MjAxOS9sVHdDZktqZTZLNG5DaGpCQm8zSC5qcGc8L3RpdGxlPgogICAgPC9oZWFkPgogICAgPGJvZHk+CiAgICAgICAgUmVkaXJlY3RpbmcgdG8gPGEgaHJlZj0iaHR0cHM6Ly9vdWRhay5jb20vZW4vc3RvcmFnZS9ob21lLXRocmVlLWltYWdlcy9BdWd1c3QyMDE5L2xUd0NmS2plNks0bkNoakJCbzNILmpwZyI+aHR0cHM6Ly9vdWRhay5jb20vZW4vc3RvcmFnZS9ob21lLXRocmVlLWltYWdlcy9BdWd1c3QyMDE5L2xUd0NmS2plNks0bkNoakJCbzNILmpwZzwvYT4uCiAgICA8L2JvZHk+CjwvaHRtbD4=" alt="">
           </div>
 
 
@@ -233,13 +234,19 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
 <!-- END section -->
 
 @foreach ($MainBlock as $block)
-<!-- START section -->
+
+  <!-- START section -->
   <section class="uk-section">
-<!-- START .uk-container -->
+    <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
-<!-- START .uk-grid -->
+      <!-- START .uk-grid -->
       <div class="uk-grid uk-grid-match">
-        <div class="uk-width-1-3@m uk-width-1-2">
+
+        {{-- if not 3 coloumns hide this --}}
+        @if ( $block->coloumn)
+          <!-- START .uk-width-1-3@m -->
+        <div class="uk-width-1-3@m uk-width-1-2 ">
+          <!-- START div -->
           <div class="">
             <form class="" action="{{ route('cart.store') }}" method="post">
                 {{ csrf_field() }}
@@ -248,99 +255,111 @@ line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
                   <div class="uk-text-center">
                     <b>{{ $block->Productone->title }}</b>
                   </div>
-<!-- START .card -->
-<div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                <!-- START .card -->
+                <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
 
-<a href="{{ route('shop.show', $block->Productone->slug)}}">
-    <!-- START .uk-inline-clip -->
-    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-        <img src="{{ asset('storage/'.$block->Productone->thumbnail) }}" alt="" style="max-height:350px;">
-        <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Productone->secondimage) }}" alt="" style="max-height:250px;">
-    </div><!-- END .uk-inline-clip -->
-</a>
-<input type="hidden" name="id" value="{{ $block->Productone->id }}">
-<input type="hidden" name="name" value="{{ $block->Productone->title }}">
-<input type="hidden" name="price" value="{{ $block->Productone->price }}">
-</div><!-- END .card -->
-<div class="uk-text-center">
-<span> ${{ $block->Productone->price }} </span>
-<hr>
+                <a href="{{ route('shop.show', $block->Productone->slug)}}">
+                    <!-- START .uk-inline-clip -->
+                    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                        <img src="{{ asset('storage/'.$block->Productone->thumbnail) }}" alt="" style="max-height:350px;">
+                        <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Productone->secondimage) }}" alt="" style="max-height:250px;">
+                    </div><!-- END .uk-inline-clip -->
+                </a>
+                <input type="hidden" name="id" value="{{ $block->Productone->id }}">
+                <input type="hidden" name="name" value="{{ $block->Productone->title }}">
+                <input type="hidden" name="price" value="{{ $block->Productone->price }}">
+                </div><!-- END .card -->
+                <div class="uk-text-center">
+                <span> ${{ $block->Productone->price }} </span>
+                <hr>
 
-</div>
-<div class="uk-text-center">
-<button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+                </div>
+                <div class="uk-text-center">
+                  <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
+                </div>
 
-</div>
-
-</div><!-- END .card_theme_white -->
-</form>
-</div>
-</div>
-
-{{--  --}}
-@if ($block->caption != null)
-<!-- START div -->
-<div class="uk-width-1-3@m uk-width-1-1">
-    <div class="">
-      {!! $block->caption !!}
-    </div>
-    {{-- <!-- START .card -->
-    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                </div><!-- END .card_theme_white -->
+                </form>
+                </div>
+        </div>
+        @endif
 
 
-        <video width="100%" controls>
-            <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
 
-    </div><!-- END .card --> --}}
-</div><!-- END div -->
-@endif
+        @if ($block->caption != null)
+        <!-- START div -->
+        <div class="@if ( !$block->coloumn )uk-width-2-3@m @else uk-width-1-3@m @endif uk-width-1-1 uk-f;ex uk-flex-wrap-between">
+            <div class="">
+              {!! $block->caption !!}
+            </div>
 
-          {{--  --}}
+            @if ($block->media != null)
+            <!-- START .uk-container -->
+            <div class="">
+                @if ($block->mediatype == "image")
+                  {{-- <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{ asset('storage/'.$productcategory->path) }}');">
+                    <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
 
 
-@if ($block->Producttwo)
+
+                    </div>
+                </div> --}}
+                <img src="{{ asset('storage/'.$block->media) }}" alt="" style="width:100%">
+                @elseif ($block->mediatype == "video")
+                <video width="100%" controls>
+                    <source src="{{ asset('storage/'.$block->media) }}" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                @endif
+            </div>
+            @endif
+        </div><!-- END div -->
+        @endif
+
+                  {{--  --}}
 
 
-        <div class="uk-width-1-3@m uk-width-1-2 uk-flex-last@m uk-flex-first">
-          <div class="">
-            <form class="" action="{{ route('cart.store') }}" method="post">
-                {{ csrf_field() }}
-                <div class="card card_theme_white">
+        @if ($block->Producttwo)
 
-                  <div class="uk-text-center">
-                    <b>{{ $block->Producttwo->title }}</b>
+
+                <div class="uk-width-1-3@m @if ( $block->coloumn) uk-width-1-2 @else uk-width-1-1 @endif  uk-flex-last@m uk-flex-first">
+                  <div class="">
+                    <form class="" action="{{ route('cart.store') }}" method="post">
+                        {{ csrf_field() }}
+                        <div class="card card_theme_white">
+
+                          <div class="uk-text-center">
+                            <b>{{ $block->Producttwo->title }}</b>
+                          </div>
+                            <!-- START .card -->
+                            <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+                            <a href="{{ route('shop.show', $block->Producttwo->slug)}}">
+                                <!-- START .uk-inline-clip -->
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                    <img src="{{ asset('storage/'.$block->Producttwo->thumbnail) }}" alt="" style="max-height:350px;">
+                                    <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Producttwo->secondimage) }}" alt="" style="max-height:250px;">
+                                </div><!-- END .uk-inline-clip -->
+                            </a>
+                            <input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
+                            <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
+                            <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
+                            </div><!-- END .card -->
+                            <div class="uk-text-center">
+                            <span> ${{ $block->Producttwo->price }} </span>
+                            <hr>
+
+                            </div>
+                            <div class="uk-text-center">
+                            <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
+
+                            </div>
+
+                            </div><!-- END .card_theme_white -->
+                            </form>
+                            </div>
                   </div>
-<!-- START .card -->
-<div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
-
-<a href="{{ route('shop.show', $block->Producttwo->slug)}}">
-    <!-- START .uk-inline-clip -->
-    <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-        <img src="{{ asset('storage/'.$block->Producttwo->thumbnail) }}" alt="" style="max-height:350px;">
-        <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Producttwo->secondimage) }}" alt="" style="max-height:250px;">
-    </div><!-- END .uk-inline-clip -->
-</a>
-<input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
-<input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
-<input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
-</div><!-- END .card -->
-<div class="uk-text-center">
-<span> ${{ $block->Producttwo->price }} </span>
-<hr>
-
-</div>
-<div class="uk-text-center">
-<button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
-
-</div>
-
-</div><!-- END .card_theme_white -->
-</form>
-</div>
-</div>
-@endif
+        @endif
 
 
 

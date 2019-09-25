@@ -25,7 +25,7 @@ class IndexController extends Controller
         $HomeFourBlock = HomeFourBlock::orderBy('id', 'desc')->first();
         $post = BlogPost::orderBy('id', 'desc')->first();
         $longImages = HomeThreeImages::orderBy('id', 'desc')->take(3)->get();
-        $MainBlock = MainBlock::get();
+        $MainBlock = MainBlock::orderBy('order','asc')->get();
         return view('index')
             ->with('products', $products)
             ->with('main_slider',$main_slider)

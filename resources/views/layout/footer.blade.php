@@ -1,4 +1,9 @@
 {{ menu('main', 'partials.menus.main') }}
+<style media="screen">
+  .section_theme_offwhite{
+        background-color: #eeeeee61;
+  }
+</style>
 <!-- START section -->
 <section class="uk-section section_theme_gray">
 

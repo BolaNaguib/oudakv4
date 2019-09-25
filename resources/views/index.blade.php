@@ -247,10 +247,10 @@
           <!-- START .uk-width-1-3@m -->
         <div class="uk-width-1-3@m uk-width-1-2 ">
           <!-- START div -->
-          <div class="card_theme_white">
+          <div class="card card_theme_white">
             <form class="" action="{{ route('cart.store') }}" method="post">
                 {{ csrf_field() }}
-                <div class="card">
+                <div class="">
 
                   <div class="uk-text-center">
                     <b>{{ $block->Productone->title }}</b>
@@ -269,6 +269,9 @@
                 <input type="hidden" name="name" value="{{ $block->Productone->title }}">
                 <input type="hidden" name="price" value="{{ $block->Productone->price }}">
                 </div><!-- END .card -->
+
+
+                </div><!-- END .card_theme_white -->
                 <div class="uk-text-center">
                 <span> ${{ $block->Productone->price }} </span>
                 <hr>
@@ -277,8 +280,6 @@
                 <div class="uk-text-center">
                   <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
                 </div>
-
-                </div><!-- END .card_theme_white -->
                 </form>
                 </div>
         </div>
@@ -323,10 +324,10 @@
 
 
                 <div class="uk-width-1-3@m @if ( $block->coloumn) uk-width-1-2 @else uk-width-1-1 @endif  uk-flex-last@m uk-flex-first">
-                  <div class="card_theme_white">
+                  <div class="card card_theme_white">
                     <form class="" action="{{ route('cart.store') }}" method="post">
                         {{ csrf_field() }}
-                        <div class="card">
+                        <div class="">
 
                           <div class="uk-text-center">
                             <b>{{ $block->Producttwo->title }}</b>
@@ -345,6 +346,9 @@
                             <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
                             <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
                             </div><!-- END .card -->
+
+
+                            </div><!-- END .card_theme_white -->
                             <div class="uk-text-center">
                             <span> ${{ $block->Producttwo->price }} </span>
                             <hr>
@@ -354,8 +358,6 @@
                             <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
 
                             </div>
-
-                            </div><!-- END .card_theme_white -->
                             </form>
                             </div>
                   </div>

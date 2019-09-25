@@ -55,7 +55,8 @@
  width: 100%;
  height: 100vh;
  z-index: 9999;
- background-image: url('https://5.top4top.net/p_13284bw5v1.gif');
+ background-image: url('https://3.top4top.net/p_1363qbs2x1.gif');
+ /* background-image: url('https://5.top4top.net/p_13284bw5v1.gif'); */
  background-repeat: no-repeat;
  background-color: #FFF;
  background-position: center;

@@ -29,10 +29,16 @@
 @endif
 @endforeach
 @endif
-
 <!-- START .uk-section -->
 <section class="uk-section" style="padding-top:20px;">
+<div class="uk-container uk-container-large">
+  <div class="uk-text-center">
+    <h3> {{ $productcategory->title }} </h3>
 
+    {!! $productcategory->description !!}
+
+  </div>
+</div>
     @if ($productcategory->path != null)
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
@@ -65,7 +71,7 @@
     </div>
     @endif
 
-    </div>
+  </section>
 
     <!-- START .uk-section -->
     <section class="uk-section">

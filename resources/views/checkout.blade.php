@@ -294,7 +294,7 @@
                     <!-- START .uk-clearfix -->
                     <div class="uk-clearfix">
                         <!-- START .uk-float-right -->
-                        <span class="newtotal">{{$newTotal}}</span>
+                        <span class="newtotal uk-hidden">{{$newTotal}}</span>
                         <div class="uk-float-right"><b>$ <span class="newtottalship"></span>  </b></div> <!-- END .uk-float-right -->
                         <!-- START .uk-float-left -->
                         <div class="uk-float-left"><b>Total Price</b></div> <!-- END .uk-float-left -->
@@ -311,6 +311,10 @@
 @section('js')
 <script type="text/javascript">
     let shippingprice = $('input[name=shippingprice]');
+    let shipingx = $('.shippingx');
+    let newtottalshipx = $('.newtottalship');
+    shipingx.text('0.00');
+    newtottalshipx.text('{{ $newTotal }}')
     console.log("shipping Price Output = " + shippingprice);
     shippingprice.on('click', function() {
         let shp = this.value;
@@ -319,7 +323,7 @@
         let y = shi.text(shp);
         let oldtotal = $('.newtotal');
         let newtottalship = $('.newtottalship');
-        newtottalship.text(oldtotal.text()+ y );
+        newtottalship.text({{ $newTotal }} );
         // $.ajax({
         //         type: 'post',
         //         url: '{{ route('checkout.savesession') }}',

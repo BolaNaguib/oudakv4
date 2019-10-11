@@ -20,12 +20,15 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+      $session = session()->all();
+      // dd($session);
         //
         return view('checkout')->with([
           'discount' => $this->getNumbers()->get('discount'),
           'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
           'newTax' => $this->getNumbers()->get('newTax'),
           'newTotal' => $this->getNumbers()->get('newTotal'),
+          // 'session' => $session['shippingprice']
         ]);;
     }
 
@@ -80,6 +83,7 @@ class CheckoutController extends Controller
             'billing_subtotal' => $this->getNumbers()->get('newSubtotal'),
             'billing_tax' => $this->getNumbers()->get('newTax'),
             'billing_total' => $this->getNumbers()->get('newTotal'),
+            'shippingprice' => $request->shippingprice,
             'error' => null,
           ]);
 
@@ -271,5 +275,19 @@ class CheckoutController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function savesession(Request $request)
+    {
+        //
+        Session()->put('shippingprice', $request->shippingprice);
+        echo "Added Shipping Price ";
+        dd(session());
     }
 }

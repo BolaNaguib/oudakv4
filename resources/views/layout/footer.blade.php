@@ -591,10 +591,13 @@ $("#postal_code").on("change paste keyup", function() {
     </script>
 
 
-
+<script type="text/javascript">
+   $('.newgiftbutton').on('click', function(){
+    let giftname = $(this).next('div').children('p').text();
+    $('.giftname').attr('value',giftname)
+    console.log(giftname);
+  });
+</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
 
 {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&callback=initMap" type="text/javascript"></script> --}}
-</body>
-
-</html>

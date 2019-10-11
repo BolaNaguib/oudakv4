@@ -10,7 +10,7 @@
   <div class="uk-container uk-container-large">
 
     <!-- START .uk-position-relative -->
-    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: fade;ratio: 7:3;">
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push;ratio: 7:3;">
       <!-- START .uk-slideshow-items -->
       <ul class="uk-slideshow-items">
 
@@ -18,21 +18,28 @@
         <li>
           <img style="width:100%;" class="slider__image" src="{{ asset('storage/'.$image->thumbnail) }}" alt="">
           <!-- START .uk-position-center -->
-          <div class="uk-position-center uk-text-center">
-            <h2 style="background-color: #000000bf;
-            display: initial;
-            padding: 5px;" uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
-            <hr style="border:none;">
 
-            <p  style="    background-color: #000000bf;
+          <div class="uk-position-center uk-text-center">
+            @if ($image->title)
+              <h2 style="background-color: #000000bf;
               display: initial;
-              padding: 5px;
-              line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
+              padding: 5px;" uk-slider-parallax="x: 100,-100">{{$image->title}}</h2>
+              <hr style="border:none;">
+            @endif
+            @if ($image->caption)
+              <p  style="    background-color: #000000bf;
+                display: initial;
+                padding: 5px;
+                line-height: 2;" uk-slider-parallax="x: 200,-200">{{$image->caption}}</p>
+            @endif
+
           </div><!-- END .uk-position-center -->
         </li>
         @endforeach
 
       </ul>
+
+
       <!-- END .uk-slideshow-items -->
       <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
       <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
@@ -44,6 +51,7 @@
 
 
     </div>
+
 
   </div>
 </section>

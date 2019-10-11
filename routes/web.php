@@ -123,6 +123,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   // Checkout
   Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
   Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
+  Route::post('/savesession', 'CheckoutController@savesession')->name('checkout.savesession');
 
   Route::get('/tracker', 'TrackerController@index')->name('tracker.index');
   Route::post('/tracker', 'TrackerController@store')->name('tracker.store');
@@ -147,11 +148,24 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   // pages
   Route::get('/{page}','PagesController@show')->name('page.show'); // this one abd blogs noi
 
+// blogs
+$namespace = '\Pvtl\VoyagerBlog\Http\Controllers';
+if (class_exists('\Pvtl\VoyagerFrontend\Http\Controllers\PostController')) {
+    $namespace = '\Pvtl\VoyagerFrontend\Http\Controllers';
+}
+Route::group([
+    'prefix' => 'blog', // Must match its `slug` record in the DB > `data_types`
+    'middleware' => ['web'],
+    'as' => 'voyager-blog.blog.',
+    'namespace' => $namespace,
+], function () {
+    Route::get('/blog', ['uses' => 'PostController@getPosts', 'as' => 'list']);
+    Route::get('blogs/{slug}', ['uses' => 'PostController@getPost', 'as' => 'post']);
+});
 
   Route::post('/{contactus}','ContactUsController@contactus')->name('conktactus');
 
   Route::get('*','index@menu')->name('index.menu'); // this one abd blogs noi
-
 
   // Route::get('showuserinfo','UserProfileController@showuserinfo')->name('showuserinfo');
 // Route::get('/', 'indexController@menu')->name('mainmenu');

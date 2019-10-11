@@ -2,5 +2,9 @@
 @yield('content')
 
 @yield('css')
-@yield('js')
 @include('layout.footer')
+@yield('js')
+
+</body>
+
+</html>

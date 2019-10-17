@@ -132,36 +132,50 @@
                                     <input class="input uk-width-expand" id="form-stacked-text" name="nearlocation" type="text" required="" placeholder="Jhon" disabledx>
                                 </div><!-- END .uk-form-controls -->
                             </div><!-- END .uk-margin -->
+                            <input id="inputNewTotal" class="uk-hidden" type="text" name="inputNewTotal" value="0.00">
+
                         </div><!-- END uk-width-1-1 -->
                     </div>
                     {{-- END uk-grid --}}
                     <h3>Shipping Type</h3>
                     <hr>
                     <!-- START .uk-grid -->
-                    <div class="uk-grid uk-child-width-1-2">
+                    <div class="">
+                      <div class="uk-grid uk-child-width-1-2 shippingprices">
                         <div>
-                            <label><input class="uk-radio" value="0.00" type="radio" name="shippingprice" checked> $0.00</label>
+                            <label><input class="uk-radio " value="0.00" type="radio" name="shippingprice" checked> $0.00</label>
                         </div>
                         <div class="uk-text-right">
                             <small>Standard Shipping / 2-5 Business Days</small>
                         </div>
+                      </div>
+
+                      <div class="uk-grid uk-child-width-1-2 shippingprices">
                         <div>
-                            <label><input class="uk-radio" value="6.73" type="radio" name="shippingprice"> $6.73</label>
+                            <label><input class="uk-radio " value="6.73" type="radio" name="shippingprice"> $6.73</label>
                         </div>
                         <div class="uk-text-right">
                             <small>Priority Shipping / 1-3 Business Days</small>
                         </div>
+                      </div>
+                      <div class="uk-grid uk-child-width-1-2 shippingprices">
+
                         <div>
-                            <label><input class="uk-radio" value="27.83" type="radio" name="shippingprice"> $27.83 </label>
+                            <label><input class="uk-radio " value="27.83" type="radio" name="shippingprice"> $27.83 </label>
                         </div>
                         <div class="uk-text-right">
                             <small>Express Shipping / 1-2 Days Guaranteed </small>
+                          </div>
                         </div>
+
+                        <div class="uk-grid uk-child-width-1-2 shippingprices-canada">
+
                         <div>
-                            <label><input class="uk-radio" value="19.73" type="radio" name="shippingprice"> $19.73 </label>
+                            <label><input class="uk-radio " value="19.73" type="radio" name="shippingprice"> $19.73 </label>
                         </div>
                         <div class="uk-text-right">
                             <small>Canada / 5-7 Business Days</small>
+                          </div>
                         </div>
                     </div>
                     <!-- END .uk-grid -->
@@ -242,6 +256,18 @@
                             <b style="border: 1px solid #eee;  padding: 0px 10px; margin-left: 10px;">
                                 {{ $item->qty }}</b></div> <!-- END .uk-float-left -->
                     </div><!-- END .uk-clearfix -->
+                    @if ($item->options->giftprice)
+                      <hr>
+                    <div class="uk-clearfix">
+
+
+                      <span>Gift :</span> <b> {{ $item->options->giftname }} </b> <b class="uk-float-right"> ${{ $item->options->giftprice * $item->qty }}</b>
+                      @php
+                      $gift = $item->options->giftprice
+                      @endphp
+                    </div>
+                  @endif
+
                     <hr>
                     @endforeach
 
@@ -252,7 +278,7 @@
                     <!-- START .uk-clearfix -->
                     <div class="uk-clearfix">
                         <!-- START .uk-float-right -->
-                        <div class="uk-float-right"><b>$ {{ Cart::subtotal() }} </b></div> <!-- END .uk-float-right -->
+                        <div class="uk-float-right"><b>$ {{ $total }} </b></div> <!-- END .uk-float-right -->
                         <!-- START .uk-float-left -->
                         <div class="uk-float-left"><b>Total : </b></div> <!-- END .uk-float-left -->
                     </div><!-- END .uk-clearfix -->
@@ -310,6 +336,7 @@
 @endsection
 @section('js')
 <script type="text/javascript">
+// To add total shipping
     let shippingprice = $('input[name=shippingprice]');
     let shipingx = $('.shippingx');
     let newtottalshipx = $('.newtottalship');
@@ -323,44 +350,40 @@
         let y = shi.text(shp);
         let oldtotal = $('.newtotal');
         let newtottalship = $('.newtottalship');
-        newtottalship.text({{ $newTotal }} );
-        // $.ajax({
-        //         type: 'post',
-        //         url: '{{ route('checkout.savesession') }}',
-        //         data: {
-        //           "_token": "{{ csrf_token() }}",
-        //           "shippingprice": shp
-        //
-        //         }
-        //     })
-        //     .done(function(data) {
-        //         // show the response
-        //         console.log("SUBMITTED");
-        //         $('#response').html(data);
-        //     })
-        //     .fail(function(data) {
-        //       console.log(data.responseJSON);
-        //       console.log("Failed");
-        //         // just in case posting your form failed
-        //         // alert("Posting failed.");
-        //     });
-        // to prevent refreshing the whole page page
-        // return false;
+        let newTotalAndShipping = {{ $newTotal }} + parseFloat(shp);
+        console.log("newTotalAndShipping = " + newTotalAndShipping);
+        let inputNewTotal = $('#inputNewTotal');
+        newtottalship.text(newTotalAndShipping);
+        inputNewTotal.attr('value' , newTotalAndShipping);
+        // console.log(" hidden input value " + inputNewTotal.attr('value' , newTotalAndShipping));
+        // console.log();
         console.log(this.value);
     });
 
-    //   $(function() {
-    //   $("input[na,e=\"shippingprice\"]").click(function(){
-    //
-    //       //localStorage:
-    //       localStorage.setItem("option", value);
-    //   });
-    //   //localStorage:
-    //   var itemValue = localStorage.getItem("option");
-    //   if (itemValue !== null) {
-    //       $("input[value=\""+itemValue+"\"]").click();
-    //   }
-    // });
+
+
+
+
+// only Show Canada Shipping if address refer to Canada
+ let CountryInputField = $('input[name=country]');
+ let shippingPriceCanada = $('.shippingprices-canada');
+
+ shippingPriceCanada.hide();
+
+ CountryInputField.on('keyup',function(){
+   let CountryInputFieldValue = CountryInputField.val().toLowerCase();
+   let shippingPrices = $('.shippingprices');
+   if (CountryInputFieldValue == 'canada' ) {
+     shippingPrices.hide();
+     shippingPriceCanada.show();
+     console.log("hey canada is here ");
+   }
+   else {
+     shippingPrices.show();
+     shippingPriceCanada.hide();
+   }
+   console.log("CountryInputField value is = " + CountryInputField.val());
+ });
 </script>
 
 @endsection

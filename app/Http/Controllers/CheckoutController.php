@@ -28,6 +28,8 @@ class CheckoutController extends Controller
           'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
           'newTax' => $this->getNumbers()->get('newTax'),
           'newTotal' => $this->getNumbers()->get('newTotal'),
+          'total'         =>$this->getNumbers()->get('total'),
+          'newGiftPrice'  =>$this->getNumbers()->get('newGiftPrice')
           // 'session' => $session['shippingprice']
         ]);;
     }
@@ -55,7 +57,8 @@ class CheckoutController extends Controller
         //
         try {
           $charge = Stripe::charges()->create([
-            'amount' => $this->getNumbers()->get('newTotal'),
+            // 'amount' => $this->getNumbers()->get('newTotal'),
+            'amount' => $request->inputNewTotal,
             'currency' => 'USD',
             'source' => $request->stripeToken,
             // 'decription' => 'Order',
@@ -132,20 +135,20 @@ class CheckoutController extends Controller
           );
 
           // dd($from_address);
-          $parcel = \EasyPost\Parcel::create(
-              array(
-                  "predefined_package" => "LargeFlatRateBox",
-                  "weight" => 76.9
-              )
-          );
+          // $parcel = \EasyPost\Parcel::create(
+          //     array(
+          //         "predefined_package" => "LargeFlatRateBox",
+          //         "weight" => 76.9
+          //     )
+          // );
           $shipment = \EasyPost\Shipment::create(
               array(
                   "to_address"   => $to_address,
                   "from_address" => $from_address,
-                  "parcel"       => $parcel
+                  // "parcel"       => $parcel
               )
           );
-          dd($shipment->lowest_rate()->retail_rate);
+          // dd($shipment->lowest_rate()->retail_rate);
 
           // $rate = \EasyPost\Rate::retrieve($shipment->lowest_rate());
           // dd($rate);
@@ -217,9 +220,24 @@ class CheckoutController extends Controller
 
     private function getNumbers()
     {
+      $item = Cart::content('cart');
+      // dd($item);
+      $newGiftPrice = 0;
+
+      foreach ($item as $newitem ) {
+        // code...
+        $newitem->options->giftprice ?? 0;
+        $newitem->qty;
+
+        if ($newitem->options->giftprice != 0) {
+          $newGiftPrice = $newitem->options->giftprice * $newitem->qty;
+        }
+      }
+        $total = (Cart::subtotal() + $newGiftPrice);
+
       $tax = config('cart.tax') / 100;
       $discount = session()->get('coupon')['discount'] ?? 0 ;
-      $newSubtotal = (Cart::subtotal() - $discount);
+      $newSubtotal = (Cart::subtotal() + $newGiftPrice  - $discount);
       $newTax = ($newSubtotal * $tax);
       $newTotal = $newSubtotal * ( 1 + $tax);
 
@@ -229,8 +247,11 @@ class CheckoutController extends Controller
         'newSubtotal' => $newSubtotal,
         'newTax' => $newTax,
         'newTotal' => $newTotal,
+        'newGiftPrice' => $newGiftPrice,
+        'total' => $total
       ]);
     }
+  
 
     /**
      * Display the specified resource.

@@ -16,14 +16,14 @@ class CartController extends Controller
     public function index()
     {
 
-
-
         //
         return view('cart')->with([
-          'discount' => $this->getNumbers()->get('discount'),
-          'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
-          'newTax' => $this->getNumbers()->get('newTax'),
-          'newTotal' => $this->getNumbers()->get('newTotal'),
+          'discount'      => $this->getNumbers()->get('discount'),
+          'newSubtotal'   => $this->getNumbers()->get('newSubtotal'),
+          'newTax'        => $this->getNumbers()->get('newTax'),
+          'newTotal'      => $this->getNumbers()->get('newTotal'),
+          'total'         =>$this->getNumbers()->get('total'),
+          'newGiftPrice'  =>$this->getNumbers()->get('newGiftPrice'),
         ]);
     }
 
@@ -53,9 +53,16 @@ class CartController extends Controller
           return back()->with('success_message','item is already in your bag!');
           // code...
         }
-        Cart::add($request->id, $request->name, 1,$request->price)
-            ->associate('App\Product');
-
+        Cart::add([
+          'id'    => $request->id,
+          'name'  => $request->name,
+          'qty'   => 1,
+          'price' => $request->price,
+          'options'  => array(
+            'giftname' => $request->giftname,
+            'giftprice' => $request->giftprice
+          )
+                  ])->associate('App\Product');
               return back()->with('success_message','item was added to your bag');
 
       }
@@ -95,7 +102,7 @@ class CartController extends Controller
     {
         //
         // return $request->all();
-        Cart::update($id, $request->quantity);
+        Cart::update($id, $request->quantity );
         session()->flash('success_message','Quantity was updated successfully');
         return response()->json(['success' => true]);
     }
@@ -145,18 +152,46 @@ public function switchToSaveForLater($id)
 
 private function getNumbers()
 {
+  $item = Cart::content('cart');
+  // dd($item);
+  foreach ($item as $newitem ) {
+    // code...
+    $newitem->options->giftprice ?? 0;
+    $newitem->qty;
+    $newGiftPrice = 0;
+    if ($newitem->options->giftprice != 0) {
+      $newGiftPrice = $newitem->options->giftprice * $newitem->qty ;
+    }
+    //
+    // elseif ($newitem->options->giftprice == 0) {
+    //   $newGiftPrice = 0;
+    // }
+    //  else {
+    //   $newGiftPrice = 0 ;
+    // }
+  }
+
+
+  // dd($newGiftPrice);
+  // $giftprice = $newitem->options->giftprice ;
   $tax = config('cart.tax') / 100;
+
   $discount = session()->get('coupon')['discount'] ?? 0 ;
-  $newSubtotal = (Cart::subtotal() - $discount);
+  // $newSubtotal = (Cart::subtotal() + $giftprice - $discount);
+
+  $total = (Cart::subtotal() + $newGiftPrice) ;
+  $newSubtotal = (Cart::subtotal() + $newGiftPrice  - $discount);
   $newTax = ($newSubtotal * $tax);
   $newTotal = $newSubtotal * ( 1 + $tax);
 
   return collect( [
     'tax' => $tax,
     'discount' => $discount,
-    'newSubtotal' => $newSubtotal,
+    'newSubtotal' => $newSubtotal ,
     'newTax' => $newTax,
-    'newTotal' => $newTotal,
+    'newTotal' => $newTotal ,
+    'newGiftPrice' => $newGiftPrice,
+    'total' => $total
   ]);
 }
 

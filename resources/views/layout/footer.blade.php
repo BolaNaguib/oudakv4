@@ -167,29 +167,7 @@ if ($('#productzoom').length) {
 
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
-<script type="text/javascript">
-    (function() {
-        const classname = document.querySelectorAll('.quantity');
 
-        Array.from(classname).forEach(function(element) {
-            element.addEventListener('change', function() {
-                console.log("changed");
-                const id = element.getAttribute('data-id');
-                console.log(id);
-                axios.patch(`bag/${id}`, {
-                        quantity: this.value
-                    })
-                    .then(function(response) {
-                        console.log(response);
-                        window.location.href = '{{ route('cart.index') }}'
-                    })
-                    .catch(function(error) {
-                        console.log(error);
-                    });
-            })
-        })
-    })();
-</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>

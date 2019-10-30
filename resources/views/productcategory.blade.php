@@ -41,11 +41,8 @@
   <div class="uk-grid uk-grid-match">
     @foreach ($products as $product )
     @if ($product->category == $cat->id)
-      @if ($product->title == null)
-        <div class="uk-text-center">
-          Sorry , There is no more products here
-        </div>
-      @else
+
+
         <!-- START .uk-width-1-3@m -->
       <div class="uk-width-1-3@m uk-width-1-2 ">
         <!-- START div -->
@@ -85,7 +82,6 @@
               </form>
               </div>
       </div>
-      @endif
 
     @endif
     @endforeach

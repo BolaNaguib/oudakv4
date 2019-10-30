@@ -41,45 +41,52 @@
   <div class="uk-grid uk-grid-match">
     @foreach ($products as $product )
     @if ($product->category == $cat->id)
-      <!-- START .uk-width-1-3@m -->
-    <div class="uk-width-1-3@m uk-width-1-2 ">
-      <!-- START div -->
-      <div class="card card_theme_white">
-        <form class="" action="{{ route('cart.store') }}" method="post">
-            {{ csrf_field() }}
-            <div class="">
+      @if ($product->title == null)
+        <div class="uk-text-center">
+          Sorry , There is no more products here
+        </div>
+      @else
+        <!-- START .uk-width-1-3@m -->
+      <div class="uk-width-1-3@m uk-width-1-2 ">
+        <!-- START div -->
+        <div class="card card_theme_white">
+          <form class="" action="{{ route('cart.store') }}" method="post">
+              {{ csrf_field() }}
+              <div class="">
 
+                <div class="uk-text-center">
+                  <b>{{ $product->title }}</b>
+                </div>
+              <!-- START .card -->
+              <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+              <a href="{{ route('shop.show', $product->slug)}}">
+                  <!-- START .uk-inline-clip -->
+                  <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                      <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:350px;">
+                      <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
+                  </div><!-- END .uk-inline-clip -->
+              </a>
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <input type="hidden" name="name" value="{{ $product->title }}">
+              <input type="hidden" name="price" value="{{ $product->price }}">
+              </div><!-- END .card -->
+
+
+              </div><!-- END .card_theme_white -->
               <div class="uk-text-center">
-                <b>{{ $product->title }}</b>
+              <span> ${{ $product->price }} </span>
+              <hr>
+
               </div>
-            <!-- START .card -->
-            <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+              <div class="uk-text-center">
+                <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
+              </div>
+              </form>
+              </div>
+      </div>
+      @endif
 
-            <a href="{{ route('shop.show', $product->slug)}}">
-                <!-- START .uk-inline-clip -->
-                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                    <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:350px;">
-                    <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}" alt="" style="max-height:250px;">
-                </div><!-- END .uk-inline-clip -->
-            </a>
-            <input type="hidden" name="id" value="{{ $product->id }}">
-            <input type="hidden" name="name" value="{{ $product->title }}">
-            <input type="hidden" name="price" value="{{ $product->price }}">
-            </div><!-- END .card -->
-
-
-            </div><!-- END .card_theme_white -->
-            <div class="uk-text-center">
-            <span> ${{ $product->price }} </span>
-            <hr>
-
-            </div>
-            <div class="uk-text-center">
-              <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span>  </button>
-            </div>
-            </form>
-            </div>
-    </div>
     @endif
     @endforeach
   </div>

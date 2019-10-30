@@ -203,14 +203,20 @@ color: #fff !important;
             <ul class="uk-navbar-nav">
 
               <li class="uk-position-relative">
+                @if (Cart::instance('default')->count() > 0)
                   <a href="{{ route('cart.index') }}">
+                  @else
+                    <a>
+                  @endif
                     <span uk-icon="cart"></span>
                      <span uk-icon="triangle-down"></span>
                      @if (Cart::instance('default')->count() > 0)
                      <span class="uk-badge notificationicon">
                        {{ Cart::instance('default')->count() }}
                      </span>
-                          @endif</a>
+                          @endif
+                        </a>
+
                   <div class="main-carditems" uk-dropdown>
                     <ul class="uk-list  uk-list-divider uk-margin-remove">
                          @if (Cart::instance('default')->count() > 0)
@@ -233,10 +239,14 @@ color: #fff !important;
                       @endif
 
                     </ul>
+                    @if (Cart::instance('default')->count() > 0)
+
                     <div class="uk-text-center">
                       <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To bag</a>
 
                     </div>
+                  @endif
+
                   </div>
 
 

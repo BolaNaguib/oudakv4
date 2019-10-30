@@ -62,6 +62,16 @@
 <section class="uk-section">
   <!-- START uk-container -->
   <div class="uk-container uk-container-large">
+    <div class="uk-text-right">
+      <span> Diplay Mode : </span>
+      <button class="gridoptionicon" type="button" name="gridoptionicon"><span uk-icon="icon: grid;"></span></button>
+      <button  class="gridoptioniconv" type="button" name="gridoptioniconv"><span uk-icon="icon: more-vertical;"></span></button>
+
+
+    </div>
+    <hr>
+
+
     <!-- START uk-grid -->
     <div class="uk-grid-match uk-grid" uk-grid>
       <!-- START .uk-width-1-3@m -->
@@ -106,7 +116,7 @@
       <!-- END .uk-width-1-3@m -->
       <!-- START .uk-width-1-3@m -->
       @if ($HomeFourBlock->Product1 != null)
-        <div class="uk-width-1-3@m uk-width-1-1">
+        <div class="gridoption uk-width-1-3@m uk-width-1-2">
           <!-- START .uk-card -->
           <div class="uk-card uk-card-default uk-text-center uk-padding ">
             <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
@@ -129,7 +139,7 @@
       @if ($HomeFourBlock->Product1 != null)
 
       <!-- START .uk-width-1-3@m -->
-      <div class="uk-width-1-3@m uk-width-1-1">
+      <div class="gridoption uk-width-1-3@m uk-width-1-2">
         <!-- START .uk-card -->
         <div class="uk-card uk-card-default uk-text-center uk-padding ">
           <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
@@ -436,4 +446,34 @@ width:100%;
       }
 
         </style>
+@endsection
+@section('css')
+  <style media="screen">
+    .gridoptionicon{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    }
+    .gridoptioniconv{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    }
+  </style>
+@endsection
+@section('js')
+  <script type="text/javascript">
+  let $gridoptionicon = $('.gridoptionicon');
+  let $gridoptioniconv = $('.gridoptioniconv');
+    $gridoptioniconv.on('click',function(){
+      let $gridoption = $('.gridoption');
+      $gridoption.addClass('uk-width-1-1');
+      $gridoption.removeClass('uk-width-1-3@m uk-width-1-2');
+    });
+    $gridoptionicon.on('click',function(){
+      let $gridoption = $('.gridoption');
+      $gridoption.removeClass('uk-width-1-1');
+      $gridoption.addClass('uk-width-1-3@m uk-width-1-2');
+    });
+  </script>
 @endsection

@@ -73,20 +73,60 @@
 
   </section>
 
+
     <!-- START .uk-section -->
     <section class="uk-section">
         <!-- START .uk-container -->
         <div class="uk-container uk-container-large">
             <!-- START uk-grid -->
             <div class="uk-grid-match" uk-grid>
-                @if ($productcategory->first_section_image != null)
-                <!-- START  div -->
-                <div class="uk-width-1-3@m uk-width-1-2">
-                    <!-- START .card -->
-                    <div class="cards card_theme_whites uk-flex uk-flex-bottom uk-flex-center uk-position-relative uk-transition-toggle uk-text" tabindex="0">
-                        <img src="{{ asset('storage/'.$productcategory->first_section_image) }}" alt="" style="">
-                    </div><!-- END .card -->
-                </div> <!-- END div -->
+                              @if ($productcategory->Productone != null)
+              <div class="uk-width-1-3@m uk-width-1-2 uk-flex-first uk-flex-last@m">
+
+                                  <form class="" action="{{ route('cart.store') }}" method="post">
+                                      {{ csrf_field() }}
+                                      <div class="card card_theme_white">
+
+                                        <div class="uk-text-center">
+                                          <b>{{ $productcategory->Productone->title }}</b>
+                                        </div>
+                  <!-- START .card -->
+                  <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+
+
+                      <a href="{{ route('shop.show', $productcategory->Productone->slug)}}">
+                          <!-- START .uk-inline-clip -->
+                          <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                              <img src="{{ asset('storage/'.$productcategory->Productone->thumbnail) }}" alt="" style="max-height:350px;">
+                              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$productcategory->Productone->secondimage) }}" alt="" style="max-height:250px;">
+                          </div><!-- END .uk-inline-clip -->
+                      </a>
+                      <input type="hidden" name="id" value="{{ $productcategory->Productone->id }}">
+                      <input type="hidden" name="name" value="{{ $productcategory->Productone->title }}">
+                      <input type="hidden" name="price" value="{{ $productcategory->Productone->price }}">
+                  </div><!-- END .card -->
+                  <div class="uk-text-center">
+                    <span> ${{ $productcategory->Productone->price }} </span>
+                    <hr>
+
+                  </div>
+                  <div class="uk-text-center">
+                    <button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+
+                  </div>
+
+                </div><!-- END .card_theme_white -->
+                </form>
+
+              </div><!-- END div -->
+
+
+
+
+
+
+
+
                 @endif
 
                 @if ($productcategory->first_section_description != null)

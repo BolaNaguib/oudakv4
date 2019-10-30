@@ -81,7 +81,7 @@
             <!-- START uk-grid -->
             <div class="uk-grid-match" uk-grid>
                               @if ($productcategory->Productone != null)
-              <div class="uk-width-1-3@m uk-width-1-2 uk-flex-first uk-flex-last@m">
+              <div class="uk-width-1-3@m uk-width-1-2">
 
                                   <form class="" action="{{ route('cart.store') }}" method="post">
                                       {{ csrf_field() }}
@@ -134,15 +134,15 @@
                 <div class="uk-width-1-3@m uk-width-1-1">
                     <p>{{ $productcategory->first_section_description }}</p>
                     <!-- START .card -->
-                    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                    @if ($productcategory->first_section_video != null)
+                      <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                          <video width="100%" controls>
+                              <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
+                              Your browser does not support HTML5 video.
+                          </video>
+                      </div><!-- END .card -->
+                    @endif
 
-
-                        <video width="100%" controls>
-                            <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-
-                    </div><!-- END .card -->
                 </div><!-- END div -->
                 @endif
 
@@ -250,15 +250,14 @@
                 <div class="uk-width-2-3@m uk-width-1-1">
                     <p>{{ $productcategory->second_section_description }}</p>
                     <!-- START .card -->
-                    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
-
-
-                        <video width="100%" controls>
-                            <source src="{{ asset('storage/'.$productcategory->second_section_video) }}" type="video/mp4">
-                            Your browser does not support HTML5 video.
-                        </video>
-
-                    </div><!-- END .card -->
+                    @if ($productcategory->second_section_video != null)
+                      <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                            <video width="100%" controls>
+                              <source src="{{ asset('storage/'.$productcategory->second_section_video) }}" type="video/mp4">
+                              Your browser does not support HTML5 video.
+                          </video>
+                      </div><!-- END .card -->
+                    @endif
                 </div><!-- END div -->
                 @endif
 

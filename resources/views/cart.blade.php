@@ -54,7 +54,7 @@
 
                                 <div class="uk-grid-small " uk-grid>
                                     <div class="uk-width-expand" uk-leader>Price</div>
-                                    <div>${{ $total }} xx </div>
+                                    <div>${{ $total }}</div>
                                 </div>
 
                                 @if (session()->has('coupon'))

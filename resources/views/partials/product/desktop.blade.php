@@ -2,10 +2,6 @@
 $slider = preg_replace(array('/\"/','/\]$/','/^\[/'), '',$product->product_slider);
 $product_slider = explode(",", $slider)
 @endphp
-
-
-
-
 @if (session()->has('success_message'))
 <div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>

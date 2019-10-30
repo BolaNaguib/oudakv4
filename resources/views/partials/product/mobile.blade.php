@@ -9,7 +9,6 @@
     <a class="uk-alert-close" uk-close></a>
     <p>{{ session()->get('success_message') }}</p>
 </div>
-
 @endif
 @if(count($errors) > 0)
 @foreach($errors->all() as $error)
@@ -39,7 +38,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                 <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
@@ -58,7 +57,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
@@ -77,7 +76,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                 <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
@@ -95,7 +94,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                 <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
@@ -113,7 +112,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
@@ -131,7 +130,7 @@
                       <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
-                              <input type="radio" name="price" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
+                              <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
                               <div class="uk-position-relative  uk-button uk-width-expand" style="   ">
                                 <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
@@ -240,7 +239,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
                     <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                     <img src="" alt="">
-                    <h3 class="uk-margin-small"><button id="newprice" class="uk-button uk-button-secondary">${{ $product->price }}</button> </h3>
+                    <h3 class="uk-margin-small"><span id="newprice" class="uk-button uk-button-default">${{ $product->price }}</span> </h3>
                     <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
                     @if ($product->initial_description)
                     <p>{!! $product->initial_description !!}</p>
@@ -306,11 +305,19 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
 
 
-
+                    <input  type="text" name="giftname" value="" class="giftname uk-hidden">
                     <input type="hidden" name="id" value="{{ $product->id }}">
                     <input type="hidden" name="name" value="{{ $product->title }}">
                     {{-- <input type="hidden" name="price" value="{{ $product->price }}"> --}}
+                    @if ($product->quantity == 0)
+
+                    <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" disabled> Product is Out Of Stock </button>
+
+                    @endif
+                    @if ($product->quantity != 0)
                     <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+                    @endif
+                    {{-- <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button> --}}
 
             </div><!-- END .uk-text-center -->
         </div>

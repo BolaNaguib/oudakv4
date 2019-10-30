@@ -235,6 +235,10 @@
                         background-color: #fefde5 !important;
                     }
                 </style>
+                <hr>
+                <div class="">
+                  <a href="{{ route('cart.index') }}" class="uk-button uk-button-default uk-width-expand"> Return To Cart </a>
+                </div>
             </div>
             <!-- END div -->
             <!-- START div -->

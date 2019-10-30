@@ -111,7 +111,7 @@
 
                   </div>
                   <div class="uk-text-center">
-                    <button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+                    <button class="button_type_category_product" type="submit" name="button">ADD   <span class="carticonx" uk-icon="cart"></span> </button>
 
                   </div>
 
@@ -188,7 +188,7 @@
 
                     </div>
                     <div class="uk-text-center">
-                      <button class="button_type_category_product" type="submit" name="button"> Add To Bag </button>
+                      <button class="button_type_category_product" type="submit" name="button">ADD   <span class="carticonx" uk-icon="cart"></span> </button>
 
                     </div>
 
@@ -271,20 +271,26 @@
 
         <div class="uk-container uk-container-large">
 
-
-            <div class="uk-child-width-1-4@m uk-child-width-1-1" uk-grid>
+          <div class="uk-text-right">
+            <span> Diplay Mode : </span>
+            <button class="gridoptionicon" type="button" name="gridoptionicon"><span uk-icon="icon: grid;"></span></button>
+            <button  class="gridoptioniconv" type="button" name="gridoptioniconv"><span uk-icon="icon: more-vertical;"></span></button>
+          </div>
+          <hr>
+            <div class="uk-child-width-1-4@m uk-child-width-1-2" uk-grid>
 
                 @foreach ($products as $product)
                 @if ($product->category == $productcategory->id )
 
                 <!-- START div -->
-                <div class="">
+                <div class="gridoption uk-margin-bottom">
                     <!-- START .card -->
                     <div class="card card_theme_white uk-text-center">
                         <a href="/shop/{{ $product->slug }}">
                             <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:250px;">
                             <h3 class="">{{ $product->title }}</h3>
                         </a>
+
                         <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
                     </div><!-- END .card -->
                 </div><!-- END div -->
@@ -318,5 +324,39 @@
   color: #000;
   transition: 300ms;
 }
+.carticonx{
+  width: 20px;
+top: -2px;
+position: relative;
+right: -10px;
+}
+.gridoptionicon{
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+.gridoptioniconv{
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
 </style>
+
+@endsection
+
+@section('js')
+  <script type="text/javascript">
+  let $gridoptionicon = $('.gridoptionicon');
+  let $gridoptioniconv = $('.gridoptioniconv');
+    $gridoptioniconv.on('click',function(){
+      let $gridoption = $('.gridoption');
+      $gridoption.addClass('uk-width-1-1');
+      $gridoption.removeClass('uk-width-1-4@m uk-width-1-2');
+    });
+    $gridoptionicon.on('click',function(){
+      let $gridoption = $('.gridoption');
+      $gridoption.removeClass('uk-width-1-1');
+      $gridoption.addClass('uk-width-1-4@m uk-width-1-2');
+    });
+  </script>
 @endsection

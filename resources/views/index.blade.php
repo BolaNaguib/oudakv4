@@ -34,6 +34,12 @@
             @endif
 
           </div><!-- END .uk-position-center -->
+          @if ($image->button_title || $image->button_link)
+            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-left@m uk-text-center uk-transition-slide-bottom">
+              <a href="{{ $image->button_link }}" class="orderbutton"> <i class="fas fa-shopping-cart"></i> {{ $image->button_title }} </a>
+            </div>
+          @endif
+
         </li>
         @endforeach
 
@@ -389,6 +395,7 @@
       </div> <!-- END .uk-grid -->
     </div> <!-- END .uk-container -->
   </section> <!-- END section -->
+
 @endforeach
 
 
@@ -443,6 +450,11 @@ width:100%;
         background-color: #eee;
         color: #000;
         transition: 300ms;
+      }
+      .orderbutton{
+        background-color: #fff;
+padding: 15px 35px;
+border-radius: 25px;
       }
 
         </style>

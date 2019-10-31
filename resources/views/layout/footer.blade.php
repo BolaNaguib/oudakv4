@@ -1,4 +1,11 @@
 {{ menu('main', 'partials.menus.main') }}
+{{-- @foreach ($cookies as $cookie )
+  @if ($cookie->ip = $clientip)
+    works
+
+  @endif
+@endforeach --}}
+
 <style media="screen">
   .section_theme_offwhite{
         background-color: #eeeeee61;
@@ -104,7 +111,6 @@
     </div>
 
 </section>
-
 <section id="toggle-usage" class="bottom_cookie" style="background-color:#eee; padding:10px 0px;">
     <div class="uk-container uk-container-large">
         <div class="uk-grid uk-flex uk-flex-middle">
@@ -114,7 +120,11 @@
                 <hr style="border-color:#eee;" class="uk-hidden@m">
             </div>
             <div class="uk-width-auto@m uk-width-1-1 uk-text-center">
-                <button id="CookiesAccepted" style="font-size:8px;" class="uk-button uk-button-secondary" type="button" uk-toggle="target: #toggle-usage">Accept Cookies</button>
+              <form class="" action="{{ route('cookie.store') }}" method="post">
+                @csrf
+
+                <button id="CookiesAccepted" style="font-size:8px;" class="uk-button uk-button-secondary" type="submit">Accept Cookies</button>
+              </form>
             </div>
         </div>
 

@@ -148,6 +148,8 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   // pages
   Route::get('/{page}','PagesController@show')->name('page.show'); // this one abd blogs noi
 
+Route::post('/acceptcookies','CookiesipController@create')->name('cookie.store');
+
 // blogs
 $namespace = '\Pvtl\VoyagerBlog\Http\Controllers';
 if (class_exists('\Pvtl\VoyagerFrontend\Http\Controllers\PostController')) {

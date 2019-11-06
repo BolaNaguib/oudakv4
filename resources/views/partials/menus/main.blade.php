@@ -9,7 +9,6 @@
     <h3 class="sidenav__title uk-text-center">Menu</h3>
 
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-      <li><a class="sidenav__links" href="/">Home</a></li>
 
       @foreach ($main_menu as $item)
         @if (! $item->menu_parent)
@@ -114,7 +113,6 @@
 
     </section>
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-      <li><a class="sidenav__links" href="/">Home</a></li>
 
       @foreach ($main_menu as $item)
         @if (! $item->menu_parent)
@@ -163,31 +161,6 @@
 
       @endforeach
 
-
-          {{-- <li class="uk-active"><a class="sidenav__links" href="{{ route('index' ) }}">Home</a></li>
-          <li class="uk-parent">
-              <a class="sidenav__links" href="/wood-house">wood-house</a>
-              <ul class="uk-nav-sub uk-padding-remove">
-                <li><a class="sidenav__links mv" href="/party">party</a></li>
-                <li><a class="sidenav__links mv" href="/daily">daily</a></li>
-</ul>
-</li>
-<li class="uk-parent">
-    <a class="sidenav__links" href="/exclusive">exclusive</a>
-    <ul class="uk-nav-sub uk-padding-remove">
-      <li><a class="sidenav__links mv" href="/musk">musk</a></li>
-      <li><a class="sidenav__links mv" href="/house-blend">house-blend</a></li>
-</ul>
-</li>
-<li class="uk-parent">
-    <a class="sidenav__links" href="/oud-house">oud-house</a>
-    <ul class="uk-nav-sub uk-padding-remove">
-      <li><a class="sidenav__links mv" href="/sweet">sweet</a></li>
-      <li><a class="sidenav__links mv" href="/flores">flores</a></li>
-      <li><a class="sidenav__links mv" href="/incent">incent</a></li>
-</ul>
-</li>
-<li><a class="sidenav__links" href="#">USA <span uk-icon="triangle-down"></span></a></li> --}}
 <li>
   <li class="uk-parent">
       <a class="sidenav__links vm" href="">{{ app()->getLocale() }}<span uk-icon="triangle-down"></span> </a>

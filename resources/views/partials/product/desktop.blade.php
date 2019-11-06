@@ -3,7 +3,7 @@ $slider = preg_replace(array('/\"/','/\]$/','/^\[/'), '',$product->product_slide
 $product_slider = explode(",", $slider)
 @endphp
 @if (session()->has('success_message'))
-<div class="uk-alert-success" uk-alert>
+<div class="uk-alert-success uk-visible@m" uk-alert>
     <a class="uk-alert-close" uk-close></a>
     <p>{{ session()->get('success_message') }}</p>
 </div>

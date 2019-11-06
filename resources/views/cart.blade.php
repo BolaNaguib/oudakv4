@@ -287,7 +287,7 @@
                             <form class="" action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="post">
                                 {{ csrf_field() }}
                                 <button type="submit" class="uk-button uk-button-default uk-width-expand">
-                                    <span>Move To Bag </span>
+                                    <span><b>Move To Bag </b></span>
                                 </button>
                             </form>
 

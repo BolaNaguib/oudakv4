@@ -42,10 +42,9 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
                 <!-- START uk-position-top-right -->
                 <div class="uk-transition-fade uk-position-small uk-position-top-right ">
-                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart" uk-tooltip="title: Give a Heart; pos: left"><span uk-icon="heart"></span></button>
-                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Favorite; pos: left"><span uk-icon="star"></span></button>
-                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_mail" uk-tooltip="title: Send to Email; pos: left"><span uk-icon="mail"></span></button>
-                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social" uk-tooltip="title: Share on social Media; pos: left"><span uk-icon="social"></span></button>
+                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span uk-icon="heart"></span></button>
+                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star"><span uk-icon="star"></span></button>
+                    <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
                 </div><!-- END uk-position-top-right -->
                 @if ($product->product_slider)
 

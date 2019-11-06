@@ -4,7 +4,7 @@
     <div class="uk-container uk-container-large">
         <ul class="uk-breadcrumb breadcrumb">
             <li><a class="breadcrumb__link" href="#">Home</a></li>
-            <li><a class="breadcrumb__link" href="#">Shoping Bag</a></li>
+            <li><a class="breadcrumb__link" href="#">Shopping Bag</a></li>
             <li><span class="breadcrumb__link-active">Checkout</span></li>
         </ul>
         <hr class="uk-margin-remove">

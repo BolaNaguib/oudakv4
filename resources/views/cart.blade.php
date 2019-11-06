@@ -7,7 +7,7 @@
     <div class="uk-container uk-container-large">
         <ul class="uk-breadcrumb breadcrumb">
             <li><a class="breadcrumb__link" href="{{ route('index') }}">Home</a></li>
-            <li><span class="breadcrumb__link-active" href="#">Shoping Bag</span></li>
+            <li><span class="breadcrumb__link-active" href="#">Shopping Bag</span></li>
         </ul>
         <hr class="uk-margin-remove">
     </div>

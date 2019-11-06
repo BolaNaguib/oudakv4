@@ -29,18 +29,28 @@ class CouponsController extends Controller
     public function store(Request $request)
     {
       // return 'adding coupon';
+      $totalx = Cart::subtotal();
         $coupon = Coupon::where('code', $request->coupon_code)->first();
-        // dd($coupon);
         if (!$coupon) {
           return redirect()->route('cart.index')->withErrors('Invalid coupon code. try another one ');
           // code...
         }
-        session()->put('coupon',[
-          'name' => $coupon->code,
-          'discount' => $coupon->discount(Cart::subtotal()),
-        ]);
+    if ($coupon->count > 1 && $coupon->min_number < $totalx+1 ) {
+      session()->put('coupon',[
+        'name' => $coupon->code,
+        'discount' => $coupon->discount(Cart::subtotal()),
+      ]);
+      $coupon->count--;
+      $coupon->save();
+      // dd($coupon->count);
+      return redirect()->route('cart.index')->with('success_message','Coupon has been applied');
+    } elseif ($coupon->count < 1 || $coupon->min_number > $totalx) {
+      return redirect()->route('cart.index')->withErrors('Coupon is No Longer Available');
+    } else {
+     return redirect()->route('cart.index')->withErrors('System Error ');
+    }
 
-        return redirect()->route('cart.index')->with('success_message','Coupon has been applied');
+
     }
 
 

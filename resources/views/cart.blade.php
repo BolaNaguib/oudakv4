@@ -29,7 +29,11 @@
         <!-- Errors Messages -->
         @if(count($errors) > 0)
         @foreach($errors->all() as $error)
-            {{ $error }}
+          <div class="uk-alert-error" uk-alert>
+              <a class="uk-alert-close" uk-close></a>
+              <p>{{ $error }}</p>
+          </div>
+
             @endforeach
             @endif
             <!-- Check For Items in Bag -->

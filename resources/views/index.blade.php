@@ -83,7 +83,7 @@
             <!-- START .uk-width-1-3@m -->
             <div class="uk-width-1-3@m uk-width-1-1 uk-flex-first@m uk-flex-last">
                 <!-- START .card -->
-                <div class="card uk-card-default uk-margin-bottom">
+                <div class="card uk-card-default ">
                     <!-- START .uk-card-header -->
                     <div class="uk-card-header">
                         <h3 class="uk-card-title">{{$HomeFourBlock->title}}</h3>
@@ -100,7 +100,7 @@
 
                 @if ($HomeFourBlock->showblogs != 0)
                 <!-- START .card -->
-                <div class="card uk-card-default">
+                <div class="card uk-card-default uk-margin-top">
                     <!-- START .uk-card-header -->
                     <div class="uk-card-header">
                         <h3 class="uk-card-title"> Latest Blog</h3>

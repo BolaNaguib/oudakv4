@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Carbon\Carbon;
 use App\Coupon;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
+
 // use Gloudemans\Shoppingcart\ShoppingcartServiceProvider;
 
 
@@ -28,29 +31,51 @@ class CouponsController extends Controller
      */
     public function store(Request $request)
     {
-      // return 'adding coupon';
-      $totalx = Cart::subtotal();
+
+
+        // return 'adding coupon';
+        $totalx = Cart::subtotal();
         $coupon = Coupon::where('code', $request->coupon_code)->first();
-        if (!$coupon) {
-          return redirect()->route('cart.index')->withErrors('Invalid coupon code. try another one ');
-          // code...
+        $mytime = Carbon::now();
+        $todaytime = $mytime->toDateTimeString();
+        $maxvalue = $coupon->maxvalue;
+
+        if ($maxvalue != null && $coupon->discount($totalx) > $maxvalue+1) {
+           $discount = $maxvalue;
+        }else {
+          $discount = $coupon->discount($totalx);
         }
-    if ($coupon->count > 1 && $coupon->min_number < $totalx+1 ) {
-      session()->put('coupon',[
-        'name' => $coupon->code,
-        'discount' => $coupon->discount(Cart::subtotal()),
-      ]);
-      $coupon->count--;
-      $coupon->save();
-      // dd($coupon->count);
-      return redirect()->route('cart.index')->with('success_message','Coupon has been applied');
-    } elseif ($coupon->count < 1 || $coupon->min_number > $totalx) {
-      return redirect()->route('cart.index')->withErrors('Coupon is No Longer Available');
-    } else {
-     return redirect()->route('cart.index')->withErrors('System Error ');
-    }
 
+        // dd($todaytime);
+        if ($coupon->count > 1 && $coupon->min_number < $totalx+1) {
+            if ($coupon->exporationdate != null && $coupon->exporationdate >= $todaytime) {
+                session()->put('coupon', [
+                'name' => $coupon->code,
+                'discount' => $discount,
+                  ]);
+                $coupon->count--;
+                $coupon->save();
+                // dd($coupon->count);
 
+                return redirect()->route('cart.index')->with('success_message', 'Coupon has been applied');
+            }else {
+              session()->put('coupon', [
+              'name' => $coupon->code,
+              'discount' => $discount,
+                ]);
+              $coupon->count--;
+              $coupon->save();
+              // dd($coupon->count);
+
+              return redirect()->route('cart.index')->with('success_message', 'Coupon has been applied');
+            }
+
+            return redirect()->route('cart.index')->withErrors('Invalid coupon code. try another one');
+        } elseif ($coupon->count < 1 || $coupon->min_number > $totalx || !$coupon) {
+            return redirect()->route('cart.index')->withErrors('Invalid coupon code. try another one');
+        } else {
+            return redirect()->route('cart.index')->withErrors('System Error ');
+        }
     }
 
 

@@ -209,7 +209,7 @@
       <!-- START .uk-width-2-3 -->
       <div class="uk-width-2-3@m uk-width-1-1 ">
         @foreach ($products as $featuredproduct)
-          @if ($featuredproduct->featured != null || $featuredproduct->featured != 0)
+          @if ($featuredproduct->featured != null && $featuredproduct->featured != 0)
             <!-- START .uk-card -->
             <div class="uk-card uk-card-default uk-text-center uk-padding uk-margin-bottom">
               <a href="{{ url('shop/'.$featuredproduct->slug) }}">

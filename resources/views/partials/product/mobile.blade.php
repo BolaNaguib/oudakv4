@@ -35,7 +35,7 @@
             @if ($product->gift_1)
                 @if ($product->gift_1 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_1 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -54,7 +54,7 @@
             @if ($product->gift_2)
               @if ($product->gift_2 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_2 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -73,7 +73,7 @@
             @if ($product->gift_3)
               @if ($product->gift_3 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_3 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -91,7 +91,7 @@
             @if ($product->gift_4)
               @if ($product->gift_4 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_4 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -109,7 +109,7 @@
             @if ($product->gift_5)
               @if ($product->gift_5 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_5 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">
@@ -127,7 +127,7 @@
             @if ($product->gift_6)
               @if ($product->gift_6 == $item->id)
 
-                      <div class="uk-width-auto@m uk-width-1-1  uk-margin-bottom">
+                      <div class="uk-width-auto  uk-margin-bottom">
                           {{-- START .uk-position-relative --}}
                           <div class="uk-position-relative">
                               <input type="radio" name="giftprice" class="newgiftbutton" value="{{ $product->gift_price_6 }}" style=" width: 100%;height: 100%; left: 0%; z-index:999999999999999;">

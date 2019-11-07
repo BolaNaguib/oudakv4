@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<!-- <base href="../dist/" target="_blank"> -->
 <html lang="{{ app()->getLocale() }}" dir="@if(app()->getLocale() =='ar') rtl @else ltr @endif">
-  <div class="preloader"></div>
+  {{-- <div class="preloader"></div> --}}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -201,6 +200,57 @@ color: #fff !important;
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
+              {{-- <li class="uk-position-relative">
+                @if (Cart::instance('saveForLater')->count() > 0)
+                  <a href="{{ route('cart.index') }}">
+                @else
+                  <a>
+                @endif
+                    <span uk-icon="heart"></span>
+                     {{-- <span uk-icon="triangle-down"></span> 
+                     @if (Cart::instance('saveForLater')->count() > 0)
+                     <span class="uk-badge notificationicon">
+                       {{ Cart::instance('saveForLater')->count() }}
+                     </span>
+                          @endif
+                        </a>
+
+                  <div class="main-carditems" uk-dropdown>
+                    <ul class="uk-list  uk-list-divider uk-margin-remove">
+                         @if (Cart::instance('saveForLater')->count() > 0)
+                      @foreach (Cart::content() as $item )
+
+                        <li class="main-carditems-list">
+                              <a href="{{ route('shop.show', $item->model->slug) }}">
+                          <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
+                            <div class="uk-width-expand uk-text-left">
+                              <span>{{ $item->model->title }}</span>
+                            </div>
+                            <div class="uk-width-auto uk-text-right">
+                              <span>{{ $item->subtotal }} </span>
+                            </div>
+                          </div>
+                        </a>	</li>
+                        @endforeach
+                      @else
+                        <li class="main-carditems-list"> you Have no items in your bag </li>
+                      @endif
+
+                    </ul>
+                    @if (Cart::instance('saveForLater')->count() > 0)
+
+                    <div class="uk-text-center">
+                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To bag</a>
+
+                    </div>
+                  @endif
+
+                  </div>
+
+
+
+
+                      </li> --}}
 
               <li class="uk-position-relative">
                 @if (Cart::instance('default')->count() > 0)

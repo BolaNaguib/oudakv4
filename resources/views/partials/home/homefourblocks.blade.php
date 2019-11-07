@@ -61,7 +61,7 @@
                         {{-- <p>
                             {{$HomeFourBlock->Product1->initial_description}}
                         </p> --}}
-                        <div class="uk-invisible-hover uk-margin-top-small">
+                        <div class="uk-invisible-hover uk-margin-top">
                           <hr>
                           <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product1->price }}</b>
                         </div>
@@ -83,7 +83,7 @@
                         {{-- <p>
                             {{$HomeFourBlock->Product2->initial_description}}
                         </p> --}}
-                        <div class="uk-invisible-hover uk-margin-top-small">
+                        <div class="uk-invisible-hover uk-margin-top">
                           <hr>
                           <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product2->price }}</b>
                         </div>

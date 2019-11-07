@@ -347,7 +347,6 @@
     let newtottalshipx = $('.newtottalship');
     shipingx.text('0.00');
     newtottalshipx.text('{{ $newTotal }}')
-    console.log("shipping Price Output = " + shippingprice);
     shippingprice.on('click', function() {
         let shp = this.value;
         let shi = $('.shippingx');
@@ -356,13 +355,9 @@
         let oldtotal = $('.newtotal');
         let newtottalship = $('.newtottalship');
         let newTotalAndShipping = {{ $newTotal }} + parseFloat(shp);
-        console.log("newTotalAndShipping = " + newTotalAndShipping);
         let inputNewTotal = $('#inputNewTotal');
         newtottalship.text(newTotalAndShipping);
         inputNewTotal.attr('value' , newTotalAndShipping);
-        // console.log(" hidden input value " + inputNewTotal.attr('value' , newTotalAndShipping));
-        // console.log();
-        console.log(this.value);
     });
 
 
@@ -381,13 +376,11 @@
    if (CountryInputFieldValue == 'canada' ) {
      shippingPrices.hide();
      shippingPriceCanada.show();
-     console.log("hey canada is here ");
    }
    else {
      shippingPrices.show();
      shippingPriceCanada.hide();
    }
-   console.log("CountryInputField value is = " + CountryInputField.val());
  });
 </script>
 

@@ -200,14 +200,14 @@ color: #fff !important;
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
-              {{-- <li class="uk-position-relative">
+              <li class="uk-position-relative">
                 @if (Cart::instance('saveForLater')->count() > 0)
                   <a href="{{ route('cart.index') }}">
                 @else
                   <a>
                 @endif
                     <span uk-icon="heart"></span>
-                     {{-- <span uk-icon="triangle-down"></span> 
+                     {{-- <span uk-icon="triangle-down"></span> --}}
                      @if (Cart::instance('saveForLater')->count() > 0)
                      <span class="uk-badge notificationicon">
                        {{ Cart::instance('saveForLater')->count() }}
@@ -250,7 +250,7 @@ color: #fff !important;
 
 
 
-                      </li> --}}
+                      </li>
 
               <li class="uk-position-relative">
                 @if (Cart::instance('default')->count() > 0)

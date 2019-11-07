@@ -177,6 +177,7 @@
                             <small>Canada / 5-7 Business Days</small>
                           </div>
                         </div>
+
                     </div>
                     <!-- END .uk-grid -->
                     <hr>

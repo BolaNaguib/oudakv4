@@ -58,9 +58,9 @@
                         <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
                         <hr>
                         <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
-                        <p>
+                        {{-- <p>
                             {{$HomeFourBlock->Product1->initial_description}}
-                        </p>
+                        </p> --}}
                         <div class="uk-invisible-hover">
                           <hr>
                           <b>${{ $HomeFourBlock->Product1->price }}</b>
@@ -80,9 +80,9 @@
                         <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
                         <hr>
                         <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
-                        <p>
+                        {{-- <p>
                             {{$HomeFourBlock->Product2->initial_description}}
-                        </p>
+                        </p> --}}
                         <div class="uk-invisible-hover">
                           <hr>
                           <b>${{ $HomeFourBlock->Product2->price }}</b>

@@ -2,11 +2,17 @@
 <section class="uk-section">
     <!-- START uk-container -->
     <div class="uk-container uk-container-large">
-        <div class="uk-text-right uk-hidden@m">
-            <span> Diplay Mode : </span>
-            <button class="gridoptionicon" type="button" name="gridoptionicon"><span uk-icon="icon: grid;"></span></button>
-            <button class="gridoptioniconv" type="button" name="gridoptioniconv"><span uk-icon="icon: more-vertical;"></span></button>
-            <hr>
+        <div class="uk-text-center uk-hidden@m">
+          <div class="showicons">
+            <button class="gridoptioniconv" type="button" name="gridoptioniconv">
+              <i class="fas fa-square"></i>
+            </button>
+            <button class="gridoptionicon" type="button" name="gridoptionicon">
+                <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+            </button>
+
+
+          </div>
         </div>
         <!-- START uk-grid -->
         <div class="uk-grid-match uk-grid" uk-grid>

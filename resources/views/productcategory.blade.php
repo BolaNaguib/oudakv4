@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 @if (session()->has('success_message'))
 <div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>
@@ -17,9 +16,15 @@
   <div class="uk-container uk-container-large">
     <br>
     <div class="uk-text-right">
-      <span> Diplay Mode : </span>
-      <button class="productlistx" type="button" name="gridoptionicon"><span uk-icon="icon: grid;"></span></button>
-      <button  class="productlistxv" type="button" name="gridoptioniconv"><span uk-icon="icon: more-vertical;"></span></button>
+      <div class="showicons">
+        <button class="productlistx" type="button" name="gridoptionicon">
+          <i class="fas fa-square"></i>
+        </button>
+        <button  class="productlistxv" type="button" name="gridoptioniconv">
+          <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+        </button>
+      </div>
+
     </div>
     <hr>
   </div>
@@ -27,22 +32,24 @@
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
 
-<div class="categorylist uk-container uk-container-large uk-margin-large">
-    <a href="/category/{{ $cat->slug }}">
-        <div class="uk-background-center-center uk-height-large uk-width-expand parralexbg" style="background-image: url({{ asset('storage/'.$cat->path) }});">
-            <p class="uk-h4 uk-margin-remove uk-light newcattit">{{ $cat->title }}</p>
-        </div>
-    </a>
+    <!-- START .categorylist -->
+    <div class="categorylist uk-container uk-container-large uk-margin-large">
+        <a href="/category/{{ $cat->slug }}">
+            <!-- START .uk-background-center -->
+            <div class="uk-background-center-center uk-height-large uk-width-expand parralexbg" style="background-image: url({{ asset('storage/'.$cat->path) }});">
+                <p class="uk-h4 uk-margin-remove uk-light newcattit">{{ $cat->title }}</p>
+            </div>
+            <!-- END .uk-background-center -->
+        </a>
+    </div>
+    <!-- END .categorylist -->
 
-</div>
-<div class=" productlist uk-container uk-container-large uk-margin-large">
-  <h3>{{ $cat->title }}</h3>
-  <hr>
-  <div class="uk-grid uk-grid-match">
+ <div class=" productlist uk-container uk-container-large uk-margin-large">
+   <h3>{{ $cat->title }}</h3>
+   <hr>
+   <div class="uk-grid uk-grid-match">
     @foreach ($products as $product )
     @if ($product->category == $cat->id)
-
-
         <!-- START .uk-width-1-3@m -->
       <div class="uk-width-1-3@m uk-width-1-2 ">
         <!-- START div -->
@@ -336,28 +343,39 @@
         <div class="uk-container uk-container-large">
 
           <div class="uk-text-right">
-            <span> Diplay Mode : </span>
-            <button class="gridoptionicon" type="button" name="gridoptionicon"><span uk-icon="icon: grid;"></span></button>
-            <button  class="gridoptioniconv" type="button" name="gridoptioniconv"><span uk-icon="icon: more-vertical;"></span></button>
-          </div>
+            <div class="showicons">
+
+                    <button class="gridoptionicon" type="button" name="gridoptionicon">
+                      <i class="fas fa-square"></i>
+                    </button>
+                    <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
+                      <i class="fas fa-square"></i>
+                      <i class="fas fa-square"></i>
+                    </button>
+
+            </div>
+    </div>
           <hr>
             <div class="uk-child-width-1-4@m uk-child-width-1-2" uk-grid>
 
                 @foreach ($products as $product)
                 @if ($product->category == $productcategory->id )
+                  @if ($productcategory->Producttwo->id != $product->id )
 
-                <!-- START div -->
-                <div class="gridoption uk-margin-bottom">
-                    <!-- START .card -->
-                    <div class="card card_theme_white uk-text-center">
-                        <a href="/shop/{{ $product->slug }}">
-                            <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:250px;">
-                            <h3 class="">{{ $product->title }}</h3>
-                        </a>
+                    <!-- START div -->
+                    <div class="gridoption uk-margin-bottom">
+                        <!-- START .card -->
+                        <div class="card card_theme_white uk-text-center">
+                            <a href="/shop/{{ $product->slug }}">
+                                <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:250px;">
+                                <h3 class="">{{ $product->title }}</h3>
+                            </a>
 
-                        <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
-                    </div><!-- END .card -->
-                </div><!-- END div -->
+                            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
+                        </div><!-- END .card -->
+                    </div><!-- END div -->
+                  @endif
+
 
                 @endif
                 @endforeach
@@ -444,7 +462,6 @@ cursor: pointer;
     let $productlistxv = $('.productlistxv');
     let $productlist = $('.productlist');
     let $categorylist = $('.categorylist');
-    console.log("HEllo");
       $productlistxv.on('click',function(){
         $productlist.hide();
         $categorylist.show();

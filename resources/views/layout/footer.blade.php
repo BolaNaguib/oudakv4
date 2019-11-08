@@ -148,6 +148,13 @@
 
 
     }
+    .showicons{
+      display: inline-block;
+      background-color: #fcfcfc;
+      padding: 5px 10px;
+      border: 1px solid #eee;
+      font-size: 13px;
+    }
 </style>
 <!-- UIkit JS -->
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> --}}

@@ -41,16 +41,29 @@
                     {{-- START uk-grid --}}
                     <div class="" uk-grid>
                         <!-- START .uk-width-1-1 -->
-                        <div class="uk-width-1-1">
+                        <div class="uk-width-1-2">
                             <!-- START .uk-margin -->
                             <div class="uk-margin">
-                                <label class="uk-form-label uk-text-left" for="form-stacked-text">Name : </label>
+                                <label class="uk-form-label uk-text-left" for="form-stacked-text">First Name : </label>
                                 <!-- START .uk-form-controls -->
                                 <div class="uk-form-controls">
                                     <input class="input uk-width-expand" id="paymentemail" name="fullname" type="text" required="" placeholder="Jhon" disabledx>
                                 </div><!-- END .uk-form-controls -->
                             </div><!-- END .uk-margin -->
                         </div><!-- END uk-width-1-1 -->
+                        <!-- START .uk-width-1-1 -->
+                        <div class="uk-width-1-2">
+                            <!-- START .uk-margin -->
+                            <div class="uk-margin">
+                                <label class="uk-form-label uk-text-left" for="form-stacked-text">Last Name : </label>
+                                <!-- START .uk-form-controls -->
+                                <div class="uk-form-controls">
+                                    <input class="input uk-width-expand" id="paymentemailx" name="fullnamex" type="text" required="" placeholder="Jhon" disabledx>
+                                </div><!-- END .uk-form-controls -->
+                            </div><!-- END .uk-margin -->
+                        </div><!-- END uk-width-1-1 -->
+
+
                         <!-- START .uk-width-1-1 -->
                         <div class="uk-width-1-1">
                             <!-- START .uk-margin -->
@@ -117,12 +130,12 @@
                                 <label class="uk-form-label uk-text-left" for="form-stacked-text">Country : </label>
                                 <!-- START .uk-form-controls -->
                                 <div class="uk-form-controls">
-                                    <input class="input uk-width-expand" id="form-stacked-text" name="country" type="text" required="" placeholder="Jhon" disabledx>
+                                    <input class="input uk-width-expand" id="form-stacked-text" name="country" type="text" required="" placeholder="United States" disabledx>
                                 </div><!-- END .uk-form-controls -->
                             </div><!-- END .uk-margin -->
                         </div><!-- END uk-width-1-1 -->
 
-                        <!-- START .uk-width-1-1 -->
+                        {{-- <!-- START .uk-width-1-1 -->
                         <div class="uk-width-1-1">
                             <!-- START .uk-margin -->
                             <div class="uk-margin">
@@ -134,19 +147,22 @@
                             </div><!-- END .uk-margin -->
                             <input id="inputNewTotal" class="uk-hidden" type="text" name="inputNewTotal" value="0.00">
 
-                        </div><!-- END uk-width-1-1 -->
+                        </div><!-- END uk-width-1-1 --> --}}
                     </div>
                     {{-- END uk-grid --}}
                     <h3>Shipping Type</h3>
                     <hr>
                     <!-- START .uk-grid -->
                     <div class="">
-                      <div class="uk-grid uk-child-width-1-2 shippingprices">
-                        <div>
-                            <label><input class="uk-radio " value="0.00" type="radio" name="shippingprice" checked> $0.00</label>
+                      <div class="uk-grid shippingprices">
+                        <div class="uk-width-expand">
+                            <label><input class="uk-radio " value="0.00" type="radio" name="shippingprice" checked>Standard Shipping</label>
                         </div>
-                        <div class="uk-text-right">
-                            <small>Standard Shipping / 2-5 Business Days</small>
+                        <div class="uk-width-auto uk-text-right">
+                            <span>$0.00</span>
+                        </div>
+                        <div class="uk-width-1-1">
+                          <small>2-5 Business Days</small>
                         </div>
                       </div>
 

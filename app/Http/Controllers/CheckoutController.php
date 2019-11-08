@@ -9,6 +9,7 @@ use Cartalyst\Stripe\Laravel\Facades\Stripe;
 use Cartalyst\Stripe\Exception\CardErrorExceprion;
 use App\Order;
 use App\OrderProduct;
+use App\shippingtype;
 use App\Http\Controllers\CartController;
 
 class CheckoutController extends Controller
@@ -21,7 +22,8 @@ class CheckoutController extends Controller
     public function index()
     {
       $session = session()->all();
-      // dd($session);
+      $shippingtypes = shippingtype::all();
+      dd($shippingtypes);
         //
         return view('checkout')->with([
           'discount' => $this->getNumbers()->get('discount'),
@@ -251,7 +253,7 @@ class CheckoutController extends Controller
         'total' => $total
       ]);
     }
-  
+
 
     /**
      * Display the specified resource.

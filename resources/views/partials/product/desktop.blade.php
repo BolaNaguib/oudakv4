@@ -24,21 +24,34 @@ $product_slider = explode(",", $slider)
 
             <!-- START .card -->
             <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
-                <button href="#toggle-animation" class="uk-button uk-button-default" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
-            bottom: 5px;
-            z-index: 99;">Ingredients</button>
-                <div id="toggle-animation" class="uk-card uk-card-default " style="       position: absolute;
-            z-index: 9;
+              {{-- <button href="#toggle-animation" class="uk-button uk-button-default" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
+          bottom: 5px;
+          z-index: 99;">Ingredients</button>
+          <a class="uk-button uk-button-default" href="#ingredients-modal" uk-toggle>Open</a> --}}
+
+              {{-- <div id="toggle-animation" class="uk-card uk-card-default " style="       position: absolute;
+          z-index: 9;
 left: 0px;
 top: 0px;
 width: 100%;
 height: 100%;
 background-color: rgba(245, 245, 245, 0.65);" hidden>
-                    <div class="">
+                  <div class="">
+                      {!! $product->Ingredients !!}
+                  </div>
+              </div> --}}
+                <a class="uk-button uk-button-default" href="#ingredients-modal" style="position: absolute;
+            bottom: 5px;
+            z-index: 99" uk-toggle>Ingredients</a>
+
+                <div id="ingredients-modal" class="uk-flex-top" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
                         {!! $product->Ingredients !!}
+
                     </div>
                 </div>
-
 
                 <!-- START uk-position-top-right -->
                 <div class="uk-transition-fade uk-position-small uk-position-top-right ">

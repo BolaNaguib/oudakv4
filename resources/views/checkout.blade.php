@@ -154,46 +154,24 @@
                     <hr>
                     <!-- START .uk-grid -->
                     <div class="">
-                      <div class="uk-grid shippingprices">
-                        <div class="uk-width-expand">
-                            <label><input class="uk-radio " value="0.00" type="radio" name="shippingprice" checked>Standard Shipping</label>
-                        </div>
-                        <div class="uk-width-auto uk-text-right">
-                            <span>$0.00</span>
-                        </div>
-                        <div class="uk-width-1-1">
-                          <small>2-5 Business Days</small>
-                        </div>
-                      </div>
-
-                      <div class="uk-grid uk-child-width-1-2 shippingprices">
-                        <div>
-                            <label><input class="uk-radio " value="6.73" type="radio" name="shippingprice"> $6.73</label>
-                        </div>
-                        <div class="uk-text-right">
-                            <small>Priority Shipping / 1-3 Business Days</small>
-                        </div>
-                      </div>
-                      <div class="uk-grid uk-child-width-1-2 shippingprices">
-
-                        <div>
-                            <label><input class="uk-radio " value="27.83" type="radio" name="shippingprice"> $27.83 </label>
-                        </div>
-                        <div class="uk-text-right">
-                            <small>Express Shipping / 1-2 Days Guaranteed </small>
+                      @foreach ($shippingtypes as $ship)
+                        <div class="uk-grid @if ($ship->country)shippingprices-{{ $ship->country }} @else shippingprices @endif">
+                          <div class="uk-width-expand">
+                              <label>
+                                <input class="uk-radio @if ($ship->default == 1) default @endif"
+                                       value="{{ $ship->value }}"
+                                       type="radio"
+                                       name="shippingprice"
+                                       @if ($ship->default == 1) checked @endif>{{ $ship->name }}</label>
+                          </div>
+                          <div class="uk-width-auto uk-text-right">
+                              <span>${{ $ship->value }}</span>
+                          </div>
+                          <div class="uk-width-1-1">
+                            <small>{{ $ship->duration }}</small>
                           </div>
                         </div>
-
-                        <div class="uk-grid uk-child-width-1-2 shippingprices-canada">
-
-                        <div>
-                            <label><input class="uk-radio " value="19.73" type="radio" name="shippingprice"> $19.73 </label>
-                        </div>
-                        <div class="uk-text-right">
-                            <small>Canada / 5-7 Business Days</small>
-                          </div>
-                        </div>
-
+                      @endforeach
                     </div>
                     <!-- END .uk-grid -->
                     <hr>
@@ -363,7 +341,7 @@
     let newtottalshipx = $('.newtottalship');
     shipingx.text('0.00');
     newtottalshipx.text('{{ $newTotal }}')
-    shippingprice.on('click', function() {
+    shippingprice.on('click change', function() {
         let shp = this.value;
         let shi = $('.shippingx');
         shi.text(shp);
@@ -377,27 +355,37 @@
     });
 
 
+function shippingbycountry(countryName) {
+if (countryName != null && countryName != '') {
+  // only Show Canada Shipping if address refer to Canada
+   let CountryInputField = $('input[name=country]');
+   let shippingPriceCanada = $('.shippingprices-'+countryName+'');
+   console.log(countryName);
+   shippingPriceCanada.hide();
 
+   CountryInputField.on('keyup',function(){
+     let CountryInputFieldValue = CountryInputField.val().toLowerCase();
+     let shippingPrices = $('.shippingprices');
+     if (CountryInputFieldValue == ''+countryName+'' ) {
+       shippingPrices.hide();
+       console.log();
+       shippingPriceCanada.show();
+       shippingPriceCanada.find( "input" ).attr("checked", 'checked');
+     }
+     else {
+       shippingPrices.show();
+       shippingPriceCanada.hide();
+       shippingPriceCanada.find( ".default" ).attr("checked");
 
+     }
+   });
+}
 
-// only Show Canada Shipping if address refer to Canada
- let CountryInputField = $('input[name=country]');
- let shippingPriceCanada = $('.shippingprices-canada');
+}
+@foreach ($shippingtypes as $ship)
+  shippingbycountry('{{ $ship->country }}');
+@endforeach
 
- shippingPriceCanada.hide();
-
- CountryInputField.on('keyup',function(){
-   let CountryInputFieldValue = CountryInputField.val().toLowerCase();
-   let shippingPrices = $('.shippingprices');
-   if (CountryInputFieldValue == 'canada' ) {
-     shippingPrices.hide();
-     shippingPriceCanada.show();
-   }
-   else {
-     shippingPrices.show();
-     shippingPriceCanada.hide();
-   }
- });
 </script>
 
 @endsection

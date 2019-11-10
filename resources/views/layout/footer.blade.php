@@ -230,14 +230,12 @@ if ($('#productzoom').length) {
 
 <script type="text/javascript">
     if ($('#card-element').length) {
-        console.log(" IS this working ?");
-        console.log(" is it really ?");
+
         // Create a Stripe client.
         var stripe = Stripe('pk_test_7EMLE7RbJozF3FjHH9malYVO007G8mJ70q');
 
         // Create an instance of Elements.
         var elements = stripe.elements();
-        console.log(elements);
 
         // Custom styling can be passed to options when creating an Element.
         // (Note that this demo uses a wider set of styles than the guide below.)

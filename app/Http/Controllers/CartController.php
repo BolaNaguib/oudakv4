@@ -172,6 +172,9 @@ private function getNumbers()
   }
 
 
+if (empty($newGiftPrice)) {
+  $newGiftPrice = 0;
+}
   // dd($newGiftPrice);
   // $giftprice = $newitem->options->giftprice ;
   $tax = config('cart.tax') / 100;

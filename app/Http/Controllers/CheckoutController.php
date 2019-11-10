@@ -23,15 +23,16 @@ class CheckoutController extends Controller
     {
       $session = session()->all();
       $shippingtypes = shippingtype::all();
-      dd($shippingtypes);
+      // dd($shippingtypes);
         //
         return view('checkout')->with([
-          'discount' => $this->getNumbers()->get('discount'),
-          'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
-          'newTax' => $this->getNumbers()->get('newTax'),
-          'newTotal' => $this->getNumbers()->get('newTotal'),
-          'total'         =>$this->getNumbers()->get('total'),
-          'newGiftPrice'  =>$this->getNumbers()->get('newGiftPrice')
+          'discount'      => $this->getNumbers()->get('discount'),
+          'newSubtotal'   => $this->getNumbers()->get('newSubtotal'),
+          'newTax'        => $this->getNumbers()->get('newTax'),
+          'newTotal'      => $this->getNumbers()->get('newTotal'),
+          'total'         => $this->getNumbers()->get('total'),
+          'newGiftPrice'  => $this->getNumbers()->get('newGiftPrice'),
+          'shippingtypes' => $shippingtypes
           // 'session' => $session['shippingprice']
         ]);;
     }

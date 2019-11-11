@@ -335,6 +335,7 @@
 @endsection
 @section('js')
 <script type="text/javascript">
+
 // To add total shipping
     let shippingprice = $('input[name=shippingprice]');
     let shipingx = $('.shippingx');
@@ -350,8 +351,8 @@
         let newtottalship = $('.newtottalship');
         let newTotalAndShipping = {{ $newTotal }} + parseFloat(shp);
         let inputNewTotal = $('#inputNewTotal');
-        newtottalship.text(newTotalAndShipping);
-        inputNewTotal.attr('value' , newTotalAndShipping);
+        newtottalship.text(newTotalAndShipping.toFixed(2));
+        inputNewTotal.attr('value' , newTotalAndShipping.toFixed(1));
     });
 
 

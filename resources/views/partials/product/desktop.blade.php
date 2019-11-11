@@ -122,7 +122,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
                     <h3 class="uk-margin-remove">{{ $product->title }}</h3>
                     <img src="" alt="">
-                    <h3 class="uk-margin-small"><span id="newprice" class="uk-button uk-button-default">${{ $product->price }}</span> </h3>
+                    <h3 class="uk-margin-small"><span class="uk-button uk-button-default">$ <span  id="newprice">{{ $product->price }}</span></span> </h3>
                     <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
                     @if ($product->initial_description)
                     <p>{!! $product->initial_description !!}</p>

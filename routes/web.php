@@ -146,7 +146,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::get('category/{slug}','ProductCategoryController@show')->name('productcategory.show'); // this one works
 
   // pages
-  Route::get('/{page}','PagesController@show')->name('page.show'); // this one abd blogs noi
+  Route::get('/pages/{page}','PagesController@show')->name('page.show'); // this one abd blogs noi
 
 Route::post('/acceptcookies','CookiesipController@create')->name('cookie.store');
 

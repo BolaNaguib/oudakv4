@@ -150,31 +150,38 @@
                         </div><!-- END uk-width-1-1 --> --}}
                     </div>
                     {{-- END uk-grid --}}
-                    <h3>Shipping Type</h3>
-                    <hr>
-                    <!-- START .uk-grid -->
-                    <div class="">
-                      @foreach ($shippingtypes as $ship)
-                        <div class="uk-grid @if ($ship->country)shippingprices-{{ $ship->country }} @else shippingprices @endif">
-                          <div class="uk-width-expand">
-                              <label>
-                                <input class="uk-radio @if ($ship->default == 1) default @endif"
-                                       value="{{ $ship->value }}"
-                                       type="radio"
-                                       name="shippingprice"
-                                       @if ($ship->default == 1) checked @endif>{{ $ship->name }}</label>
+                    @if (!empty($shippingtypes))
+                      <h3>Shipping Type</h3>
+                      <hr>
+                      <!-- START .uk-grid -->
+                      <div class="">
+                        @foreach ($shippingtypes as $ship)
+                          <div class="uk-grid @if ($ship->country)shippingprices-{{ $ship->country }} @else shippingprices @endif">
+                            <div class="uk-width-expand">
+                                <label>
+                                  <input class="uk-radio @if ($ship->default == 1) default @endif"
+                                         value="{{ $ship->value }}"
+                                         type="radio"
+                                         name="shippingprice"
+                                         @if ($ship->default == 1) checked @endif>{{ $ship->name }}</label>
+                            </div>
+                            <div class="uk-width-auto uk-text-right">
+                                <span>${{ $ship->value }}</span>
+                            </div>
+                            <div class="uk-width-1-1">
+                              <small>{{ $ship->duration }}</small>
+                            </div>
                           </div>
-                          <div class="uk-width-auto uk-text-right">
-                              <span>${{ $ship->value }}</span>
-                          </div>
-                          <div class="uk-width-1-1">
-                            <small>{{ $ship->duration }}</small>
-                          </div>
-                        </div>
-                      @endforeach
-                    </div>
-                    <!-- END .uk-grid -->
-                    <hr>
+                        @endforeach
+                      </div>
+                      <!-- END .uk-grid -->
+                      <hr>
+                    @endif
+
+
+
+
+
                     <h3>Payment Info</h3>
                     <hr>
                     <!-- START .uk-width-1-1 -->

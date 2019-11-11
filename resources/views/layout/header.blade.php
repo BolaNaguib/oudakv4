@@ -233,14 +233,14 @@ color: #fff !important;
                         </a>	</li>
                         @endforeach
                       @else
-                        <li class="main-carditems-list"> you Have no items in your bag </li>
+                        <li class="main-carditems-list"> you Have no items in your Wish List </li>
                       @endif
 
                     </ul>
                     @if (Cart::instance('saveForLater')->count() > 0)
 
                     <div class="uk-text-center">
-                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To bag</a>
+                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Wish List</a>
 
                     </div>
                   @endif

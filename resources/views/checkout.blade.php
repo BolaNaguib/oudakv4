@@ -150,6 +150,7 @@
                         </div><!-- END uk-width-1-1 --> --}}
                     </div>
                     {{-- END uk-grid --}}
+                    {{ dd($shippingtypes != null ) }}
                     @if (!empty($shippingtypes))
                       it is not empty {{ $shippingtypes }}
                     @endif

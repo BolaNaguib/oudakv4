@@ -202,7 +202,7 @@
                         <hr>
                         <span>Size : </span><b>3 ML</b>
                         <hr>
-                        <span>Price : </span><b>{{ $item->subtotal }}</b>
+                        <span>Price : </span><b>${{ $item->subtotal }}</b>
                         <hr>
                         @if ($item->options->giftprice)
                         <span>Gift :</span> <b> {{ $item->options->giftname }} </b> <b class="uk-float-right"> ${{ $item->options->giftprice * $item->qty }}</b>

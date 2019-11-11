@@ -195,7 +195,7 @@
                 </div>
                 <!-- END .uk-width-1-3@m -->
                 <!-- START .uk-width-1-3@m -->
-                <div class="uk-width-1-2@m uk-width-1-1">
+                <div class="uk-width-3-4@m uk-width-1-1">
                     <!-- START .uk-text-left@m -->
                     <div class="uk-text-left@m uk-text-center">
                         <h3>{{ $item->model->title }}</h3>
@@ -231,7 +231,7 @@
                 </div>
                 <!-- END .uk-width-1-3@m -->
 
-                <div class="uk-width-1-4@m uk-width-1-1 ">
+                <div class="uk-width-1-4@m uk-width-1-1 uk-hidden">
                     <div class="uk-button uk-button-secondary uk-width-expand">
                         <span>Total Price : </span>
                         <b class=""> ${{ $item->subtotal + $item->options->giftprice * $item->qty }} </b>

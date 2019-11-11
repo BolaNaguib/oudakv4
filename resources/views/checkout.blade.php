@@ -150,7 +150,8 @@
                         </div><!-- END uk-width-1-1 --> --}}
                     </div>
                     {{-- END uk-grid --}}
-                    @if (!empty($shippingtypes))
+                    {{ $shippingtypes }}
+                    @if ($shippingtypes)
                       <h3>Shipping Type</h3>
                       <hr>
                       <!-- START .uk-grid -->

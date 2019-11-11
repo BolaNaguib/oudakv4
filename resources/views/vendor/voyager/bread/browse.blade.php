@@ -30,7 +30,7 @@
         <a href="{{ route('voyager.export', $dataType->name) }}" class="btn btn-success btn-add-new">
             <i class="voyager-plus"></i> <span>Export to CSV</span>
         </a>
-        @foreach(Voyager::actions() as $action)
+        @foreach($actions as $action)
             @if (method_exists($action, 'massAction'))
                 @include('voyager::bread.partials.actions', ['action' => $action, 'data' => null])
             @endif
@@ -50,9 +50,9 @@
                             <form method="get" class="form-search">
                                 <div id="search-input">
                                     <select id="search_key" name="key">
-                                        @foreach($searchable as $key)
+                                        {{-- @foreach($searchable as $key)
                                             <option value="{{ $key }}" @if($search->key == $key || (empty($search->key) && $key == $defaultSearchKey)){{ 'selected' }}@endif>{{ ucwords(str_replace('_', ' ', $key)) }}</option>
-                                        @endforeach
+                                        @endforeach --}}
                                     </select>
                                     <select id="filter" name="filter">
                                         <option value="contains" @if($search->filter == "contains"){{ 'selected' }}@endif>contains</option>
@@ -246,7 +246,7 @@
                                             </td>
                                         @endforeach
                                         <td class="no-sort no-click" id="bread-actions">
-                                            @foreach(Voyager::actions() as $action)
+                                            @foreach($actions as $action)
                                                 @if (!method_exists($action, 'massAction'))
                                                     @include('voyager::bread.partials.actions', ['action' => $action])
                                                 @endif

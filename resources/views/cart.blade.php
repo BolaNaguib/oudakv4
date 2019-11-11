@@ -175,14 +175,13 @@
         <div class="card card_theme_white card_type_shopingbag uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
             <!-- START uk-position-top-right -->
             <div class="uk-transition-fade uk-position-small uk-position-top-left ">
-                <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart" uk-tooltip="title: Give a Heart; pos: left"><span uk-icon="heart"></span></button>
                 <form class="" action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="post">
                     {{ csrf_field() }}
-                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Wishlist; pos: left"><span uk-icon="star"></span></button>
+                    {{-- <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Wishlist; pos: left"><span uk-icon="star"></span></button> --}}
+                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span uk-icon="heart"></span></button>
 
                 </form>
 
-                <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_mail" uk-tooltip="title: Send to Email; pos: left"><span uk-icon="mail"></span></button>
                 <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social" uk-tooltip="title: Share on social Media; pos: left"><span uk-icon="social"></span></button>
             </div><!-- END uk-position-top-right -->
 

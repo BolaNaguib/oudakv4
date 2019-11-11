@@ -360,7 +360,7 @@
 
                 @foreach ($products as $product)
                 @if ($product->category == $productcategory->id )
-                  @if ($productcategory->Producttwo->id != $product->id )
+                  {{-- @if ($productcategory->Productone->id != $product->id ) --}}
 
                     <!-- START div -->
                     <div class="gridoption uk-margin-bottom">
@@ -374,7 +374,7 @@
                             <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
                         </div><!-- END .card -->
                     </div><!-- END div -->
-                  @endif
+                  {{-- @endif --}}
 
 
                 @endif

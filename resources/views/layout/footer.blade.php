@@ -73,7 +73,7 @@
                         <li><a class="instagram" href="{{ setting('social.instagram') }}"><i class="fab fa-instagram"></i></a></li>
                         <li><a class="youtube" href="{{ setting('social.youtube') }}"><i class="fab fa-youtube"></i></a></li>
                         <li><a class="snapchat" href="{{ setting('social.snapchat') }}"><i class="fab fa-snapchat-square"></i></a></li>
-                        <li><a class="twitter" href="{{ setting('social.snapchat') }}"><i class="fab fa-twitter-square"></i></a></li>
+                        <li><a class="twitter" href="{{ setting('social.twitter') }}"><i class="fab fa-twitter-square"></i></a></li>
 
 
 

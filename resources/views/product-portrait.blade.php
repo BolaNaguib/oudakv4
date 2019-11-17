@@ -98,8 +98,8 @@
 <section class="uk-section section_theme_gray">
     <!-- START .uk-text-center -->
     <div class="uk-text-center uk-margin">
-        <h3 class="uk-margin-remove">Similar Products</h3>
-        <img src="https://3.top4top.net/p_1328rhb851.png.png" alt="">
+        <h3 class="uk-margin-remove">SUGGESTIONS</h3>
+        {{-- <img src="https://3.top4top.net/p_1328rhb851.png.png" alt=""> --}}
     </div><!-- END .uk-text-center -->
 
     <!-- START .uk-container -->

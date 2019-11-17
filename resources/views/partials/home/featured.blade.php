@@ -14,7 +14,7 @@
             </div>
             <!-- START .uk-width-1-3@m -->
             <!-- START .uk-width-2-3@m -->
-            <div class="uk-width-2-3@m uk-width-1-1uk-flex-first@m">
+            <div class="uk-width-2-3@m uk-width-1-1 uk-flex-first@m">
                 <!-- card_theme-gray -->
                 <div class="card_theme-gray">
                     @foreach ($products as $featuredproduct)

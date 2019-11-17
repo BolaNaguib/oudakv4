@@ -180,7 +180,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <p class="uk-margin-remove" style="font-size:16px !important;">{{ $item->title }}</p>
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                         <br>
-                                        <small> {{ $product->gift_price_1 }} </small>
+                                        <small> ${{ $product->gift_price_1 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}
@@ -200,7 +200,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
 
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                         <br>
-                                        <small> {{ $product->gift_price_2 }} </small>
+                                        <small> ${{ $product->gift_price_2 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}
@@ -218,7 +218,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                         <br>
-                                        <small> {{ $product->gift_price_3 }} </small>
+                                        <small> ${{ $product->gift_price_3 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}
@@ -236,7 +236,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
                                         <br>
-                                        <small> {{ $product->gift_price_4 }} </small>
+                                        <small> ${{ $product->gift_price_4 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}
@@ -254,7 +254,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                        <br> <small> {{ $product->gift_price_5 }} </small>
+                                        <br> <small> ${{ $product->gift_price_5 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}
@@ -272,7 +272,7 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                                         <p class="uk-margin-remove " style="font-size:16px !important;">{{ $item->title }}</p>
 
                                         <img src="{{ asset('storage/'.$item->thumbnail) }}" alt="" style="max-height:85px;">
-                                        <br> <small> {{ $product->gift_price_6 }} </small>
+                                        <br> <small> ${{ $product->gift_price_6 }} </small>
                                     </div>
                                 </div>
                                 {{-- END .uk-position-relative --}}

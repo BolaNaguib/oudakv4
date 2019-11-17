@@ -1,44 +1,350 @@
-html{color:#1c1f2a;font-family:Merriweather,serif}*,button,input{font-smoothing:antialised;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:inherit;font-family:inherit}body{font-family:Merriweather,serif}::-moz-selection{color:#ffc600;background:#1c1f2a}::selection{color:#ffc600;background:#1c1f2a}html{font-size:18px}h1,h2,h3,h4,h5,h6{font-family:Merriweather,serif;font-weight:600;font-style:normal;font-stretch:normal;line-height:1.325;letter-spacing:-.0125em;color:inherit}h1{font-weight:800;line-height:1.17;font-size:2.133em}h2{font-size:1.422em}h3{font-size:1.067em}h4{font-size:.933em}h5{font-size:.8em}h6{font-size:.711em}a{color:#1c1f2a!important;font-family:Merriweather,serif!important}a:hover{color:#ffb500!important}header{background-color:hsla(0,0%,93.3%,.21)}.section_theme_gray{background-color:hsla(0,0%,93.3%,.41)}.card_theme_white{background-color:#fff;border:1px solid rgba(0,0,0,.19)}.card{padding:24px 32px}.card_type_shopingbag{margin-bottom:20px}.icon_type_heart,.icon_type_heart:hover{-webkit-transition:.3s;transition:.3s}.icon_type_heart:hover{color:#ff6000;border:1px solid}.icon_type_star,.icon_type_star:hover{-webkit-transition:.3s;transition:.3s}.icon_type_star:hover{color:#003bf1;border:1px solid}.icon_type_mail,.icon_type_mail:hover{-webkit-transition:.3s;transition:.3s}.icon_type_mail:hover{color:#00ccf1;border:1px solid}.icon_type_social,.icon_type_social:hover{-webkit-transition:.3s;transition:.3s}.icon_type_social:hover{color:#006f0f;border:1px solid}.breadcrumb{padding:10px 0;margin:0}.breadcrumb__link,.breadcrumb__link-active{font-size:12px}.input{border:0;border-bottom:1px solid rgba(0,0,0,.4);background-color:hsla(0,0%,93.3%,.46);padding:10px;width:100%}.input:focus{outline:none;border-bottom:1px solid #000}.input.error{border:1px solid #ff6000}.input_type_newsletter{border-radius:92px;border:1px solid rgba(0,0,0,.65);padding:25px 0;text-indent:30px}.sidenav{background-color:#fff;color:#000;overflow:unset;padding:0;border-right:1px solid #9c9c9c}.uk-navbar-nav>li>a{min-height:50px}.notificationicon{position:absolute;left:0;font-family:sans-serif;font-size:10px;width:15px!important;height:15px!important;min-width:unset;color:#000;background-color:#ffc600}.sidenav__links{padding:20px 0!important;display:block}.sidenav__title{color:#000!important}.sociallinks{list-style:none;padding:0}.sociallinks li a{font-size:48px;float:right;margin-left:10px;color:#c3c3c3}.snapchat:hover,.sociallinks li a{-webkit-transition:.3s;transition:.3s}.snapchat:hover{color:#f8f400!important}.facebook:hover{color:#3b5998!important}.facebook:hover,.instagram:hover{-webkit-transition:.3s;transition:.3s}.instagram:hover{color:#514394!important}.youtube:hover{color:red!important}.twitter:hover,.youtube:hover{-webkit-transition:.3s;transition:.3s}.twitter:hover{color:#38a1f3!important}.googleplus:hover{color:#e6421f!important;-webkit-transition:.3s;transition:.3s}.button_type_newsletter{background-color:#000;color:#fff!important;border-top-right-radius:50%;border-bottom-right-radius:50%;padding:10px}.uk-position-top-left,.uk-position-top-right{z-index:9}.newcattit{background-color:#000;padding:10px 30px;text-align:center;display:-webkit-inline-box;margin:0 auto!important;color:#fff}@media (min-width:640px){h1{font-size:2.667em}h2{font-size:1.778em}h3{font-size:1.333em}h4{font-size:1.167em}h5{font-size:1em}h6{font-size:.889em}}
+html {
+    color: #1c1f2a;
+    font-family: Merriweather, serif
+}
+
+*, button, input {
+    font-smoothing: antialised;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: inherit;
+    font-family: inherit
+}
+
+body {
+    font-family: Merriweather, serif
+}
+
+::-moz-selection {
+    color: #ffc600;
+    background: #1c1f2a
+}
+
+::selection {
+    color: #ffc600;
+    background: #1c1f2a
+}
+
+html {
+    font-size: 18px
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Merriweather, serif;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.325;
+    letter-spacing: -.0125em;
+    color: inherit
+}
+
+h1 {
+    font-weight: 800;
+    line-height: 1.17;
+    font-size: 2.133em
+}
+
+h2 {
+    font-size: 1.422em
+}
+
+h3 {
+    font-size: 1.067em
+}
+
+h4 {
+    font-size: .933em
+}
+
+h5 {
+    font-size: .8em
+}
+
+h6 {
+    font-size: .711em
+}
+
+a {
+    color: #1c1f2a !important;
+    font-family: Merriweather, serif !important
+}
+
+a:hover {
+    color: #ffb500 !important;
+    text-decoration: none !important;
+}
+
+header {
+    background-color: hsla(0, 0%, 93.3%, .21)
+}
+
+.section_theme_gray {
+    background-color: hsla(0, 0%, 93.3%, .41)
+}
+
+.card_theme_white {
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .19)
+}
+
+.card {
+    padding: 24px 32px
+}
+
+.card_type_shopingbag {
+    margin-bottom: 20px
+}
+
+.icon_type_heart, .icon_type_heart:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.icon_type_heart:hover {
+    color: #ff6000;
+    border: 1px solid
+}
+
+.icon_type_star, .icon_type_star:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.icon_type_star:hover {
+    color: #003bf1;
+    border: 1px solid
+}
+
+.icon_type_mail, .icon_type_mail:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.icon_type_mail:hover {
+    color: #00ccf1;
+    border: 1px solid
+}
+
+.icon_type_social, .icon_type_social:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.icon_type_social:hover {
+    color: #006f0f;
+    border: 1px solid
+}
+
+.breadcrumb {
+    padding: 10px 0;
+    margin: 0
+}
+
+.breadcrumb__link, .breadcrumb__link-active {
+    font-size: 12px
+}
+
+.input {
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .4);
+    background-color: hsla(0, 0%, 93.3%, .46);
+    padding: 10px;
+    width: 100%
+}
+
+.input:focus {
+    outline: none;
+    border-bottom: 1px solid #000
+}
+
+.input.error {
+    border: 1px solid #ff6000
+}
+
+.input_type_newsletter {
+    border-radius: 92px;
+    border: 1px solid rgba(0, 0, 0, .65);
+    padding: 25px 0;
+    text-indent: 30px
+}
+
+.sidenav {
+    background-color: #fff;
+    color: #000;
+    overflow: unset;
+    padding: 0;
+    border-right: 1px solid #9c9c9c
+}
+
+.uk-navbar-nav>li>a {
+    min-height: 50px
+}
+
+.notificationicon {
+    position: absolute;
+    left: 0;
+    font-family: sans-serif;
+    font-size: 10px;
+    width: 15px !important;
+    height: 15px !important;
+    min-width: unset;
+    color: #000;
+    background-color: #ffc600
+}
+
+.sidenav__links {
+    padding: 20px 0 !important;
+    display: block
+}
+
+.sidenav__title {
+    color: #000 !important
+}
+
+.sociallinks {
+    list-style: none;
+    padding: 0
+}
+
+.sociallinks li a {
+    font-size: 48px;
+    float: right;
+    margin-left: 10px;
+    color: #c3c3c3
+}
+
+.snapchat:hover, .sociallinks li a {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.snapchat:hover {
+    color: #f8f400 !important
+}
+
+.facebook:hover {
+    color: #3b5998 !important
+}
+
+.facebook:hover, .instagram:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.instagram:hover {
+    color: #514394 !important
+}
+
+.youtube:hover {
+    color: red !important
+}
+
+.twitter:hover, .youtube:hover {
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.twitter:hover {
+    color: #38a1f3 !important
+}
+
+.googleplus:hover {
+    color: #e6421f !important;
+    -webkit-transition: .3s;
+    transition: .3s
+}
+
+.button_type_newsletter {
+    background-color: #000;
+    color: #fff !important;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    padding: 10px
+}
+
+.uk-position-top-left, .uk-position-top-right {
+    z-index: 9
+}
+
+.newcattit {
+    background-color: #000;
+    padding: 10px 30px;
+    text-align: center;
+    display: -webkit-inline-box;
+    margin: 0 auto !important;
+    color: #fff
+}
+
+@media (min-width:640px) {
+    h1 {
+        font-size: 2.667em
+    }
+
+    h2 {
+        font-size: 1.778em
+    }
+
+    h3 {
+        font-size: 1.333em
+    }
+
+    h4 {
+        font-size: 1.167em
+    }
+
+    h5 {
+        font-size: 1em
+    }
+
+    h6 {
+        font-size: .889em
+    }
+}
 
 /* Custom Css */
-.bottom_cookie{
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
+.bottom_cookie {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
-.site-footer-right{
-  display: none !important;
+
+.site-footer-right {
+    display: none !important;
 }
+
 .uk-nav-default li {
-  border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
-.fbstyle{
-  background-color: #4267b2;
-  color: #fff;
-  border-radius: 5px;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  transition: 300ms;
 
+.fbstyle {
+    background-color: #4267b2;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
 }
-.fbstyle:hover{
-background-color: #1e3d7d;
-transition: 300ms;
-}
-.googlestyle{
-  background-color: #b50909;
-  color: #fff;
-  border-radius: 5px;
-  padding: 15px 20px;
-  border: none;
-  cursor: pointer;
-  transition: 300ms;
 
+.fbstyle:hover {
+    background-color: #1e3d7d;
+    transition: 300ms;
 }
-.googlestyle:hover{
-background-color: #880a0a;
-transition: 300ms;
+
+.googlestyle {
+    background-color: #b50909;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.googlestyle:hover {
+    background-color: #880a0a;
+    transition: 300ms;
 }
 
 /**
@@ -61,19 +367,19 @@ transition: 300ms;
  *
  * © 2019 MyFonts Inc
 */
-
-
 /* @import must be at top of file, otherwise CSS will not work */
 @import url("//hello.myfonts.net/count/3a0bfe");
 
-
 @font-face {
-  font-family: 'NicolasCoc-Reg';
-  src: url('fonts/3A0BFE_0_0.eot');
-  src: url('fonts/3A0BFE_0_0.eot?#iefix') format('embedded-opentype'),url('fonts/3A0BFE_0_0.woff2') format('woff2'),url('fonts/3A0BFE_0_0.woff') format('woff'),url('fonts/3A0BFE_0_0.ttf') format('truetype');
-  font-display: swap;
+    font-family: 'NicolasCoc-Reg';
+    src: url('fonts/3A0BFE_0_0.eot');
+    src: url('fonts/3A0BFE_0_0.eot?#iefix') format('embedded-opentype'), url('fonts/3A0BFE_0_0.woff2') format('woff2'), url('fonts/3A0BFE_0_0.woff') format('woff'), url('fonts/3A0BFE_0_0.ttf') format('truetype');
+    font-display: swap;
 }
 
-html, h1, h2, h3, h4, h5, h6, p, span, b, a{
-  font-family:NicolasCoc-Reg !important;
+html, h1, h2, h3, h4, h5, h6, p, span, b, a {
+    font-family: NicolasCoc-Reg !important;
+}
+a:hover{
+      text-decoration: none !important;
 }

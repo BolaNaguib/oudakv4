@@ -165,10 +165,22 @@ background-color: rgba(245, 245, 245, 0.65);" hidden>
                     {!! $product->Ingredients !!}
                 </div>
             </div> --}}
-            <a class="uk-button uk-button-default" href="#ingredients-modal" style="position: absolute;
-        bottom: 5px;
-        z-index: 99" uk-toggle>Ingredients</a>
 
+            <a class="uk-button uk-button-default ingredientButtonx"  style="position: absolute;
+        bottom: 5px;
+        z-index: 99">Ingredients</a>
+        <div  class="uk-card uk-card-default uk-padding-small ingredientBoxx" style=" position: absolute;
+        z-index: 9;
+left: 0px;
+top: 0px;
+width: 100%;
+height: 100%;
+display: none;
+background-color: rgba(245, 245, 245, 0.65);" >
+            <div class="">
+                {!! $product->Ingredients !!}
+            </div>
+        </div>
             <div id="ingredients-modal" class="uk-flex-top" uk-modal>
                 <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 

@@ -24,26 +24,24 @@ $product_slider = explode(",", $slider)
 
             <!-- START .card -->
             <div id="productzoom" class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
-              {{-- <button href="#toggle-animation" class="uk-button uk-button-default" type="button" uk-toggle="target: #toggle-animation; animation: uk-animation-fade" style=" position: absolute;
-          bottom: 5px;
-          z-index: 99;">Ingredients</button>
-          <a class="uk-button uk-button-default" href="#ingredients-modal" uk-toggle>Open</a> --}}
 
-              {{-- <div id="toggle-animation" class="uk-card uk-card-default " style="       position: absolute;
-          z-index: 9;
-left: 0px;
-top: 0px;
-width: 100%;
-height: 100%;
-background-color: rgba(245, 245, 245, 0.65);" hidden>
-                  <div class="">
-                      {!! $product->Ingredients !!}
-                  </div>
-              </div> --}}
-                <a class="uk-button uk-button-default" href="#ingredients-modal" style="position: absolute;
+
+                <a class="uk-button uk-button-default ingredientButton" style="position: absolute;
             bottom: 5px;
-            z-index: 99" uk-toggle>Ingredients</a>
-
+            z-index: 99">Ingredients</a>
+            <div  class="uk-card uk-card-default uk-padding-small ingredientBox"  style="        position: absolute;
+                    z-index: 9;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(245, 245, 245, 0.65);
+                    display: none;
+                    transition: 500ms;">
+                <div class="">
+                    {!! $product->Ingredients !!}
+                </div>
+            </div>
                 <div id="ingredients-modal" class="uk-flex-top" uk-modal>
                     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
 

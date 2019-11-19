@@ -8,8 +8,8 @@
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
 
-      @include('partials.product.desktop')
-      @include('partials.product.mobile')
+        @include('partials.product.desktop')
+        @include('partials.product.mobile')
 
 
     </div><!-- END .uk-container -->
@@ -17,78 +17,78 @@
 
 <!-- Product Notes -->
 @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
-  <section class="uk-section">
+<section class="uk-section">
     <div class="uk-container uk-container-large">
-      <div class="uk-margin-medium-top">
-        <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
-        @if ($product->olfactory)
-          <li class="uk-active uk-margin-top"><a href="#">Old Factory</a></li>
-        @endif
-        @if ($product->top_notes)
-          <li class="uk-margin-top"><a href="#">Top Notes</a></li>
-        @endif
-        @if ($product->heart_notes)
-          <li class="uk-margin-top"><a href="#">Heart Notes</a></li>
-        @endif
-        @if ($product->base_notes)
-          <li class="uk-margin-top"><a href="#">Base Notes</a></li>
+        <div class="uk-margin-medium-top">
+            <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
+                @if ($product->olfactory)
+                <li class="uk-active uk-margin-top"><a href="#">Old Factory</a></li>
+                @endif
+                @if ($product->top_notes)
+                <li class="uk-margin-top"><a href="#">Top Notes</a></li>
+                @endif
+                @if ($product->heart_notes)
+                <li class="uk-margin-top"><a href="#">Heart Notes</a></li>
+                @endif
+                @if ($product->base_notes)
+                <li class="uk-margin-top"><a href="#">Base Notes</a></li>
 
-        @endif
-      </ul>
-        <ul class="uk-switcher uk-margin">
-        @if ($product->olfactory)
-          <li>
-            <div class="uk-grid uk-child-width-1-2">
-              <div class="">
-                <img src="{{ asset('storage/'.$product->olfactory_pic) }}" alt="">
-              </div>
-              <div class="">
-                {!! $product->olfactory !!}
-              </div>
-            </div>
-            </li>
-        @endif
-        @if ($product->top_notes)
-            <li>
-              <div class="uk-grid uk-child-width-1-2">
-                <div class="">
-                  <img src="{{ asset('storage/'.$product->top_notes_pic) }}" alt="">
-                </div>
-                <div class="">
-                  {!! $product->top_notes !!}
-                </div>
-              </div>
-              </li>
-        @endif
-        @if ($product->heart_notes)
-          <li>
-            <div class="uk-grid uk-child-width-1-2">
-              <div class="">
-                <img src="{{ asset('storage/'.$product->heart_notes_pic) }}" alt="">
+                @endif
+            </ul>
+            <ul class="uk-switcher uk-margin">
+                @if ($product->olfactory)
+                <li>
+                    <div class="uk-grid uk-child-width-1-2">
+                        <div class="">
+                            <img src="{{ asset('storage/'.$product->olfactory_pic) }}" alt="">
+                        </div>
+                        <div class="">
+                            {!! $product->olfactory !!}
+                        </div>
+                    </div>
+                </li>
+                @endif
+                @if ($product->top_notes)
+                <li>
+                    <div class="uk-grid uk-child-width-1-2">
+                        <div class="">
+                            <img src="{{ asset('storage/'.$product->top_notes_pic) }}" alt="">
+                        </div>
+                        <div class="">
+                            {!! $product->top_notes !!}
+                        </div>
+                    </div>
+                </li>
+                @endif
+                @if ($product->heart_notes)
+                <li>
+                    <div class="uk-grid uk-child-width-1-2">
+                        <div class="">
+                            <img src="{{ asset('storage/'.$product->heart_notes_pic) }}" alt="">
 
-              </div>
-              <div class="">
-                {!! $product->heart_notes !!}
-              </div>
-            </div>
-            </li>
-        @endif
-        @if ($product->base_notes)
-          <li>
-            <div class="uk-grid uk-child-width-1-2">
-              <div class="">
-                <img src="{{ asset('storage/'.$product->base_notes_pic) }}" alt="">
-              </div>
-              <div class="">
-                {!! $product->base_notes !!}
-              </div>
-            </div>
-            </li>
-        @endif
-      </ul>
-      </div>
+                        </div>
+                        <div class="">
+                            {!! $product->heart_notes !!}
+                        </div>
+                    </div>
+                </li>
+                @endif
+                @if ($product->base_notes)
+                <li>
+                    <div class="uk-grid uk-child-width-1-2">
+                        <div class="">
+                            <img src="{{ asset('storage/'.$product->base_notes_pic) }}" alt="">
+                        </div>
+                        <div class="">
+                            {!! $product->base_notes !!}
+                        </div>
+                    </div>
+                </li>
+                @endif
+            </ul>
+        </div>
     </div>
-  </section>
+</section>
 @endif
 
 
@@ -124,7 +124,7 @@
             </div><!-- END div -->
 
             @endif
-          {{-- @elseif ($product->category != $sproduct->category)
+            {{-- @elseif ($product->category != $sproduct->category)
 
                 <div class="uk-width-1-1 uk-text-center">
                   there is no similar products
@@ -149,51 +149,98 @@
 
 @section('css')
 
-  <style media="screen">
-      /* HIDE RADIO */
-      [type=radio] {
-          position: absolute;
-          opacity: 0;
-          width: 0;
-          height: 0;
-      }
+<style media="screen">
+    /* HIDE RADIO */
+    [type=radio] {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
 
-      /* IMAGE STYLES */
-      [type=radio]+div {
-          cursor: pointer;
-          outline: 1px solid #d7d7d7;
+    /* IMAGE STYLES */
+    [type=radio]+div {
+        cursor: pointer;
+        outline: 1px solid #d7d7d7;
 
-      }
+    }
 
-      /* CHECKED STYLES */
-      [type=radio]:checked+div {
-          outline: 3px solid #8b8989;
-      }
+    /* CHECKED STYLES */
+    [type=radio]:checked+div {
+        outline: 3px solid #8b8989;
+    }
 
-      /* CHECKED STYLES */
-      [type=radio]:checked+div .checkicon {
-          opacity: 1;
-          position: absolute;
-          right: 7px;
-          top: 7px;
-      }
+    /* CHECKED STYLES */
+    [type=radio]:checked+div .checkicon {
+        opacity: 1;
+        position: absolute;
+        right: 7px;
+        top: 7px;
+    }
 
-      .checkicon {
-          opacity: 0;
-          position: absolute;
-          right: 7px;
-          top: 7px;
-      }
-  </style>
+    .checkicon {
+        opacity: 0;
+        position: absolute;
+        right: 7px;
+        top: 7px;
+    }
+
+    .ingredientBox {
+
+    }
+
+    .displayBlock {
+        display: block !important;
+        transition: 500ms;
+
+    }
+</style>
 @endsection
 
 @section('js')
-  <script type="text/javascript">
-  $('input[type=radio]').click(function(){
-  if (this.previous) {
-      this.checked = false;
-  }
-  this.previous = this.checked;
-});
-  </script>
+<script type="text/javascript">
+    $('input[type=radio]').click(function() {
+        if (this.previous) {
+            this.checked = false;
+        }
+        this.previous = this.checked;
+    });
+</script>
+<script type="text/javascript">
+
+    const ingredientButton = document.querySelector('.ingredientButton');
+    const ingredientBox = document.querySelector('.ingredientBox');
+    const displayBlock = 'displayBlock';
+    ingredientBox.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    ingredientButton.addEventListener('click', function(e) {
+        ingredientBox.classList.toggle(displayBlock);
+        e.stopPropagation();
+
+    });
+    document.addEventListener('click', function() {
+        if (ingredientBox.classList.contains(displayBlock)) {
+            ingredientBox.classList.remove(displayBlock);
+        }
+    });
+</script>
+<script type="text/javascript">
+    const ingredientButtonx = document.querySelector('.ingredientButtonx');
+    const ingredientBoxx = document.querySelector('.ingredientBoxx');
+    const displayBlockx = 'displayBlock';
+    ingredientBoxx.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    ingredientButtonx.addEventListener('click', function(e) {
+        ingredientBoxx.classList.toggle(displayBlockx);
+        e.stopPropagation();
+
+    });
+    document.addEventListener('click', function() {
+        if (ingredientBoxx.classList.contains(displayBlock)) {
+            ingredientBoxx.classList.remove(displayBlock);
+        }
+    });
+</script>
 @endsection

@@ -66,7 +66,7 @@
                         {{-- <p>
                         </p> --}}
                         <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
-                        {{$HomeFourBlock->Product1->initial_description}}
+                        {!! $HomeFourBlock->Product1->initial_description !!}
                         <div class="uk-invisible-hover uk-margin-top">
                           <hr>
                           <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product1->price }}</b>

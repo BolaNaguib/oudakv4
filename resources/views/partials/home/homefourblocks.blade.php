@@ -59,14 +59,16 @@
             @if ($HomeFourBlock->Product1 != null)
             <div class="gridoption uk-width-1-3@m uk-width-1-2">
                 <!-- START .uk-card -->
-                <div class="uk-card uk-card-default uk-text-center uk-padding uk-visible-toggle" tabindex="-1">
+                <div class="uk-card  uk-text-center uk-padding uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
-                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
-                        <hr>
+
                         <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
                         {{-- <p>
-                            {{$HomeFourBlock->Product1->initial_description}}
                         </p> --}}
+                        <hr>
+                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
+                        {{$HomeFourBlock->Product1->initial_description}}
+
                         <div class="uk-invisible-hover uk-margin-top">
                           <hr>
                           <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product1->price }}</b>
@@ -81,14 +83,17 @@
             <!-- START .uk-width-1-3@m -->
             <div class="gridoption uk-width-1-3@m uk-width-1-2">
                 <!-- START .uk-card -->
-                <div class="uk-card uk-card-default uk-text-center uk-padding uk-visible-toggle" tabindex="-1">
+                <div class="uk-card  uk-text-center uk-padding uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
-                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
-                        <hr>
+
                         <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
                         {{-- <p>
                             {{$HomeFourBlock->Product2->initial_description}}
                         </p> --}}
+                        <hr>
+
+                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
+                        {!! $HomeFourBlock->Product2->initial_description !!}
                         <div class="uk-invisible-hover uk-margin-top">
                           <hr>
                           <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product2->price }}</b>

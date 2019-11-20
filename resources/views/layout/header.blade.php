@@ -191,43 +191,44 @@ color: #fff !important;
                 <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
                 <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
               </a>
-
-
             </div>
-
           </div>
           <!-- START .uk-navbar-right -->
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->
             <ul class="uk-navbar-nav">
               <li class="uk-position-relative">
-                @if (Cart::instance('saveForLater')->count() > 0)
-                  <a href="{{ route('cart.index') }}">
+                @if (Auth::user() != null)
+                  @if (Auth::user()->wishlist->count() )
+                    <a class="" href="{{ route('wishlist.index') }}">
+                      <span style="color:#ff6000"><i class="fas fa-heart"></i></span>
+                  @else
+                    <a>
+                      <span><i class="far fa-heart"></i></span>
+                  @endif
                 @else
                   <a>
+                    <span><i class="far fa-heart"></i></span>
                 @endif
-                    <span uk-icon="heart"></span>
+
+                    {{-- <span uk-icon="heart"></span> --}}
                      {{-- <span uk-icon="triangle-down"></span> --}}
-                     @if (Cart::instance('saveForLater')->count() > 0)
-                     <span class="uk-badge notificationicon">
-                       {{ Cart::instance('saveForLater')->count() }}
-                     </span>
-                          @endif
+
                         </a>
 
                   <div class="main-carditems" uk-dropdown>
                     <ul class="uk-list  uk-list-divider uk-margin-remove">
-                         @if (Cart::instance('saveForLater')->count() > 0)
-                      @foreach (Cart::content() as $item )
-
+                      @if (Auth::user() != null)
+                      @if (Auth::user()->wishlist->count() )
+                      @foreach ($wishlists as $wishlist)
                         <li class="main-carditems-list">
-                              <a href="{{ route('shop.show', $item->model->slug) }}">
+                              <a href="{{ route('shop.show', $wishlist->product->slug) }}">
                           <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
                             <div class="uk-width-expand uk-text-left">
-                              <span>{{ $item->model->title }}</span>
+                              <span>{{ $wishlist->product->title }}</span>
                             </div>
                             <div class="uk-width-auto uk-text-right">
-                              <span>{{ $item->subtotal }} </span>
+                              <span>{{ $wishlist->product->subtotal }} </span>
                             </div>
                           </div>
                         </a>	</li>
@@ -235,15 +236,22 @@ color: #fff !important;
                       @else
                         <li class="main-carditems-list"> you Have no items in your Wish List </li>
                       @endif
+                    @else
+                      <li class="main-carditems-list"> you Have no items in your Wish List </li>
+
+                    @endif
 
                     </ul>
-                    @if (Cart::instance('saveForLater')->count() > 0)
+                    @if (Auth::user() != null)
+
+                    @if (Auth::user()->wishlist->count() )
 
                     <div class="uk-text-center">
                       <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Wish List</a>
 
                     </div>
                   @endif
+                @endif
 
                   </div>
 
@@ -251,6 +259,7 @@ color: #fff !important;
 
 
                       </li>
+
 
               <li class="uk-position-relative">
                 @if (Cart::instance('default')->count() > 0)

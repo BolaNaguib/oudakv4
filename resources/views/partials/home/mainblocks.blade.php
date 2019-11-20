@@ -12,9 +12,30 @@
             <!-- START .uk-width-1-3@m -->
             <div class="uk-width-1-3@m uk-width-1-2 ">
                 <!-- START div -->
-                <div class="card card_theme_white">
-                    <form class="" action="{{ route('cart.store') }}" method="post">
-                        {{ csrf_field() }}
+                <div class="card card_theme_white uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
+                  @if (Auth::user() != null)
+                    @if ($block->Productone->wishlist->isEmpty())
+                      <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
+                        <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                            {{csrf_field()}}
+                            <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
+                            <input class="uk-hidden" name="product_id" type="text" value="{{$block->Productone->id}}" />
+                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                          </form>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                      </div>
+                    @else
+                      <div class="uk-position-small uk-position-top-right">
+                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                      </div>
+                    @endif
+                  @else
+                    <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                    </div>
+                  @endif
                         <div class="">
 
                             <div class="uk-text-center">
@@ -30,9 +51,7 @@
                                         <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Productone->secondimage) }}" alt="" style="max-height:250px;">
                                     </div><!-- END .uk-inline-clip -->
                                 </a>
-                                <input type="hidden" name="id" value="{{ $block->Productone->id }}">
-                                <input type="hidden" name="name" value="{{ $block->Productone->title }}">
-                                <input type="hidden" name="price" value="{{ $block->Productone->price }}">
+
                             </div><!-- END .card -->
 
 
@@ -43,9 +62,14 @@
 
                         </div>
                         <div class="uk-text-center">
+                          <form class="" action="{{ route('cart.store') }}" method="post">
+                              {{ csrf_field() }}
+                            <input type="hidden" name="id" value="{{ $block->Productone->id }}">
+                            <input type="hidden" name="name" value="{{ $block->Productone->title }}">
+                            <input type="hidden" name="price" value="{{ $block->Productone->price }}">
                             <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span> </button>
+                          </form>
                         </div>
-                    </form>
                 </div>
             </div>
             @endif
@@ -89,9 +113,31 @@
 
 
         <div class="uk-width-1-3@m @if ( $block->coloumn) uk-width-1-2 @else uk-width-1-1 @endif  uk-flex-last@m uk-flex-first">
-            <div class="card card_theme_white">
-                <form class="" action="{{ route('cart.store') }}" method="post">
-                    {{ csrf_field() }}
+            <div class="card card_theme_white  uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
+              @if (Auth::user() != null)
+                @if ($block->Producttwo->wishlist->isEmpty())
+                  <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
+                    <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                        {{csrf_field()}}
+                        <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
+                        <input class="uk-hidden" name="product_id" type="text" value="{{$block->Producttwo->id}}" />
+                        <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                      </form>
+                      <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                  </div>
+                @else
+                  <div class="uk-position-small uk-position-top-right">
+                      <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
+                      <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                  </div>
+                @endif
+              @else
+                <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                      <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                      <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                </div>
+              @endif
+
                     <div class="">
 
                         <div class="uk-text-center">
@@ -107,9 +153,7 @@
                                     <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$block->Producttwo->secondimage) }}" alt="" style="max-height:250px;">
                                 </div><!-- END .uk-inline-clip -->
                             </a>
-                            <input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
-                            <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
-                            <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
+
                         </div><!-- END .card -->
 
 
@@ -120,10 +164,14 @@
 
                     </div>
                     <div class="uk-text-center">
+                      <form class="" action="{{ route('cart.store') }}" method="post">
+                          {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
+                        <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
+                        <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
                         <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span style="line-height: 1.8;">ADD</span> </button>
-
+                      </form>
                     </div>
-                </form>
             </div>
         </div>
         @endif

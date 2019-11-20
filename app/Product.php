@@ -6,6 +6,7 @@ use App\ZCRM\Modules\Product as ZCRMProduct;
 use App\ZCRM\Traits\MapsToZCRMModule;
 use App\ProductCategory;
 use Illuminate\Database\Eloquent\Model;
+use App\Product;
 
 class Product extends Model
 {
@@ -29,4 +30,10 @@ class Product extends Model
         $product->Product_Code = $this->serial_number;
 
     }
+    public function wishlist(){
+     return $this->hasMany(Wishlist::class);
+  }
+  public function wishlistexist(){
+
+  }
 }

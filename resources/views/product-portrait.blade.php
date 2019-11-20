@@ -114,7 +114,30 @@
             <!-- START div -->
             <div class="">
                 <!-- START .card -->
-                <div class="card card_theme_white uk-text-center">
+                <div class="card card_theme_white uk-text-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
+                  @if (Auth::user() != null)
+                    @if ($sproduct->wishlist->isEmpty())
+                      <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
+                        <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                            {{csrf_field()}}
+                            <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
+                            <input class="uk-hidden" name="product_id" type="text" value="{{$sproduct->id}}" />
+                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                          </form>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                      </div>
+                    @else
+                      <div class="uk-position-small uk-position-top-right">
+                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                      </div>
+                    @endif
+                  @else
+                    <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                    </div>
+                  @endif
                     <a href="{{ route('shop.show', $sproduct->slug) }}">
                         <img src="{{ asset('storage/'.$sproduct->thumbnail) }}" alt="" style="max-height:250px;">
                         <h3 class="">{{ $sproduct->title }}</h3>

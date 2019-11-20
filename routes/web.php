@@ -129,6 +129,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::post('/tracker', 'TrackerController@store')->name('tracker.store');
 
   Route::get('/tracker/{tracker}', 'TrackerController@show')->name('tracker.show');
+  Route::resource('/wishlist', 'WishlistController', ['except' => ['create', 'edit', 'show', 'update']]);
 
 
 

@@ -98,12 +98,32 @@ header {
 
 .icon_type_heart, .icon_type_heart:hover {
     -webkit-transition: .3s;
-    transition: .3s
+    transition: .3s;
+        width: 100%;
 }
 
 .icon_type_heart:hover {
     color: #ff6000;
-    border: 1px solid
+    border: 1px solid;
+        width: 100%;
+}
+
+.icon_type_heart_red, .icon_type_heart_red:hover {
+    -webkit-transition: .3s;
+    transition: .3s; color: #ff6000;
+        width: 100%;
+}
+
+.icon_type_heart_red {
+    color: #ff6000;
+      border: 1px solid #ff6000;
+          width: 100%;
+}
+
+.icon_type_heart_red:hover {
+    color: #ff6000;
+    border: 1px solid;
+        width: 100%;
 }
 
 .icon_type_star, .icon_type_star:hover {
@@ -380,10 +400,27 @@ header {
 html, h1, h2, h3, h4, h5, h6, p, span, b, a {
     font-family: NicolasCoc-Reg !important;
 }
-a:hover{
-      text-decoration: none !important;
+
+a:hover {
+    text-decoration: none !important;
 }
 
-.card_theme-gray{
-      background-color: #fcfcfc;
+.card_theme-gray {
+    background-color: #fcfcfc;
+}
+.button_type_category_product {
+    background-color: #000;
+    border: 0px;
+    color: #fff;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 300ms;
+
+}
+
+.button_type_category_product:hover {
+    background-color: #eee;
+    color: #000;
+    transition: 300ms;
 }

@@ -7,8 +7,11 @@ use App\Product;
 use App\ProductCategory;
 use App\MainMenu;
 use App\cookiesip;
+use Auth;
 use View;
 use App\Page;
+use App\Wishlist;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -28,18 +31,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $clientip = \Request::ip();
         $cookies = cookiesip::get();
         $products_menu = Product::get();
         $products_categories = ProductCategory::get();
         $main_menu = MainMenu::orderBy('Item_order','desc')->get() ;
         $page_menu = Page::get();
+        $wishlists  = Wishlist::get();
+        // $wishlists = wichlist::get();
         $this->applyVoyagerMailSettings();
         view()->share('main_menu', $main_menu );
         view()->share('products_categories', $products_categories );
         view()->share('products_menu', $products_menu );
         view()->share('page_menu', $page_menu );
         view()->share('cookies', $cookies );
+        view()->share('wishlists',$wishlists);
 
 
     }

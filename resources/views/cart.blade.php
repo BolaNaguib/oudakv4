@@ -173,17 +173,29 @@
         {{-- {{ dd($item) }} --}}
         <!-- START .card -->
         <div class="card card_theme_white card_type_shopingbag uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
-            <!-- START uk-position-top-right -->
+          @if (Auth::user() != null)
+            @if ($item->model->wishlist->isEmpty())
+              <div class="uk-transition-fade uk-position-small uk-position-top-left">
+                <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                    {{csrf_field()}}
+                    <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
+                    <input class="uk-hidden" name="product_id" type="text" value="{{$item->model->id}}" />
+                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                  </form>
+                  <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+              </div>
+            @else
+              <div class="uk-position-small uk-position-top-left">
+                  <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
+                  <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+              </div>
+            @endif
+          @else
             <div class="uk-transition-fade uk-position-small uk-position-top-left ">
-                <form class="" action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="post">
-                    {{ csrf_field() }}
-                    {{-- <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_star" uk-tooltip="title: Add To Wishlist; pos: left"><span uk-icon="star"></span></button> --}}
-                    <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span uk-icon="heart"></span></button>
-
-                </form>
-
-                <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social" uk-tooltip="title: Share on social Media; pos: left"><span uk-icon="social"></span></button>
-            </div><!-- END uk-position-top-right -->
+                  <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                  <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+            </div>
+          @endif
 
             <div class=" uk-flex uk-flex-bottom" uk-grid>
                 <!-- START .uk-width-1-4@m -->
@@ -252,13 +264,14 @@
         </div>
         <!-- END .card -->
         @endforeach
+            @if(Cart::instance('saveForLater')->count()>0)
         <br>
         <hr>
         <h3> WishList </h3>
         <hr>
 
 
-        @if(Cart::instance('saveForLater')->count()>0)
+
             {{ Cart::instance('saveForLater')->count() }} item(s) in Wishlist
             @foreach (Cart::instance('saveForLater')->content() as $item )
             <!-- START .card -->
@@ -315,7 +328,7 @@
             <!-- END .card -->
             @endforeach
             @else
-            <h3> You have no items saved for later</h3>
+            {{-- <h3> You have no items saved for later</h3> --}}
             @endif
 
 

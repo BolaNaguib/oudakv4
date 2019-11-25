@@ -1,7 +1,7 @@
 <!-- partials/home/mainslider -->
 
 <!-- START section -->
-<section class="uk-section-small">
+<section class="uk-section-xsmall">
 
     <!-- STARt .uk-container -->
     <div class="uk-container uk-container-large">

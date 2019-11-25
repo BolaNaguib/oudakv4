@@ -12,7 +12,7 @@
   }
 </style>
 <!-- START section -->
-<section class="uk-section section_theme_gray">
+<section class="uk-section-xsmall section_theme_gray">
 
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large uk-position-relative">

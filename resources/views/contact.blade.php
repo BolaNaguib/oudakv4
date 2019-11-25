@@ -3,7 +3,7 @@
   @if(Session::has('success'))
                  <p class="container alert {{Session::get('alert-class','alert-success')}}"> {{Session::get('success')}}</p>
                  @endif
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
     <h3 class="">Contact Us</h3>

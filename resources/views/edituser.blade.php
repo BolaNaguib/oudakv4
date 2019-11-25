@@ -1,5 +1,5 @@
 @include('layout.header')
-<section class="uk-section">
+<section class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
         <div class="uk-grid">
             <div class="uk-width-1-4">

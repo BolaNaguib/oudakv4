@@ -1,7 +1,7 @@
 <?php include 'layout/header.php'; ?>
 
 <!-- START section -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2" uk-grid>
       <div class="">
@@ -120,7 +120,7 @@
 
 
 <!-- START section -->
-<section class="uk-section section_theme_gray">
+<section class="uk-section-xsmall section_theme_gray">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
     <!-- START uk-grid -->

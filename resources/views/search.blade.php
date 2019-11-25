@@ -1,6 +1,6 @@
 @include('layout.header')
 
-<div class="uk-section">
+<div class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     @if (session()->has('success_message'))
     <div class="uk-alert-success" uk-alert>
@@ -17,7 +17,7 @@
     <h1>Search Results</h1>
     <p> {{ $products->count() }} reult(s) for {{ request()->input('query') }} </p>
 
-    <section class="uk-section ">
+    <section class="uk-section-xsmall ">
 
       <div class="uk-container uk-container-large">
 

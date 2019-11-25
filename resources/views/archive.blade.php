@@ -1,5 +1,5 @@
 @include('layout.header')
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     <div class="uk-text-center uk-margin">
       <h3 class="uk-margin-remove">Blogs</h3>
@@ -14,7 +14,7 @@
 
 
 
-<section class="uk-section ">
+<section class="uk-section-xsmall ">
   <div class="uk-text-center uk-margin">
     <h3 class="uk-margin-remove">Fregrances</h3>
 

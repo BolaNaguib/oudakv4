@@ -3,7 +3,7 @@
 
 <!-- START section -->
 <!-- Products Templates -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
 
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
@@ -17,7 +17,7 @@
 
 <!-- Product Notes -->
 @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
-<section class="uk-section">
+<section class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
         <div class="uk-margin-medium-top">
             <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
@@ -95,7 +95,7 @@
 
 
 <!-- START .section_theme_gray -->
-<section class="uk-section section_theme_gray">
+<section class="uk-section-xsmall section_theme_gray">
     <!-- START .uk-text-center -->
     <div class="uk-text-center uk-margin">
         <h3 class="uk-margin-remove">SUGGESTIONS</h3>

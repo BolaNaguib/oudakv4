@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- START section -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
       <div class="">

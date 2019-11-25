@@ -1,5 +1,5 @@
 <?php include 'layout/header.php'; ?>
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container">
     <div class="uk-text-center">
       <img src="images/slider2.jpg" alt="">

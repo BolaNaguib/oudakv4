@@ -1,7 +1,7 @@
 @foreach ($MainBlock as $block)
 
 <!-- START section -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
         <!-- START .uk-grid -->

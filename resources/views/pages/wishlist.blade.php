@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-  <div class="uk-section">
+  <div class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
       @if (session()->has('success_message'))
       <div class="uk-alert-success" uk-alert>
@@ -15,7 +15,7 @@
       {{ $error }}
       @endforeach
       @endif
-      <section class="uk-section ">
+      <section class="uk-section-xsmall ">
 
         <div class="uk-container uk-container-large">
 

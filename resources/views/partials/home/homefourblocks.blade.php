@@ -1,5 +1,5 @@
 <!-- START section -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
     <!-- START uk-container -->
     <div class="uk-container uk-container-large">
         <div class="uk-text-center uk-hidden@m">

@@ -122,8 +122,8 @@
 @endif
 @endforeach
 @endif
-<!-- START .uk-section -->
-<section class="uk-section" style="padding-top:20px;">
+<!-- START .uk-section-xsmall -->
+<section class="uk-section-xsmall" style="padding-top:20px;">
 <div class="uk-container uk-container-large">
   <hr>
   <div class="uk-text-center">
@@ -168,8 +168,8 @@
   </section>
 
 
-    <!-- START .uk-section -->
-    <section class="uk-section">
+    <!-- START .uk-section-xsmall -->
+    <section class="uk-section-xsmall">
         <!-- START .uk-container -->
         <div class="uk-container uk-container-large">
             <!-- START uk-grid -->
@@ -348,8 +348,8 @@
 
     @if ($productcategory->second_section_description != null || $productcategory->second_section_video != null || $productcategory->second_section_product != null)
 
-    <!-- START .uk-section -->
-    <section class="uk-section section_theme_gray">
+    <!-- START .uk-section-xsmall -->
+    <section class="uk-section-xsmall section_theme_gray">
         <!-- START .uk-container -->
         <div class="uk-container uk-container-large">
             <!-- START uk-grid -->
@@ -431,7 +431,7 @@
     </section><!-- END section -->
     @endif
 
-    <section class="uk-section ">
+    <section class="uk-section-xsmall ">
 
         <div class="uk-container uk-container-large">
 

@@ -3,7 +3,7 @@
 @section('content')
 
 <!-- START section -->
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     <div class="uk-child-width-1-2" uk-grid>
       <div class="">

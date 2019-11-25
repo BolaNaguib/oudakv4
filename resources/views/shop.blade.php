@@ -1,5 +1,5 @@
 @include('layout.header')
-<section class="uk-section">
+<section class="uk-section-xsmall">
   <div class="uk-container uk-container-large">
     <div class="uk-text-center uk-margin">
       <h3 class="uk-margin-remove">Perfume For Her</h3>
@@ -67,7 +67,7 @@
 
 @if ( $product->layout == '0' )
 
-<section class="uk-section section_theme_gray">
+<section class="uk-section-xsmall section_theme_gray">
   <!-- START .uk-container  -->
   <div class="uk-container uk-container-large">
     <!-- START uk-grid -->
@@ -125,8 +125,8 @@
 </section>
 @else
 
-<!-- START .uk-section -->
-<section class="uk-section">
+<!-- START .uk-section-xsmall -->
+<section class="uk-section-xsmall">
   <!-- START .uk-container -->
   <div class="uk-container uk-container-large">
     <!-- START uk-grid -->
@@ -213,7 +213,7 @@
 
 
 
-<section class="uk-section section_theme_gray">
+<section class="uk-section-xsmall section_theme_gray">
   <div class="uk-text-center uk-margin">
     <h3 class="uk-margin-remove">Perfumes</h3>
 
@@ -276,7 +276,7 @@
 </section><!-- END section -->
 
 
-<section class="uk-section ">
+<section class="uk-section-xsmall ">
   <div class="uk-text-center uk-margin">
     <h3 class="uk-margin-remove">Fregrances</h3>
 

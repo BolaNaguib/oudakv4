@@ -90,27 +90,7 @@
     <!-- END .uk-container -->
 </section>
 <!-- END section -->
-<section style="    background-color: #000;
-    color: #fff;
-    padding: 15px 0px;">
-    <div class="uk-container uk-container-large">
-        <!-- START uk-grid -->
-        <div class="uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
-            <!-- START .uk-text-left@m -->
-            <div class="uk-text-left@m uk-text-center uk-text-small">
-                Copyright © Oudak - All rights reserved 2019
-            </div>
-            <!-- END .uk-text-left@m -->
-            <!-- START .uk-text-right@m -->
-            {{-- <div class="uk-text-right@m uk-text-center uk-text-small">
-                Made with <i style="color:red" class="fas fa-heart"></i> By <a style="color:red !important;" target="_blank" href="https://xvxlabs.com"> xvxlabs.com</a>
-            </div> --}}
-            <!-- END .uk-text-right@m -->
-        </div>
-        <!-- END uk-grid -->
-    </div>
 
-</section>
 <section id="toggle-usage" class="bottom_cookie" style="background-color:#eee; padding:10px 0px;">
     <div class="uk-container uk-container-large">
         <div class="uk-grid uk-flex uk-flex-middle">

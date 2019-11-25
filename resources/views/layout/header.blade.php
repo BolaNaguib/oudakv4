@@ -268,7 +268,6 @@ color: #fff !important;
                     <a>
                   @endif
                     <span uk-icon="cart"></span>
-                     <span uk-icon="triangle-down"></span>
                      @if (Cart::instance('default')->count() > 0)
                      <span class="uk-badge notificationicon">
                        {{ Cart::instance('default')->count() }}
@@ -314,7 +313,7 @@ color: #fff !important;
                       </li>
 
                         @if(Auth::user())
-                        <li><a href="{{ route('account') }}">My Account <span uk-icon="triangle-down"></span> </a>
+                        <li><a href="{{ route('account') }}">My Account  </a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="#" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
@@ -323,7 +322,7 @@ color: #fff !important;
                           </div>
                         </li>
                         @else
-                        <li><a href="{{ route('login') }}">login <span uk-icon="triangle-down"></span> </a>
+                        <li><a href="{{ route('login') }}">login  </a>
                           {{-- <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="{{ route('login') }}">Login</a></li>

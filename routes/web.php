@@ -32,9 +32,14 @@ use Illuminate\Http\Request;
 
 
 // Voyager Admin Panel
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+Route::group(['prefix' => 'rashadencontrol'], function () {
 
+    Voyager::routes();
+    // 404 Route Handler
+    Route::any('{url_param}', function() {
+        abort(404, '404 Error. Page not found!');
+    })->where('url_param', '.*')->name('errorx');
+    
     Route::name('voyager.')->middleware('admin.user')->group(function () {
       Route::get('export/{table}', function ($table) {
 
@@ -176,7 +181,7 @@ Route::group([
 // 404 Route Handler
 Route::any('{url_param}', function() {
     abort(404, '404 Error. Page not found!');
-})->where('url_param', '.*');
+})->where('url_param', '.*')->name('errorx');
 });
 
 Route::get('{unlocalizedPath?}', function (Request $request, $unlocalizedPath = '') {

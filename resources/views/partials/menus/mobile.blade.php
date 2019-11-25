@@ -32,7 +32,6 @@
                   <a>
                 @endif
                     <span uk-icon="heart"></span>
-                     {{-- <span uk-icon="triangle-down"></span> --}}
                      @if (Cart::instance('saveForLater')->count() > 0)
                      <span class="uk-badge notificationicon">
                        {{ Cart::instance('saveForLater')->count() }}
@@ -79,7 +78,6 @@
               <li class="uk-position-relative">
                 <a href="{{ route('cart.index') }}">
                   <span uk-icon="cart"></span>
-                   <span uk-icon="triangle-down"></span>
                    @if (Cart::instance('default')->count() > 0)
                    <span class="uk-badge notificationicon">
                      {{ Cart::instance('default')->count() }}

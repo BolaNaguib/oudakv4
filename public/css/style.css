@@ -434,3 +434,10 @@ a:hover {
 .icon_type_heart_red:hover,.icon_type_heart:hover,.icon_type_social:hover{
   border: 0px;
 }
+
+span.uk-navbar-toggle-icon.uk-icon {
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px #00000052;
+    border-radius: 5px;
+}

@@ -112,13 +112,16 @@ header {
     -webkit-transition: .3s;
     transition: .3s; color: #ff6000;
         width: 100%;
+        border: 0px;
 }
 
 .icon_type_heart_red {
     color: #ff6000;
       border: 1px solid #ff6000;
           width: 100%;
+
 }
+
 
 .icon_type_heart_red:hover {
     color: #ff6000;
@@ -423,4 +426,11 @@ a:hover {
     background-color: #eee;
     color: #000;
     transition: 300ms;
+}
+
+.icon_type_heart_red,.icon_type_heart,.icon_type_social{
+  border: 0px;
+}
+.icon_type_heart_red:hover,.icon_type_heart:hover,.icon_type_social:hover{
+  border: 0px;
 }

@@ -59,41 +59,42 @@
             @if ($HomeFourBlock->Product1 != null)
             <div class="gridoption uk-width-1-3@m uk-width-1-2">
                 <!-- START .uk-card -->
-                <div class="uk-card  uk-text-center uk-padding uk-visible-toggle card_theme-gray" tabindex="-1">
+                <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
 
-                        <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
-                        {{-- <p>
-                        </p> --}}
-                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
-                        {!! $HomeFourBlock->Product1->initial_description !!}
-                        <div class="uk-invisible-hover uk-margin-top">
-                          <hr>
-                          <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product1->price }}</b>
+                        <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
+                        <div class="uk-padding uk-text-center">
+                          <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
+                          {!! $HomeFourBlock->Product1->initial_description !!}
+                          <div class="uk-invisible-hover uk-margin-top">
+                            <hr>
+                            <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product1->price }}</b>
+                          </div>
                         </div>
+
                     </a>
                 </div>
                 <!-- END .uk-card -->
             </div>
             <!-- END .uk-width-1-3@m -->
             @endif
-            @if ($HomeFourBlock->Product1 != null)
+            @if ($HomeFourBlock->Product2 != null)
             <!-- START .uk-width-1-3@m -->
             <div class="gridoption uk-width-1-3@m uk-width-1-2">
                 <!-- START .uk-card -->
-                <div class="uk-card  uk-text-center uk-padding uk-visible-toggle card_theme-gray" tabindex="-1">
+                <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
 
-                        <img style="max-height: 400px;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
-                        {{-- <p>
-                            {{$HomeFourBlock->Product2->initial_description}}
-                        </p> --}}
-                        <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
-                        {!! $HomeFourBlock->Product2->initial_description !!}
-                        <div class="uk-invisible-hover uk-margin-top">
-                          <hr>
-                          <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product2->price }}</b>
+                        <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
+                        <div class="uk-padding uk-text-center">
+                          <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
+                          {!! $HomeFourBlock->Product2->initial_description !!}
+                          <div class="uk-invisible-hover uk-margin-top">
+                            <hr>
+                            <b class="uk-button uk-button-secondary">${{ $HomeFourBlock->Product2->price }}</b>
+                          </div>
                         </div>
+
                     </a>
                 </div>
                 <!-- END .uk-card -->

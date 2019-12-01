@@ -20,6 +20,8 @@
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
       <!-- START .uk-text-center -->
+      <br>
+      <br>
       <div class="uk-text-center uk-margin">
           <h3 class="uk-margin-remove">OlFactory</h3>
       </div><!-- END .uk-text-center -->

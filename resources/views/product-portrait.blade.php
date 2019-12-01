@@ -19,10 +19,14 @@
 @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
+      <!-- START .uk-text-center -->
+      <div class="uk-text-center uk-margin">
+          <h3 class="uk-margin-remove">OlFactory</h3>
+      </div><!-- END .uk-text-center -->
         <div class="uk-margin-medium-top">
             <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
                 @if ($product->olfactory)
-                <li class="uk-active uk-margin-top"><a href="#">Old Factory</a></li>
+                <li class="uk-active uk-margin-top"><a href="#">OlFactory</a></li>
                 @endif
                 @if ($product->top_notes)
                 <li class="uk-margin-top"><a href="#">Top Notes</a></li>

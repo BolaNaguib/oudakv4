@@ -29,7 +29,7 @@
             <!-- START div -->
             <div class="uk-text-center">
                 <h4>Extra</h4>
-                <hr>
+                <hr class="uk-visible@m">
                 <ul class="uk-list uk-text-center">
                     <li>
                         <a href="{{ route('index') }}/legal-terms">Return and Exchange</a>
@@ -50,8 +50,9 @@
             <!-- START div -->
             <div class="">
                 <div class="uk-text-center">
+                  <hr class="uk-hidden@m">
                     <h4>Join Our NewsLetter</h4>
-                    <hr>
+                    <hr class="uk-visible@m">
                     <form action="{{ route('newsletter.subscribe') }}" method="POST" id="newsletterSubscribeForm">
                         @csrf
                         <div class="uk-inline">
@@ -66,9 +67,9 @@
             <!-- START div -->
             <div class="">
                 <div class="uk-text-center">
+                  <hr class="uk-hidden@m">
                     <h4>Follow Us</h4>
-                    <hr>
-                    <ul class="uk-iconnav sociallinks uk-flex uk-flex-center">
+                    <hr class="uk-visible@m">                    <ul class="uk-iconnav sociallinks uk-flex uk-flex-center">
                         <li><a class="facebook" href="{{ setting('social.facebook') }}"><i class="fab fa-facebook"></i></a></li>
                         <li><a class="instagram" href="{{ setting('social.instagram') }}"><i class="fab fa-instagram"></i></a></li>
                         <li><a class="youtube" href="{{ setting('social.youtube') }}"><i class="fab fa-youtube"></i></a></li>

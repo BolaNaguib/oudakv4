@@ -46,10 +46,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if (App::environment('local')) {
-            return parent::render($request, $exception);
-        } else {
-            return redirect('errorx')->with('success_message', 'Item Deleted From WishList');
-        }
+        return parent::render($request, $exception);
     }
 }

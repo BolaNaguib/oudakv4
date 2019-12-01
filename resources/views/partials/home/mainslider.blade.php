@@ -7,7 +7,7 @@
     <div class="uk-container uk-container-large">
 
         <!-- START .uk-position-relative -->
-        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push;ratio: 7:3;">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push;ratio: 7:3;autoplay:true;autoplay-interval: 1000">
 
             <!-- START .uk-slideshow-items -->
             <ul class="uk-slideshow-items">

@@ -5,14 +5,14 @@
 }
 </style>
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main uk-hidden@s " style="padding:15px 0px;">
+    <div class="navbar_type_main uk-hidden@s " style="padding:30px 0px;">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->
         <nav uk-navbar>
           <div class="uk-navbar-left">
             <a class=" uk-navbar-toggle uk-padding-remove-horizontal uk-background-transparent" href="#x3" uk-toggle>
-            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
         </a>
           </div>
           <div class="uk-navbar-center">

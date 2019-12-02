@@ -1,6 +1,11 @@
-
+<style media="screen">
+.mobileicon a {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+</style>
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main uk-hidden@s">
+    <div class="navbar_type_main uk-hidden@s " style="padding:15px 0px;">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->
@@ -24,7 +29,7 @@
           <!-- START .uk-navbar-right -->
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->
-            <ul class="uk-navbar-nav">
+            <ul class="uk-navbar-nav mobileicon">
               <li class="uk-position-relative">
                 @if (Cart::instance('saveForLater')->count() > 0)
                   <a href="{{ route('cart.index') }}">
@@ -128,5 +133,5 @@
           </div><!-- END .uk-navbar-right -->
         </nav><!-- END uk-navbar -->
       </div><!-- END .uk-container -->
-      <hr class="uk-margin-remove">
     </div><!-- END navbar_type_main -->
+    <hr class="uk-margin-remove">

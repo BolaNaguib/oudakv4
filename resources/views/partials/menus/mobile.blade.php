@@ -2,6 +2,7 @@
 .mobileicon a {
   padding-right: 10px !important;
   padding-left: 10px !important;
+  font-size: 21px;
 }
 </style>
     <!-- START .navbar_type_main -->
@@ -114,10 +115,11 @@
                             <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Bag</a>
 
                           </div>
-                        </div></li>
+                        </div>
+              </li>
 
                         @if(Auth::user())
-                        <li><a href="{{ route('account') }}"><i class="fas fa-user"></i> </a>
+                        <li><a href="{{ route('account') }}"><i class="far fa-user"></i></a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="{{ route('login') }}" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>

@@ -128,7 +128,7 @@
                           </div>
                         </li>
                         @else
-                        <li><a href="{{ route('login') }}"><i class="fas fa-user"></i></span> </a>
+                        <li><a href="{{ route('login') }}"><i class="far fa-user"></i></span> </a>
                         </li>
                         @endif
             </ul><!-- END .uk-navbar-nav -->

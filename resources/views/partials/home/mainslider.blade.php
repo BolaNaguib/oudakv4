@@ -7,7 +7,7 @@
     <div class="uk-container uk-container-large">
 
         <!-- START .uk-position-relative -->
-        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push;ratio: 7:3;autoplay:true;autoplay-interval: 1000">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push;ratio: 7:3;autoplay:true;autoplay-interval: 4000">
 
             <!-- START .uk-slideshow-items -->
             <ul class="uk-slideshow-items">
@@ -36,7 +36,7 @@
 
                     @if ($image->button_title || $image->button_link)
                       <!-- START .uk-overlay -->
-                      <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-left@m uk-text-center uk-transition-slide-bottom">
+                      <div class="uk-overlay  uk-position-bottom uk-text-left@m uk-text-center uk-transition-slide-bottom">
                         <a href="{{ $image->button_link }}" class="orderbutton">
                            <i class="fas fa-shopping-cart"></i> {{ $image->button_title }}
                         </a>

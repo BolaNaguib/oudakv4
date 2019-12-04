@@ -1,19 +1,27 @@
+<div class="uk-text-center uk-hidden@m">
+  <div class="showicons">
+    <button class="gridoptioniconv" type="button" name="gridoptioniconv">
+      <i class="fas fa-square"></i>
+    </button>
+    <button class="gridoptionicon" type="button" name="gridoptionicon">
+        <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+    </button>
+
+
+  </div>
+</div>
+<style media="screen">
+  .gridoptioniconv, .gridoptionicon{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+</style>
 <!-- START section -->
 <section class="uk-section-xsmall">
     <!-- START uk-container -->
     <div class="uk-container uk-container-large">
-        <div class="uk-text-center uk-hidden@m">
-          <div class="showicons">
-            <button class="gridoptioniconv" type="button" name="gridoptioniconv">
-              <i class="fas fa-square"></i>
-            </button>
-            <button class="gridoptionicon" type="button" name="gridoptionicon">
-                <i class="fas fa-square"></i> <i class="fas fa-square"></i>
-            </button>
 
-
-          </div>
-        </div>
         <!-- START uk-grid -->
         <div class="uk-grid-match uk-grid" uk-grid>
             <!-- START .uk-width-1-3@m -->
@@ -63,7 +71,7 @@
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
 
                         <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
-                        <div class="uk-padding uk-text-center">
+                        <div class="uk-padding-small uk-text-center">
                           <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
                           {!! $HomeFourBlock->Product1->initial_description !!}
                           <div class="uk-invisible-hover uk-margin-top">
@@ -86,7 +94,7 @@
                     <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
 
                         <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
-                        <div class="uk-padding uk-text-center">
+                        <div class="uk-padding-small uk-text-center">
                           <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
                           {!! $HomeFourBlock->Product2->initial_description !!}
                           <div class="uk-invisible-hover uk-margin-top">

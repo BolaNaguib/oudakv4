@@ -6,7 +6,7 @@
 }
 </style>
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main uk-hidden@s " style="padding:30px 0px;">
+    <div class="navbar_type_main uk-hidden@s " style="">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->
@@ -15,18 +15,16 @@
             <a class=" uk-navbar-toggle uk-padding-remove-horizontal uk-background-transparent" href="#x3" uk-toggle>
             <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left"></span>
         </a>
+        <div class="uk-text-left uk-display-block ">
+          <a class="uk-display-inline-block" href="{{ route('index') }}">
+            <h1 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h1>
+            {{-- <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span> --}}
+          </a>
+
+
+        </div>
           </div>
-          <div class="uk-navbar-center">
-            <div class="uk-text-center uk-display-block ">
-              <a href="{{ route('index') }}">
-                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
-                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
-              </a>
 
-
-            </div>
-
-          </div>
           <!-- START .uk-navbar-right -->
           <div class="uk-navbar-right">
             <!-- START .uk-navbar-nav -->

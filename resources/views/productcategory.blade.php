@@ -435,28 +435,72 @@
 
         <div class="uk-container uk-container-large">
 
-          <div class="uk-text-right">
-            <div class="showicons">
 
-                    <button class="gridoptionicon" type="button" name="gridoptionicon">
-                      <i class="fas fa-square"></i>
-                    </button>
-                    <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
-                      <i class="fas fa-square"></i>
-                      <i class="fas fa-square"></i>
-                    </button>
+            <div class="" uk-grid>
+              <div class="uk-text-right uk-width-1-1">
+                <div class="showicons">
 
-            </div>
-    </div>
-          <hr>
-            <div class="uk-child-width-1-4@m uk-child-width-1-2" uk-grid>
+                        <button class="gridoptionicon" type="button" name="gridoptionicon">
+                          <i class="fas fa-square"></i>
+                        </button>
+                        <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
+                          <i class="fas fa-square"></i>
+                          <i class="fas fa-square"></i>
+                        </button>
+
+                </div>
+                <hr>
+        </div>
 
                 @foreach ($products as $product)
                 @if ($product->category == $productcategory->id )
+
+                {{-- To Eliminate Duplicated entry --}}
+                  @if ($productcategory->Productone == null)
+                      @php
+                        $productone_id = 0;
+                      @endphp
+                    @else
+                      @php
+                        $productone_id = $productcategory->Productone->id;
+                      @endphp
+                  @endif
+                  @if ($productcategory->Productonex == null)
+                      @php
+                        $productonex_id = 0;
+                      @endphp
+                    @else
+                      @php
+                        $productonex_id = $productcategory->Productonex->id;
+                      @endphp
+                  @endif
+                  @if ($productcategory->Producttwo == null)
+                      @php
+                        $producttwo_id = 0;
+                      @endphp
+                    @else
+                      @php
+                        $producttwo_id = $productcategory->Producttwo->id;
+                      @endphp
+                  @endif
+                  @if ($productcategory->Producttwox == null)
+                      @php
+                        $producttwox_id = 0;
+                      @endphp
+                    @else
+                      @php
+                        $producttwox_id = $productcategory->Producttwox->id;
+                      @endphp
+                  @endif
+                  @if ($product->id != $productone_id &&
+                       $product->id != $productonex_id &&
+                        $product->id != $producttwo_id &&
+                        $product->id != $producttwox_id
+                        )
                   {{-- @if ($productcategory->Productone->id != $product->id ) --}}
 
                     <!-- START div -->
-                    <div class="gridoption uk-margin-bottom">
+                    <div class="gridoption uk-margin-bottom uk-width-1-4@m uk-width-1-2">
                         <!-- START .card -->
                         <div class="card card_theme_white uk-text-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
                           @if (Auth::user() != null)
@@ -491,6 +535,9 @@
                         </div><!-- END .card -->
                     </div><!-- END div -->
                   {{-- @endif --}}
+
+                @endif
+
 
 
                 @endif

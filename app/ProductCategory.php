@@ -15,9 +15,20 @@ class ProductCategory extends Model
     return $this->belongsTo(Product::class,'first_section_product1','id');
 
     }
+    public function Productonex(){
+
+    return $this->belongsTo(Product::class,'first_section_product','id');
+
+    }
+
     public function Producttwo(){
 
     return $this->belongsTo(Product::class,'second_section_product1','id');
+
+    }
+    public function Producttwox(){
+
+    return $this->belongsTo(Product::class,'second_section_product','id');
 
     }
 }

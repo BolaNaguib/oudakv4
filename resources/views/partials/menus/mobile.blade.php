@@ -18,7 +18,7 @@
         <div class="uk-text-left uk-display-block ">
           <a class="uk-display-inline-block" href="{{ route('index') }}">
             <h1 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h1>
-            {{-- <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span> --}}
+            <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
           </a>
 
 

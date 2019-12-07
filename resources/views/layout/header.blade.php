@@ -114,7 +114,9 @@ color: #fff !important;
   <header class="" uk-sticky style="background-color: #fcfcfc;">
 
 @if ( setting('top-navbar.active') )
-  <div id="toggle-animation" class="top-promo top_promo uk-position-relative">
+  <div id="toggle-animation"
+  class="top-promo top_promo uk-position-relative uk-background-center-center uk-background-cover "
+  style="background-image: url('{{ asset('storage/'.setting('top-navbar.top_navbar_bg')) }}');">
     <div class="uk-container uk-container-large">
       {!! setting('top-navbar.top_navbar_offer') !!}
     </div>

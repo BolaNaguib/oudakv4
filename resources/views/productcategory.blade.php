@@ -13,21 +13,22 @@
     @endforeach
     @endif
 @if ($productcategory->parent == null)
-  <div class="uk-container uk-container-large">
-    <br>
-    <div class="uk-text-right">
-      <div class="showicons">
-        <button class="productlistx" type="button" name="gridoptionicon">
-          <i class="fas fa-square"></i>
-        </button>
-        <button  class="productlistxv" type="button" name="gridoptioniconv">
-          <i class="fas fa-square"></i> <i class="fas fa-square"></i>
-        </button>
-      </div>
+    <div class="uk-container uk-container-large">
+      <br>
+      <div class="uk-text-right">
+        <div class="showicons">
+          <button class="productlistx" type="button" name="gridoptionicon">
+            <i class="fas fa-square"></i>
+          </button>
+          <button  class="productlistxv" type="button" name="gridoptioniconv">
+            <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+          </button>
+        </div>
 
+      </div>
+      <hr>
     </div>
-    <hr>
-  </div>
+
 
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
@@ -451,22 +452,13 @@
 
 
             <div class="" uk-grid>
-              <div class="uk-text-right uk-width-1-1">
-                <div class="showicons">
 
-                        <button class="gridoptionicon" type="button" name="gridoptionicon">
-                          <i class="fas fa-square"></i>
-                        </button>
-                        <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
-                          <i class="fas fa-square"></i>
-                          <i class="fas fa-square"></i>
-                        </button>
-
-                </div>
-                <hr>
-        </div>
+                @php
+                  $isExist = 1
+                @endphp
 
                 @foreach ($products as $product)
+
                 @if ($product->category == $productcategory->id )
 
                 {{-- To Eliminate Duplicated entry --}}
@@ -511,7 +503,36 @@
                         $product->id != $producttwo_id &&
                         $product->id != $producttwox_id
                         )
-                  {{-- @if ($productcategory->Productone->id != $product->id ) --}}
+
+                        @if ($isExist == 1)
+                          <div class="uk-text-right uk-width-1-1">
+                            <div class="uk-hidden">
+                              {{ $isExist++ }}
+                            </div>
+                            <div class="showicons">
+
+                                    <button class="gridoptionicon" type="button" name="gridoptionicon">
+                                      <i class="fas fa-square"></i>
+                                    </button>
+                                    <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
+                                      <i class="fas fa-square"></i>
+                                      <i class="fas fa-square"></i>
+                                    </button>
+
+                            </div>
+                            <hr>
+                    </div>
+                    {{-- @php
+                      $isExist++
+                    @endphp --}}
+
+                  @elseif ($isExist != 1)
+                    {{-- no --}}
+                    @endif
+
+
+
+
 
                     <!-- START div -->
                     <div class="gridoption uk-margin-bottom uk-width-1-4@m uk-width-1-2">

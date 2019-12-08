@@ -89,7 +89,8 @@ header {
 }
 
 .card {
-    padding: 24px 32px
+      padding: 5px 5px;
+    /* padding: 24px 32px */
 }
 
 .card_type_shopingbag {

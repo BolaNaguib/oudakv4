@@ -39,7 +39,7 @@ Route::group(['prefix' => 'rashadencontrol'], function () {
     Route::any('{url_param}', function() {
         abort(404, '404 Error. Page not found!');
     })->where('url_param', '.*')->name('errorx');
-    
+
     Route::name('voyager.')->middleware('admin.user')->group(function () {
       Route::get('export/{table}', function ($table) {
 
@@ -135,6 +135,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
   Route::get('/tracker/{tracker}', 'TrackerController@show')->name('tracker.show');
   Route::resource('/wishlist', 'WishlistController', ['except' => ['create', 'edit', 'show', 'update']]);
+  Route::post('/wishlist/{user_id}/{product_id}', 'WishlistController@destroy');
 
 
 

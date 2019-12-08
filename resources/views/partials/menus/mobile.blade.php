@@ -35,7 +35,7 @@
                 @else
                   <a>
                 @endif
-                    <span uk-icon="icon:heart; ratio: 1.3"></span>
+                    <span uk-icon="icon:heart; ratio: 2"></span>
                      @if (Cart::instance('saveForLater')->count() > 0)
                      <span class="uk-badge notificationicon">
                        {{ Cart::instance('saveForLater')->count() }}
@@ -81,7 +81,7 @@
                       </li>
               <li class="uk-position-relative">
                 <a href="{{ route('cart.index') }}">
-                  <span uk-icon="icon: cart; ratio: 1.3"></span>
+                  <span uk-icon="icon: cart; ratio: 2"></span>
                    @if (Cart::instance('default')->count() > 0)
                    <span class="uk-badge notificationicon">
                      {{ Cart::instance('default')->count() }}
@@ -117,7 +117,7 @@
               </li>
 
                         @if(Auth::user())
-                        <li><a href="{{ route('account') }}"><i style="font-size: 24px;" class="far fa-user"></i></a>
+                        <li><a href="{{ route('account') }}"><i style="font-size: 35px;" class="far fa-user"></i></a>
                           <div class="uk-navbar-dropdown">
                               <ul class="uk-nav uk-navbar-dropdown-nav">
                                   <li><a href="{{ route('login') }}" onclick="document.querySelector('#logoutForm').submit(); return false;">Logout</a></li>
@@ -126,7 +126,7 @@
                           </div>
                         </li>
                         @else
-                        <li><a href="{{ route('login') }}"><i style="font-size: 24px;" class="far fa-user"></i></span> </a>
+                        <li><a href="{{ route('login') }}"><i style="font-size: 35px;" class="far fa-user"></i></span> </a>
                         </li>
                         @endif
             </ul><!-- END .uk-navbar-nav -->

@@ -56,7 +56,7 @@ class WishlistController extends Controller
 
       $wishlist->save();
 
-      return redirect()->back()->with('flash_message',
+      return redirect()->back()->with('success_message',
           'Item, '. $wishlist->product->title.' Added to your wishlist.');
     }
 
@@ -100,11 +100,22 @@ class WishlistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($product_id)
     {
         //
-        $id = $request->product_id;
+
+        $id = $product_id;
         $wishlist = Wishlist::findOrFail($id);
+        // dd($wishlist);
+        $wishlist->delete();
+
+        // $productid = $request->product_id;
+        // $authid    = $request->user_id;
+        // $wishlist = Wishlist::where([
+        //   'user_id' => $authid,
+        //   'product_id' => $productid
+        // ]);
+        // dd($wishlist);
         $wishlist->delete();
 
     return redirect()->back()->with('success_message','Item Deleted From WishList');

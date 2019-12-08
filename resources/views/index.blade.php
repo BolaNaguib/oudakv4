@@ -66,6 +66,14 @@
         padding: 15px 35px;
         border-radius: 25px;
     }
+    @media only screen and (max-width: 600px) {
+  .orderbutton {
+    background-color: #fff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 18px;
+  }
+}
 </style>
 @endsection
 

@@ -133,7 +133,7 @@
                   </div>
                 @else
                   <div class="uk-position-small uk-position-top-right">
-                    <form action="{{route('wishlist.destroy',([Auth::user()->id,$block->Producttwo->id]) )}}" id="contact_form" method="post">
+                    <form action="{{route('wishlist.destroy', $block->Producttwo->id )}}" id="contact_form" method="post">
                       {{ csrf_field() }}
                       {{ method_field('DELETE') }}
                         <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />

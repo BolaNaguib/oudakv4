@@ -135,8 +135,8 @@ $product_slider = explode(",", $slider)
 
 
     <!-- START uk-width-1-2 -->
-    <div class="uk-width-1-2@m uk-width-1-1 uk-position-relative">
-        <div class="detail">
+    <div class="uk-width-1-2@m uk-width-1-1">
+        <div class="detail uk-position-relative">
             <!-- START .uk-text-center -->
             <div class="uk-text-center">
 

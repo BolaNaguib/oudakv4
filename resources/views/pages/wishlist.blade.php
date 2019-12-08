@@ -39,13 +39,13 @@
                         </div>
                       @else
                         <div class="uk-position-small uk-position-top-right">
-                          <form action="{{route('wishlist.destroy',([Auth::user()->id,$wishlist->product->id]) )}}" id="contact_form" method="post">
+                          <form action="{{route('wishlist.destroy',$wishlist->product->wishlist[0]->id )}}" id="contact_form" method="post">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
-                              <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
-                              <input class="uk-hidden" name="product_id" type="text" value="{{$wishlist->product->id}}" />
+                              {{-- <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" /> --}}
+                              {{-- <input class="uk-hidden" name="product_id" type="text" value="{{$item->model->id}}" /> --}}
                               <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
-                            </form>                            <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                            </form>                           <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
                         </div>
                       @endif
                     @else

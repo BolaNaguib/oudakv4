@@ -141,6 +141,7 @@
             <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
               @if ($productcategory->media_title)
                 <h1 style="
+                color: #000;
     display: initial;
     padding: 5px;" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.2;">{{ $productcategory->media_title }}</h1>
               @endif

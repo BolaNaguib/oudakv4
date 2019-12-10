@@ -139,7 +139,7 @@
 <!-- START .uk-section-xsmall -->
 <section class="uk-section-xsmall" style="padding-top:20px;">
 <div class="uk-container uk-container-large">
-  <hr>
+  {{-- <hr> --}}
   <div class="uk-text-center">
     <h3> {{ $productcategory->title }} </h3>
 

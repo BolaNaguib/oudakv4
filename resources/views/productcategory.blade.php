@@ -13,6 +13,14 @@
     @endforeach
     @endif
 @if ($productcategory->parent == null)
+
+  @php
+    $isExistparent = 1
+  @endphp
+
+@foreach ($allcat as $cat )
+@if ($cat->parent == $productcategory->id)
+  @if ($isExistparent = 1)
     <div class="uk-container uk-container-large">
       <br>
       <div class="uk-text-right">
@@ -28,10 +36,11 @@
         </div>
       </div>
     </div>
+    {{-- @php
+      $isExistparent++
+    @endphp --}}
+  @endif
 
-
-@foreach ($allcat as $cat )
-@if ($cat->parent == $productcategory->id)
 
     <!-- START .categorylist -->
     <div class="categorylist uk-container uk-container-large uk-margin-large">

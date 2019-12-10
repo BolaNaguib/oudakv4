@@ -132,6 +132,10 @@
 @endif
 @endforeach
 @endif
+
+
+@if ($productcategory->description || $productcategory->path )
+
 <!-- START .uk-section-xsmall -->
 <section class="uk-section-xsmall" style="padding-top:20px;">
 <div class="uk-container uk-container-large">
@@ -177,6 +181,7 @@
     @endif
 
   </section>
+@endif
 
 
     <!-- START .uk-section-xsmall -->

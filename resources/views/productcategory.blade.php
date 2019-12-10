@@ -530,12 +530,14 @@
                             </div>
                             <div class="showicons">
 
-                                    <button class="gridoptionicon" type="button" name="gridoptionicon">
-                                      <i class="fas fa-square"></i>
-                                    </button>
+
                                     <button  class="gridoptioniconv" type="button" name="gridoptioniconv">
                                       <i class="fas fa-square"></i>
+                                    </button>
+                                    <button class="gridoptionicon" type="button" name="gridoptionicon">
                                       <i class="fas fa-square"></i>
+                                      <i class="fas fa-square"></i>
+
                                     </button>
 
                             </div>

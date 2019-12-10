@@ -28,7 +28,8 @@
         <div class="uk-child-width-1-3@m uk-child-width-1-1" uk-grid>
             <!-- START div -->
             <div class="uk-text-center">
-                <h4>Extra</h4>
+              <hr class="uk-hidden">
+                <h4 class="">Extra</h4>
                 <hr class="uk-visible@m">
                 <ul class="uk-list uk-text-center">
                     <li>

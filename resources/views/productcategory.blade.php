@@ -117,7 +117,12 @@
               </form>
               </div>
       </div>
-
+    @else
+      @if ($loop->first)
+        <div class="uk-width-1-1 uk-text-center">
+          Sorry, Looks Like we Didnt Add Products Yet
+        </div>
+      @endif
     @endif
     @endforeach
   </div>

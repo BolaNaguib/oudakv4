@@ -16,12 +16,12 @@
     <div class="uk-container uk-container-large">
       <br>
       <div class="uk-text-right">
-        <div class="showicons">
+        <div class="showicons productcontainer">
           <button class="productlistx" type="button" name="gridoptionicon">
             Show Products
           </button>
         </div>
-        <div class="showicons">
+        <div class="showicons categorycontainer">
           <button  class="productlistxv" type="button" name="gridoptioniconv">
             Show categories
           </button>
@@ -659,12 +659,17 @@ cursor: pointer;
 
 
 
-    let $productlistx = $('.productlistx');
-    let $productlistxv = $('.productlistxv');
-    let $productlist = $('.productlist');
-    let $categorylist = $('.categorylist');
+    let $productlistx        = $('.productlistx');
+    let $productlistxv       = $('.productlistxv');
+    let $productlist         = $('.productlist');
+    let $categorylist        = $('.categorylist');
+    let $productcontainer  = $('.productcontainer');
+    let $categorycontainer = $('.categorycontainer');
+    $categorycontainer.hide();
       $productlistxv.on('click',function(){
         $productlist.hide();
+        $categorycontainer.hide();
+        $productcontainer.show();
         $categorylist.show();
 
       });
@@ -672,6 +677,10 @@ cursor: pointer;
 
         $productlist.show();
         $categorylist.hide();
+        $productcontainer.hide();
+        $categorycontainer.show();
+
+
       });
   </script>
 @endsection

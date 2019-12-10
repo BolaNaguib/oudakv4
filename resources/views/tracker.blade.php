@@ -26,10 +26,10 @@
 {{-- START the tracking status --}}
 @if ($tracker->tracking_details)
   @foreach ($tracker->tracking_details as $item)
+
     <div class="">
-      <h3 class="uk-heading-bullet">{{ $item->message }}</h3>
+      <h3 class="uk-heading-bullet">{{ $item->message }} <br>  <small>{{ date('M-d-Y', strtotime($item->datetime)) }}</small> </h3>
       <span>{{ $item->status }}</span>
-      {{-- <small class="uk-heading-line uk-text-right">{{ $item->datetime}}</small> --}}
       <br>
       <small >  @if ($item->tracking_location)
         @if ($item->tracking_location->city)

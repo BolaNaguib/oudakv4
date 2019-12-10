@@ -60,8 +60,7 @@ class CheckoutController extends Controller
         //
         try {
           $charge = Stripe::charges()->create([
-            // 'amount' => $this->getNumbers()->get('newTotal'),
-            'amount' => $request->inputNewTotal,
+            'amount' => $this->getNumbers()->get('newTotal'),
             'currency' => 'USD',
             'source' => $request->stripeToken,
             // 'decription' => 'Order',
@@ -95,6 +94,7 @@ class CheckoutController extends Controller
 
 
 
+
           foreach (Cart::content() as $item) {
             \DB::transaction(function () use ($order, $item) {
 
@@ -113,109 +113,151 @@ class CheckoutController extends Controller
           // Create EASYPOST Order START
           \EasyPost\EasyPost::setApiKey(env('EASYPOST_API_KEY'));
 
-          $to_address = \EasyPost\Address::create(
-              array(
-                  "name"    => "Dirk Diggler",
-                  "street1" => "$request->address",
-                  // "street2" => "Apt 20",
-                  "city"    => $request->city,
-                  "state"   => $request->state,
-                  "zip"     => $request->zipcode,
-                  "phone"   => $request->phone
-              )
-          );
-          // dd($to_address);
-
-          $from_address = \EasyPost\Address::create(
-              array(
-                  "company" => "Simpler Postage Inc",
-                  "street1" => "764 Warehouse Ave",
-                  "city"    => "Kansas City",
-                  "state"   => "KS",
-                  "zip"     => "66101",
-                  "phone"   => "620-123-4567"
-              )
-          );
-
-          // dd($from_address);
-          // $parcel = \EasyPost\Parcel::create(
+          // $to_address = \EasyPost\Address::create(
           //     array(
-          //         "predefined_package" => "LargeFlatRateBox",
-          //         "weight" => 76.9
+                  // "name"    => "Dirk Diggler",
+                  // "street1" => "$request->address",
+                  // "city"    => $request->city,
+                  // "state"   => $request->state,
+                  // "zip"     => $request->zipcode,
+                  // "phone"   => $request->phone
           //     )
           // );
-          $shipment = \EasyPost\Shipment::create(
-              array(
-                  "to_address"   => $to_address,
-                  "from_address" => $from_address,
-                  // "parcel"       => $parcel
-              )
-          );
-          // dd($shipment->lowest_rate()->retail_rate);
-
-          // $rate = \EasyPost\Rate::retrieve($shipment->lowest_rate());
-          // dd($rate);
-          // print_r($rate);
-          // dd($shipment);
-
-          // $shipment->buy($shipment->lowest_rate());
-
-          // $shipment->insure(array('amount' => 100));
-
-          // echo $shipment->postage_label->label_url;
-          // var_dump($shipment->postage_label->label_url);
-          // $to_address = array(
-          //   "street1" => $request->address,
-          //   "city"    => $request->city,
-          //   "state"   => $request->state,
-          //   "zip"     => $request->zipcode,
-          //   "country" => "US",
-          //   "phone"   => $request->phone,
-          //   // "verify"  => array("delivery"),
-          // );
-          // // 777 Brockton Avenue, Abington MA 2351
-          // $from_address = array(
-          //   "street1" => '777 Brockton Avenue',
-          //   "city"    => 'Abington',
-          //   "state"   => 'MA',
-          //   "zip"     => '2351',
-          //   "country" => "US",
-          //   "phone"   => '+14533342243'
+          // // dd($to_address);
+          //
+          // $from_address = \EasyPost\Address::create(
+          //     array(
+                  // "company" => "Simpler Postage Inc",
+                  // "street1" => "764 Warehouse Ave",
+                  // "city"    => "Kansas City",
+                  // "state"   => "KS",
+                  // "zip"     => "66101",
+                  // "phone"   => "620-123-4567"
+          //     )
           // );
           //
-          // $easyPostOrder = \EasyPost\Order::create(array(
-          //     "to_address" => $to_address,
-          //     "from_address" => $from_address,
-          //     "shipments" => array(
-          //       array(
-          //           "parcel" => array(
-          //               "predefined_package" => "FedExBox",
-          //               "weight" => 10.2
-          //           )
-          //       ),
-          //       array(
-          //           "parcel" => array(
-          //               "predefined_package" => "FedExBox",
-          //               "weight" => 17.5
-          //           )
-          //       ),
+          // // dd($from_address);
+          // // $parcel = \EasyPost\Parcel::create(
+          // //     array(
+          // //         "predefined_package" => "LargeFlatRateBox",
+          // //         "weight" => 76.9
+          // //     )
+          // // );
+          // $shipment = \EasyPost\Shipment::create(
+          //     array(
+          //         "to_address"   => $to_address,
+          //         "from_address" => $from_address,
+          //         // "parcel"       => $parcel
           //     )
-          // ));
-          // // dd($easyPostOrder);
-          // $order->easypost_order_id = $easyPostOrder->id;
+          // );
+          // dd($shipment->lowest_rate());
+          //
+          // // $rate = \EasyPost\Rate::retrieve($shipment->lowest_rate());
+          // // dd($rate);
+          // // print_r($rate);
+          // // dd($shipment);
+          //
+          // // $shipment->buy($shipment->lowest_rate());
+          //
+          // // $shipment->insure(array('amount' => 100));
+          //
+          // // echo $shipment->postage_label->label_url;
+          // // var_dump($shipment->postage_label->label_url);
+          // // $to_address = array(
+          // //   "street1" => $request->address,
+          // //   "city"    => $request->city,
+          // //   "state"   => $request->state,
+          // //   "zip"     => $request->zipcode,
+          // //   "country" => "US",
+          // //   "phone"   => $request->phone,
+          // //   // "verify"  => array("delivery"),
+          // // );
+          // // // 777 Brockton Avenue, Abington MA 2351
+          // // $from_address = array(
+          // //   "street1" => '777 Brockton Avenue',
+          // //   "city"    => 'Abington',
+          // //   "state"   => 'MA',
+          // //   "zip"     => '2351',
+          // //   "country" => "US",
+          // //   "phone"   => '+14533342243'
+          // // );
+          // //
+          // // $easyPostOrder = \EasyPost\Order::create(array(
+          // //     "to_address" => $to_address,
+          // //     "from_address" => $from_address,
+          // //     "shipments" => array(
+          // //       array(
+          // //           "parcel" => array(
+          // //               "predefined_package" => "FedExBox",
+          // //               "weight" => 10.2
+          // //           )
+          // //       ),
+          // //       array(
+          // //           "parcel" => array(
+          // //               "predefined_package" => "FedExBox",
+          // //               "weight" => 17.5
+          // //           )
+          // //       ),
+          // //     )
+          // // ));
+          // // // dd($easyPostOrder);
+          // // $order->easypost_order_id = $easyPostOrder->id;
+          //
+          // // Create EASYPOST Order End
+          //
+          //   // i guess it should be somewhere here this is the checkout controller
+          // // insert into order_product table
+          // //successful
 
-          // Create EASYPOST Order End
 
-            // i guess it should be somewhere here this is the checkout controller
-          // insert into order_product table
-          //successful
+          $to_address = \EasyPost\Address::create(
+    array(
+      "name"    => $request->name_on_card,
+      "street1" => $request->address,
+      "city"    => $request->city,
+      "state"   => $request->state,
+      "zip"     => $request->zipcode,
+      "phone"   => $request->phone
+    )
+);
+$from_address = \EasyPost\Address::create(
+    array(
+      "company" => "Simpler Postage Inc",
+      "street1" => "764 Warehouse Ave",
+      "city"    => "Kansas City",
+      "state"   => "KS",
+      "zip"     => "66101",
+      "phone"   => "620-123-4567"
+    )
+);
+$parcel = \EasyPost\Parcel::create(
+    array(
+        "predefined_package" => "SmallFlatRateBox",
+        "weight" => 70
+    )
+);
+$shipment = \EasyPost\Shipment::create(
+    array(
+        "to_address"   => $to_address,
+        "from_address" => $from_address,
+        "parcel"       => $parcel
+    )
+);
+  // dd($shipment);
+$shipment->buy($shipment->lowest_rate());
+
+$shipment->insure(array('amount' => $this->getNumbers()->get('newTotal')));
+
+echo $shipment->postage_label->label_url;
+
+
           Cart::instance('default')->destroy();
           session()->forget('coupon');
 
 
           return back()->with('success_message', 'thank you order accepted ');
         } catch (\Exception $e) {
-          dd($e);
+          // dd($e);
             return back()->withErrors('Error!'. $e->getMessage());
         }
 

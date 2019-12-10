@@ -45,6 +45,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         //
         $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
           return $cartItem->id === $request->id;
@@ -53,16 +54,17 @@ class CartController extends Controller
           return back()->with('success_message','item is already in your bag!');
           // code...
         }
-        Cart::add([
-          'id'    => $request->id,
-          'name'  => $request->name,
-          'qty'   => 1,
-          'price' => $request->price,
-          'options'  => array(
-            'giftname' => $request->giftname,
-            'giftprice' => $request->giftprice
-          )
-                  ])->associate('App\Product');
+
+          //  add the information to cart 
+          Cart::add([
+            'id'    => $request->id,
+            'name'  => $request->name,
+            'qty'   => 1,
+            'price' => $request->pricex ? $request->pricex : $request->price,
+            'options'  => array(
+              'giftname' => $request->giftname ? $request->giftname : '',
+              'giftprice' => $request->giftprice ? $request->giftprice : 0
+            )])->associate('App\Product');
               return back()->with('success_message','item was added to your bag');
 
       }

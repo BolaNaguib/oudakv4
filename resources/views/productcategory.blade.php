@@ -18,15 +18,15 @@
       <div class="uk-text-right">
         <div class="showicons">
           <button class="productlistx" type="button" name="gridoptionicon">
-            <i class="fas fa-square"></i>
-          </button>
-          <button  class="productlistxv" type="button" name="gridoptioniconv">
-            <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+            Show Products
           </button>
         </div>
-
+        <div class="showicons">
+          <button  class="productlistxv" type="button" name="gridoptioniconv">
+            Show categories
+          </button>
+        </div>
       </div>
-      <hr>
     </div>
 
 

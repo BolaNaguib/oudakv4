@@ -21,21 +21,24 @@
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
   @if ($isExistparent = 1)
-    <div class="uk-container uk-container-large">
-      <br>
-      <div class="uk-text-right">
-        <div class="showicons productcontainer">
-          <button class="productlistx" type="button" name="gridoptionicon">
-            Show Products
-          </button>
-        </div>
-        <div class="showicons categorycontainer">
-          <button  class="productlistxv" type="button" name="gridoptioniconv">
-            Show categories
-          </button>
+    @if ($loop->first)
+      <div class="uk-container uk-container-large">
+        <br>
+        <div class="uk-text-right">
+          <div class="showicons productcontainer">
+            <button class="productlistx" type="button" name="gridoptionicon">
+              Show Products
+            </button>
+          </div>
+          <div class="showicons categorycontainer">
+            <button  class="productlistxv" type="button" name="gridoptioniconv">
+              Show categories
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    @endif
+
     {{-- @php
       $isExistparent++
     @endphp --}}

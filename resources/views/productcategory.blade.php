@@ -20,7 +20,7 @@
 
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
-  @if ($isExistparent = 1)
+  @if ($isExistparent == 1)
       <div class="uk-container uk-container-large">
         <br>
         <div class="uk-text-right">

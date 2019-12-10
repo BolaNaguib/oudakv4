@@ -21,7 +21,6 @@
 @foreach ($allcat as $cat )
 @if ($cat->parent == $productcategory->id)
   @if ($isExistparent = 1)
-    @if ($loop->first)
       <div class="uk-container uk-container-large">
         <br>
         <div class="uk-text-right">
@@ -37,11 +36,9 @@
           </div>
         </div>
       </div>
-    @endif
-
-    {{-- @php
-      $isExistparent++
-    @endphp --}}
+      <div class="uk-hidden">
+        {{ $isExistparent++ }}
+      </div>
   @endif
 
 

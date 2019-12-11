@@ -70,14 +70,7 @@
 
           </div><!-- END div -->
 
-
-
-
-
-
-
-
-            @endif
+            {{-- @endif --}}
 
             @if ($productcategory->first_section_description != null)
             <!-- START div -->

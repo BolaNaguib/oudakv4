@@ -17,10 +17,13 @@ class ProductCategoryController extends Controller
     {
       //
       $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
-      dd($productcategory->parent);
+      $productsWithParents = ProductCategory::where('parent',$this->id)->get();
       $products = Product::orderBy('id', 'desc')->get();
       // $productscategoryx = ProductCategory::where('parent', )
-      return view('index')->with('productcategory', $productcategory)->with('products', $products);;
+      return view('index')
+      ->with('productcategory', $productcategory)
+      ->with('products', $products)
+      ->with('productsWithParents', $productsWithParents);
 
         //
     }
@@ -58,9 +61,13 @@ class ProductCategoryController extends Controller
     {
         //
         $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+        $productsWithParents = ProductCategory::where('parent',$productcategory->id)->get();
         $allcat = ProductCategory::orderBy('id', 'desc')->get();
         $products = Product::orderBy('id', 'desc')->get();
-        return view('productcategory')->with('productcategory', $productcategory)->with('products', $products)->with('allcat', $allcat);
+        return view('productcategory')->with('productcategory', $productcategory)
+        ->with('products', $products)->with('allcat', $allcat)
+        ->with('productsWithParents', $productsWithParents);
+;
 
     }
 

@@ -17,7 +17,9 @@ class ProductCategoryController extends Controller
     {
       //
       $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+      dd($productcategory->parent);
       $products = Product::orderBy('id', 'desc')->get();
+      // $productscategoryx = ProductCategory::where('parent', )
       return view('index')->with('productcategory', $productcategory)->with('products', $products);;
 
         //

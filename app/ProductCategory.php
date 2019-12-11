@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+// use App\Product;
 use Illuminate\Database\Eloquent\Model;
 
 class ProductCategory extends Model
@@ -31,4 +31,16 @@ class ProductCategory extends Model
     return $this->belongsTo(Product::class,'second_section_product','id');
 
     }
+
+    public function productsWithParents(){
+      $productCategories = ProductCategory::where('parent',$this->id)->get();
+      // $clients_ids =[];
+      // foreach ($clients as $value) {
+      //      array_push($clients_ids,$value->id);
+      // }
+      //
+      // $cashs_sum = Cash::whereIn('client_id',$clients_ids)->sum('total');
+      return $productCategories;
+
+  }
 }

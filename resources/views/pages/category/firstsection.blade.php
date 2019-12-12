@@ -78,12 +78,18 @@
                 <p>{{ $productcategory->first_section_description }}</p>
                 <!-- START .card -->
                 @if ($productcategory->first_section_video != null)
-                <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
-                    <video width="100%" controls>
-                        <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
-                        Your browser does not support HTML5 video.
-                    </video>
-                </div><!-- END .card -->
+                  @if ($productcategory->first_section_media_type == "video")
+                    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                        <video width="100%" controls>
+                            <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video>
+                    </div><!-- END .card -->
+                  @elseif ($productcategory->first_section_media_type == "image")
+                    <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+                      <img src="{{ asset('storage/'.$productcategory->first_section_video) }}" style="width:100%">
+                    </div><!-- END .card -->
+                  @endif
                 @endif
 
             </div><!-- END div -->

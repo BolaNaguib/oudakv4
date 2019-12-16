@@ -96,10 +96,8 @@
     </div>
 </section>
 @endif
-
-
-
-
+@if (!($similar_products->isEmpty()) )
+  
 <!-- START .section_theme_gray -->
 <section class="uk-section-xsmall section_theme_gray">
     <!-- START .uk-text-center -->
@@ -114,9 +112,8 @@
         <!-- START uk-grid -->
         <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-child-width-1-1" uk-grid>
 
-            @foreach ($products as $sproduct)
-            @if ($product->category == $sproduct->category)
-            @if ($product->slug != $sproduct->slug)
+            @foreach ($similar_products as $sproduct)
+      
             <!-- START div -->
             <div class="">
                 <!-- START .card -->
@@ -155,28 +152,12 @@
                 </div><!-- END .card -->
             </div><!-- END div -->
 
-            @endif
-            {{-- @elseif ($product->category != $sproduct->category)
-
-                <div class="uk-width-1-1 uk-text-center">
-                  there is no similar products
-
-                </div> --}}
-
-            @endif
             @endforeach
-
-
-
-
-
-
-
-
 
         </div><!-- END uk-grid -->
     </div><!-- END uk-container -->
 </section><!-- END section -->
+@endif
 @endsection
 
 @section('css')

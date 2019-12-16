@@ -50,12 +50,14 @@ class ShopController extends Controller
         // to Show Product Info
         $product = Product::where('slug', $slug)->firstOrFail();
         $giftbox = GiftBox::get();
+        $similar_products = Product::where('category',$product->category)->where('slug','!=',$slug)->get();
         //  To fetch similar products
         $products = Product::orderBy('id', 'desc')->get();
         return view('product-portrait')
         ->with('product', $product)
         ->with('products', $products)
-        ->with('giftbox', $giftbox);
+        ->with('giftbox', $giftbox)
+        ->with('similar_products',$similar_products);
     }
 
     public function search(Request $request)

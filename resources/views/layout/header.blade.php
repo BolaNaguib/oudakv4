@@ -177,7 +177,7 @@ color: #fff !important;
     </div><!-- END .navbar_type_top -->
 
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main uk-visible@s">
+    <div class="navbar_type_main uk-visible@l">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->

@@ -5,7 +5,7 @@
 }
 </style>
     <!-- START .navbar_type_main -->
-    <div class="navbar_type_main uk-hidden@s " style="    padding: 10px 0px;">
+    <div class="navbar_type_main uk-hidden@l " style="    padding: 10px 0px;">
       <!-- START .uk-container -->
       <div class="uk-container uk-container-large">
         <!-- START uk-navbar -->

@@ -80,9 +80,11 @@
                 @if ($productcategory->first_section_video != null)
                   @if ($productcategory->first_section_media_type == "video")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
-                        <video width="100%" controls>
+                        <!--<video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" loop muted playsinline uk-video="autoplay: inview"></video>-->
+
+                        <video width="100%" playsinline controls>
                             <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
-                            Your browser does not support HTML5 video.
+                            <!--Your browser does not support HTML5 video.-->
                         </video>
                     </div><!-- END .card -->
                   @elseif ($productcategory->first_section_media_type == "image")

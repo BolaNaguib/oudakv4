@@ -136,7 +136,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
   Route::get('/tracker/{tracker}', 'TrackerController@show')->name('tracker.show');
   Route::resource('/wishlist', 'WishlistController', ['except' => ['create', 'edit', 'show', 'update']]);
-  Route::post('/wishlist', 'WishlistController@localstorageSet')->name('wishlist.cookie');
+  // Route::post('/wishlist', 'WishlistController@localstorageSet')->name('wishlist.cookie');
 
 
   Route::get('empty', function(){

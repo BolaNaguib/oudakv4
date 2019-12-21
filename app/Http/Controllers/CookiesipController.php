@@ -30,8 +30,7 @@ class CookiesipController extends Controller
         'ip'                   => $request->getClientIp(),
         'cookiesaccepted'      => 'yes'
                   ]);
-                  // dd($cookies);
-              return back()->with('success_message','Thanks For Accepting Cookies');
+              return back();
     }
 
     /**

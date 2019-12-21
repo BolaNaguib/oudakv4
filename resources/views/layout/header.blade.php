@@ -110,6 +110,8 @@ color: #fff !important;
 </head>
 
 <body>
+  {{ $session_id }}
+
   <!-- START header -->
   <header class="" uk-sticky style="background-color: #fcfcfc;">
 

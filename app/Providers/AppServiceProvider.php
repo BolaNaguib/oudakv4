@@ -7,10 +7,13 @@ use App\Product;
 use App\ProductCategory;
 use App\MainMenu;
 use App\cookiesip;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
 use Auth;
 use View;
 use App\Page;
 use App\Wishlist;
+use Composer\DependencyResolver\Request;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Request $request)
     {
 
         $clientip = \Request::ip();
@@ -39,8 +42,13 @@ class AppServiceProvider extends ServiceProvider
         $main_menu = MainMenu::orderBy('Item_order','desc')->get() ;
         $page_menu = Page::get();
         $wishlists  = Wishlist::get();
-        // $wishlists = wichlist::get();
+        $session_id = Session::getId();
+
+        // {{ json_encode(session()->get('wishlist.id')) }}
+        // dd($session_id);
         $this->applyVoyagerMailSettings();
+        // dd($request->session());
+        view()->share('session_id', $session_id );
         view()->share('main_menu', $main_menu );
         view()->share('products_categories', $products_categories );
         view()->share('products_menu', $products_menu );

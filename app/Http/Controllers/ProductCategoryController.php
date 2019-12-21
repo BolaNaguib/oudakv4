@@ -71,6 +71,26 @@ class ProductCategoryController extends Controller
 
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showproducts($slug)
+    {
+        //
+        $productcategory = ProductCategory::where('slug', $slug)->firstOrFail();
+        $productsWithParents = ProductCategory::where('parent',$productcategory->id)->get();
+        $allcat = ProductCategory::orderBy('id', 'desc')->get();
+        $products = Product::orderBy('id', 'desc')->get();
+        return view('categoryshowproducts')->with('productcategory', $productcategory)
+        ->with('products', $products)->with('allcat', $allcat)
+        ->with('productsWithParents', $productsWithParents);
+;
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -1,9 +1,8 @@
-
-
+<!-- Desktop Menu -->
+<!-- START uk-offcanvas -->
 <div id="x2" uk-offcanvas>
   <div class="uk-offcanvas-bar sidenav">
-
-    <button class="uk-offcanvas-close" type="button" style="    color: #000;" uk-close></button>
+    <button class="uk-offcanvas-close" type="button" style="color: #000;" uk-close></button>
     <br>
     <br>
     <h3 class="sidenav__title uk-text-center">Menu</h3>
@@ -41,6 +40,8 @@
                   @endif
 
                 @endforeach
+                <li> <a class="sidenav__links" href="/category/{{ $product_category->slug }}/products"> View All </a> </li>
+
               @endif
 
                 @if ($item->Menu_Image)
@@ -72,6 +73,7 @@
     </ul>
   </div>
 </div>
+<!-- END uk-offcanvas -->
 
 
 
@@ -138,6 +140,8 @@
                   @endif
 
                 @endforeach
+                <li> <a class="sidenav__links mv" href="/category/{{ $product_category->slug }}/products"> View All </a> </li>
+
               @endif
 
                 @if ($item->Menu_Image)

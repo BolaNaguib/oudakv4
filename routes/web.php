@@ -11,6 +11,7 @@
 |
 */
 
+use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -135,7 +136,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
 
   Route::get('/tracker/{tracker}', 'TrackerController@show')->name('tracker.show');
   Route::resource('/wishlist', 'WishlistController', ['except' => ['create', 'edit', 'show', 'update']]);
-
+  Route::post('/wishlist', 'WishlistController@localstorageSet')->name('wishlist.cookie');
 
 
   Route::get('empty', function(){
@@ -150,6 +151,7 @@ Route::group(['prefix' => '{language}', 'where' => ['language' => 'ar|en|sp']] ,
   Route::post('newsletter/subscribe', 'NewsletterController@subscribe')->name('newsletter.subscribe');
 
   Route::get('category/{slug}','ProductCategoryController@show')->name('productcategory.show'); // this one works
+  Route::get('category/{slug}/products','ProductCategoryController@showproducts')->name('productcategory.showproducts'); // this one works
 
   // pages
   Route::get('/pages/{page}','PagesController@show')->name('page.show'); // this one abd blogs noi

@@ -84,6 +84,7 @@
                         <video
                         id="my-video"
                         class="video-js"
+                        height="300"
                         controls
                         preload="auto"
                         data-setup="{}"
@@ -101,6 +102,11 @@
                             <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
                             <!--Your browser does not support HTML5 video.-->
                         </video> --}}
+
+                        <video src="{{ asset('storage/'.$productcategory->first_section_video) }}" controls>
+                            <!-- fallback -->
+                            <p>Your browser does not support HTML5 video.</p>
+                     </video>
                     </div><!-- END .card -->
                   @elseif ($productcategory->first_section_media_type == "image")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">

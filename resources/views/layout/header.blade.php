@@ -107,18 +107,17 @@ color: #fff !important;
   color:#fff;
 }
 </style>
-<div id="safari"  style="display:none">
 
-</div>
-<div id="chrome"  style="display:none">
-
-  @laravelPWA
-
-</div>
 
 
 <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+<div id="safari">
 
+</div>
+<div id="chrome">
+
+
+</div>
 </head>
 
 <body>

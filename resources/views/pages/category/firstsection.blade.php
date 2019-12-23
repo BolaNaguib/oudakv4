@@ -81,7 +81,7 @@
                   @if ($productcategory->first_section_media_type == "video")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
                         <!--<video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" loop muted playsinline uk-video="autoplay: inview"></video>-->
-                        <video
+                        {{-- <video
                         id="my-video"
                         class="video-js"
                         height="300"
@@ -97,11 +97,11 @@
                             >supports HTML5 video</a
                           >
                         </p>
-                      </video>
-                        {{-- <video width="100%" playsinline controls>
+                      </video> --}}
+                        <video width="100%" playsinline controls>
                             <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
                             <!--Your browser does not support HTML5 video.-->
-                        </video> --}}
+                        </video>
 
                         <hr>
                         {{-- <video src="{{ asset('storage/'.$productcategory->first_section_video) }}" controls>

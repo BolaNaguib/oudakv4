@@ -9,7 +9,6 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <title> Oudak </title>
-  <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -109,6 +108,10 @@ color: #fff !important;
 }
 </style>
 @laravelPWA
+
+
+<link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
+
 </head>
 
 <body>

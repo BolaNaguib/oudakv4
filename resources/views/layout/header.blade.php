@@ -107,7 +107,14 @@ color: #fff !important;
   color:#fff;
 }
 </style>
-{{-- @laravelPWA --}}
+<div id="safari"  style="display:none">
+
+</div>
+<div id="chrome"  style="display:none">
+
+  @laravelPWA
+
+</div>
 
 
 <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />

@@ -103,11 +103,14 @@
                             <!--Your browser does not support HTML5 video.-->
                         </video> --}}
 
+                        <hr>
                         <video src="{{ asset('storage/'.$productcategory->first_section_video) }}" controls>
                             <!-- fallback -->
                             <p>Your browser does not support HTML5 video.</p>
                      </video>
                     </div><!-- END .card -->
+
+
                   @elseif ($productcategory->first_section_media_type == "image")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
                       <img src="{{ asset('storage/'.$productcategory->first_section_video) }}" style="width:100%">

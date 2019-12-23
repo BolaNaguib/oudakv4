@@ -81,11 +81,26 @@
                   @if ($productcategory->first_section_media_type == "video")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
                         <!--<video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" loop muted playsinline uk-video="autoplay: inview"></video>-->
-
-                        <video width="100%" playsinline controls>
+                        <video
+                        id="my-video"
+                        class="video-js"
+                        controls
+                        preload="auto"
+                        data-setup="{}"
+                      >
+                      <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
+                        <p class="vjs-no-js">
+                          To view this video please enable JavaScript, and consider upgrading to a
+                          web browser that
+                          <a href="https://videojs.com/html5-video-support/" target="_blank"
+                            >supports HTML5 video</a
+                          >
+                        </p>
+                      </video>
+                        {{-- <video width="100%" playsinline controls>
                             <source src="{{ asset('storage/'.$productcategory->first_section_video) }}" type="video/mp4">
                             <!--Your browser does not support HTML5 video.-->
-                        </video>
+                        </video> --}}
                     </div><!-- END .card -->
                   @elseif ($productcategory->first_section_media_type == "image")
                     <div class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">

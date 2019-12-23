@@ -376,5 +376,6 @@ truepush.push(function(){
   });
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
+<script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 
 {{-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&callback=initMap" type="text/javascript"></script> --}}

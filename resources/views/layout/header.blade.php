@@ -111,17 +111,12 @@ color: #fff !important;
 
 
 <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
-<div id="safari">
 
-</div>
-<div id="chrome">
-
-
-</div>
+{{-- @laravelPWA --}}
 </head>
 
 <body>
-  
+
   <!-- START header -->
   <header class="" uk-sticky style="background-color: #fcfcfc;">
 
@@ -202,8 +197,8 @@ color: #fff !important;
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
               <a href="{{ route('index') }}">
-                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">Oudak</h3>
-                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Fragrance & Beauty</span>
+                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">OUDAK</h3>
+                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Perfume & Beauty</span>
               </a>
             </div>
           </div>

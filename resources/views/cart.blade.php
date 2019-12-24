@@ -141,7 +141,7 @@
                         <div class="" style="font-size:14px;">
                             <input class=" accept-checkbox uk-checkbox" type="checkbox" name="" value=""> <label for=""><small class="">I have been able to read and understant <a href="#">Privacy policy</a> . </small></label>
                             <br>
-                            <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I want to subscribe to the news letter .</small></label>
+                            <input class=" uk-checkbox" type="checkbox" name="" value=""> <label for=""><small>I want to join Oudak Perfume & Beauty newsletter .</small></label>
                         </div>
                         <!-- END div -->
                         @if ( $newTotal )

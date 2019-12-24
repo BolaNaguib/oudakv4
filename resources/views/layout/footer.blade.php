@@ -380,7 +380,7 @@ truepush.push(function(){
 var ua = navigator.userAgent.toLowerCase(); 
 if (ua.indexOf('safari') != -1) { 
   if (ua.indexOf('chrome') > -1) {
-    $('#chrome').text('@laravelPWA');
+    // $('#chrome').text('@laravelPWA');
     console.log("chrome");
   } else {
     console.log("safari");

@@ -70,7 +70,7 @@
                 <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
 
-                        <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
+                        <img style=" width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
                         <div class="uk-padding-small uk-text-center">
                           <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
                           {!! $HomeFourBlock->Product1->initial_description !!}
@@ -93,7 +93,7 @@
                 <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">
 
-                        <img style="max-height: 400px; width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
+                        <img style=" width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
                         <div class="uk-padding-small uk-text-center">
                           <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
                           {!! $HomeFourBlock->Product2->initial_description !!}

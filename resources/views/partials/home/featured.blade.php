@@ -8,7 +8,7 @@
             <div class="uk-width-1-3@m uk-width-1-1">
                 <!-- START div -->
                 <div>
-                    <img style="width:100%;" src="{{ asset('storage/'.$longImages[0]->path) }}" alt="">
+                    <img style="width:100%;     height: 100%;" src="{{ asset('storage/'.$longImages[0]->path) }}" alt="">
                 </div>
                 <!-- END div -->
             </div>
@@ -24,7 +24,7 @@
                         <a href="{{ url('shop/'.$featuredproduct->slug) }}">
                             <h3>{{ $featuredproduct->title }} </h3>
                             <hr>
-                            <img style="max-height: 400px;" src="{{ asset('storage/'.$featuredproduct->thumbnail) }}" alt="">
+                            <img style="" src="{{ asset('storage/'.$featuredproduct->thumbnail) }}" alt="">
                             <!-- START div -->
                             <div class="">
                                 {!! $featuredproduct->main_description !!}

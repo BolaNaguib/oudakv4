@@ -33,10 +33,49 @@
                       </div>
                     @endif
                   @else
-                    <div class="uk-transition-fade uk-position-small uk-position-top-right ">
-                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                     {{-- START  session()->get('wishlist') != null --}}
+                     @if (session()->get('wishlist') != null )
+                    
+                     {{-- START foreach session()->get('wishlist') as $item --}}
+                     @foreach (session()->get('wishlist') as $item)
+                       {{-- START if $item == $product->id --}}
+                       @if ($item == $product->id)
+                       <!-- START uk-position-small -->
+                       <div class="uk-position-small uk-position-top-right">
+                        <form action="{{route('wishlist.destroy', $item)}}" id="contact_form" method="post">
+                          {{ csrf_field() }}
+                          {{ method_field('DELETE') }}
+                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
+                          </form>   
                           <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
-                    </div>
+                       </div>
+                       <!-- END uk-position-small -->   
+                       {{-- ELSE if $item == $product->id --}}                    
+                       @else 
+                       <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                        <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                          {{csrf_field()}}
+                          <input class="uk-hidden" name="product_id" type="text" value="{{$product->id}}" />
+                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                        </form>
+                            <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                      </div>
+                       @endif
+                       {{-- END if $item == $product->id --}}
+                     @endforeach
+                     {{-- END foreach session()->get('wishlist') as $item --}}
+                     {{-- ELSE  session()->get('wishlist') != null --}}
+                     @else
+                        <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                          <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                            {{csrf_field()}}
+                            <input class="uk-hidden" name="product_id" type="text" value="{{$product->id}}" />
+                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
+                          </form>
+                              <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                        </div>
+                    @endif
+                    {{-- END  session()->get('wishlist') != null --}}
                   @endif
                     <!-- START uk-position-top-left -->
                     <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">

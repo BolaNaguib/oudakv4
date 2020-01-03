@@ -20,14 +20,14 @@
                     <div class="uk-position-center uk-text-center">
 
                         @if ($image->title)
-                          <h2 style="background-color: #000000bf; display: initial; padding: 5px;" uk-slider-parallax="x: 100,-100">
+                          <h2 style=" display: initial; padding: 5px;" uk-slider-parallax="x: 100,-100">
                              {{$image->title}}
                           </h2>
                           <hr style="border:none;">
                         @endif
 
                         @if ($image->caption)
-                          <p style="background-color: #000000bf; display: initial; padding: 5px; line-height: 2;" uk-slider-parallax="x: 200,-200">
+                          <p style=" display: initial; padding: 5px; line-height: 2;" uk-slider-parallax="x: 200,-200">
                              {{$image->caption}}
                           </p>
                         @endif

@@ -72,7 +72,7 @@
 
             {{-- @endif --}}
 
-            @if ($productcategory->first_section_description != null)
+            @if ($productcategory->first_section_description != null || $productcategory->first_section_video )
             <!-- START div -->
             <div class="uk-width-1-3@m uk-width-1-1">
                 <p>{{ $productcategory->first_section_description }}</p>

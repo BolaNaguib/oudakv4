@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Wishlist;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Session;
+
 
 class WishlistController extends Controller
 {
-  // public function __construct() {
-  //       $this->middleware(['auth']);
-  //   }
+    // public function __construct() {
+    //       $this->middleware(['auth']);
+    //   }
     /**
      * Display a listing of the resource.
      *
@@ -17,10 +21,24 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        //
-     $user = Auth::user();
-     $wishlists = Wishlist::where("user_id", "=", $user->id)->orderby('id', 'desc')->paginate(10);
-     return view('pages.wishlist', compact('user', 'wishlists'));
+        if(Auth::user()){
+            //
+            $user = Auth::user();
+            $wishlists = Wishlist::where("user_id", "=", $user->id)->orderby('id', 'desc')->paginate(10);
+
+            return view('pages.wishlist', compact('user', 'wishlists'));
+
+        }else{
+                    // $cookies_session = session()->get('wishlist');
+                    // $products_menu = Product::get();
+
+                    // view()->share('cookies_session', $cookies_session);
+                    return view('pages.wishlist');
+
+            
+
+        }
+     
     }
 
     /**
@@ -41,23 +59,43 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //Validating title and body field
-      $this->validate($request, array(
-          'user_id'=>'required',
-          'product_id' =>'required',
-        ));
+        if (Auth::user()) {
+            //
+            //Validating title and body field
+            $this->validate($request, array(
+                'user_id' => 'required',
+                'product_id' => 'required',
+            ));
 
-      $wishlist = new Wishlist;
+            $wishlist = new Wishlist;
 
-      $wishlist->user_id = $request->user_id;
-      $wishlist->product_id = $request->product_id;
+            $wishlist->user_id = $request->user_id;
+            $wishlist->product_id = $request->product_id;
 
 
-      $wishlist->save();
+            $wishlist->save();
 
-      return redirect()->back()->with('success_message',
-          'Item, '. $wishlist->product->title.' Added to your wishlist.');
+            return redirect()->back()->with(
+                'success_message',
+                'Item, ' . $wishlist->product->title . ' Added to your wishlist.'
+            );
+        } else {
+
+            if ($request->session()->has('wishlist')) {
+                //
+                $request->session()->push('wishlist', $request->product_id);
+
+            } else{
+                $request->session()->put('wishlist', [$request->product_id]);
+
+            }
+
+
+            return redirect()->back()->with(
+                'success_message',
+                'Item, Added to your wishlist.'
+            );
+        }
     }
 
     /**
@@ -103,23 +141,20 @@ class WishlistController extends Controller
     public function destroy($product_id)
     {
         //
+        if (Auth::user()) {
 
         $id = $product_id;
         $wishlist = Wishlist::findOrFail($id);
-        // dd($wishlist);
         $wishlist->delete();
 
-        // $productid = $request->product_id;
-        // $authid    = $request->user_id;
-        // $wishlist = Wishlist::where([
-        //   'user_id' => $authid,
-        //   'product_id' => $productid
-        // ]);
-        // dd($wishlist);
         $wishlist->delete();
+        } else {
+            // dd($product_id);
+        session()->pull('wishlist', $product_id);
 
-    return redirect()->back()->with('success_message','Item Deleted From WishList');
-        // ->with('flash_message',
-        //  'Item successfully deleted');
+
+        }
+        return redirect()->back()->with('success_message', 'Item Deleted From WishList');
+     
     }
 }

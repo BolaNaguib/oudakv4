@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\Wishlist;
 
 class LoginController extends Controller
 {
@@ -38,4 +41,30 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    protected function authenticated(Request $request, $user)
+    {
+        if(session()->has('wishlist')){
+                // stuff to do after user logs in
+                $sessionWishlist = session()->get('wishlist') ? session()->get('wishlist') : 'no';
+                $id = Auth::id();
+
+                foreach($sessionWishlist as $xdx){
+                        $wishlist = new Wishlist;
+                        $wishlist->user_id     =  $id ;
+                        $wishlist->product_id  =  $xdx;            
+                        $wishlist->save();
+
+                }
+                session()->forget('wishlist');
+                return redirect('/')->with('success_message','item was added to your bag');
+        }
+       
+       
+
+
+
+    }
+
+    
 }

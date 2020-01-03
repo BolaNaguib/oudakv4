@@ -15,11 +15,11 @@
   <!-- Main Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900|Playfair+Display:400,700,900" rel="stylesheet">
   <!-- UIkit CSS -->
-@if( app()->getLocale() =='ar' )
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit-rtl.min.css" integrity="sha256-Ic5U3FedsJiK/DgX82eF245xOS/bopTbQ1ev1j2GeOY=" crossorigin="anonymous" />
-@else
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
-@endif
+      @if( app()->getLocale() =='ar' )
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/css/uikit-rtl.min.css" integrity="sha256-Ic5U3FedsJiK/DgX82eF245xOS/bopTbQ1ev1j2GeOY=" crossorigin="anonymous" />
+      @else
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.25/css/uikit.min.css" />
+      @endif
 <!--
 /**
  * @license
@@ -48,64 +48,64 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <script src="https://js.stripe.com/v3/"></script>
 <style media="screen">
-.preloader {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100vh;
- z-index: 9999;
- background-image: url('https://3.top4top.net/p_1363qbs2x1.gif');
- /* background-image: url('https://5.top4top.net/p_13284bw5v1.gif'); */
- background-repeat: no-repeat;
- background-color: #FFF;
- background-position: center;
-}
-.detail {
-    height: 100%;
-}
-.top-promo {
-    background-color: #000;
-    color: #fff;
+    .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    background-image: url('https://3.top4top.net/p_1363qbs2x1.gif');
+    /* background-image: url('https://5.top4top.net/p_13284bw5v1.gif'); */
+    background-repeat: no-repeat;
+    background-color: #FFF;
+    background-position: center;
+    }
+    .detail {
+        height: 100%;
+    }
+    .top-promo {
+        background-color: #000;
+        color: #fff;
+        padding: 10px 0px;
+        text-align: center;
+    }
+    .top-promo a {
+      color: #fff !important;
+      text-decoration: none;
+
+    }
+    .top-promo a:hover {
+      text-decoration: none;
+      color: #ffc600 !important;
+
+    }
+    ul li:last-of-type{
+      border-bottom: none;
+    }
+    .main-carditems{
+      border-radius: 10px;
+    padding: 10px;
+        font-size: 12px;
+    }
+    .main-carditems-thumb{
+      width: 25px;
+      height: 25px;
+    }
+    .main-carditems-list{
+      margin: 0px !important;
     padding: 10px 0px;
-    text-align: center;
-}
-.top-promo a {
-  color: #fff !important;
-  text-decoration: none;
-
-}
-.top-promo a:hover {
-  text-decoration: none;
-  color: #ffc600 !important;
-
-}
-ul li:last-of-type{
-  border-bottom: none;
-}
-.main-carditems{
-  border-radius: 10px;
-padding: 10px;
-    font-size: 12px;
-}
-.main-carditems-thumb{
-  width: 25px;
-  height: 25px;
-}
-.main-carditems-list{
-  margin: 0px !important;
-padding: 10px 0px;
-}
-.main-carditems-button{
-  background-color: #000;
-display: block;
-padding: 5px 0px;
-margin-top: 10px;
-color: #fff !important;
-}
-.main-carditems-button:hover{
-  color:#fff;
-}
+    }
+    .main-carditems-button{
+      background-color: #000;
+    display: block;
+    padding: 5px 0px;
+    margin-top: 10px;
+    color: #fff !important;
+    }
+    .main-carditems-button:hover{
+      color:#fff;
+    }
 </style>
 
 
@@ -191,8 +191,8 @@ color: #fff !important;
         <nav uk-navbar>
           <div class="uk-navbar-left">
             <a class=" uk-navbar-toggle uk-padding-remove-horizontal uk-background-transparent" href="#x2" uk-toggle>
-            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
-        </a>
+              <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+            </a>
           </div>
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
@@ -227,40 +227,86 @@ color: #fff !important;
 
                   <div class="main-carditems" uk-dropdown>
                     <ul class="uk-list  uk-list-divider uk-margin-remove">
+                      {{-- START Auth::user() != null --}}
                       @if (Auth::user() != null)
-                      @if (Auth::user()->wishlist->count() )
-                      @foreach ($wishlists as $wishlist)
-                        <li class="main-carditems-list">
-                              <a href="{{ route('shop.show', $wishlist->product->slug) }}">
-                          <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
-                            <div class="uk-width-expand uk-text-left">
-                              <span>{{ $wishlist->product->title }}</span>
-                            </div>
-                            <div class="uk-width-auto uk-text-right">
-                              <span>{{ $wishlist->product->subtotal }} </span>
-                            </div>
-                          </div>
-                        </a>	</li>
-                        @endforeach
+                          {{-- START Auth::user()->wishlist->count() --}}
+                          @if (Auth::user()->wishlist->count() )
+                              {{-- START foreach $wishlists as $wishlist --}}
+                              @foreach ($wishlists as $wishlist)
+                                <li class="main-carditems-list">
+                                  <a href="{{ route('shop.show', $wishlist->product->slug) }}">
+                                    <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
+                                      <div class="uk-width-expand uk-text-left">
+                                        <span>{{ $wishlist->product->title }}</span>
+                                      </div>
+                                      <div class="uk-width-auto uk-text-right">
+                                        <span>{{ $wishlist->product->subtotal }} </span>
+                                      </div>
+                                    </div>
+                                  </a>
+                                </li>
+                              @endforeach
+                              {{-- END foreach $wishlists as $wishlist --}}
+                            @else
+                            {{-- ELSE Auth::user()->wishlist->count() --}}
+                                <li class="main-carditems-list"> you Have no items in your Wish List </li>
+                          @endif
+                          {{-- END Auth::user()->wishlist->count() --}}
                       @else
-                        <li class="main-carditems-list"> you Have no items in your Wish List </li>
+                      {{-- ELSE Auth::user() != null --}}
+
+                          {{-- START session()->has('wishlist') --}}
+                          @if (session()->has('wishlist'))
+                            {{-- START foreach for guestwishlist --}}
+                            @foreach (session()->get('wishlist') as $guestwishlist)
+
+                              {{-- START for each for products --}}
+                              @foreach ($products_menu as $product)
+
+                                        {{-- START $guestwishlist == $product->id --}}
+                                        @if ($guestwishlist == $product->id)  
+
+                                          <li class="main-carditems-list">
+                                            <a href="{{ route('shop.show', $product->slug) }}">
+                                              <div class="uk-grid uk-grid-collapse uk-flex uk-flex-middle">
+                                                <div class="uk-width-expand uk-text-left">
+                                                  <span>{{ $product->title }}</span>
+                                                </div>
+                                                <div class="uk-width-auto uk-text-right">
+                                                  <span>{{ $product->subtotal }} </span>
+                                                </div>
+                                              </div>
+                                            </a>
+                                          </li> 
+                                          @else 
+                                          {{-- ELSE $guestwishlist == $product->id --}}
+
+                                        @endif
+                                        {{-- END $guestwishlist == $product->id --}}
+
+                              @endforeach
+                              {{-- END foreach for products --}}
+
+                            @endforeach
+                            {{-- END foreach for guestwishlist --}}
+                              {{-- ELSe session()->has('wishlist') --}}
+                              @else
+                              <li class="main-carditems-list"> you Have no items in your Wish List </li>
+                          @endif
+                          {{-- END session()->has('wishlist') --}}
+                          <div class="uk-text-center">
+                            <a class="main-carditems-button" href="{{ route('wishlist.index') }}"> Go To Wish List</a>
+                          </div>
                       @endif
-                    @else
-                      <li class="main-carditems-list"> you Have no items in your Wish List </li>
-
-                    @endif
-
+                      {{-- END Auth::user() != null --}}
                     </ul>
                     @if (Auth::user() != null)
-
-                    @if (Auth::user()->wishlist->count() )
-
-                    <div class="uk-text-center">
-                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Wish List</a>
-
-                    </div>
-                  @endif
-                @endif
+                      @if (Auth::user()->wishlist->count() )
+                        <div class="uk-text-center">
+                          <a class="main-carditems-button" href="{{ route('wishlist.index') }}"> Go To Wish List</a>
+                        </div>
+                      @endif
+                    @endif
 
                   </div>
 
@@ -312,7 +358,7 @@ color: #fff !important;
                       <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To bag</a>
 
                     </div>
-                  @endif
+                    @endif
 
                   </div>
 
@@ -332,12 +378,6 @@ color: #fff !important;
                         </li>
                         @else
                         <li><a href="{{ route('login') }}">login  </a>
-                          {{-- <div class="uk-navbar-dropdown">
-                              <ul class="uk-nav uk-navbar-dropdown-nav">
-                                  <li><a href="{{ route('login') }}">Login</a></li>
-                                  <li><a href="{{ route('register') }}">Register</a></li>
-                              </ul>
-                          </div> --}}
                         </li>
                         @endif
             </ul><!-- END .uk-navbar-nav -->

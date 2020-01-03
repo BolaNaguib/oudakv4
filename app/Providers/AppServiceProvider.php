@@ -13,6 +13,7 @@ use Auth;
 use View;
 use App\Page;
 use App\Wishlist;
+use App\guestwishlist;
 use Composer\DependencyResolver\Request;
 
 class AppServiceProvider extends ServiceProvider
@@ -43,7 +44,15 @@ class AppServiceProvider extends ServiceProvider
         $page_menu = Page::get();
         $wishlists  = Wishlist::get();
         $session_id = Session::getId();
-
+        $cookies_session = session()->get('wishlist');
+        // dd(session());
+        // foreach((array)$cookies_session as $item){
+        //     $pxp = Product::where('id', $item)->get();
+        //     dd($pxp);
+        // };
+        // dd($pxp);
+        // dd($cookies_session);
+        
         // {{ json_encode(session()->get('wishlist.id')) }}
         // dd($session_id);
         $this->applyVoyagerMailSettings();
@@ -55,7 +64,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share('page_menu', $page_menu );
         view()->share('cookies', $cookies );
         view()->share('wishlists',$wishlists);
-
+        view()->share('cookies_session', $cookies_session);
 
     }
 

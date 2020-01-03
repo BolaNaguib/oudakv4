@@ -20,7 +20,7 @@
     <!-- START .uk-container -->
     <div class="uk-container uk-container-large">
         <!-- Success Message -->
-        @if (session()->has('success_message'))
+        {{-- @if (session()->has('success_message'))
         <div class="uk-alert-success" uk-alert>
             <a class="uk-alert-close" uk-close></a>
             <p>{{ session()->get('success_message') }}</p>
@@ -35,7 +35,7 @@
           </div>
 
             @endforeach
-            @endif
+            @endif --}}
             <!-- Check For Items in Bag -->
             @if(Cart::count()>0)
                 {{ Cart::count() }} item(s) in the bag

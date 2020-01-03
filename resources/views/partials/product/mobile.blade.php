@@ -3,7 +3,7 @@ $slider = preg_replace(array('/\"/','/\]$/','/^\[/'), '',$product->product_slide
 $product_slider = explode(",", $slider)
 @endphp
 
-@if (session()->has('success_message'))
+{{-- @if (session()->has('success_message'))
 <div class="uk-alert-success uk-hidden@m" uk-alert>
     <a class="uk-alert-close" uk-close></a>
     <p>{{ session()->get('success_message') }}</p>
@@ -13,7 +13,7 @@ $product_slider = explode(",", $slider)
 @foreach($errors->all() as $error)
 {{ $error }}
 @endforeach
-@endif
+@endif --}}
 
 <!-- START uk-grid -->
 <div class="uk-grid-match uk-hidden@m uk-margin-remove-top" uk-grid>

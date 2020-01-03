@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   {{-- {{ dd($productsWithParents) }} --}}
-@if (session()->has('success_message'))
+{{-- @if (session()->has('success_message'))
 <div class="uk-alert-success" uk-alert>
     <a class="uk-alert-close" uk-close></a>
     <p>{{ session()->get('success_message') }}</p>
@@ -12,7 +12,7 @@
 @foreach($errors->all() as $error)
     {{ $error }}
     @endforeach
-    @endif
+    @endif --}}
 @if ($productcategory->parent == null)
 
   @foreach ($productsWithParents as $cat )

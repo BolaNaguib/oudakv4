@@ -285,11 +285,11 @@ $product_slider = explode(",", $slider)
         @endif
         @endif
 
-        @if ($product->main_description)
+        @if ($product->initial_description)
         <!-- START .uk-text-center -->
         <div class="uk-text-center uk-margin-top">
             <!-- START div -->
-            <div>{!! $product->main_description !!}</div>
+            <div>{!! $product->initial_description !!}</div>
             <!-- END div -->
         </div><!-- END .uk-text-center -->
         @endif
@@ -311,9 +311,8 @@ $product_slider = explode(",", $slider)
                 <img src="" alt="">
                 <h3 class="uk-margin-small"><span class="uk-button">$<span id="newprice">{{ $product->price }}</span></span> </h3>
                 <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">
-                @if ($product->initial_description)
-                <p>{!! $product->initial_description !!}</p>
-
+                @if ($product->main_description)
+                <p>{!! $product->main_description !!}</p>
                 @endif
                 <hr>
 

@@ -170,12 +170,17 @@
 
                 <!-- START uk-width-1-2 -->
                 <div class="uk-width-1-2@m uk-width-1-1">
+
                     <div class="detail uk-position-relative">
                         <!-- START .uk-text-center -->
                         <div class="uk-text-center">
 
 
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>
+                            @if ($product->gift == "1")
+                            <span class="uk-label uk-label-success">Gift</span>
+                            @endif
+
                             <img src="" alt="">
                             <h3 class="uk-margin-small"><span class="uk-button ">$ <span id="newprice">{{ $product->price }}</span></span> </h3>
                             <input class="uk-hidden" type="text" name="price" value="{{ $product->price }}">

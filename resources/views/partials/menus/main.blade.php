@@ -8,7 +8,7 @@
     <h3 class="sidenav__title uk-text-center">Menu</h3>
 
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
-
+    <li><a href="{{ route('giftpage.index') }}" class="sidenav__links">Gift</a></li>
       @foreach ($main_menu as $item)
         @if (! $item->menu_parent)
           @foreach ($products_categories as $product_category)
@@ -115,6 +115,7 @@
 
     </section>
     <ul class="uk-nav-default uk-nav-center uk-nav-parent-icon" uk-nav>
+      <li><a href="{{ route('giftpage.index') }}" class="sidenav__links">Gift</a></li>
 
       @foreach ($main_menu as $item)
         @if (! $item->menu_parent)

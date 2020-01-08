@@ -79,7 +79,7 @@
                     @if (Auth::user()->wishlist->count() )
 
                     <div class="uk-text-center">
-                      <a class="main-carditems-button" href="{{ route('cart.index') }}"> Go To Wish List</a>
+                      <a class="main-carditems-button" href="{{ route('wishlist.index') }}"> Go To Wish List</a>
 
                     </div>
                   @endif

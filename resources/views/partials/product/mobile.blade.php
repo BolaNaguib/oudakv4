@@ -154,14 +154,14 @@ $product_slider = explode(",", $slider)
             </a>
             @endif
         </div><!-- END .card -->
-
+        <form class="" action="{{ route('cart.store') }}" method="post">
+            {{ csrf_field() }}
         @if ($product->gifting_option == 1)
         @if ($product->gift_price_1 || $product->gift_price_2 || $product->gift_price_3 || $product->gift_price_4 || $product->gift_price_5 || $product->gift_price_6)
 
         <!-- START .uk-margin -->
         <div class="uk-text-center uk-margin uk-flex-first uk-margin-remove-top">
-            <form class="" action="{{ route('cart.store') }}" method="post">
-                {{ csrf_field() }}
+           
                 <h5 class="uk-margin-remove-top">Gift Box</h5>
                 <div class="uk-grid uk-flex-center">
 

@@ -90,7 +90,7 @@
 </style>
 
 <div id="x3" uk-offcanvas>
-  <div class="uk-offcanvas-bar sidenav">
+  <div class="uk-offcanvas-bar sidenav" style="overflow: auto;">
 
     <button class="uk-offcanvas-close" type="button" style="    color: #000;" uk-close></button>
     <br>

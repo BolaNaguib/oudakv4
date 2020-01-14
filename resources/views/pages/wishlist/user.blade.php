@@ -1,7 +1,7 @@
 @if ($wishlists->isEmpty())
         <div class="uk-section-xsmall uk-flex uk-flex-middle uk-flex-center" style="min-height:600px;" >
 
-          <h1> You dont Have Any Items in Your Wish List </h1>
+          <h1> Empty Wishlist</h1>
         </div>
       @else
 

@@ -72,7 +72,7 @@
 
                         <img style=" width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">
                         <div class="uk-padding-small uk-text-center">
-                          <h2 class="uk-card-title"> {{$HomeFourBlock->Product1->title}} </h2>
+                          <h2 class="uk-card-title  product-font"> {{$HomeFourBlock->Product1->title}} </h2>
                           {!! $HomeFourBlock->Product1->initial_description !!}
                           <div class="uk-invisible-hover uk-margin-top">
                             <hr>
@@ -95,7 +95,7 @@
 
                         <img style=" width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product2->thumbnail) }}" alt="">
                         <div class="uk-padding-small uk-text-center">
-                          <h2 class="uk-card-title"> {{$HomeFourBlock->Product2->title}} </h2>
+                          <h2 class="uk-card-title  product-font"> {{$HomeFourBlock->Product2->title}} </h2>
                           {!! $HomeFourBlock->Product2->initial_description !!}
                           <div class="uk-invisible-hover uk-margin-top">
                             <hr>

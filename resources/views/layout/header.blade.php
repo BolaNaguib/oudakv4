@@ -191,14 +191,14 @@
         <nav uk-navbar>
           <div class="uk-navbar-left">
             <a class=" uk-navbar-toggle uk-padding-remove-horizontal uk-background-transparent" href="#x2" uk-toggle>
-              <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">Menu</span>
+              <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left menu-font">Menu</span>
             </a>
           </div>
           <div class="uk-navbar-center">
             <div class="uk-text-center uk-display-block ">
               <a href="{{ route('index') }}">
-                <h3 class="uk-margin-remove" style="    margin-bottom: -12px !important;">OUDAK</h3>
-                <span class="uk-margin-remove uk-text-small" style="font-size:9px;" >Luxury Perfume & Beauty</span>
+                <h3 class="uk-margin-remove logo-font" style="    margin-bottom: -12px !important;">OUDAK</h3>
+                <span class="uk-margin-remove uk-text-small logo-font" style="font-size:9px;" >Luxury Perfume & Beauty</span>
               </a>
             </div>
           </div>

@@ -404,8 +404,22 @@ header {
     font-display: swap;
 }
 
-html, h1, h2, h3, h4, h5, h6, p, span, b, a {
+.logo-font{
+        font-family: NicolasCoc-Reg !important;
+}
+.product-font{
     font-family: NicolasCoc-Reg !important;
+}
+.menu-font{
+    font-family: NicolasCoc-Reg !important;
+
+}
+.gift-font{
+    font-family: NicolasCoc-Reg !important;
+
+}
+html, h1, h2, h3, h4, h5, h6, p, span, b, a {
+    /* font-family: NicolasCoc-Reg !important; */
 }
 
 a:hover {

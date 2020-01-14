@@ -104,28 +104,28 @@ header {
 }
 
 .icon_type_heart:hover {
-    color: #ff6000;
+    color: #000;
     border: 1px solid;
         width: 100%;
 }
 
 .icon_type_heart_red, .icon_type_heart_red:hover {
     -webkit-transition: .3s;
-    transition: .3s; color: #ff6000;
+    transition: .3s; color: #000;
         width: 100%;
         border: 0px;
 }
 
 .icon_type_heart_red {
-    color: #ff6000;
-      border: 1px solid #ff6000;
+    color: #000;
+      border: 1px solid #000;
           width: 100%;
 
 }
 
 
 .icon_type_heart_red:hover {
-    color: #ff6000;
+    color: #000;
     border: 1px solid;
         width: 100%;
 }

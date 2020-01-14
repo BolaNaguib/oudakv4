@@ -147,7 +147,7 @@
 
         @if ($block->media != null)
         <!-- START .uk-container -->
-        <div class="">
+        <div class="uk-margin-bottom">
           @if ($block->mediatype == "image")
           {{-- <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex uk-flex-top" style="background-image: url('{{ asset('storage/'.$productcategory->path) }}');">
           <div class="uk-width-1-2@m uk-text-center uk-margin-auto uk-margin-auto-vertical">

@@ -146,7 +146,7 @@
         <!-- START .card -->
         @if ($productcategory->second_section_video != null)
         <div
-          class="cards card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle"
+          class="cards  uk-flex uk-flex-bottom uk-flex-center uk-position-relative uk-transition-toggle"
           tabindex="0">
           <video width="100%" controls>
             <source src="{{ asset('storage/'.$productcategory->second_section_video) }}" type="video/mp4">

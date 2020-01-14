@@ -202,7 +202,7 @@
               @endif
               @if ($productcategory->media_caption)
                 <hr style="border:none;">
-                            <p style="    background-color: #000000bf;
+                            <p style="color: #000;
                 display: initial;
                 padding: 5px;
                 line-height: 2;" uk-parallax="opacity: 0,1; y: 100,0; scale: 0.5,1; viewport: 0.2;">{{ $productcategory->media_caption }}</p>

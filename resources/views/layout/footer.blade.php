@@ -387,6 +387,25 @@ if (ua.indexOf('safari') != -1) {
   }
 }
 </script>
+
+
+<script>
+
+$(function () {//doc ready
+    $.cookie.json = true; //Turn on automatic storage of JSON objects passed as the cookie value. Assumes JSON.stringify and JSON.parse:
+    $('.add-basket').click(function() {
+        var basket = $.cookie("basket") || []; //if not defined use an empty array
+        var $this = $(this);
+
+        basket.push({
+            'number': $this.attr('number'),
+            'type': $this.attr('product')
+        });
+        console.log(basket);
+        $.cookie("basket", basket);
+    });
+});
+</script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvPkBdWsK81JT4HptA_EZUSP6O9XfyZMs&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
 <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 

@@ -58,6 +58,7 @@ class WishlistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    
     {
         if (Auth::user()) {
             //
@@ -96,6 +97,10 @@ class WishlistController extends Controller
                 'Item, Added to your wishlist.'
             );
         }
+
+
+        
+ 
     }
 
     /**

@@ -21,7 +21,7 @@
             <div class="">
                 <h3>Billing / Shipping Info</h3>
                 <hr>
-                {{-- @if (session()->has('success_message'))
+                @if (session()->has('success_message'))
                 <div class="uk-alert-success" uk-alert>
                     <a class="uk-alert-close" uk-close></a>
                     <p>{{ session()->get('success_message') }}</p>
@@ -35,7 +35,7 @@
                     @endforeach
                 </ul>
 
-                @endif --}}
+                @endif
                 <form id="payment-form" action="{{ route('checkout.store') }}" method="post">
                     {{ csrf_field() }}
                     {{-- START uk-grid --}}

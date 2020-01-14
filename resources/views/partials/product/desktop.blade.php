@@ -174,6 +174,7 @@
                     <div class="detail uk-position-relative">
                         <!-- START .uk-text-center -->
                         <div class="uk-text-center">
+                            
 
 
                             <h3 class="uk-margin-remove">{{ $product->title }}</h3>

@@ -164,6 +164,9 @@ return [
         // Other service providers…
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        // debugger 
+        Barryvdh\Debugbar\ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -231,6 +234,8 @@ return [
         // Other aliases…
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
 
     ],
 

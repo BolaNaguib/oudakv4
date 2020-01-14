@@ -36,6 +36,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Request $request)
     {
 
+        // Connect to ZOHO Inventory
+        // $client = new \GuzzleHttp\Client();
+        // $response = $client->request('GET', 'https://inventory.zoho.com/api/v1/items', ['query' => 
+        // ['authtoken' => '5eea0cf51f0119d6282212f6202a7449']] );
+        // echo $response->getStatusCode(); // 200
+        // echo $response->getHeaderLine('content-type'); // 'application/json; charset=utf8'
+        // echo $response->getBody(); // '{"id": 1420053, "name": "guzzle", ...}'
+
+
         $clientip = \Request::ip();
         $cookies = cookiesip::get();
         $products_menu = Product::get();

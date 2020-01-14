@@ -65,7 +65,7 @@
             <!-- END .uk-width-1-3@m -->
             <!-- START .uk-width-1-3@m -->
             @if ($HomeFourBlock->Product1 != null)
-            <div class="gridoption uk-width-1-3@m uk-width-1-2">
+            <div class="gridoption uk-width-1-3@m uk-width-1-1">
                 <!-- START .uk-card -->
                 <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
@@ -88,7 +88,7 @@
             @endif
             @if ($HomeFourBlock->Product2 != null)
             <!-- START .uk-width-1-3@m -->
-            <div class="gridoption uk-width-1-3@m uk-width-1-2">
+            <div class="gridoption uk-width-1-3@m uk-width-1-1">
                 <!-- START .uk-card -->
                 <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
                     <a href="{{ url('shop/'.$HomeFourBlock->Product2->slug) }}">

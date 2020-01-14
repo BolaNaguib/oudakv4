@@ -148,10 +148,11 @@
         <div
           class="cards  uk-flex uk-flex-bottom uk-flex-center uk-position-relative uk-transition-toggle"
           tabindex="0">
-          <video width="100%" controls>
+          <iframe style="width:100%;" height="315" src="https://www.youtube.com/embed/{{$productcategory->second_section_video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          {{-- <video width="100%" controls>
             <source src="{{ asset('storage/'.$productcategory->second_section_video) }}" type="video/mp4">
             Your browser does not support HTML5 video.
-          </video>
+          </video> --}}
         </div><!-- END .card -->
         @endif
       </div><!-- END div -->

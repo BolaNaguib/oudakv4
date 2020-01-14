@@ -273,9 +273,7 @@
 
         <div class="">
 
-          <div class="uk-text-center">
-            <b>{{ $block->Producttwo->title }}</b>
-          </div>
+        
           <!-- START .card -->
           <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
 
@@ -292,21 +290,28 @@
 
 
         </div><!-- END .card_theme_white -->
-        <div class="uk-text-center">
-          <span> ${{ $block->Producttwo->price }} </span>
+        <div class="uk-padding-small uk-padding-top">
+          <div class="uk-text-center">
+            <b>{{ $block->Producttwo->title }}</b>
+          </div>
+          <div class="uk-text-center">
+            <span> ${{ $block->Producttwo->price }} </span>
+  
+          </div>
           <hr>
-
+  
+          <div class="uk-text-center">
+            <form class="" action="{{ route('cart.store') }}" method="post">
+              {{ csrf_field() }}
+              <input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
+              <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
+              <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
+              <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span
+                  style="line-height: 1.8;">ADD</span> </button>
+            </form>
+          </div>
         </div>
-        <div class="uk-text-center">
-          <form class="" action="{{ route('cart.store') }}" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="id" value="{{ $block->Producttwo->id }}">
-            <input type="hidden" name="name" value="{{ $block->Producttwo->title }}">
-            <input type="hidden" name="price" value="{{ $block->Producttwo->price }}">
-            <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span> <span
-                style="line-height: 1.8;">ADD</span> </button>
-          </form>
-        </div>
+       
       </div>
     </div>
     @endif

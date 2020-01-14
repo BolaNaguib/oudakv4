@@ -9,7 +9,7 @@
       @foreach ($products as $product)
       @if ($product->id == $productcategory->second_section_product )
 
-      <div class="uk-width-1-3@m uk-width-1-2 uk-flex-first uk-flex-last@m">
+      <div class="uk-width-1-3@m uk-width-1-2">
 
 
         <div class="card card_theme_white uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
@@ -133,7 +133,7 @@
         </div><!-- END .card_theme_white -->
         </form>
 
-      </div><!-- END div -->
+      </div><!-- END div --> 
       @endif
 
       @endforeach

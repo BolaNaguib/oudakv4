@@ -143,9 +143,7 @@
       <!-- START div -->
       <div
         class="@if ( !$block->coloumn )uk-width-2-3@m @else uk-width-1-3@m @endif uk-width-1-1 uk-f;ex uk-flex-wrap-between">
-        <div class="">
-          {!! $block->caption !!}
-        </div>
+      
 
         @if ($block->media != null)
         <!-- START .uk-container -->
@@ -167,6 +165,9 @@
         @endif
       </div>
       @endif
+      <div class="">
+        {!! $block->caption !!}
+      </div>
     </div><!-- END div -->
     @endif
 

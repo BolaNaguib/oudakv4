@@ -4,6 +4,8 @@
     <div class="uk-container uk-container-large">
         <!-- START uk-grid -->
         <div class="uk-grid-match" uk-grid>
+          @if ($productcategory->Productone != null)
+              
             <div class="uk-width-1-3@m uk-width-1-2">
 
 
@@ -117,6 +119,7 @@
                 </div><!-- END .card_theme_white -->
 
             </div><!-- END div -->
+            @endif
 
             {{-- @endif --}}
 

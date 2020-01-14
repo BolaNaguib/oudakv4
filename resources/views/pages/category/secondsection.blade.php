@@ -9,11 +9,10 @@
       @foreach ($products as $product)
       @if ($product->id == $productcategory->second_section_product )
 
-      <div class="uk-width-1-3@m uk-width-1-1">
-        <!-- START .card -->
-        <div
-          class="card card_theme_white uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle"
-          tabindex="0">
+      <div class="uk-width-1-3@m uk-width-1-2 uk-flex-first uk-flex-last@m">
+
+
+        <div class="card card_theme_white uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
           @if (Auth::user() != null)
           @if ($product->wishlist->isEmpty())
           <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
@@ -95,39 +94,44 @@
           @endif
           {{-- END  session()->get('wishlist') != null --}}
           @endif
-          <!-- START uk-position-top-left -->
-          <div class="uk-transition-slide-left uk-position-small uk-position-top-left ">
-            <button class="uk-button uk-button-default">{{ $product->title }}</button>
-          </div><!-- END uk-position-top-left -->
-          <!-- START uk-position-top-right -->
-          <div class="uk-transition-slide-right uk-position-small uk-position-top-right ">
-            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
-          </div><!-- END uk-position-top-right -->
+          <form class="" action="{{ route('cart.store') }}" method="post">
+            {{ csrf_field() }}
+       
+            <!-- START .card -->
+            <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
+              <a href="{{ route('shop.show', $product->slug)}}">
+                <!-- START .uk-inline-clip -->
+                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                  <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:350px;">
+                  <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}"
+                    alt="" style="max-height:250px;">
+                </div><!-- END .uk-inline-clip -->
+              </a>
+              <input type="hidden" name="id" value="{{ $product->id }}">
+              <input type="hidden" name="name" value="{{ $product->title }}">
+              <input type="hidden" name="price" value="{{ $product->price }}">
+            </div><!-- END .card -->
 
-          <a href="{{ route('shop.show', $product->slug)}}">
-            <!-- START .uk-inline-clip -->
-            <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-              <img src="{{ asset('storage/'.$product->thumbnail) }}" alt="" style="max-height:350px;">
-              <img class="uk-transition-fade uk-position-cover" src="{{ asset('storage/'.$product->secondimage) }}"
-                alt="" style="max-height:250px;">
-            </div><!-- END .uk-inline-clip -->
-          </a>
-          <div class="uk-padding-small uk-padding-top">
-            <div class="uk-text-center">
-              <b class="product-font">{{ $product->title }}</b>
+            
+            <div class="uk-padding-small uk-padding-top">
+              <div class="uk-text-center">
+                <b class="product-font">{{ $product->title }}</b>
+              </div>
+              <div class="uk-text-center">
+                <span> ${{ $product->price }} </span>
+              </div>
+              <hr>
+  
+              <div class="uk-text-center">
+                <button class="button_type_category_product" type="submit" name="button">ADD <span class="carticonx"
+                    uk-icon="cart"></span> </button>
+  
+              </div>
             </div>
-            <div class="uk-text-center">
-              <span> ${{ $product->price }} </span>
-            </div>
-            <hr>
+         
 
-            <div class="uk-text-center">
-              <button class="button_type_category_product" type="submit" name="button">ADD <span class="carticonx"
-                  uk-icon="cart"></span> </button>
-
-            </div>
-          </div>
-        </div><!-- END .card -->
+        </div><!-- END .card_theme_white -->
+        </form>
 
       </div><!-- END div -->
       @endif

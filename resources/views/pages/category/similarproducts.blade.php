@@ -163,7 +163,7 @@
                                 <h3 class="">{{ $product->title }}</h3>
                             </a>
 
-                            <button class="uk-button uk-button-secondary">${{ $product->price }}</button>
+                            <span class="">${{ $product->price }}</span>
                         </div><!-- END .card -->
                     </div><!-- END div -->
                   {{-- @endif --}}

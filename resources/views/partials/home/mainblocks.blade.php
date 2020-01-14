@@ -117,7 +117,7 @@
           </div><!-- END .card_theme_white -->
           <div class="uk-padding uk-padding-small">
             <div class="uk-text-center">
-              <b>{{ $block->Productone->title }}</b>
+              <b class="product-font">{{ $block->Productone->title }}</b>
             </div>
   
             <div class="uk-text-center">
@@ -292,7 +292,7 @@
         </div><!-- END .card_theme_white -->
         <div class="uk-padding-small uk-padding-top">
           <div class="uk-text-center">
-            <b>{{ $block->Producttwo->title }}</b>
+            <b class="product-font">{{ $block->Producttwo->title }}</b>
           </div>
           <div class="uk-text-center">
             <span> ${{ $block->Producttwo->price }} </span>

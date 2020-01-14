@@ -16,15 +16,16 @@
 </section><!-- END section -->
 
 <!-- Product Notes -->
-@if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
 <section class="uk-section-xsmall">
     <div class="uk-container uk-container-large">
-      <!-- START .uk-text-center -->
-      <br>
-      <br>
-      <div class="uk-text-center uk-margin">
-          <h3 class="uk-margin-remove">OlFactory</h3>
-      </div><!-- END .uk-text-center -->
+        <!-- START .uk-text-center -->
+        <br>
+        <br>
+        <div class="uk-text-center uk-margin">
+            <h3 class="uk-margin-remove">OlFactory</h3>
+        </div><!-- END .uk-text-center -->
+        @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
+
         <div class="uk-margin-medium-top">
             <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
                 @if ($product->olfactory)
@@ -93,11 +94,12 @@
                 @endif
             </ul>
         </div>
+        @endif
+
     </div>
 </section>
-@endif
 @if (!($similar_products->isEmpty()) )
-  
+
 <!-- START .section_theme_gray -->
 <section class="uk-section-xsmall section_theme_gray">
     <!-- START .uk-text-center -->
@@ -113,37 +115,51 @@
         <div class="uk-child-width-1-4@m uk-child-width-1-2@s uk-child-width-1-1" uk-grid>
 
             @foreach ($similar_products as $sproduct)
-      
+
             <!-- START div -->
             <div class="">
                 <!-- START .card -->
-                <div class="card card_theme_white uk-text-center uk-position-relative uk-transition-toggle uk-zindex" tabindex="0">
-                  @if (Auth::user() != null)
+                <div class="card card_theme_white uk-text-center uk-position-relative uk-transition-toggle uk-zindex"
+                    tabindex="0">
+                    @if (Auth::user() != null)
                     @if ($sproduct->wishlist->isEmpty())
-                      <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
+                    <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
                         <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
                             {{csrf_field()}}
                             <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
                             <input class="uk-hidden" name="product_id" type="text" value="{{$sproduct->id}}" />
-                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
-                          </form>
-                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
-                      </div>
-                    @else
-                      <div class="uk-position-small uk-position-top-right">
-                        <form action="{{route('wishlist.destroy', $sproduct->wishlist[0]->id)}}" id="contact_form" method="post">
-                          {{ csrf_field() }}
-                          {{ method_field('DELETE') }}
-                            <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i class="fas fa-heart"></i></span></button>
-                          </form>                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
-                      </div>
-                    @endif
-                  @else
-                    <div class="uk-transition-fade uk-position-small uk-position-top-right ">
-                          <button type="submit" class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i class="far fa-heart"></i></span></button>
-                          <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span uk-icon="social"></span></button>
+                            <button type="submit"
+                                class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i
+                                        class="far fa-heart"></i></span></button>
+                        </form>
+                        <button
+                            class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                                uk-icon="social"></span></button>
                     </div>
-                  @endif
+                    @else
+                    <div class="uk-position-small uk-position-top-right">
+                        <form action="{{route('wishlist.destroy', $sproduct->wishlist[0]->id)}}" id="contact_form"
+                            method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit"
+                                class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i
+                                        class="fas fa-heart"></i></span></button>
+                        </form> <button
+                            class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                                uk-icon="social"></span></button>
+                    </div>
+                    @endif
+                    @else
+                    <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+                        <button type="submit"
+                            class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i
+                                    class="far fa-heart"></i></span></button>
+                        <button
+                            class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                                uk-icon="social"></span></button>
+                    </div>
+                    @endif
                     <a href="{{ route('shop.show', $sproduct->slug) }}">
                         <img src="{{ asset('storage/'.$sproduct->thumbnail) }}" alt="" style="max-height:250px;">
                         <h3 class="">{{ $sproduct->title }}</h3>
@@ -198,9 +214,7 @@
         top: 7px;
     }
 
-    .ingredientBox {
-
-    }
+    .ingredientBox {}
 
     .displayBlock {
         display: block !important;
@@ -220,7 +234,6 @@
     });
 </script>
 <script type="text/javascript">
-
     const ingredientButton = document.querySelector('.ingredientButton');
     const ingredientBox = document.querySelector('.ingredientBox');
     const displayBlock = 'displayBlock';

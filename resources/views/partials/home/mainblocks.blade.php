@@ -99,9 +99,6 @@
           @endif
           <div class="">
 
-            <div class="uk-text-center">
-              <b>{{ $block->Productone->title }}</b>
-            </div>
             <!-- START .card -->
             <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
 
@@ -118,21 +115,30 @@
 
 
           </div><!-- END .card_theme_white -->
-          <div class="uk-text-center">
-            <span> ${{ $block->Productone->price }} </span>
+          <div class="uk-padding uk-padding-small">
+            <div class="uk-text-center">
+              <b>{{ $block->Productone->title }}</b>
+            </div>
+  
+            <div class="uk-text-center">
+              <span> ${{ $block->Productone->price }} </span>
+            </div>
             <hr>
+  
+            <div class="uk-text-center">
+              <form class="" action="{{ route('cart.store') }}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $block->Productone->id }}">
+                <input type="hidden" name="name" value="{{ $block->Productone->title }}">
+                <input type="hidden" name="price" value="{{ $block->Productone->price }}">
+                <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span>
+                  <span style="line-height: 1.8;">ADD</span> </button>
+              </form>
+            </div>
+  
+          </div>
 
-          </div>
-          <div class="uk-text-center">
-            <form class="" action="{{ route('cart.store') }}" method="post">
-              {{ csrf_field() }}
-              <input type="hidden" name="id" value="{{ $block->Productone->id }}">
-              <input type="hidden" name="name" value="{{ $block->Productone->title }}">
-              <input type="hidden" name="price" value="{{ $block->Productone->price }}">
-              <button class="button_type_category_product" type="submit" name="button"> <span uk-icon="cart"></span>
-                <span style="line-height: 1.8;">ADD</span> </button>
-            </form>
-          </div>
+
         </div>
       </div>
       @endif

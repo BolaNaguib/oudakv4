@@ -123,7 +123,7 @@
               <input type="hidden" name="name" value="{{ $productcategory->Productone->title }}">
               <input type="hidden" name="price" value="{{ $productcategory->Productone->price }}">
             </div><!-- END .card -->
-            <div class="card">
+            <div class="uk-padding-small uk-padding-top">
               <div class="uk-text-center">
                 <b class="product-font">{{ $productcategory->Productone->title }}</b>
               </div>
@@ -293,9 +293,7 @@
           @endif
           <form class="" action="{{ route('cart.store') }}" method="post">
             {{ csrf_field() }}
-            <div class="uk-text-center">
-              <b class="product-font">{{ $product->title }}</b>
-            </div>
+       
             <!-- START .card -->
             <div class=" uk-flex uk-flex-middle uk-flex-center uk-position-relative uk-transition-toggle" tabindex="0">
               <a href="{{ route('shop.show', $product->slug)}}">
@@ -310,16 +308,24 @@
               <input type="hidden" name="name" value="{{ $product->title }}">
               <input type="hidden" name="price" value="{{ $product->price }}">
             </div><!-- END .card -->
-            <div class="uk-text-center">
-              <span> ${{ $product->price }} </span>
+
+            
+            <div class="uk-padding-small uk-padding-top">
+              <div class="uk-text-center">
+                <b class="product-font">{{ $product->title }}</b>
+              </div>
+              <div class="uk-text-center">
+                <span> ${{ $product->price }} </span>
+              </div>
               <hr>
-
+  
+              <div class="uk-text-center">
+                <button class="button_type_category_product" type="submit" name="button">ADD <span class="carticonx"
+                    uk-icon="cart"></span> </button>
+  
+              </div>
             </div>
-            <div class="uk-text-center">
-              <button class="button_type_category_product" type="submit" name="button">ADD <span class="carticonx"
-                  uk-icon="cart"></span> </button>
-
-            </div>
+         
 
         </div><!-- END .card_theme_white -->
         </form>

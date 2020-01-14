@@ -67,7 +67,7 @@
             @if ($HomeFourBlock->Product1 != null)
             <div class="gridoption uk-width-1-3@m uk-width-1-1">
                 <!-- START .uk-card -->
-                <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
+                <div class="uk-card  uk-text-center  uk-visible-toggle uk-transition-toggle card_theme-gray" tabindex="-1">
                   
             {{-- START Auth::user() != null --}}
             @if (Auth::user() != null)

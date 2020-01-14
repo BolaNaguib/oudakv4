@@ -26,7 +26,7 @@
                             <hr>
                             <img style="" src="{{ asset('storage/'.$featuredproduct->thumbnail) }}" alt="">
                             <!-- START div -->
-                            <div class="">
+                            <div class="uk-margin-top">
                                 {!! $featuredproduct->main_description !!}
                             </div>
                             <!-- END dov -->

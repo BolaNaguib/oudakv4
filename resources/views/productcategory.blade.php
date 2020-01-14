@@ -224,7 +224,7 @@
   </section>
 @endif
 
-    @if ($productcategory->Productone != null)
+    @if ($productcategory->Productone != null || $productcategory->first_section_product != null)
       @include('pages.category.firstsection')
     @endif
 

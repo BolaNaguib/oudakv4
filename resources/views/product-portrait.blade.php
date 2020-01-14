@@ -164,7 +164,7 @@
                         <img src="{{ asset('storage/'.$sproduct->thumbnail) }}" alt="" style="max-height:250px;">
                         <h3 class="">{{ $sproduct->title }}</h3>
                     </a>
-                    <button class="uk-button uk-button-secondary">${{ $sproduct->price }}</button>
+                    <b class="">${{ $sproduct->price }}</b>
                 </div><!-- END .card -->
             </div><!-- END div -->
 

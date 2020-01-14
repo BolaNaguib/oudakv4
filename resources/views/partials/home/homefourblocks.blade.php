@@ -68,6 +68,98 @@
             <div class="gridoption uk-width-1-3@m uk-width-1-1">
                 <!-- START .uk-card -->
                 <div class="uk-card  uk-text-center  uk-visible-toggle card_theme-gray" tabindex="-1">
+                  
+            {{-- START Auth::user() != null --}}
+            @if (Auth::user() != null)
+
+            {{-- START if $HomeFourBlock->Product1->wishlist->isEmpty() --}}
+            @if ($HomeFourBlock->Product1->wishlist->isEmpty())
+            <div class="uk-transition-fade uk-position-small uk-position-top-right xxx">
+              <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+                {{csrf_field()}}
+                <input class="uk-hidden" name="user_id" type="text" value="{{Auth::user()->id}}" />
+                <input class="uk-hidden" name="product_id" type="text" value="{{$HomeFourBlock->Product1->id}}" />
+                <button type="submit"
+                  class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i
+                      class="far fa-heart"></i></span></button>
+              </form>
+              <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                  uk-icon="social"></span></button>
+            </div>
+            {{-- else if $HomeFourBlock->Product1->wishlist->isEmpty() --}}
+            @else
+            <div class="uk-position-small uk-position-top-right">
+              <form action="{{route('wishlist.destroy', $HomeFourBlock->Product1->wishlist[0]->id)}}" id="contact_form" method="post">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button type="submit"
+                  class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i
+                      class="fas fa-heart"></i></span></button>
+              </form>
+              <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                  uk-icon="social"></span></button>
+            </div>
+            @endif
+          {{-- END if $HomeFourBlock->Product1->wishlist->isEmpty() --}}
+
+
+          {{-- ELSE Auth::user() != null --}}
+          @else
+          {{-- START  session()->get('wishlist') != null --}}
+          @if (session()->get('wishlist') != null )
+
+          {{-- START foreach session()->get('wishlist') as $item --}}
+          @foreach (session()->get('wishlist') as $item)
+          {{-- START if $item == $HomeFourBlock->Product1->id --}}
+          @if ($item == $HomeFourBlock->Product1->id)
+          <!-- START uk-position-small -->
+          <div class="uk-position-small uk-position-top-right">
+            <form action="{{route('wishlist.destroy', $item)}}" id="contact_form" method="post">
+              {{ csrf_field() }}
+              {{ method_field('DELETE') }}
+              <button type="submit"
+                class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart_red"><span><i
+                    class="fas fa-heart"></i></span></button>
+            </form>
+            <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                uk-icon="social"></span></button>
+          </div>
+          <!-- END uk-position-small -->
+          {{-- ELSE if $item == $HomeFourBlock->Product1->id --}}
+          @else
+          <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+            <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+              {{csrf_field()}}
+              <input class="uk-hidden" name="product_id" type="text" value="{{$HomeFourBlock->Product1->id}}" />
+              <button type="submit"
+                class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i
+                    class="far fa-heart"></i></span></button>
+            </form>
+            <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                uk-icon="social"></span></button>
+          </div>
+          @endif
+          {{-- END if $item == $HomeFourBlock->Product1->id --}}
+          @endforeach
+          {{-- END foreach session()->get('wishlist') as $item --}}
+          {{-- ELSE  session()->get('wishlist') != null --}}
+          @else
+          <div class="uk-transition-fade uk-position-small uk-position-top-right ">
+            <form action="{{route('wishlist.store')}}" id="contact_form" method="post">
+              {{csrf_field()}}
+              <input class="uk-hidden" name="product_id" type="text" value="{{$HomeFourBlock->Product1->id}}" />
+              <button type="submit"
+                class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_heart"><span><i
+                    class="far fa-heart"></i></span></button>
+            </form>
+            <button class="uk-button uk-button-default uk-display-block uk-margin-small-bottom icon_type_social"><span
+                uk-icon="social"></span></button>
+          </div>
+          @endif
+          {{-- END  session()->get('wishlist') != null --}}
+
+          @endif
+          {{-- END Auth::user() != null --}}
                     <a href="{{ url('shop/'.$HomeFourBlock->Product1->slug) }}">
 
                         <img style=" width:100%;" src="{{ asset('storage/'.$HomeFourBlock->Product1->thumbnail) }}" alt="">

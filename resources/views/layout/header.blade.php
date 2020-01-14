@@ -210,7 +210,7 @@
                 @if (Auth::user() != null)
                   @if (Auth::user()->wishlist->count() )
                     <a class="" href="{{ route('wishlist.index') }}">
-                      <span style="color:#ff6000"><i class="fas fa-heart"></i></span>
+                      <span style="color:#000"><i class="fas fa-heart"></i></span>
                   @else
                     <a>
                       <span><i class="far fa-heart"></i></span>

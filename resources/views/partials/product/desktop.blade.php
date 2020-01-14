@@ -355,10 +355,14 @@
                         @if ($product->quantity == 0)
 
                         <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom" disabled> Product is Out Of Stock </button>
-
+                        
                         @endif
                         @if ($product->quantity != 0)
-                        <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+                        @if ($product->preorder == 1)
+                        <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> pre-order </button>
+                         @else
+                         <button type="submit" class="uk-button uk-button-secondary  uk-margin-small-bottom"> Add To Bag </button>
+                        @endif
                         @endif
 
 

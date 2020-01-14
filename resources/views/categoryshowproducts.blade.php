@@ -134,7 +134,7 @@
           
           <div class="uk-padding-small uk-padding-top">
             <div class="uk-text-center">
-              <b>{{ $product->title }}</b>
+              <b class="product-font">{{ $product->title }}</b>
             </div>
             <div class="uk-text-center">
               <span> ${{ $product->price }} </span>

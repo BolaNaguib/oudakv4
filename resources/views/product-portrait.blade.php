@@ -14,6 +14,7 @@
 
     </div><!-- END .uk-container -->
 </section><!-- END section -->
+@if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
 
 <!-- Product Notes -->
 <section class="uk-section-xsmall">
@@ -22,9 +23,8 @@
         <br>
         <br>
         <div class="uk-text-center uk-margin">
-            <h3 class="uk-margin-remove">OlFactory</h3>
+            <h3 class="uk-margin-remove product-font">OlFactory</h3>
         </div><!-- END .uk-text-center -->
-        @if ( $product->olfactory || $product->top_notes || $product->heart_notes || $product->base_notes )
 
         <div class="uk-margin-medium-top">
             <ul class="uk-child-width-expand@m uk-child-width-1-2" uk-tab="animation: uk-animation-fade;">
@@ -94,10 +94,11 @@
                 @endif
             </ul>
         </div>
-        @endif
 
     </div>
 </section>
+@endif
+
 @if (!($similar_products->isEmpty()) )
 
 <!-- START .section_theme_gray -->
